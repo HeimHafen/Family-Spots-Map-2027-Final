@@ -1,0 +1,143 @@
+/* Uses the application's palette; native checkboxes retain keyboard and VoiceOver behaviour. */
+.category-explorer { margin-block: 1rem 1.4rem; min-width: 0; }
+.category-explorer h3 { margin: 0 0 .5rem; font-size: 1.12rem; }
+.category-explorer__worlds,.category-explorer__types,.category-explorer__selection { display:flex; flex-wrap:wrap; gap:.5rem; margin-block:.65rem; }
+.category-explorer__chip { font:inherit; font-size:.9rem; color:inherit; background:transparent; border:1px solid currentColor; border-radius:1rem; padding:.55rem .75rem; min-height:44px; cursor:pointer; overflow-wrap:anywhere; max-width:100%; }
+.category-explorer__chip[aria-pressed="true"] { font-weight:750; border-width:2px; text-decoration:underline; text-underline-offset:3px; }
+.category-explorer__chip:disabled { opacity:.55; cursor:default; }
+.category-explorer__chip:focus-visible,.category-explorer input:focus-visible,.category-explorer summary:focus-visible { outline:3px solid currentColor; outline-offset:3px; }
+.category-explorer__fieldset { border:0; padding:0; margin:1rem 0; min-inline-size:0; }
+.category-explorer legend { font-weight:700; padding:0; }
+.category-explorer__choice { display:flex; align-items:center; gap:.55rem; flex:1 1 210px; min-height:44px; padding:.4rem .55rem; border:1px solid currentColor; border-radius:.65rem; cursor:pointer; min-width:0; }
+.category-explorer__choice span { overflow-wrap:anywhere; }
+.category-explorer__choice input { flex:0 0 auto; width:1.15rem; height:1.15rem; margin:0; accent-color:currentColor; }
+.category-explorer__choice:has(input:disabled) { opacity:.65; cursor:default; }
+.category-explorer__choice:has(input:checked) { font-weight:700; }
+.category-explorer summary { cursor:pointer; padding:.65rem 0; min-height:44px; }
+.category-explorer__footer { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.6rem; border-top:1px solid currentColor; padding-top:.8rem; }
+.category-explorer__footer p { margin:0; font-weight:700; }
+.category-explorer [hidden] { display:none !important; }
+@media(max-width:420px) { .category-explorer__choice { flex-basis:100%; } .category-explorer__chip { font-size:.86rem; } }
+/* Keep the eight entry choices compact on phones without shortening their labels. */
+.category-explorer__worlds { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
+.category-explorer__worlds > [data-world=""] { grid-column:1 / -1; }
+.category-explorer__worlds > button { width:100%; text-align:left; }
+
+/* The existing dialog now owns one scroll area and one persistent action bar. */
+#filter-modal .filter-modal-inner {
+  display:flex; flex-direction:column; overflow:hidden;
+  padding:0; max-height:calc(100vh - 32px); max-height:calc(100dvh - 32px);
+  background:var(--sidebar-section-bg, var(--card-bg, #f9eedc)); color:var(--text-body, #352b22);
+}
+#filter-modal .filter-modal-header { flex:0 0 auto; padding:14px 18px 10px; margin:0; }
+#filter-modal #filter-modal-close { display:grid; place-items:center; width:44px; height:44px; padding:0; flex:0 0 44px; border-radius:50%; }
+#filter-modal .filter-modal-body { flex:1 1 auto; min-height:0; overflow-y:auto; overscroll-behavior:contain; padding:0 18px 16px; scroll-padding-block:12px; -webkit-overflow-scrolling:touch; }
+#filter-modal .filter-modal-footer { flex:0 0 auto; display:flex; align-items:center; gap:10px; margin:0; padding:12px 18px max(12px,env(safe-area-inset-bottom)); border-top:1px solid var(--border-2, #b7a18d); background:transparent; }
+#filter-modal #filter-modal-reset { flex:0 1 auto; min-height:44px; padding:8px; }
+#filter-modal #filter-modal-apply { flex:1 1 auto; min-height:46px; white-space:normal; line-height:1.3; }
+#filter-modal [hidden] { display:none !important; }
+#filter-modal .category-explorer { margin-top:0; }
+#filter-modal .category-explorer__chip { border-color:var(--border-2, #b7a18d); }
+#filter-modal .category-explorer__chip[aria-pressed="true"] { background:var(--accent-soft); border-color:currentColor; text-decoration:none; }
+#filter-modal .category-explorer__selection:empty { display:none; }
+#filter-modal .category-explorer__selection { margin-bottom:0; }
+#advanced-filters { margin-top:1rem; }
+.spot-results-context { margin:.25rem 0 .65rem; color:var(--text-muted); font-size:.9rem; overflow-wrap:anywhere; }
+.spot-card-description { margin:.5rem 0; font-size:.95rem; line-height:1.5; }
+.spot-card-actions { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.65rem; }
+.spot-card-actions button { min-height:44px; }
+#spots-title { scroll-margin-top:20px; }
+#spots-title:focus-visible { outline:3px solid currentColor; outline-offset:4px; }
+@media(max-width:380px) { #filter-modal .filter-modal-header,#filter-modal .filter-modal-body { padding-inline:12px; } #filter-modal .filter-modal-footer { padding-inline:12px; } #filter-modal #filter-modal-apply { font-size:.9rem; } }
+
+/* Give phone results enough room for a complete card and both actions. */
+@media screen and (max-width:767px) { #spot-list { max-height:70vh; max-height:70dvh; } }
+
+/* The result header uses the same compact row geometry as Filter and Spots Plus. */
+.sidebar-section--grow:has(#spot-list[hidden]) { flex:0 0 auto; }
+#filter-modal #filter-modal-apply {
+  --cta-bg:var(--tilla-shell, #f3831a);
+  --cta-fg:var(--on-tilla-shell, #111827);
+  background-color:var(--cta-bg); color:var(--cta-fg);
+}
+@media (hover:hover) and (pointer:fine) {
+  #filter-modal #filter-modal-apply:not(:disabled):hover { background-color:var(--tilla-shell-hover, #e17112); }
+}
+#filter-modal #filter-modal-apply:not(:disabled):active { background-color:var(--tilla-shell-active, #d1630e); }
+
+/* Release 61, flat filter patch 2 (warm application surfaces). Shared colours; compact visible surfaces.
+   Touch areas stay >=44px. No fixed height clips enlarged text. */
+#filter-modal .filter-modal-inner { border-radius:24px; background:var(--sidebar-section-bg); color:var(--text-body); }
+#filter-modal .category-explorer__worlds { gap:4px 8px; margin-block:6px; }
+#filter-modal .category-explorer__worlds > .category-explorer__chip {
+  position:relative; isolation:isolate; box-sizing:border-box;
+  display:flex; align-items:center; justify-content:space-between; gap:6px;
+  min-width:0; min-height:48px; padding:6px 10px; border-radius:14px;
+  border:0; background:transparent; box-shadow:none;
+  font-size:.9rem; line-height:1.25; font-weight:400; text-align:start;
+  --flat-chip-bg:var(--chip-bg); --flat-chip-border:var(--border-2);
+}
+#filter-modal .category-explorer__worlds > .category-explorer__chip::after {
+  content:''; position:absolute; inset:3px 0; z-index:-1; pointer-events:none;
+  border:1px solid var(--flat-chip-border); border-radius:14px;
+  background:var(--flat-chip-bg); box-shadow:none;
+}
+#filter-modal .category-explorer__worlds > [data-world=""] { min-height:44px; }
+#filter-modal .category-explorer__worlds > .category-explorer__chip[aria-pressed="true"] {
+  background:transparent; color:var(--chip-selected-text);
+  --flat-chip-bg:var(--chip-selected-bg); --flat-chip-border:var(--text-body);
+  font-weight:700; text-decoration:none;
+}
+#filter-modal .category-explorer__worlds > .category-explorer__chip[aria-pressed="true"]::before {
+  content:'✓'; flex:0 0 auto; font-size:.9em; line-height:1;
+}
+#filter-modal .category-explorer__name { min-width:0; flex:1 1 auto; overflow-wrap:anywhere; }
+#filter-modal .category-explorer__count {
+  flex:0 0 auto; min-width:2ch; text-align:end; white-space:nowrap;
+  color:var(--text-muted); font-variant-numeric:tabular-nums; font-weight:400;
+}
+#filter-modal .category-explorer__chip[aria-pressed="true"] .category-explorer__count { color:inherit; font-weight:700; }
+#filter-modal .category-explorer__types { display:flex; flex-direction:column; gap:0; margin-block:8px; }
+#filter-modal .category-explorer__choice {
+  flex:0 0 auto; width:100%; box-sizing:border-box; min-height:44px;
+  padding:6px 0; gap:10px; border:0; border-bottom:1px solid var(--border-1);
+  border-radius:0; background:transparent; box-shadow:none; font-size:.95rem; line-height:1.4;
+}
+#filter-modal .category-explorer__choice > span { display:flex; align-items:center; gap:12px; flex:1 1 auto; min-width:0; }
+#filter-modal .category-explorer__choice:has(input:checked) { color:var(--text-body); font-weight:700; }
+#filter-modal .category-explorer__choice input { background:var(--chip-bg); border-color:var(--border-2); }
+#filter-modal .category-explorer__choice input[type="checkbox"]:not(:checked) { background:var(--chip-bg); border-color:var(--border-2); }
+#filter-modal .category-explorer__fieldset { margin-block:12px; }
+#filter-modal .category-explorer__fieldset legend { font-size:1.05rem; }
+#filter-modal .category-explorer__rules { margin-block:2px 4px; }
+#filter-modal .category-explorer__rules summary { padding-block:6px; }
+#filter-modal .category-explorer__rules summary { font-size:.9rem; color:var(--text-muted); }
+#filter-modal .category-explorer h3 { margin-bottom:6px; }
+#filter-modal .category-explorer .filter-group-helper { margin-block:6px; }
+#filter-modal .filter-modal-footer { flex-wrap:wrap; padding-block:4px max(4px,env(safe-area-inset-bottom)); background:var(--sidebar-section-bg); }
+#filter-modal #filter-modal-apply {
+  position:relative; isolation:isolate; box-sizing:border-box;
+  min-width:0; min-height:44px; padding:8px 14px; border-radius:14px; border:0; overflow-wrap:anywhere;
+  background:transparent; color:var(--on-tilla-shell); box-shadow:none;
+  font:inherit; font-weight:700; line-height:1.25;
+  --flat-action-bg:var(--tilla-shell);
+}
+#filter-modal #filter-modal-apply::before {
+  content:''; position:absolute; inset:6px 0; z-index:-1; pointer-events:none;
+  background:var(--flat-action-bg); border-radius:14px; box-shadow:none;
+}
+#filter-modal #filter-modal-apply:not(:disabled):hover { background:transparent; --flat-action-bg:var(--tilla-shell-hover, var(--tilla-shell)); }
+#filter-modal #filter-modal-apply:not(:disabled):active { background:transparent; --flat-action-bg:var(--tilla-shell-active, var(--tilla-shell)); }
+#filter-modal #filter-modal-reset { min-width:0; padding-block:6px; border-radius:14px; color:var(--text-muted); box-shadow:none; overflow-wrap:anywhere; }
+#filter-modal #filter-modal-close { background:transparent; border-color:transparent; box-shadow:none; color:var(--text-body); }
+@media(max-width:360px) {
+  #filter-modal .category-explorer__worlds { grid-template-columns:1fr; }
+  #filter-modal .category-explorer__worlds > .category-explorer__chip { font-size:.95rem; }
+}
+@media(forced-colors:active) {
+  #filter-modal .category-explorer__worlds > .category-explorer__chip { --flat-chip-border:ButtonText; }
+  #filter-modal .category-explorer__worlds > .category-explorer__chip[aria-pressed="true"] { --flat-chip-bg:Highlight; color:HighlightText; }
+  #filter-modal #filter-modal-apply::before { background:ButtonFace; border:1px solid ButtonText; }
+  #filter-modal #filter-modal-apply { color:ButtonText; }
+  #filter-modal .category-explorer__worlds > .category-explorer__chip[aria-pressed="true"] { outline:2px solid Highlight; outline-offset:-3px; }
+}

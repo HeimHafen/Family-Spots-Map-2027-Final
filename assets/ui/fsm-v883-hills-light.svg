@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 90" preserveAspectRatio="none" aria-hidden="true">
+  <defs><linearGradient id="hill" x1="0" x2="1"><stop stop-color="#f0dfa8"/><stop offset=".55" stop-color="#e6e5ae"/><stop offset="1" stop-color="#bac98b"/></linearGradient></defs>
+  <path d="M0 59 C110 38 173 71 274 57 S439 43 505 56 S606 45 640 32 V90 H0Z" fill="#f6e9c5"/>
+  <path d="M0 77 C108 49 187 88 306 68 S485 30 640 53 V90 H0Z" fill="url(#hill)"/>
+  <path d="M0 90 C131 78 235 95 362 77 S533 51 640 69 V90H0Z" fill="#c5d49c" opacity=".9"/>
+  <g fill="#9db47d" opacity=".83">
+    <path d="M525 69V24" stroke="#6a8957" stroke-width="2"/><ellipse cx="526" cy="20" rx="15" ry="19"/><ellipse cx="512" cy="33" rx="14" ry="15"/><ellipse cx="539" cy="31" rx="13" ry="15"/>
+    <path d="M592 67V12" stroke="#6a8957" stroke-width="2"/><ellipse cx="591" cy="19" rx="18" ry="22"/><ellipse cx="574" cy="30" rx="15" ry="16"/><ellipse cx="608" cy="35" rx="15" ry="17"/>
+    <path d="M463 70V44" stroke="#6a8957" stroke-width="1.5"/><ellipse cx="463" cy="40" rx="9" ry="11"/><ellipse cx="454" cy="45" rx="8" ry="8"/><ellipse cx="471" cy="45" rx="8" ry="8"/>
+  </g>
+</svg>

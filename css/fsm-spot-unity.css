@@ -1,0 +1,306 @@
+/* Family Spots Map | Einheitliche visuelle Komponenten | 10.11.2026
+ * Verbindliche Bildreferenz: Spotdetails_Windheimstrasse_FREIGABE_BRAUNES_ICON
+ * Ausschließlich visuelle Details und zentrale Spot-Piktogramme; keine Daten-/Routingänderung.
+ * 4/8/12/16/24 px-Abstandsraster, 44 px Touch-Ziele, ein SVG-Iconset, 3 Grundfarben.
+ */
+html.fsm-polished {
+  --fsm-unit-ink: #3d2918;
+  --fsm-unit-ink-soft: #665746;
+  --fsm-unit-paper: #fffaf2;
+  --fsm-unit-line: #e1d3be;
+  --fsm-unit-orange: #f58b20;
+  --fsm-unit-orange-strong: #ff880b;
+  --fsm-unit-green: #2f632b;
+  --fsm-unit-green-soft: #ebf0df;
+  --fsm-unit-green-line: #9bb783;
+  --fsm-unit-blue-parking: #4f90b7;
+  --fsm-unit-space-1: 4px;
+  --fsm-unit-space-2: 8px;
+  --fsm-unit-space-3: 12px;
+  --fsm-unit-space-4: 16px;
+  --fsm-unit-space-6: 24px;
+  --fsm-unit-icon: 20px;
+  --fsm-unit-target: 44px;
+  --fsm-unit-radius-button: 14px;
+  --fsm-unit-radius-section: 16px;
+  --fsm-unit-radius-panel: 24px;
+  /* Already used by start, fullscreen map, tour listing and tour filter. */
+  --fsm-unav-orange: var(--fsm-unit-orange-strong);
+  --fsm-unav-height: 44px;
+  --fsm-unav-text: var(--fsm-unit-ink);
+  --fsm-orange-action-ink: var(--fsm-unit-ink);
+  --fsm-orange-action: var(--fsm-unit-orange);
+}
+/* Spot details share the same interactive sizes and action palette. */
+html.fsm-polished #spot-detail .spot-details-header { gap: var(--fsm-unit-space-2); }
+html.fsm-polished #spot-detail .spot-details-description { line-height: 1.48; }
+html.fsm-polished #spot-detail > .spot-community-open,
+html.fsm-polished #spot-detail > .spot-private-plan {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: var(--fsm-unit-target);
+  border-radius: var(--fsm-unit-radius-button);
+  padding-block: var(--fsm-unit-space-2);
+  gap: var(--fsm-unit-space-2);
+  font-family: inherit;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-shadow: none;
+}
+html.fsm-polished #spot-detail > .spot-community-open,
+html.fsm-polished #spot-detail > .spot-community-open :is(svg, .spot-community-open__icon) {
+  color: var(--fsm-unit-ink) !important;
+  stroke: currentColor;
+}
+html.fsm-polished #spot-detail > .spot-private-plan {
+  background: var(--fsm-unit-green-soft);
+  border: 1px solid var(--fsm-unit-green-line);
+  color: var(--fsm-unit-green);
+}
+html.fsm-polished #spot-detail > .spot-private-plan > svg {
+  width: var(--fsm-unit-icon);
+  height: var(--fsm-unit-icon);
+  flex: none;
+}
+html.fsm-polished #spot-detail .spot-gallery__summary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--fsm-unit-space-2);
+  box-sizing: border-box;
+  min-height: var(--fsm-unit-target);
+  border-radius: 999px;
+  border: 1px solid var(--fsm-unit-line);
+  color: var(--fsm-unit-ink);
+  background: var(--fsm-unit-paper);
+  text-shadow: none;
+}
+html.fsm-polished #spot-detail .spot-gallery__camera {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  color: var(--fsm-unit-ink);
+  stroke: currentColor !important;
+  stroke-width: 1.8;
+}
+/* All place icons share a 24x24 vector coordinate system and 1.8 stroke. */
+html.fsm-polished :is(
+  #filter-modal .category-explorer__icon,
+  #spot-detail .spot-meta-type > .category-explorer__icon,
+  .spot-card-types .category-explorer__icon,
+  #spot-detail .fsm-spot-nearby-icon
+) > svg { display: block; width: 100%; height: 100%; stroke-width: 1.8; }
+html.fsm-polished #spot-detail .spot-meta-type > .category-explorer__icon,
+html.fsm-polished .spot-card-types .category-explorer__icon { width: 18px; height: 18px; flex: 0 0 18px; }
+html.fsm-polished #spot-detail .spot-nearby {
+  box-sizing: border-box;
+  border-radius: var(--fsm-unit-radius-section);
+  padding: var(--fsm-unit-space-3) var(--fsm-unit-space-4);
+  background: var(--fsm-unit-green-soft);
+  color: var(--fsm-unit-green);
+}
+html.fsm-polished #spot-detail .spot-nearby > strong,
+html.fsm-polished #spot-detail .spot-arrival > h3 {
+  display: flex;
+  align-items: center;
+  gap: var(--fsm-unit-space-2);
+  font-weight: 700;
+}
+html.fsm-polished #spot-detail .fsm-spot-heading-pin,
+html.fsm-polished #spot-detail .fsm-spot-arrival-icon,
+html.fsm-polished #spot-detail .fsm-spot-nearby-icon {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 var(--fsm-unit-icon);
+  width:var(--fsm-unit-icon);
+  height:var(--fsm-unit-icon);
+}
+html.fsm-polished #spot-detail .fsm-spot-heading-pin { color: var(--fsm-unit-orange-strong); }
+html.fsm-polished #spot-detail .fsm-spot-arrival-icon { color: var(--fsm-unit-ink); }
+html.fsm-polished #spot-detail :is(.fsm-spot-heading-pin,.fsm-spot-arrival-icon) > svg {
+  display:block;width:100%;height:100%;
+}
+html.fsm-polished #spot-detail .spot-nearby-link {
+  display: flex;
+  gap: var(--fsm-unit-space-3);
+  align-items: center;
+  justify-content: flex-start;
+  min-height: var(--fsm-unit-target);
+  padding: var(--fsm-unit-space-2) 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  color: var(--fsm-unit-ink);
+  font-weight: 500;
+  text-align: start;
+}
+html.fsm-polished #spot-detail .spot-nearby-link + .spot-nearby-link { border-top: 1px solid #ced8c2; }
+html.fsm-polished #spot-detail .fsm-spot-nearby-icon {
+  color: var(--fsm-unit-green);
+}
+html.fsm-polished #spot-detail .fsm-spot-nearby-name { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+html.fsm-polished #spot-detail .spot-nearby-link::after {
+  margin-left: auto;
+  content:'›';
+  font-size: 22px;
+  color: var(--fsm-unit-green);
+}
+html.fsm-polished #spot-detail .spot-arrival > h3 { color: var(--fsm-unit-ink); }
+html.fsm-polished #spot-detail .spot-parking > summary {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--fsm-unit-space-2);
+  border-radius: 999px;
+  min-height: var(--fsm-unit-target);
+  padding: var(--fsm-unit-space-2) var(--fsm-unit-space-3);
+  background: var(--fsm-unit-paper);
+  border: 1px solid var(--fsm-unit-line);
+  color: var(--fsm-unit-ink);
+}
+html.fsm-polished #spot-detail .fsm-parking-sign {
+  display: grid; place-items: center;
+  flex: 0 0 22px;
+  width:22px;height:22px;
+  font: 700 16px/1 system-ui,-apple-system,sans-serif;
+  border-radius:50%;
+  color:#fff;
+  background:var(--fsm-unit-blue-parking);
+}
+html.fsm-polished #spot-detail .fsm-parking-chevron { margin-left: 2px; color: var(--fsm-unit-ink); font-size: 20px; }
+/* Keyboard accessibility is deliberately retained. */
+html.fsm-polished #spot-detail :is(.spot-community-open,.spot-private-plan,.spot-nearby-link,.spot-gallery__summary,.spot-parking > summary):focus-visible {
+  outline: 2px solid var(--fsm-unit-green);
+  outline-offset: 2px;
+}
+@media (forced-colors: active) {
+  html.fsm-polished #spot-detail .spot-nearby, html.fsm-polished #spot-detail .spot-private-plan {
+    background: Canvas; color: CanvasText; border-color: CanvasText;
+  }
+  html.fsm-polished #spot-detail .fsm-parking-sign { background: Highlight; color: HighlightText; }
+}
+/* Final precision: one border only, no inherited ghost-outline. */
+html.fsm-polished #spot-detail .spot-gallery__summary::before,
+html.fsm-polished #spot-detail .spot-parking > summary::before { content: none !important; display: none !important; }
+/* Approved editorial spot heading, reused across every detail card. */
+html.fsm-polished #spot-detail .spot-details-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(20px, 5.3vw, 24px);
+  font-weight: 700;
+  letter-spacing: -.025em;
+  line-height: 1.15;
+  color: var(--fsm-unit-ink);
+  text-wrap: pretty;
+}
+html.fsm-polished #spot-detail .spot-details-actions > :is(.spot-details-favorite,.spot-details-close,.spot-visit-info__toggle) {
+  min-width: var(--fsm-unit-target);
+  min-height: var(--fsm-unit-target);
+}
+@media(max-width:359px) {
+  html.fsm-polished #spot-detail .spot-details-title {font-size:20px;}
+  html.fsm-polished #spot-detail .spot-details-header {gap:4px;}
+}
+
+
+/* Family Spots Map V5 | freigegebene Navigation | 11.11.2026
+ * Einheitlich in Startseite, Vollbildkarte, Tourenwelt, Tourenfilter und Kalender.
+ * Kein visueller Aktivkasten. Der aktuelle Bereich bleibt für Screenreader
+ * via aria-current="page" markiert. Die Funktionalität bleibt unverändert.
+ * Reihenfolge: Karte, Filter, Spots, Mein Tag, Spots Plus.
+ */
+:root {
+  --fsm-nav-icon-map: #f38312;
+  --fsm-nav-icon-filter: #427d1c;
+  --fsm-nav-icon-spot: #f38312;
+  --fsm-nav-icon-heart: #4c7924;
+  --fsm-nav-icon-plus: #eb820f;
+  --fsm-nav-ink: #3d2918;
+}
+
+/* Hauptnavigation: selektierte Bereiche ohne eingefärbte Kachel. */
+html.fsm-polished.fsm-home-nav-ready #fsm-home-nav.fsm-home-nav > .fsm-home-nav__item:not([hidden]),
+html.fsm-polished.fsm-home-nav-ready #fsm-home-nav.fsm-home-nav > .fsm-home-nav__item:not([hidden])[aria-current="page"] {
+  background: transparent !important;
+  color: var(--fsm-nav-ink) !important;
+  box-shadow: none !important;
+}
+html.fsm-polished.fsm-home-nav-ready #fsm-home-nav.fsm-home-nav > .fsm-home-nav__item[data-fsm-home-action="map"] {
+  background: transparent !important;
+  color: var(--fsm-nav-icon-map) !important;
+  box-shadow: none !important;
+}
+html.fsm-polished.fsm-home-nav-ready #fsm-home-nav.fsm-home-nav > .fsm-home-nav__item[data-fsm-home-action="map"] > svg {
+  color: var(--fsm-nav-icon-map) !important;
+}
+
+/* Die Vollbildkarte hat eigene Buttons und benötigt denselben ruhigen Zustand. */
+html.fsm-polished #fsm-map-fullscreen .fsm-map-nav .fsm-map-tool--destination,
+html.fsm-polished #fsm-map-fullscreen .fsm-map-nav .fsm-map-tool--destination[aria-current="page"] {
+  background: transparent !important;
+  color: var(--fsm-nav-ink) !important;
+  box-shadow: none !important;
+}
+html.fsm-polished #fsm-map-fullscreen .fsm-map-nav .fsm-map-tool--destination:first-child,
+html.fsm-polished #fsm-map-fullscreen .fsm-map-nav .fsm-map-tool--destination:first-child > svg {
+  background: transparent !important;
+  color: var(--fsm-nav-icon-map) !important;
+}
+
+/* Tourenwelt und Tourenfilter: keine aktive orange Schaltfläche. */
+html.fsm-polished .fsm-tourenwelt .tw-dock button,
+html.fsm-polished .fsm-tourenfilter .tw-dock button,
+html.fsm-polished .fsm-tourenwelt .tw-dock button[aria-current="page"],
+html.fsm-polished .fsm-tourenfilter .tw-dock button[aria-current="page"] {
+  background: transparent !important;
+  color: var(--fsm-nav-ink) !important;
+  box-shadow: none !important;
+}
+html.fsm-polished .fsm-tourenwelt .tw-dock button:first-child,
+html.fsm-polished .fsm-tourenfilter .tw-dock button:first-child,
+html.fsm-polished .fsm-tourenwelt .tw-dock button:first-child > svg,
+html.fsm-polished .fsm-tourenfilter .tw-dock button:first-child > svg {
+  color: var(--fsm-nav-icon-map) !important;
+}
+
+/* Kalender: bisher andere Reihenfolge und grüne Karten-Kachel.
+ * Der JS-Aufbau wird im selben Update auf diary-vor-plus umgestellt.
+ */
+#fse-overlay .fse-dock {
+  box-sizing: border-box;
+  background: #fff9ef !important;
+  border: 1px solid #e4d6c6 !important;
+  border-radius: 19px !important;
+  padding: 4px !important;
+  gap: 2px !important;
+  box-shadow: 0 4px 14px rgba(68,51,29,.17) !important;
+  width: calc(100% - 36px);
+  max-width: 620px;
+  margin: 6px auto max(8px,env(safe-area-inset-bottom,0px));
+}
+#fse-overlay .fse-dock-item,
+#fse-overlay .fse-dock-item--map {
+  background: transparent !important;
+  color: var(--fsm-nav-ink) !important;
+  box-shadow: none !important;
+  min-height: 44px;
+  border-radius: 14px;
+  font-size: clamp(10px,2.8vw,11px) !important;
+}
+#fse-overlay .fse-dock-item[data-nav="map"],
+#fse-overlay .fse-dock-item[data-nav="map"] > .fse-svg {
+  color: var(--fsm-nav-icon-map) !important;
+  background: transparent !important;
+}
+#fse-overlay .fse-dock-item[data-nav="filters"] > .fse-svg { color: var(--fsm-nav-icon-filter) !important; }
+#fse-overlay .fse-dock-item[data-nav="spots"] > .fse-svg { color: var(--fsm-nav-icon-spot) !important; }
+#fse-overlay .fse-dock-item[data-nav="diary"] > .fse-svg { color: var(--fsm-nav-icon-heart) !important; fill: #7fa825 !important; }
+#fse-overlay .fse-dock-item[data-nav="plus"] > .fse-svg { color: var(--fsm-nav-icon-plus) !important; fill: var(--fsm-nav-icon-plus) !important; }
+
+/* Tastatur-/VoiceOver-Nutzung bleibt erkennbar; Touch erhält keine Fokus-Kachel. */
+html.fsm-polished #fsm-home-nav .fsm-home-nav__item:focus-visible,
+html.fsm-polished #fsm-map-fullscreen .fsm-map-tool--destination:focus-visible,
+html.fsm-polished .tw-dock button:focus-visible,
+#fse-overlay .fse-dock-item:focus-visible {
+  outline: 2px solid #5d7c3f !important;
+  outline-offset: -2px !important;
+}

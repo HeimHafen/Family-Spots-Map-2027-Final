@@ -1,0 +1,236 @@
+/* Family Spots Map V5 · Ein Guss · 11.11.2026
+   Verbindlicher Schlussschliff nach den iPhone-Livebildern.
+   Betrifft nur Oberflaeche, nicht Spotdaten, Speicherformate oder Navigation.
+   Schatten: starke Hierarchie nur fuer Hauptaktionen, dezente Rueckmeldung bei Sekundaeraktionen.
+*/
+html.fsm-polished {
+  --fsm-c5-ink: #3d2918;
+  --fsm-c5-olive: #456b37;
+  --fsm-c5-orange: #f58b20;
+  --fsm-c5-paper: #fff9ef;
+  --fsm-c5-border: #ddcfbc;
+  --fsm-c5-shadow-primary: 0 3px 0 rgba(137,77,16,.18), 0 9px 18px rgba(118,63,12,.19);
+  --fsm-c5-shadow-secondary: 0 2px 7px rgba(70,60,37,.10);
+  --fsm-c5-shadow-card: 0 5px 16px rgba(73,54,33,.085);
+  --fsm-c5-shadow-sheet: 0 16px 44px rgba(42,35,25,.19);
+  --fsm-c5-focus: #3e6d40;
+  --fsm-c5-touch-target: 44px;
+  --fsm-c5-action-radius: 14px;
+}
+/* Nur erkennbare Hauptaktionen erhalten eine deutliche Tiefe.
+   Kein Schatten fuer Nav-Einzelelemente, schlichte Links und Textfelder. */
+html.fsm-polished :is(
+  #filter-section #btn-open-filter-modal,
+  #filter-modal #filter-modal-apply,
+  #view-diary #daylog-save,
+  #view-diary #diary-new-memory[aria-expanded="false"],
+  #spot-detail .spot-community-open,
+  #fsm-community-overlay .fsm-community-primary,
+  #fse-overlay .fse-cta,
+  #fse-overlay .fse-save,
+  .fsm-tourenwelt .tw-orange,
+  .fsm-cycle-tours .cycle-action
+):not([disabled]):not([aria-disabled="true"]) {
+  box-shadow: var(--fsm-c5-shadow-primary) !important;
+  text-shadow: none !important;
+}
+/* Eine einzige Bedienlogik fuer Hauptaktionen in bestehenden Features.
+   Die Navigation ist ausgenommen und behaelt ihren eigenen 44-px-Vertrag.
+   Keine Aenderungen an Farben, Beschriftungen oder Klick-Handlern. */
+html.fsm-polished :is(
+  #filter-modal #filter-modal-apply,
+  #spot-detail > .spot-community-open,
+  #fsm-community-overlay .fsm-community-primary,
+  #fse-overlay .fse-cta,
+  .fsm-tourenwelt .tw-orange
+) {
+  box-sizing: border-box;
+  min-height: var(--fsm-c5-touch-target);
+  border-radius: var(--fsm-c5-action-radius);
+  color: var(--fsm-c5-ink) !important;
+  text-shadow: none !important;
+}
+/* Zweitrangige Aktionen bleiben bewusst flacher und gruen beziehungsweise neutral. */
+html.fsm-polished :is(
+  #filter-modal #filter-modal-reset,
+  #spot-detail > .spot-private-plan,
+  #spot-detail .spot-gallery__summary,
+  #spot-detail .spot-parking > summary,
+  #fsm-home-sheet #spot-list .fsm-list-view-toggle,
+  #fse-overlay .fse-cancel,
+  .fsm-tourenwelt .tw-soft
+) {
+  box-sizing: border-box;
+  min-height: var(--fsm-c5-touch-target);
+  border-radius: var(--fsm-c5-action-radius);
+}
+/* Tillas Spielideen-Flaeche liegt auf einem Pseudoelement. */
+html.fsm-polished[data-theme="light"] body[data-app-view="map"]
+  #tilla-section #btn-play-idea.btn-play-idea::after {
+  box-shadow: var(--fsm-c5-shadow-primary) !important;
+}
+/* Ausflugsplanung, zurueckhaltende Auswahlschalter, Karten und Eintraege. */
+html.fsm-polished :is(
+  #spot-detail .spot-private-plan,
+  #spot-detail .spot-gallery__summary,
+  #spot-detail .spot-parking > summary,
+  #fse-overlay .fse-cancel,
+  #fse-overlay .fse-mini,
+  .fsm-tourenwelt .tw-soft
+) {
+  box-shadow: var(--fsm-c5-shadow-secondary) !important;
+}
+html.fsm-polished :is(
+  #spot-detail .spot-nearby,
+  #fse-overlay .fse-event,
+  .fsm-tourenwelt .tw-card,
+  #fsm-home-sheet #spot-list .spot-card
+) {
+  box-shadow: var(--fsm-c5-shadow-card) !important;
+}
+html.fsm-polished :is(.fsm-home-sheet, .filter-modal-inner),
+html.fsm-polished #fsm-community-overlay .fsm-community-sheet {
+  box-shadow: var(--fsm-c5-shadow-sheet) !important;
+}
+/* Klare Layout-Hierarchie, ohne alte Freigaben zu ueberdecken. */
+html.fsm-polished #spot-detail .spot-nearby-link { line-height: 1.36; }
+html.fsm-polished #spot-detail .fsm-spot-nearby-name {
+  overflow-wrap: normal; word-break: normal; hyphens: none;
+}
+html.fsm-polished #filter-modal .category-explorer__worlds > .category-explorer__chip,
+html.fsm-polished #filter-modal .category-explorer__choice,
+html.fsm-polished #filter-modal .category-explorer__name,
+html.fsm-polished #filter-modal .category-explorer__choice-display {
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+  -webkit-hyphens: none !important;
+}
+html.fsm-polished #filter-modal .category-explorer__worlds > .category-explorer__chip {
+  min-height: 52px !important;
+  padding: 8px 9px !important;
+  line-height: 1.3 !important;
+  align-content: center;
+}
+html.fsm-polished #filter-modal .category-explorer__worlds > .category-explorer__chip:focus-visible,
+html.fsm-polished #filter-modal .category-explorer__choice:focus-within,
+html.fsm-polished #spot-list .fsm-list-view-toggle:focus-visible {
+  outline: 2px solid var(--fsm-c5-focus) !important;
+  outline-offset: 2px;
+}
+/* Reduzierte Informationsdichte in Tourenwelt und Dialogen. */
+.fsm-tourenwelt .tw-card-main strong { line-height: 1.2; }
+.fsm-tourenwelt .tw-notice, .fsm-tourenwelt .tw-privacy { line-height: 1.55; }
+#fse-overlay .fse-section-heading { gap: 10px; }
+#fse-overlay .fse-section-heading > h3 { min-width: 0; }
+#fse-overlay .fse-link { min-height: 44px; }
+#fse-overlay .fse-event { line-height: 1.42; }
+#fse-overlay .fse-cta, .fsm-tourenwelt .tw-orange { color: var(--fsm-c5-ink) !important; }
+/* Spots ansehen: zugeschaltete Kompaktansicht, ausfuehrliche bleibt Standard.
+   Alle Aktionen bleiben im DOM und sind weiterhin bedienbar. */
+html.fsm-polished #spot-list .fsm-list-view-tools {
+  display:flex; justify-content:flex-end; align-items:center;
+  margin: 1px 0 12px; padding-inline: 2px;
+}
+html.fsm-polished #spot-list .fsm-list-view-toggle {
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:7px; min-height:44px; padding:8px 13px;
+  border:1px solid var(--fsm-c5-border); border-radius:12px;
+  background:#fffaf3; color:var(--fsm-c5-ink);
+  box-shadow:var(--fsm-c5-shadow-secondary);
+  font:600 12px/1.3 system-ui,-apple-system,sans-serif;
+  cursor:pointer;
+}
+html.fsm-polished #spot-list .fsm-list-view-toggle[aria-pressed="true"] {
+  background:#eaf0df; border-color:#97ac7e; color:#385e33;
+}
+html.fsm-polished #spot-list .fsm-list-view-toggle svg {width:17px;height:17px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;}
+html.fsm-polished #spot-list.fsm-compact-view .spot-card {
+  display:grid !important; grid-template-columns:82px minmax(0,1fr); align-items:start;
+  gap:4px 11px !important; min-height:0; padding:11px !important;
+  margin-bottom:10px !important; overflow:hidden;
+}
+html.fsm-polished #spot-list.fsm-compact-view .spot-card > .preview-card-image {
+  grid-column:1; grid-row:1 / span 3;
+  width:82px !important; height:82px !important; max-height:82px !important;
+  min-height:0 !important; margin:0 !important; float:none !important;
+  border-radius:10px !important; object-fit:cover;
+}
+html.fsm-polished #spot-list.fsm-compact-view .spot-card:has(> .preview-card-image) > div:first-of-type,
+html.fsm-polished #spot-list.fsm-compact-view .spot-card:has(> .preview-card-image) > .spot-card-subtitle,
+html.fsm-polished #spot-list.fsm-compact-view .spot-card:has(> .preview-card-image) > .spot-card-description,
+html.fsm-polished #spot-list.fsm-compact-view .spot-card:has(> .preview-card-image) > .spot-card-actions { grid-column:2; }
+html.fsm-polished #spot-list.fsm-compact-view .spot-card:not(:has(> .preview-card-image)) > * {grid-column:1/-1;}
+html.fsm-polished #spot-list.fsm-compact-view .spot-card .spot-card-title {
+  font-size:15px !important; line-height:1.24 !important; margin:0 !important;
+  font-weight:700 !important;
+}
+html.fsm-polished #spot-list.fsm-compact-view .spot-card .spot-card-description {
+  display:-webkit-box !important; -webkit-line-clamp:2; -webkit-box-orient:vertical;
+  overflow:hidden; font-size:12px !important; line-height:1.38 !important; margin:0;
+}
+html.fsm-polished #spot-list.fsm-compact-view .spot-card :is(.spot-card-meta,.spot-card-badges,.spot-card-match) { display:none !important; }
+html.fsm-polished #spot-list.fsm-compact-view .spot-card .spot-card-subtitle {
+  margin:0 !important; font-size:11px !important; line-height:1.3 !important;
+}
+html.fsm-polished #spot-list.fsm-compact-view .spot-card .spot-card-actions {
+  grid-column:1/-1 !important; display:flex; gap:7px;
+  border-top:1px solid var(--fsm-c5-border); margin-top:4px; padding-top:5px;
+}
+html.fsm-polished #spot-list.fsm-compact-view .spot-card .spot-card-actions button {
+  min-height:44px !important; font-size:12px !important;
+}
+/* Keine Bewegung bei reduziertem Bewegungswunsch; Tastaturfokus sichtbar. */
+@media (hover:hover) and (pointer:fine) {
+  html.fsm-polished :is(#spot-detail .spot-community-open, #fse-overlay .fse-cta,
+    #filter-modal #filter-modal-apply, .fsm-tourenwelt .tw-orange):not(:disabled):hover {
+    filter: brightness(1.035);
+  }
+}
+@media (max-width:359px) {
+  html.fsm-polished #filter-modal .category-explorer__worlds > .category-explorer__chip {font-size:10.5px !important;gap:5px !important;padding-inline:6px !important;}
+  html.fsm-polished #spot-list.fsm-compact-view .spot-card {grid-template-columns:72px minmax(0,1fr);gap:3px 7px !important;}
+  html.fsm-polished #spot-list.fsm-compact-view .spot-card > .preview-card-image {width:72px !important;height:72px !important;max-height:72px !important;}
+}
+
+/* Ein bisschen weniger Kopfraum, ohne Tilla oder die Landschaft abzuschneiden. */
+@media (max-width:620px) {
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #tilla-section.sidebar-section {
+    padding-top:2px !important;
+    padding-bottom:5px !important;
+  }
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #tilla-section .tilla-sidebar-actions {
+    margin-top:0 !important;
+  }
+  /* Lesen statt wandhoher Absaetze: gleiche Typografie, engere Absatzrhythmen. */
+  html.fsm-polished #view-about .fsm-about-intro,
+  html.fsm-polished #view-about .fsm-about-chapter {
+    padding:clamp(15px,4vw,23px) !important;
+    box-shadow:var(--fsm-c5-shadow-card) !important;
+  }
+  html.fsm-polished #view-about :is(.fsm-about-intro,.fsm-about-chapter) p {
+    margin-block: 0 13px;
+    line-height: 1.6;
+    overflow-wrap: normal;
+    hyphens: none;
+  }
+}
+/* Die soziale Vorschau bleibt klar, nicht wie ein offenes Kinderchatnetz. */
+html.fsm-polished #fsm-community-overlay .fsm-community-events,
+html.fsm-polished #fsm-community-overlay .fsm-community-info {
+  line-height:1.5;
+}
+/* Private Erinnerungen und gespeicherte Ausfluege brauchen einander aehnliche Karten. */
+html.fsm-polished .diary-view #daylog-list > .daylog-entry,
+html.fsm-polished .diary-view #personal-backup {
+  box-shadow:var(--fsm-c5-shadow-card) !important;
+}
+html.fsm-polished .diary-view .memory-photo-gallery img {max-width:100%;height:auto;}
+
+@media (prefers-reduced-motion:reduce) {
+  html.fsm-polished #spot-list .fsm-list-view-toggle, html.fsm-polished #spot-list .spot-card {transition:none !important;animation:none !important;}
+}
+@media (forced-colors:active) {
+  html.fsm-polished #spot-list .fsm-list-view-toggle {background:Canvas;color:CanvasText;border-color:CanvasText;box-shadow:none !important;}
+  html.fsm-polished :is(#spot-detail .spot-community-open,#spot-detail .spot-private-plan,#fse-overlay .fse-cta,#fse-overlay .fse-mini) {box-shadow:none !important;}
+}

@@ -1,0 +1,62 @@
+/* Family Spots Map – Gemeinsam aktiv, V85: scoped overlay, iOS/Android */
+#fsm-community-overlay{position:fixed;inset:0;z-index:2147483000;display:flex;justify-content:center;align-items:flex-end;font-family:inherit;color:#36291d;isolation:isolate}
+#fsm-community-overlay *{box-sizing:border-box}
+#fsm-community-overlay .fsm-community-shade{position:absolute;inset:0;background:rgba(49,43,34,.36);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+#fsm-community-overlay .fsm-community-sheet{--fm-outline:var(--p-line);position:relative;width:min(600px,calc(100% - 18px));max-height:calc(100dvh - max(18px,env(safe-area-inset-top,0px)) - 24px);display:flex;flex-direction:column;border:1px solid var(--fm-outline);border-radius:29px 29px 24px 24px;background:var(--p-surface);color:var(--p-text);box-shadow:0 15px 45px #24201948;overflow:hidden;margin-bottom:max(8px,env(safe-area-inset-bottom,0px))}
+#fsm-community-overlay .fsm-community-handle{width:39px;height:4px;flex:none;background:#c8c2b7;border-radius:99px;margin:12px auto 0}
+#fsm-community-overlay .fsm-community-header{display:grid;grid-template-columns:minmax(0,1fr) 44px;align-items:center;gap:10px;padding:14px 18px 12px;flex:none}
+#fsm-community-overlay .fsm-community-emblem{display:grid;place-items:center;background:#77964c;color:#fff;border-radius:50%;width:40px;height:40px}
+#fsm-community-overlay svg{width:21px;height:21px;flex:none}
+#fsm-community-overlay .fsm-community-title{font-size:clamp(20px,4.5vw,25px);line-height:1.2;font-weight:760;letter-spacing:-.025em;margin:0;overflow-wrap:anywhere}
+#fsm-community-overlay .fsm-community-location{display:flex;align-items:center;gap:3px;font-size:13px;color:#6f655a;margin:4px 0 0}
+#fsm-community-overlay .fsm-community-location svg{width:16px;height:16px}
+#fsm-community-overlay button{font:inherit;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+#fsm-community-overlay .fsm-community-close{width:44px;height:44px;border:none;background:transparent;color:#675a4c;display:grid;place-items:center;position:relative;padding:0}
+#fsm-community-overlay .fsm-community-close:before{content:"";position:absolute;width:27px;height:27px;border:1px solid #d9cbb8;border-radius:50%}
+#fsm-community-overlay .fsm-community-close svg{width:13px;height:13px;stroke-width:1.4}
+#fsm-community-overlay .fsm-community-body{overflow:auto;overscroll-behavior:contain;min-height:0;padding:0 18px 14px;scrollbar-width:thin}
+#fsm-community-overlay .fsm-community-photo{width:100%;height:auto;aspect-ratio:1.85/1;object-fit:cover;border-radius:18px;display:block;background:#e1e2d6}
+#fsm-community-overlay .fsm-community-intro{font-size:15px;line-height:1.48;margin:11px 4px 9px}
+#fsm-community-overlay .fsm-community-mission{display:flex;align-items:center;justify-content:center;gap:8px;margin:6px auto 12px;padding:5px 13px;width:fit-content;max-width:100%;background:var(--p-selection);border-radius:99px;color:var(--p-selection-text);font-size:13px;font-weight:750;font-style:italic;text-align:center}
+#fsm-community-overlay .fsm-community-events{border:1px solid #dac9b3;border-radius:16px;overflow:hidden;background:#fffaf3}
+#fsm-community-overlay .fsm-community-events-heading{display:flex;align-items:center;gap:7px;background:var(--p-soft);margin:0;padding:10px 12px;font-size:16px;line-height:1.3}
+#fsm-community-overlay .fsm-community-events-heading svg{width:19px;height:19px;color:#a65720}
+#fsm-community-overlay .fsm-community-demo-note{font-size:12px;line-height:1.45;font-weight:650;color:#7b664d;margin:0;padding:9px 12px}
+#fsm-community-overlay .fsm-community-event{display:flex;align-items:center;gap:10px;min-height:61px;margin:0 12px;padding:8px 0;border-bottom:1px solid #e9ddcb}
+#fsm-community-overlay .fsm-community-event:last-child{border-bottom:0}
+#fsm-community-overlay .fsm-community-event-icon{width:35px;height:35px;background:#ededd9;color:#65803c;border-radius:12px;display:grid;place-items:center;flex:none}
+#fsm-community-overlay .fsm-community-event-copy{min-width:0;display:grid;gap:1px}
+#fsm-community-overlay .fsm-community-event-copy strong{font-size:13px;line-height:1.3;font-weight:750;overflow-wrap:anywhere}
+#fsm-community-overlay .fsm-community-event-copy span{font-size:12px;line-height:1.4;color:#776b5e}
+#fsm-community-overlay .fsm-community-tags{display:flex;flex-wrap:wrap;gap:6px;margin:12px 4px 2px}
+#fsm-community-overlay .fsm-community-tags span{padding:5px 10px;background:var(--p-selection);color:var(--p-selection-text);font-size:12px;border-radius:99px}
+#fsm-community-overlay .fsm-community-explain,#fsm-community-overlay .fsm-community-alert{border:1px solid #d5c4a9;border-radius:13px;background:#f7f0df;padding:11px 12px;font-size:13px;line-height:1.55;margin:12px 0 0}
+#fsm-community-overlay .fsm-community-explain p{margin:5px 0 0}
+#fsm-community-overlay [hidden]{display:none!important}
+#fsm-community-overlay .fsm-community-actions{flex:none;padding:10px 18px calc(13px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:1fr 1fr;gap:9px;border-top:1px solid #e6dac9;background:#fcf7ed}
+#fsm-community-overlay .fsm-community-actions button{border-radius:14px;min-height:44px;font-size:15px;font-weight:750;border:1px solid #bda98c;color:#382b1c;background:transparent}
+#fsm-community-overlay .fsm-community-actions .fsm-community-primary{background:#fb8c18;border-color:#e27808;color:#302719}
+#fsm-community-overlay button:focus-visible{outline:3px solid var(--fsm-keyboard-focus, #685c51);outline-offset:3px}
+@media(max-width:390px){#fsm-community-overlay .fsm-community-header{padding-inline:12px;gap:7px}#fsm-community-overlay .fsm-community-body{padding-inline:12px}#fsm-community-overlay .fsm-community-actions{padding-inline:12px}#fsm-community-overlay .fsm-community-title{font-size:19px}#fsm-community-overlay .fsm-community-intro{font-size:14px}}
+@media(max-height:630px){#fsm-community-overlay .fsm-community-header{padding-block:8px}#fsm-community-overlay .fsm-community-body{padding-bottom:7px}#fsm-community-overlay .fsm-community-photo{max-height:170px}}
+@media(prefers-reduced-motion:no-preference){#fsm-community-overlay .fsm-community-sheet{animation:fsm-community-rise .18s ease-out}@keyframes fsm-community-rise{from{transform:translateY(14px);opacity:.87}to{transform:translateY(0);opacity:1}}}
+@media(forced-colors:active){#fsm-community-overlay .fsm-community-sheet{border:2px solid CanvasText}#fsm-community-overlay .fsm-community-actions button{border:1px solid ButtonText}}
+
+#spot-detail .spot-community-open{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:44px;margin:14px 0 6px;border-radius:14px;border:1px solid var(--p-action-line);background:var(--p-action);color:var(--p-action-text);font-family:inherit;font-size:15px;font-weight:700;line-height:1.3;cursor:pointer;padding:10px 14px}
+#spot-detail .spot-community-open__icon{display:inline-flex;inline-size:20px;block-size:20px;flex:none}
+#spot-detail .spot-community-open:active{background:var(--p-action-line)}
+#spot-detail .spot-community-open:focus-visible{outline:3px solid var(--fsm-keyboard-focus, #685c51);outline-offset:3px}
+
+/* The EXISTING home navigation is docked under the concept card, never cloned. */
+#fsm-community-overlay #fsm-home-nav{position:static!important;display:grid!important;flex:none!important;box-sizing:border-box;width:auto!important;max-width:none!important;left:auto!important;right:auto!important;bottom:auto!important;z-index:1!important;margin:0 9px 9px!important;box-shadow:none!important}
+#fsm-community-overlay #fsm-home-nav .fsm-home-nav__item{min-height:44px}
+#fsm-community-overlay summary:focus-visible {
+  outline:2px solid currentColor;
+  outline-offset:-3px;
+}
+
+#fsm-community-overlay .fsm-community-empty{display:flex;align-items:flex-start;gap:12px;padding:14px 12px}
+#fsm-community-overlay .fsm-community-empty svg{color:#a65720}
+#fsm-community-overlay .fsm-community-empty .fsm-community-demo-note{padding:0;font-size:15px;color:var(--p-text)}
+#fsm-community-overlay .fsm-community-empty-hint{margin:4px 0 0;font-size:13px;line-height:1.45;color:var(--p-muted)}
+#fsm-community-overlay .fsm-community-topic-title{margin:14px 0 8px;padding-top:12px;border-top:1px solid var(--p-line);font-size:14px}

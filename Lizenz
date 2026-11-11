@@ -1,0 +1,23 @@
+# Family Spots Map – Technischer Datenschutzhinweis (Kurzfassung)
+
+**Stand: 08.11.2026 · Testversion.** Diese Datei dokumentiert die vorhandene technische Verarbeitung; sie ersetzt **keine vollständige, rechtlich geprüfte Datenschutzerklärung** für Website oder App Stores.
+
+## Was die App auf deinem Gerät speichert
+
+- Ausgewählte Sprache, Darstellungs- und Filtereinstellungen
+- Favoriten und die lokale Plus-Testfreischaltung (sofern verwendet)
+- Private Erinnerungen und deren Fotos unter „Mein Tag“
+- Private Ausflugspläne im Kalender und noch nicht veröffentlichte Entwürfe
+- Offline-Dateien für App-Oberfläche und Spotinformationen
+
+Die Daten liegen überwiegend in Browser-Speichern (`localStorage`, `IndexedDB`, Cache Storage). Die App bietet derzeit **keine automatische Cloud-Synchronisation** von Erinnerungen, Fotos oder privaten Ausflugsplänen. Beim Wechsel des Geräts, Browserprofils oder der Installationsart können gespeicherte Daten fehlen: Vorher nach Möglichkeit die persönliche ZIP-Datensicherung exportieren. Der Export ist **nicht verschlüsselt** und sollte privat aufbewahrt werden. Kalenderdateien (`.ics`) und Navigationslinks werden erst auf Benutzeraktion erzeugt beziehungsweise geöffnet.
+
+## Externe Dienste
+
+Die Karte nutzt OpenStreetMap-Kartenmaterial und von einem externen Kartenkacheldienst abgerufene Kacheln. Dabei werden dem jeweiligen technischen Anbieter zwangsläufig Anfragedaten (z. B. IP-Adresse) übertragen. Durch das bewusste Öffnen von Navigationslinks können Apple Karten oder Google Maps aufgerufen werden. Externe Spotquellen werden bei aktivem Öffnen ebenfalls besucht.
+
+Die aktuell im Projekt enthaltene Frontend-Anwendung enthält keine eigene allgemeine Kontoanmeldung und keine integrierte Nutzungsanalyse. Dies ist keine Aussage über die Verarbeitung durch Hostinganbieter oder verlinkte externe Dienste.
+
+## Veröffentlichungshinweis
+
+Vor einer breiten öffentlichen Freigabe und **spätestens vor der geplanten App-Store-Veröffentlichung 2027** sind vollständige Datenschutzinformationen, Anbieterkennzeichnung, Hosting-/Kartenanbieter, gegebenenfalls Betroffenenrechte und die korrekten, öffentlich erreichbaren Links rechtlich zu prüfen. In älteren Projektunterlagen war `https://familyspots.app/datenschutz` als Ziel genannt; dessen aktuelle Erreichbarkeit und inhaltliche Richtigkeit müssen gesondert bestätigt werden.

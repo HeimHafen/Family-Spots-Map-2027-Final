@@ -1,0 +1,88 @@
+@media (max-width: 899px) {
+  /* Weniger Hoehe, ohne Text oder Grafiken abzuschneiden. */
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] .app-header {
+    padding-top: 8px !important;
+  }
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #header-tagline {
+    margin-top: 4px !important;
+  }
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] .app-header-main::after {
+    height: clamp(62px, 19vw, 81px) !important;
+    margin-top: 2px !important;
+  }
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #tilla-section.sidebar-section {
+    padding-top: 4px !important;
+    padding-bottom: 10px !important;
+    row-gap: 2px !important;
+  }
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #tilla-sidebar-text {
+    font-weight: 400 !important;
+    line-height: 1.38 !important;
+    letter-spacing: .01px !important;
+  }
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #tilla-section .tilla-sidebar-actions {
+    margin-top: 4px !important;
+  }
+  /* Waermere Orangefarbe und echte weisse Play-Form im Button.
+     Position:static hebt das alte, unsichtbare Touch-Overlay auf. */
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #tilla-section #btn-play-idea.btn-play-idea {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    min-height: 44px !important;
+    border: 0 !important;
+    border-radius: 999px !important;
+    color: #fff !important;
+    background: linear-gradient(180deg, #ce6716 0%, #bd5106 100%) !important;
+    box-shadow: 0 3px 9px rgba(119, 57, 10, .16) !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: clamp(11.5px, 3.35vw, 14.5px) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    padding: 10px 12px !important;
+    text-shadow: 0 1px 1px rgba(73, 34, 5, .18) !important;
+  }
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #tilla-section #btn-play-idea.btn-play-idea::before {
+    content: "" !important;
+    position: static !important;
+    inset: auto !important;
+    display: block !important;
+    box-sizing: content-box !important;
+    width: 0 !important;
+    height: 0 !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    flex: 0 0 auto !important;
+    border: 0 !important;
+    border-left: 13px solid #fff !important;
+    border-top: 8px solid transparent !important;
+    border-bottom: 8px solid transparent !important;
+    border-radius: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+    pointer-events: none !important;
+  }
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #tilla-section #btn-play-idea.btn-play-idea > span:not(.tilla-play-emoji) {
+    color: #fff !important;
+    font-weight: 700 !important;
+  }
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #tilla-section #btn-play-idea.btn-play-idea .tilla-play-emoji {
+    display: none !important;
+  }
+}
+@media (max-width: 359px) {
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #tilla-section #btn-play-idea.btn-play-idea {
+    gap: 6px !important;
+    padding-inline: 7px !important;
+    font-size: 11.2px !important;
+  }
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #tilla-section #btn-play-idea.btn-play-idea::before {
+    border-left-width: 10px !important;
+    border-top-width: 6px !important;
+    border-bottom-width: 6px !important;
+  }
+}

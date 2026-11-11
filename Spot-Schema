@@ -1,0 +1,5 @@
+{
+  "id":"string","name":"string","category":"slug","lat":52.0,"lon":9.0,
+  "city":"string","country":"DE","address":"optional",
+  "usp":["optional"],"poetry":"optional","verified":true,"rating":4.6,"tags":["optional"]
+}

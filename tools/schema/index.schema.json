@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Family Spots Map – Index",
+  "type": "object",
+  "required": ["appName", "version", "categories"],
+  "properties": {
+    "appName": { "type": "string" },
+    "version": { "type": "string" },
+    "lastUpdated": { "type": "string" },
+    "defaultLocation": {
+      "type": "object",
+      "required": ["lat", "lng"],
+      "properties": {
+        "lat": { "type": "number" },
+        "lng": { "type": "number" },
+        "zoom": { "type": "number" }
+      }
+    },
+    "defaultZoom": { "type": "number" },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["slug", "label"],
+        "properties": {
+          "slug": { "type": "string" },
+          "icon": { "type": "string" },
+          "label": {
+            "type": "object",
+            "properties": {
+              "de": { "type": "string" },
+              "en": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

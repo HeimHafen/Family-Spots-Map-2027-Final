@@ -1,0 +1,18 @@
+@media (max-width: 899px) {
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #header-tagline {
+    position: relative !important;
+    z-index: 2 !important;
+    margin-top: clamp(27px, 7.5vw, 34px) !important;
+  }
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] .app-header-main::after {
+    position: relative !important;
+    z-index: 1 !important;
+    margin-top: -23px !important;
+    /* V90.4: neutralisiert die harte, horizontale Kante beim Einblenden
+       der Landschaft hinter dem Leitsatz. Nur die Illustration wird
+       eingeblendet; Text und restliche App werden NICHT maskiert. */
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.35) 10px, #000 35px) !important;
+    mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.35) 10px, #000 35px) !important;
+    background-image: url("../assets/design/main-header-landscape-v903.webp") !important;
+  }
+}

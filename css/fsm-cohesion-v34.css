@@ -1,0 +1,240 @@
+/* Family Spots Map: additive consistency rules. Never override the approved heart. */
+#fsm-map-fullscreen .leaflet-control-zoom a {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  font-size: 22px;
+}
+#fsm-map-fullscreen .leaflet-control-zoom a:focus-visible,
+#fse-overlay button:focus-visible,
+#fse-overlay :is(input,select,textarea):focus-visible,
+.spot-private-plan:focus-visible,
+.fsm-community-plan:focus-visible {
+  outline: 2px solid #718953;
+  outline-offset: 2px;
+}
+.spot-private-plan,
+.fsm-community-plan {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 44px;
+  margin: 12px 0;
+  padding: 10px 14px;
+  border: 1px solid #9baf7a;
+  border-radius: 12px;
+  background: #edf1df;
+  color: #35482c;
+  font: inherit;
+  font-size: .92rem;
+  font-weight: 600;
+  line-height: 1.35;
+  cursor: pointer;
+}
+.spot-private-plan svg,.fsm-community-plan svg {flex:none;width:20px;height:20px;}
+.spot-private-plan:hover,.fsm-community-plan:hover {background:#e5ecd2;}
+#fse-overlay .fse-shell {border-radius: 22px 22px 0 0;}
+#fse-overlay .fse-day {min-height: 44px;}
+#fse-overlay :is(.fse-pill,.fse-cal-nav-btn,.fse-mini,.fse-cta,.fse-save,.fse-cancel,.fse-toggle) {min-height:44px;}
+#fse-overlay .fse-icon-btn {width:44px;height:44px;}
+#fse-overlay .fse-header h2 {font-weight:600;letter-spacing:-.025em;}
+#fse-overlay .fse-preview-badge {letter-spacing:.05em;font-weight:650;}
+@media (prefers-reduced-motion:reduce) {#fse-overlay *,#fse-overlay *::before,#fse-overlay *::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
+
+.diary-private-planning {
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  width:100%;min-height:44px;margin:0 0 16px;padding:9px 14px;
+  border:1px solid var(--border-color,#d7cab5);border-radius:13px;
+  background:var(--card-bg,#fff7e7);color:inherit;
+  font:inherit;font-size:.88rem;font-weight:600;cursor:pointer;
+}
+.diary-private-planning svg{flex:none;}
+.diary-private-planning:focus-visible{outline:2px solid #718953;outline-offset:2px;}
+/* Small, legible and consistent circular close button; no empty icon. */
+#fse-overlay .fse-icon-btn {
+  position:relative;
+  border:0;
+  border-radius:50%;
+  background:transparent;
+  box-shadow:none;
+  color:#504a3e;
+}
+#fse-overlay .fse-icon-btn svg {
+  display:block;
+  width:19px;
+  height:19px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+#app-menu .app-menu-close,
+#spot-detail .spot-details-actions > .spot-details-close {
+  position: relative;
+}
+#app-menu .app-menu-close > svg,
+#spot-detail .spot-details-actions > .spot-details-close > svg {
+  width: 18px;
+  height: 18px;
+}
+#fse-overlay .fse-icon-btn::before,
+#app-menu .app-menu-close::before,
+#spot-detail .spot-details-actions > .spot-details-close::before {
+  content:"";
+  position:absolute;
+  inset:7px;
+  border:1px solid currentColor;
+  border-radius:50%;
+  opacity:.55;
+  pointer-events: none;
+}
+#spot-detail .spot-details-actions > .spot-details-favorite {
+  flex-basis: 44px;
+  width: 44px;
+  min-width: 44px;
+}
+.badge--time .badge__icon > svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+}
+
+/* The calendar and the spot cards share the app's paper and olive palette. */
+#fse-overlay .fse-shell {
+  background: #fcf7ed;
+  border-color: #e1d6c3;
+}
+#fse-overlay .fse-header {
+  background: #fcf7ed;
+  border-block-end: 1px solid #e1d6c3;
+}
+#fse-overlay .fse-shell::before { content: none; }
+#fse-overlay .fse-calendar { box-shadow: none; }
+#fse-overlay .fse-storage-status:empty { display: none; }
+#fse-overlay :is(input,select,textarea) { font-size: 16px; }
+#fse-overlay .fse-mini { white-space: normal; }
+
+/* Match native and enhanced form fields while preserving choice states. */
+@media (forced-colors: none) {
+  html.fsm-polished body :is(textarea, select, input:not([type]),
+    input:is([type="text"], [type="search"], [type="email"], [type="password"],
+      [type="number"], [type="url"], [type="tel"], [type="date"], [type="time"]),
+    .filter-picker__trigger:not(.is-selected)) {
+    background-color: var(--fsm-field-surface) !important;
+    border-color: var(--fsm-field-border) !important;
+    color: var(--fsm-field-ink) !important;
+  }
+  html.fsm-polished body :is(textarea, select, input:not([type]),
+    input:is([type="text"], [type="search"], [type="email"], [type="password"],
+      [type="number"], [type="url"], [type="tel"], [type="date"], [type="time"]),
+    .filter-picker__trigger):focus {
+    border-color: var(--fsm-field-focus) !important;
+  }
+}
+
+/* Private planner surfaces follow the approved warm-white field preview. */
+#fse-overlay {
+  --planner-paper: #f7f7f2;
+  --planner-panel: #fffefa;
+  --planner-line: #dedfd4;
+  --planner-muted: #605c53;
+}
+#fse-overlay :is(.fse-shell,.fse-header,.fse-footer) {
+  background: var(--planner-paper);
+  border-color: var(--planner-line);
+}
+#fse-overlay .fse-header {
+  grid-template-columns: minmax(0,1fr) 44px;
+  gap: 4px 8px;
+  padding: calc(13px + env(safe-area-inset-top, 0px)) 18px 13px;
+}
+#fse-overlay .fse-eyebrow { grid-column: 1; color: var(--fsm-field-focus); }
+#fse-overlay .fse-icon-btn { grid-column: 2; grid-row: 1 / 3; align-self: start; }
+#fse-overlay .fse-header h2 { grid-column: 1; margin: 0; font-size: clamp(25px, 7vw, 30px); line-height: 1.06; }
+#fse-overlay .fse-preview-badge {
+  display: inline-flex;
+  grid-row: 3;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  margin-top: 5px;
+  letter-spacing: 0;
+  font-size: 11px;
+  color: var(--fsm-field-focus);
+  background: #ecf0e4;
+}
+#fse-overlay .fse-body { padding-block-start: 13px; }
+#fse-overlay :is(.fse-calendar,.fse-form) { background: var(--planner-panel); border-color: var(--planner-line); }
+#fse-overlay .fse-calendar { padding: 7px 9px 9px; }
+#fse-overlay .fse-calendar-nav { margin-bottom: 3px; }
+#fse-overlay .fse-calendar-nav h3 { font-size: 22px; }
+#fse-overlay .fse-cal-nav-btn { width: 44px; border: 0; background: transparent; color: var(--fsm-field-focus); }
+#fse-overlay .fse-weekdays { margin-bottom: 3px; }
+#fse-overlay :is(.fse-weekdays,.fse-dates) { gap: 0; }
+#fse-overlay .fse-day { height: 44px; border-radius: 10px; }
+#fse-overlay .fse-day--chosen { background: var(--fsm-field-focus); box-shadow: none; }
+#fse-overlay .fse-controls { margin: 8px 0 6px; gap: 2px; padding: 3px; border: 1px solid var(--planner-line); border-radius: 12px; background: #eef0e9; }
+#fse-overlay .fse-toggle { border: 1px solid transparent; border-radius: 9px; background: transparent; color: var(--planner-muted); font-size: 13px; }
+#fse-overlay .fse-toggle[aria-pressed="true"] { border-color: var(--planner-line); background: var(--planner-panel); color: var(--fsm-field-focus); }
+#fse-overlay .fse-section-heading { margin: 0; }
+#fse-overlay .fse-section-heading h3 { font-size: 18px; }
+#fse-overlay .fse-link { min-height: 44px; text-decoration: none; color: var(--fsm-field-focus); }
+#fse-overlay .fse-empty { padding: 11px 12px; text-align: left; border: 1px solid #dee6cd; background: #ecf0e4; }
+#fse-overlay .fse-cta { box-shadow: none; }
+#fse-overlay .fse-form { margin: 0; padding: 12px 13px; border-radius: 15px; }
+#fse-overlay .fse-form h3 { font-size: 23px; }
+#fse-overlay .fse-field { margin: 9px 0; min-width: 0; color: var(--fsm-field-ink); font-size: 12px; }
+#fse-overlay .fse-field :is(input,select,textarea) { margin-top: 4px; min-inline-size: 0; max-inline-size: 100%; padding: 8px 10px; font-weight: 450; }
+#fse-overlay .fse-field textarea { min-height: 54px; }
+#fse-overlay .fse-form-row .fse-field { margin: 0; }
+#fse-overlay .fse-form-row { grid-template-columns: repeat(2,minmax(0,1fr)); }
+#fse-overlay .fse-check { min-height: 44px; align-items: center; margin: 0; }
+#fse-overlay .fse-form-actions { margin-top: 4px; }
+#fse-overlay .fse-form-actions button { min-width: 0; font-size: 14px; }
+#fse-overlay .fse-cancel { background: var(--planner-panel); border-color: var(--fsm-field-border); }
+#fse-overlay .fse-footer-note { display: flex; align-items: flex-start; gap: 8px; color: var(--planner-muted); }
+#fse-overlay .fse-footer-note svg { flex: none; margin-top: 1px; }
+#fse-overlay .fse-status:empty { display: none; }
+/* Let the form own the visible border and spacing of native pickers. */
+#fse-overlay .fse-native-field {
+  display: block;
+  margin-top: 4px;
+  padding-inline: 10px;
+  border: 1px solid var(--fsm-field-border);
+  border-radius: 10px;
+  background: var(--fsm-field-surface);
+}
+#fse-overlay .fse-native-field:focus-within {
+  border-color: var(--fsm-field-focus);
+}
+#fse-overlay .fse-native-field:has(input:focus-visible) {
+  outline: 2px solid var(--fsm-field-focus);
+  outline-offset: 2px;
+}
+#fse-overlay #fse-draft-form .fse-native-field input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 44px;
+  margin: 0;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+@media (forced-colors: active) {
+  #fse-overlay .fse-native-field { border-color: CanvasText; }
+  #fse-overlay .fse-native-field:focus-within { border-color: Highlight; }
+  #fse-overlay .fse-native-field:has(input:focus-visible) { outline-color: Highlight; }
+}
+#fse-overlay .fse-form-row input::-webkit-date-and-time-value { text-align: start; }
+@media (max-width: 479px) {
+  #fse-overlay .fse-form-row { grid-template-columns: minmax(0,1fr); }
+}

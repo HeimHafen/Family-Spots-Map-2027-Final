@@ -1,0 +1,243 @@
+/* Family Spots Map V4.1 – Ein Farbstandard für orange Aktionsbuttons.
+   Referenz: der freigegebene „Spielideen“-Button (Tilla).
+   Nur Farben und Icon-Vererbung; keine Aenderung an Layout oder Verhalten.
+   Gruene Auswahl, neutrale und destruktive Aktionen bleiben unveraendert. */
+html.fsm-polished {
+  --fsm-orange-action: #f58b20;
+  --fsm-orange-action-hover: #e78014;
+  --fsm-orange-action-ink: #3d2918;
+  --fsm-orange-action-border: #db7d19;
+  /* Auch generische orange .btn-Aktionen nutzen dieselbe Palette.
+     Keine Sonderregel fuer neutrale, gruene oder rote Buttons. */
+  --p-action: var(--fsm-orange-action);
+  --p-action-text: var(--fsm-orange-action-ink);
+  --p-action-line: var(--fsm-orange-action-border);
+  --tilla-shell: var(--fsm-orange-action);
+  --tilla-shell-hover: var(--fsm-orange-action-hover);
+  --tilla-shell-active: var(--fsm-orange-action-hover);
+  --on-tilla-shell: var(--fsm-orange-action-ink);
+  --fsm83-action: var(--fsm-orange-action);
+  --fsm83-action-text: var(--fsm-orange-action-ink);
+  --fsm80-button-orange: var(--fsm-orange-action);
+  --fsm80-button-ink: var(--fsm-orange-action-ink);
+}
+
+/* Orange Primary Actions im Karten-, Filter-, Plus-, Tagebuch-,
+   Gemeinschafts-, Radtour- und privaten Kalenderbereich. */
+html.fsm-polished :is(
+  #filter-section #btn-open-filter-modal,
+  #filter-modal #filter-modal-apply,
+  #plus-section #plus-code-submit,
+  #view-diary #daylog-save,
+  #view-diary #diary-new-memory[aria-expanded="false"],
+  .btn-primary:not(.btn-secondary):not(.btn-ghost):not(.btn-outline),
+  #fsm-community-overlay .fsm-community-primary,
+  #spot-detail .spot-community-open,
+  .fsm-cycle-tours .cycle-action,
+  #fse-overlay .fse-cta,
+  #fse-overlay .fse-save
+) {
+  background-color: var(--fsm-orange-action) !important;
+  background-image: none !important;
+  color: var(--fsm-orange-action-ink) !important;
+  border-color: var(--fsm-orange-action-border) !important;
+  text-shadow: none !important;
+  --button-fg: var(--fsm-orange-action-ink);
+  --cta-fg: var(--fsm-orange-action-ink);
+}
+html.fsm-polished :is(
+  #filter-section #btn-open-filter-modal,
+  #filter-modal #filter-modal-apply,
+  #plus-section #plus-code-submit,
+  #view-diary #daylog-save,
+  #view-diary #diary-new-memory[aria-expanded="false"],
+  .btn-primary:not(.btn-secondary):not(.btn-ghost):not(.btn-outline),
+  #fsm-community-overlay .fsm-community-primary,
+  #spot-detail .spot-community-open,
+  .fsm-cycle-tours .cycle-action,
+  #fse-overlay .fse-cta,
+  #fse-overlay .fse-save
+) :is(span, svg, i) {
+  color: inherit !important;
+}
+
+/* Tilla nutzt eine orange ::after-Flaeche: diese beibehalten,
+   nur denselben Farbwert und dieselbe dunkelbraune Schrift sicherstellen. */
+html.fsm-polished[data-theme="light"] body[data-app-view="map"]
+  #tilla-section #btn-play-idea.btn-play-idea::after {
+  background: var(--fsm-orange-action) !important;
+}
+html.fsm-polished[data-theme="light"] body[data-app-view="map"]
+  #tilla-section #btn-play-idea.btn-play-idea,
+html.fsm-polished[data-theme="light"] body[data-app-view="map"]
+  #tilla-section #btn-play-idea.btn-play-idea > :is(span, svg) {
+  color: var(--fsm-orange-action-ink) !important;
+  text-shadow: none !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html.fsm-polished :is(
+    #filter-section #btn-open-filter-modal,
+    #filter-modal #filter-modal-apply,
+    #plus-section #plus-code-submit,
+    #view-diary #daylog-save,
+    #view-diary #diary-new-memory[aria-expanded="false"],
+    .btn-primary:not(.btn-secondary):not(.btn-ghost):not(.btn-outline),
+    #fsm-community-overlay .fsm-community-primary,
+    #spot-detail .spot-community-open,
+    .fsm-cycle-tours .cycle-action,
+    #fse-overlay .fse-cta,
+    #fse-overlay .fse-save
+  ):not(:disabled):not([aria-disabled="true"]):hover {
+    background-color: var(--fsm-orange-action-hover) !important;
+  }
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"]
+    #tilla-section #btn-play-idea.btn-play-idea:not(:disabled):hover::after {
+    background: var(--fsm-orange-action-hover) !important;
+  }
+}
+
+/* Bei Tastaturbedienung bleibt der bestehende sichtbare Fokus erhalten. */
+@media (forced-colors: active) {
+  html.fsm-polished :is(
+    #filter-section #btn-open-filter-modal,
+    #filter-modal #filter-modal-apply,
+    #plus-section #plus-code-submit,
+    #view-diary #daylog-save,
+    #view-diary #diary-new-memory[aria-expanded="false"],
+    .btn-primary:not(.btn-secondary):not(.btn-ghost):not(.btn-outline),
+    #fsm-community-overlay .fsm-community-primary,
+    #spot-detail .spot-community-open,
+    .fsm-cycle-tours .cycle-action,
+    #fse-overlay .fse-cta,
+    #fse-overlay .fse-save
+  ) { forced-color-adjust: auto; }
+}
+
+
+/* V4.2 · APPWEITER ABSTANDSSTANDARD FÜR ORANGE AKTIONEN
+   Grundsatz: Aktionen stehen im Layoutfluss. Keine negativen Ränder,
+   keine absolut positionierten CTA/Speichern-Knöpfe, lesbare Labels.
+   Die Kalender-Komponente behält ihre bisherigen Daten und Ereignisse. */
+html.fsm-polished {
+  --fsm-action-space: 12px;
+  --fsm-action-touch: 44px;
+}
+html.fsm-polished :is(
+  #fse-overlay .fse-cta,
+  #fse-overlay .fse-save,
+  #fse-overlay .fse-cancel,
+  #fsm-community-overlay .fsm-community-actions button,
+  .fsm-cycle-tours .cycle-action,
+  #spot-detail .spot-community-open
+) {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.3;
+}
+/* Der Hauptbutton gehört ausschließlich in die eigene Fußleiste. */
+html.fsm-polished #fse-overlay .fse-body {
+  scroll-padding-bottom: 16px;
+}
+html.fsm-polished #fse-overlay .fse-footer {
+  position: relative;
+  isolation: isolate;
+  gap: 8px;
+  padding-block: 10px 12px;
+  border-top: 1px solid rgba(126, 110, 84, .12);
+}
+html.fsm-polished #fse-overlay .fse-cta {
+  flex: 1 1 0;
+  width: auto;
+  margin: 0;
+  min-height: 48px;
+  padding: 10px 14px;
+  font-size: clamp(13px, 3.75vw, 16px) !important;
+  line-height: 1.25;
+  text-align: center;
+}
+html.fsm-polished #fse-overlay .fse-cta > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+/* "Privat speichern" steht im Formular, bewusst nicht unter der CTA.
+   Zwei ausgewogene Aktionen, fester Abstand, kein Float/Überlagern. */
+html.fsm-polished #fse-overlay .fse-form-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--fsm-action-space);
+  row-gap: var(--fsm-action-space);
+  align-items: stretch;
+  margin-block: 16px 8px;
+  padding: 0;
+}
+html.fsm-polished #fse-overlay .fse-form-actions > button {
+  width: 100%;
+  min-width: 0;
+  min-height: var(--fsm-action-touch);
+  padding: 10px 12px;
+  line-height: 1.25;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+  white-space: normal;
+  border-radius: 12px;
+  font-size: 13px !important;
+}
+/* Terminkarten: Beschriftungen auf kleinen Bildschirmen nicht quetschen. */
+html.fsm-polished #fse-overlay .fse-event-actions {
+  gap: 10px;
+  margin-top: 14px;
+}
+html.fsm-polished #fse-overlay .fse-mini {
+  max-width: 100%;
+  min-width: 0;
+  min-height: 58px;
+  margin: 0;
+}
+/* Gleiches Abstandsprinzip in Gemeinschaft und Radtouren. */
+html.fsm-polished #fsm-community-overlay .fsm-community-actions {
+  gap: var(--fsm-action-space);
+}
+html.fsm-polished #fsm-community-overlay .fsm-community-actions button {
+  padding-inline: 8px;
+  min-height: var(--fsm-action-touch);
+}
+html.fsm-polished .fsm-cycle-tours .cycle-action {
+  margin-top: var(--fsm-action-space);
+  padding: 10px 12px;
+  min-height: var(--fsm-action-touch);
+  text-align: center;
+}
+@media (max-width: 430px) {
+  html.fsm-polished #fse-overlay .fse-event-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  html.fsm-polished #fse-overlay .fse-mini {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 9px 10px;
+    min-height: 48px;
+    text-align: left;
+    font-size: 12px !important;
+  }
+  html.fsm-polished #fse-overlay .fse-mini > span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}
+@media (max-width: 359px) {
+  html.fsm-polished #fse-overlay .fse-form-actions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  html.fsm-polished #fse-overlay .fse-form-actions .fse-save {grid-row: 1;}
+  html.fsm-polished #fse-overlay .fse-form-actions .fse-cancel {grid-row: 2;}
+  html.fsm-polished #fse-overlay .fse-form-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+}

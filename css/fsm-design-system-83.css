@@ -1,0 +1,252 @@
+/* ================================================================
+   FAMILY SPOTS MAP · V83 — UNIFIED VISUAL LANGUAGE
+   2026-11-02 · Presentation layer only; V82.1 logic is authoritative.
+
+   Brand roles: orange = primary action; green = selection;
+   category hues = category identity; warm paper = content;
+   deep olive = night backdrop. All selectors are scoped to FSM.
+
+   This sheet deliberately loads AFTER fsm-ui-consistency.css and does
+   not override map tiles, marker clustering, data, IDs or JS states.
+   ================================================================ */
+html.fsm-polished {
+  --fsm83-action: #f58b20;
+  --fsm83-action-hover: #e78014;
+  --fsm83-action-text: #382e25;
+  --fsm83-green-light: #d9e6cd;
+  --fsm83-green-light-ink: #29462d;
+  --fsm83-green-light-stroke: #849e78;
+  --fsm83-paper: #fffaf1;
+  --fsm83-paper-raised: #fffdf8;
+  --fsm83-line: #e2d7c6;
+  --fsm83-ink: #302c25;
+  --fsm83-muted: #655e53;
+  --fsm83-focus: #685c51;
+  --fsm83-radius-card: 20px;
+  --fsm83-radius-control: 12px;
+  --fsm83-gap-xs: 4px;
+  --fsm83-gap-sm: 8px;
+  --fsm83-gap-md: 12px;
+  --fsm83-gap-lg: 16px;
+  --fsm83-gap-xl: 24px;
+  --fsm83-shadow-small: 0 2px 7px rgba(50, 42, 29, .06);
+  --fsm83-shadow-modal: 0 20px 52px rgba(20, 28, 19, .21);
+}
+
+/* Typography: preserve the project's original font and text hierarchy.
+   Do not impose a new font on Leaflet or on the platform's controls. */
+html.fsm-polished :is(.app-menu-item, .sidebar-section-title,
+  .diary-heading, .category-explorer__choice, .spot-details) {
+  -webkit-font-smoothing: antialiased;
+}
+html.fsm-polished :is(.app-menu-item, .category-explorer__choice,
+  .mood-chip, .fsm-map-tool--theme) {
+  text-wrap: pretty;
+}
+
+/* Buttons: the same warm orange and readable ink in each primary action. */
+html.fsm-polished :is(
+  #tilla-section #btn-play-idea,
+  #filter-section #btn-open-filter-modal,
+  #filter-modal #filter-modal-apply,
+  #view-diary #daylog-save
+) {
+  background: var(--fsm83-action) !important;
+  border-color: #db7414 !important;
+  color: var(--fsm83-action-text) !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  border-radius: var(--fsm83-radius-control) !important;
+  font-weight: 600 !important;
+}
+html.fsm-polished :is(#tilla-section #btn-play-idea,
+  #filter-section #btn-open-filter-modal,
+  #filter-modal #filter-modal-apply,
+  #view-diary #daylog-save) :is(svg, span) {
+  color: inherit !important;
+}
+@media (hover: hover) {
+  html.fsm-polished :is(#tilla-section #btn-play-idea,
+    #filter-section #btn-open-filter-modal,
+    #filter-modal #filter-modal-apply,
+    #view-diary #daylog-save):not(:disabled):hover {
+    background: var(--fsm83-action-hover) !important;
+  }
+}
+html.fsm-polished #filter-section #btn-open-filter-modal,
+html.fsm-polished #filter-modal :is(#filter-modal-reset, #filter-modal-apply) {
+  box-sizing: border-box !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  max-height: 44px !important;
+  line-height: 1.15 !important;
+}
+html.fsm-polished #filter-section .filter-footer {padding-bottom: 12px !important;}
+html.fsm-polished #filter-section #filter-summary {
+  margin-top: 5px !important;
+  padding-bottom: 3px !important;
+  line-height: 1.45 !important;
+}
+
+/* The shortcut and fullscreen theme states are driven ONLY by the
+   element's own aria-pressed attribute, never by an ancestor state. */
+html.fsm-polished #filter-section .mood-row > .mood-chip[aria-pressed="false"] {
+  background: #f7efe3 !important;
+  border-color: #dfd3c2 !important;
+  color: #382f27 !important;
+  box-shadow: none !important;
+}
+html.fsm-polished #filter-section .mood-row > .mood-chip[aria-pressed="true"] {
+  background: var(--fsm83-green-light) !important;
+  border-color: var(--fsm83-green-light-stroke) !important;
+  color: var(--fsm83-green-light-ink) !important;
+  box-shadow: inset 0 0 0 1px rgba(49, 91, 53, .09) !important;
+  font-weight: 600 !important;
+}
+html.fsm-polished #fsm-map-fullscreen .fsm-map-themes >
+  .fsm-map-tool--theme[aria-pressed="false"] {
+  background: #fff9ee !important;
+  border-color: #e0d6c6 !important;
+  color: #2d342d !important;
+}
+html.fsm-polished #fsm-map-fullscreen .fsm-map-themes >
+  .fsm-map-tool--theme[aria-pressed="true"] {
+  background: #587348 !important;
+  border-color: #587348 !important;
+  color: #fffdf4 !important;
+}
+
+/* Filter dialog: intentional hierarchy, consistent neutral count pills.
+   Colored category glyphs remain untouched and keep their meaning. */
+html.fsm-polished #filter-modal .filter-modal-inner {
+  box-shadow: var(--fsm83-shadow-modal) !important;
+}
+html.fsm-polished #filter-modal .category-explorer__rules,
+html.fsm-polished #filter-modal .category-explorer__extras {
+  border-radius: 14px !important;
+}
+html.fsm-polished #filter-modal .category-explorer__fieldset {margin-top: 14px !important;}
+html.fsm-polished #filter-modal .category-explorer__types {margin-top: 8px !important;}
+html.fsm-polished #filter-modal .category-explorer__choice:has(input:checked) {
+  background: #eff6e9 !important;
+  color: #29442d !important;
+  font-weight: 600 !important;
+}
+html.fsm-polished #filter-modal .category-explorer__choice input[type="checkbox"]:checked {
+  background: #d4e8cb !important;
+  border-color: #81a276 !important;
+  color: #28482d !important;
+  box-shadow: none !important;
+}
+html.fsm-polished #filter-modal .filter-modal-footer {
+  padding-bottom: max(8px, env(safe-area-inset-bottom, 8px)) !important;
+  box-shadow: 0 -3px 12px rgba(35, 39, 31, .05) !important;
+}
+html.fsm-polished #filter-modal #filter-modal-reset {
+  background: #fbf7ef !important;
+  color: #364438 !important;
+  border-color: #ded5c8 !important;
+  box-shadow: none !important;
+}
+html.fsm-polished #filter-modal #filter-modal-close {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  box-shadow: none !important;
+}
+
+/* Menu = warm paper in both themes. Preserve its reassuring contrast. */
+html.fsm-polished .app-menu-item {min-height: 44px !important;}
+html.fsm-polished .app-menu-list {gap: 4px;}
+html.fsm-polished .app-menu-item-icon :is(svg, img) {width: 21px; height: 21px;}
+html.fsm-polished .app-menu-lang-chip {
+  min-height: 44px !important;
+  background: #f6eee2 !important;
+  border-color: #e5d9ca !important;
+  color: #382f27 !important;
+  box-shadow: none !important;
+}
+html.fsm-polished .app-menu-lang-chip--active[aria-pressed="true"] {
+  background: var(--fsm83-green-light) !important;
+  border-color: var(--fsm83-green-light-stroke) !important;
+  color: var(--fsm83-green-light-ink) !important;
+  box-shadow: inset 0 0 0 1px rgba(41, 70, 45, .07) !important;
+}
+html.fsm-polished .app-menu-panel {overscroll-behavior: contain;}
+
+/* Spot cards and diary: harmonized rhythm, without touching images/data. */
+html.fsm-polished #view-diary .diary-heading {gap: 12px 16px;}
+html.fsm-polished #view-diary .diary-composer,
+html.fsm-polished #view-diary .daylog-entry {
+  border-radius: var(--fsm83-radius-card) !important;
+}
+html.fsm-polished #view-diary :is(.diary-photos-open, .memory-photo-add) {
+  min-height: 44px !important;
+  border-radius: var(--fsm83-radius-control) !important;
+}
+html.fsm-polished #view-diary .memory-photo-heading {gap: 4px 12px;}
+html.fsm-polished #view-diary .daylog-entry-text {line-height: 1.55;}
+html.fsm-polished #view-diary .diary-back {min-height: 44px;}
+@media (max-width: 350px) {
+  html.fsm-polished #view-diary .diary-heading {align-items: stretch;}
+  html.fsm-polished #view-diary #diary-new-memory {max-width: 100%;}
+  html.fsm-polished #filter-modal .filter-modal-footer {gap: 6px !important;}
+}
+
+/* Keyboard access: consistent focus treatment, never orange on green. */
+html.fsm-polished :is(
+  .mood-chip, .fsm-map-tool--theme, .app-menu-item, .app-menu-lang-chip,
+  .category-explorer__chip, .category-explorer__choice input,
+  .diary-back, #diary-new-memory, #daylog-save,
+  #btn-play-idea, #btn-open-filter-modal,
+  #filter-modal-reset, #filter-modal-apply, #filter-modal-close
+):focus-visible {
+  outline: 2px solid var(--fsm83-focus) !important;
+  outline-offset: 3px !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.fsm-polished :is(.mood-chip, .fsm-map-tool--theme, .app-menu-item,
+    .category-explorer__choice, .category-explorer__chip) {
+    transition: none !important;
+  }
+}
+html.fsm-polished[data-theme="light"] #filter-modal
+  .category-explorer__worlds > .category-explorer__chip[aria-pressed="true"]
+  > .category-explorer__icon,
+html.fsm-polished[data-theme="light"] #filter-modal
+  .category-explorer__choice:has(input[type="checkbox"]:checked)
+  .category-explorer__icon {
+  color: #285836 !important;
+}
+
+/* “All themes” is the absence of a theme restriction, not the absence
+   of type/facility restrictions. Keep aria-pressed accurate, but when
+   refinements are selected avoid the misleading full-green fill. */
+html.fsm-polished #filter-modal .category-explorer__worlds >
+  .category-explorer__chip[data-world=""][data-refined="true"][aria-pressed="true"] {
+  background: #f4f3eb !important;
+  border-color: #b5c4aa !important;
+  color: #324b39 !important;
+  box-shadow: inset 3px 0 0 #7d9c70 !important;
+  font-weight: 600 !important;
+}
+html.fsm-polished #filter-modal .category-explorer__worlds >
+  .category-explorer__chip[data-world=""][data-refined="true"][aria-pressed="true"]
+  > .category-explorer__icon {color: #416b4f !important;}
+
+/* Mobile Safari's floating bars can cover the final memory image.
+   Extra document scroll room is intentional and only for browser mode. */
+@media (display-mode: browser) and (max-width: 899px) {
+  html.fsm-polished body[data-app-view="diary"] #main-content {
+    padding-bottom: max(96px, calc(72px + env(safe-area-inset-bottom, 0px))) !important;
+    scroll-padding-bottom: 96px;
+  }
+}
+
+/* A single visible focus treatment for filter input and the photo editor. */
+html.fsm-polished :is(#filter-section input[type="search"],
+  #view-diary #daylog-text, #view-diary .memory-photo-add):focus-visible {
+  outline: 2px solid var(--fsm83-focus) !important;
+  outline-offset: 2px !important;
+}

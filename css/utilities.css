@@ -1,0 +1,25 @@
+/* =========================================
+   utilities.css — Utility / Helper Klassen
+   ========================================= */
+
+/* Anzeige / Layout Helfer */
+.hidden {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+
+/* Fokus-Outline für Interaktive Elemente (als Fallback) */
+:focus-visible {
+  outline: 2px solid #ffb54f;
+  outline-offset: 2px;
+}

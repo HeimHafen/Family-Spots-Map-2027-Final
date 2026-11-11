@@ -1,0 +1,223 @@
+/* =========================================
+   theme.css — Light Design Tokens
+   Playful Warm v2.3 (Design-System Level)
+   - deterministische Token-Struktur via Cascade Layers
+   - CTA-Kontrast sauber: --accent-solid + --on-accent-solid
+   - Legacy/Component Tokens bleiben kompatibel
+   - robustes Theme-Targeting: :root/html/body + optional container [data-theme]
+   - NEW: semantische Text-Rollen (Headings / Body / Muted)
+   ========================================= */
+
+@layer tokens, base, overrides;
+
+/* =========================================================
+   BASE — Theme plumbing (kein “Look”, nur System)
+   ========================================================= */
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  :root[data-theme="light"],
+  html[data-theme="light"],
+  body[data-theme="light"] {
+    color-scheme: light;
+  }
+}
+
+/* =========================================================
+   TOKENS — Default (Light)
+   ========================================================= */
+@layer tokens {
+  :root {
+    /* ----------------------------
+       Cache / Debug Token (harmlos)
+       ---------------------------- */
+    --theme-version: 20251221;
+
+    /* ================================
+       Brand / Accent System (muted warm)
+       ================================ */
+    --accent-h: 30;
+
+    /* Brand accent (für Flächen/Badges/Active-Chips etc.) */
+    --accent: hsl(var(--accent-h) 74% 48%);
+    --accent-light: hsl(var(--accent-h) 70% 58%);
+    --accent-dark: hsl(var(--accent-h) 76% 34%);
+
+    /* Solid accent for CTAs (AA-kontrastfähig zu weißem Text) */
+    --accent-solid: hsl(var(--accent-h) 74% 41%);
+    --accent-solid-dark: hsl(var(--accent-h) 76% 34%);
+    --accent-solid-light: hsl(var(--accent-h) 70% 52%);
+    --on-accent-solid: #ffffff;
+
+    /* Accent surfaces (muted) */
+    --accent-soft: hsl(var(--accent-h) 56% 92%);
+    --accent-soft-hover: hsl(var(--accent-h) 56% 86%);
+    --accent-strong: hsl(var(--accent-h) 64% 40%);
+
+    /* ================================
+       Semantic Color Tokens
+       ================================ */
+    --text-3: hsl(22 60% 12%); /* strongest */
+    --text-1: hsl(24 52% 14%); /* default */
+    --text-2: hsl(24 26% 28%); /* muted */
+
+    /* NEW: Text roles */
+    --text-heading: var(--text-3);
+    --text-body: var(--text-1);
+    --text-muted: var(--text-2);
+
+    /* “On-*” tokens */
+    --on-accent: hsl(24 55% 12%);
+    --on-dark: hsl(32 100% 95%);
+    --on-light: hsl(222 47% 11%);
+
+    /* ================================
+       Surfaces (Light)
+       ================================ */
+    --surface-0: hsl(38 70% 97%);
+    --surface-1: hsl(38 70% 92%);
+    --surface-2: hsla(38 66% 89% / 0.98);
+    --surface-3: hsla(37 60% 86% / 0.98);
+
+    /* Borders */
+    --border-1: hsla(30 30% 18% / 0.18);
+    --border-2: hsla(30 30% 18% / 0.26);
+
+    /* Elevation */
+    --elev-1: 0 1px 2px hsla(26 35% 18% / 0.10);
+    --elev-2: 0 10px 26px hsla(26 40% 18% / 0.16);
+    --elev-3: 0 18px 54px hsla(26 45% 18% / 0.20);
+
+    /* Radii / Motion / Typography */
+    --radius-pill: 999px;
+    --border-radius: 0.5rem;
+
+    --transition-fast: 150ms ease;
+    --dur-fast: 120ms;
+    --dur: 160ms;
+    --dur-slow: 220ms;
+    --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+    --font-stack: "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+    --font-size-base: 1rem;
+
+    /* Focus ring */
+    --focus-inner: #ffffff;
+    --focus-outer: hsla(var(--accent-h) 74% 48% / 0.55);
+    --focus-ring: 0 0 0 2px var(--focus-inner), 0 0 0 4px var(--focus-outer);
+
+    /* Backgrounds / Effects */
+    --bg-app:
+      radial-gradient(circle at 18% 0%, hsla(var(--accent-h) 74% 56% / 0.18), transparent 58%),
+      radial-gradient(circle at 88% 22%, hsla(42 78% 62% / 0.10), transparent 54%),
+      linear-gradient(180deg, hsl(38 70% 97%), hsl(36 52% 88%));
+
+    --app-bg: var(--bg-app);
+    --page-bg: var(--app-bg);
+
+    /* Filters */
+    --filter-map: sepia(0.25) saturate(0.95) brightness(1.02) contrast(1.03) hue-rotate(-12deg);
+
+    /* ================================
+       Status / Semantic Badges
+       ================================ */
+    --success: hsl(146 45% 36%);
+    --success-soft: hsla(146 45% 36% / 0.14);
+    --info: hsl(210 60% 38%);
+    --info-soft: hsla(210 60% 38% / 0.12);
+    --warning: hsl(38 84% 44%);
+    --warning-soft: hsla(38 84% 44% / 0.14);
+
+    /* =========================================================
+       Legacy / Component Tokens (compat)
+       ========================================================= */
+    --text-color: var(--text-body);
+    --text-soft: var(--text-muted);
+    --text-strong: var(--text-heading);
+
+    --card-bg: var(--surface-1);
+    --card-shadow: var(--elev-2);
+    --card-border: var(--border-1);
+
+    --chip-bg: var(--surface-3);
+    --chip-color: var(--text-muted);
+    --chip-shadow: var(--elev-1);
+    --chip-hover-shadow: 0 12px 30px hsla(26 45% 18% / 0.18);
+
+    --input-bg: hsl(38 58% 90%);
+    --input-shadow: 0 5px 12px hsla(26 45% 18% / 0.14);
+
+    --button-bg: var(--accent-soft);
+    --button-hover-bg: var(--accent-soft-hover);
+    --button-text-color: var(--on-accent);
+
+    --toast-bg: hsla(var(--accent-h) 50% 22% / 0.96);
+
+    --header-bg-top: hsl(38 62% 93%);
+    --header-bg-bottom: hsl(36 56% 88%);
+    --header-shadow: var(--elev-3);
+    --header-text-color: var(--text-heading);
+
+    --header-tagline-bg: hsla(34 56% 90% / 0.92);
+    --header-tagline-color: hsl(24 44% 18%);
+    --header-tagline-shadow: var(--elev-2);
+
+    --header-icon-bg: radial-gradient(
+      circle at 30% 20%,
+      hsl(30 80% 90%) 0%,
+      hsl(28 72% 78%) 45%,
+      hsl(26 70% 62%) 100%
+    );
+    --header-icon-shadow: var(--elev-1);
+    --header-icon-border: var(--border-2);
+
+    --language-pill-bg: hsla(34 56% 92% / 0.92);
+    --language-pill-shadow: var(--elev-1);
+
+    --sidebar-bg: hsl(38 42% 88%);
+    --sidebar-section-bg: var(--surface-1);
+    --sidebar-section-shadow: var(--elev-2);
+    --sidebar-section-border: var(--border-1);
+
+    --bottom-nav-backdrop: hsla(var(--accent-h) 44% 78% / 0.52);
+    --bottom-nav-item-bg: var(--surface-1);
+    --bottom-nav-item-color: hsl(24 22% 26%);
+    --bottom-nav-item-active-bg: var(--accent-solid);
+    --bottom-nav-item-active-color: #ffffff;
+
+    --map-card-bg: var(--surface-2);
+    --map-card-shadow: var(--elev-3);
+    --map-card-border: hsla(30 30% 18% / 0.22);
+
+    --shadow-soft: var(--elev-1);
+    --shadow-strong: var(--elev-2);
+
+    --radius-circle-stroke: hsla(var(--accent-h) 74% 48% / 0.60);
+    --radius-circle-fill: hsla(var(--accent-h) 74% 48% / 0.13);
+
+    --map-filter: var(--filter-map);
+
+    --cta-fg: var(--on-accent-solid);
+    --cta-bg: var(--accent-solid);
+    --cta-bg-hover: var(--accent-solid-dark);
+  }
+}
+@layer overrides {
+
+  /* Prefer more contrast: strengthen borders slightly */
+  @media (prefers-contrast: more) {
+    :root {
+      --border-1: hsla(30 30% 18% / 0.26);
+      --border-2: hsla(30 30% 18% / 0.34);
+    }
+  }
+
+  /* Forced Colors */
+  @media (forced-colors: active) {
+    :root {
+      --focus-ring: 0 0 0 2px Highlight;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+/* Originalkarten/Bedienelemente bleiben am selben Ort. Nur unlesbare
+   Bestandteile erhalten eine eindeutige Kontrastfarbe. */
+/* Die Originalkarte bleibt unverändert bedienbar. Kein neues Overlay und
+   keine erzwungene Größenänderung der Leaflet-Werkzeuge. */
+/* Real dialogs retain their native show/close semantics. */
+/* X: exakt die kleine vorhandene Referenz, ohne die Hitbox zu verschieben. */
+/* Originale CTA-Farben, Größe und Klickverhalten werden ausdrücklich nicht überschrieben. */

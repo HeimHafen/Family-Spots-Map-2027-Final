@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "preview": {
+    "id": "bolzplatz-vorschau",
+    "status": "preview",
+    "title": {
+      "de": "Bolzplatz – Konzeptvorschau",
+      "en": "Football pitch – concept preview",
+      "da": "Boldbane – konceptvisning"
+    },
+    "area": {
+      "de": "Region Hannover · Ort noch nicht bestätigt",
+      "en": "Hanover region · location not yet confirmed",
+      "da": "Hannover-området · sted ikke bekræftet"
+    },
+    "image": "assets/spots/community/bolzplatz-vorschau.webp",
+    "events": []
+  },
+  "published_events": []
+}

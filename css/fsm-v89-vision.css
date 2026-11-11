@@ -1,0 +1,115 @@
+/* Family Spots Map · V89 – visual reference for test/gemeinsam-v88-finish.
+   Scoped enhancement over V88.6.1. Real controls, content and private storage remain authoritative.
+   The images used in the concept are references, not evidence of published meetups or paid services. */
+html.fsm-v89-ready {--v89-ink:#30271b;--v89-paper:#fff5e4;--v89-cream:#fff8e9;--v89-olive:#678e25;--v89-green:#658e2c;--v89-orange:#f88b0e;--v89-muted:#715b44;--v89-line:#ead9bc;--v89-shadow:0 5px 18px rgba(75,48,15,.14);}
+html.fsm-v89-ready[data-theme="light"] body,html.fsm-v89-ready[data-theme="light"] .app,html.fsm-v89-ready[data-theme="light"] .app-main {background:#fff0d6!important;color:var(--v89-ink)!important;}
+html.fsm-v89-ready .app {max-width:900px;margin:0 auto;}
+html.fsm-v89-ready .app-header {position:relative!important;z-index:2;border:0!important;background:linear-gradient(160deg,#fff9ec 6%,#fff0d3 74%,#fce9c9)!important;color:var(--v89-ink)!important;box-shadow:none!important;padding-bottom:0!important;overflow:visible;}
+html.fsm-v89-ready .app-header-top {position:static!important;min-height:0!important;height:0!important;margin:0!important;padding:0!important;}
+html.fsm-v89-ready .app-header-top .app-header-right{position:static!important;}
+html.fsm-v89-ready #app-title.header-title {font-size:clamp(23px,5.45vw,36px)!important;letter-spacing:-.038em!important;font-weight:800!important;line-height:1.16!important;margin:0!important;text-align:center;color:#30271b!important;white-space:nowrap;}
+html.fsm-v89-ready .app-header-main{padding:20px 10px 0!important;margin:0!important;}
+html.fsm-v89-ready .header-flag img {width:26px!important;height:26px!important;object-fit:cover;border-radius:50%;box-shadow:0 1px 3px #5d412955;}
+html.fsm-v89-ready .header-title .header-flag{display:inline-flex!important;vertical-align:middle;margin:0 4px;}
+html.fsm-v89-ready #header-tagline {max-width:550px;margin:11px auto 0!important;padding:0 14px!important;background:none!important;border:0!important;box-shadow:none!important;font-size:clamp(13px,3.2vw,17px)!important;font-weight:540!important;line-height:1.36!important;letter-spacing:-.01em!important;text-align:center!important;color:#4a3626!important;}
+html.fsm-v89-ready .fsm-v89-landscape {height:clamp(76px,20vw,145px);width:100%;margin:0 auto;background-image:url('../assets/ui/fsm-v89-vision-hills.webp');background-repeat:no-repeat;background-position:center bottom;background-size:100% 100%;pointer-events:none;}
+html.fsm-v89-ready .app-main{padding:0 12px 120px!important;margin:0 auto!important;gap:0!important;background:#fff0d6!important;}
+html.fsm-v89-ready #view-map{display:grid;gap:0!important;row-gap:0!important;}
+html.fsm-v89-ready #view-map>.sidebar {padding:0!important;margin:0!important;max-width:none!important;min-width:0!important;width:100%!important;display:block!important;}
+html.fsm-v89-ready #tilla-section{margin:-1px -12px 0!important;padding:7px 18px 18px!important;background:linear-gradient(180deg,#fff7e7,#fff0d9)!important;border:0!important;border-radius:0!important;box-shadow:none!important;color:#30271b!important;}
+html.fsm-v89-ready #tilla-section>.sidebar-section-header{display:flex!important;align-items:center!important;justify-content:space-between!important;margin:0 0 5px!important;padding:0!important;min-height:30px!important;border:0!important;background:transparent!important;}
+html.fsm-v89-ready #tilla-title {font-size:clamp(17px,4.5vw,23px)!important;letter-spacing:-.03em!important;line-height:1.2!important;font-weight:800!important;color:#352a1c!important;margin:0!important;}
+html.fsm-v89-ready #tilla-section #menu-toggle{width:44px!important;height:44px!important;flex:none!important;color:#332c24!important;border:0!important;background:transparent!important;box-shadow:none!important;position:static!important;display:grid!important;place-items:center!important;}
+html.fsm-v89-ready #tilla-section .tilla-sidebar-card {display:grid!important;grid-template-columns:minmax(85px,33%) minmax(0,1fr)!important;gap:7px 12px!important;background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;margin:0!important;align-items:center!important;}
+html.fsm-v89-ready #tilla-section .tilla-sidebar-avatar {width:100%!important;max-width:none!important;min-width:0!important;aspect-ratio:auto!important;align-self:end!important;}
+html.fsm-v89-ready #tilla-section .tilla-watercolor-canvas{width:117%!important;max-width:none!important;margin-inline-start:-10%!important;}
+html.fsm-v89-ready #tilla-section .tilla-sidebar-avatar img {display:block!important;width:100%!important;height:auto!important;filter:drop-shadow(0 3px 2px #7b572820);}
+html.fsm-v89-ready #tilla-section .tilla-sidebar-text{min-width:0!important;display:flex!important;flex-direction:column!important;gap:9px!important;}
+html.fsm-v89-ready #tilla-section #tilla-sidebar-text {font-size:clamp(12.5px,3.35vw,17px)!important;line-height:1.42!important;font-weight:530!important;letter-spacing:-.018em!important;color:#34291f!important;margin:0!important;overflow-wrap:break-word;}
+html.fsm-v89-ready #tilla-section .tilla-sidebar-actions{display:block!important;margin:0!important;width:100%!important;}
+html.fsm-v89-ready #tilla-section #btn-play-idea {display:flex!important;justify-content:center!important;gap:8px!important;align-items:center!important;width:100%!important;min-height:44px!important;padding:9px 7px!important;font-size:clamp(11px,2.8vw,15px)!important;font-weight:700!important;line-height:1.2!important;border-radius:13px!important;background:linear-gradient(#ff9b22,#f87f04)!important;border:1px solid #e67600!important;color:#fffefa!important;text-shadow:0 1px 1px #8a4c28!important;box-shadow:0 3px 3px #9a571633!important;}
+html.fsm-v89-ready #tilla-section .tilla-play-emoji{display:none!important;}
+html.fsm-v89-ready #tilla-section #btn-play-idea::before{content:'▶';font-size:12px;color:#fff;}
+html.fsm-v89-ready #view-map>.map-section {margin:0!important;width:100%!important;max-width:none!important;padding-top:8px!important;border-top:1px solid rgba(143,110,70,.2)!important;}
+html.fsm-v89-ready #map {border-radius:20px!important;border:1px solid #d9c4a7!important;box-shadow:0 3px 12px #70502b29!important;overflow:hidden;min-height:420px;}
+/* The six live navigation buttons are the original click targets, not a drawn mockup. */
+html.fsm-v89-ready #fsm-home-nav {--fsm-nav-bg:#fff9ed;--fsm-nav-text:#32291f;--fsm-nav-line:#e1ceb5;--fsm-nav-active:#6c940d;--fsm-nav-active-ink:#fffef5;z-index:1000;grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:1px!important;max-width:680px!important;padding:5px!important;border-radius:22px!important;background:linear-gradient(#fffaf0,#fff3df)!important;box-shadow:0 7px 20px #644b2838!important;}
+html.fsm-v89-ready #fsm-home-nav .fsm-home-nav__item {min-height:64px!important;padding:7px 0!important;gap:4px!important;font-size:clamp(9px,2.52vw,12px)!important;font-weight:750!important;letter-spacing:-.035em!important;color:var(--v89-ink)!important;overflow-wrap:normal!important;}
+html.fsm-v89-ready #fsm-home-nav .fsm-home-nav__item > svg {width:24px!important;height:24px!important;}
+html.fsm-v89-ready #fsm-home-nav .fsm-home-nav__item[aria-current="page"] {background:linear-gradient(145deg,#80a814,#557f0c)!important;color:white!important;border-radius:18px!important;box-shadow:0 3px 5px #4d6f1d4d!important;}
+html.fsm-v89-ready #fsm-home-nav .fsm-home-nav__item[data-fsm-home-action="plus"]>svg{color:#df9c05!important;}
+html.fsm-v89-ready #fsm-home-nav .fsm-home-nav__item[data-fsm-home-action="diary"]>svg {color:#477e20!important;}
+html.fsm-v89-ready #fsm-home-nav .fsm-home-nav__item[data-fsm-home-action="diary"][aria-current="page"]>svg {color:white!important;}
+/* The exact approved small hand-heart silhouette is sampled from IMG_0633. */
+html.fsm-v89-ready svg.fsm-daylog-heart{background:#4e831f!important;-webkit-mask:url('../assets/ui/fsm-v89-approved-heart-mask.png') center/contain no-repeat!important;mask:url('../assets/ui/fsm-v89-approved-heart-mask.png') center/contain no-repeat!important;fill:none!important;stroke:none!important;}
+html.fsm-v89-ready svg.fsm-daylog-heart path{display:none!important;}
+html.fsm-v89-ready #fsm-home-nav [aria-current="page"] svg.fsm-daylog-heart {background:#fff9ef!important;}
+/* The existing modal controls provide functional Filter, Spots and Plus pages. */
+html.fsm-v89-ready #fsm-home-sheet {box-sizing:border-box!important;width:min(700px,100vw)!important;max-width:700px!important;max-height:95dvh!important;min-height:min(680px,95dvh)!important;margin:auto auto 0!important;padding:16px 14px max(22px,env(safe-area-inset-bottom))!important;border-radius:25px 25px 0 0!important;background:#fff0da!important;color:#35291c!important;box-shadow:0 -12px 45px #30210955!important;}
+html.fsm-v89-ready #fsm-home-sheet .fsm-home-sheet__head {position:sticky;top:-17px;z-index:3;padding:10px 5px 14px!important;background:#fff0da!important;}
+html.fsm-v89-ready #fsm-home-sheet .fsm-home-sheet__title{font-size:clamp(25px,6vw,34px)!important;font-weight:850!important;letter-spacing:-.045em!important;}
+html.fsm-v89-ready #fsm-home-sheet .fsm-home-sheet__content{padding:0 2px 90px!important;}
+html.fsm-v89-ready #fsm-home-sheet .spot-card {border:1px solid #e5cfb0!important;border-radius:20px!important;box-shadow:var(--v89-shadow)!important;background:#fff8ec!important;padding:10px!important;margin-bottom:12px!important;color:#33291e!important;}
+html.fsm-v89-ready #fsm-home-sheet .spot-card .preview-card-image {width:34%!important;max-height:145px!important;height:126px!important;object-fit:cover!important;float:left;margin:0 12px 8px 0;border-radius:13px!important;}
+html.fsm-v89-ready #fsm-home-sheet .spot-card .spot-card-title {font-size:16px!important;font-weight:830!important;line-height:1.2!important;}
+html.fsm-v89-ready #fsm-home-sheet .spot-card :is(.spot-card-description,.spot-card-subtitle,.spot-card-meta) {font-size:12px!important;line-height:1.4!important;}
+html.fsm-v89-ready #fsm-home-sheet .spot-card .spot-card-actions {clear:both;}
+html.fsm-v89-ready #fsm-home-sheet #plus-section {padding:0!important;}
+html.fsm-v89-ready #fsm-home-sheet .plus-code-form {border:1px solid #e5cdaa!important;border-radius:18px!important;padding:14px!important;background:#fffaf1!important;}
+html.fsm-v89-ready #fsm-home-sheet input,html.fsm-v89-ready #fsm-home-sheet select{color:#352b20!important;background:#fffefa!important;}
+html.fsm-v89-ready .fsm-v89-sheet-hero {margin:2px 0 17px;padding:17px 18px;border:1px solid #e9d6b9;border-radius:18px;background:linear-gradient(145deg,#fff7e8,#f9edd4);box-shadow:0 5px 12px #67451a14;}
+html.fsm-v89-ready .fsm-v89-sheet-hero p {margin:8px 0 0;line-height:1.5;font-size:14px;}
+html.fsm-v89-ready .fsm-v89-sheet-hero strong {display:block;font-size:17px;font-weight:800;color:#39491b;}
+html.fsm-v89-ready .fsm-v89-benefits {display:grid;gap:10px;margin:0 0 18px;}
+html.fsm-v89-ready .fsm-v89-benefit {background:#fffaf1;border:1px solid #e6d3b6;border-radius:17px;padding:12px 15px;display:flex;gap:13px;align-items:center;box-shadow:0 3px 10px #6b462020;}
+html.fsm-v89-ready .fsm-v89-benefit b {display:block;font-size:15px;}
+html.fsm-v89-ready .fsm-v89-benefit small{display:block;font-size:12px;line-height:1.35;color:#725d42;}
+html.fsm-v89-ready .fsm-v89-benefit .fsm-v89-benefit-icon{font-size:26px;flex:none;width:40px;height:40px;display:grid;place-items:center;background:#e9efcd;border-radius:12px;color:#4f742b;}
+/* Diary: actual private records and editor remain live; these are presentation/navigation aids. */
+html.fsm-v89-ready #view-diary{margin:0!important;padding:0 4px 120px!important;background:#fff0da!important;color:#33291b!important;}
+html.fsm-v89-ready #view-diary .fsm-v89-diary-hero {position:relative;display:grid;grid-template-columns:minmax(88px,35%) 1fr;gap:10px;align-items:center;padding:23px 9px 18px;border-bottom:1px solid #e6d0aa;background:linear-gradient(#fff4e1,#fff0d7);}
+html.fsm-v89-ready #view-diary .fsm-v89-diary-hero>img {width:100%;height:auto;max-height:180px;object-fit:contain;}
+html.fsm-v89-ready #view-diary .fsm-v89-diary-hero h2 {font-size:clamp(26px,7vw,40px)!important;line-height:1.12;letter-spacing:-.045em;margin:0 0 9px!important;color:#362d22;font-weight:850;}
+html.fsm-v89-ready #view-diary .fsm-v89-diary-hero p{font-size:clamp(13px,3.5vw,17px);line-height:1.42;margin:0;color:#61492f;}
+html.fsm-v89-ready #view-diary .fsm-v89-diary-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:18px 1px 22px;}
+html.fsm-v89-ready #view-diary .fsm-v89-diary-tabs button{border:1px solid #e4ceb0;border-radius:17px;background:#fff7e8;color:#322a1d;box-shadow:0 3px 8px #73522527;min-height:65px;font-weight:780;font-size:clamp(10px,2.7vw,13px);padding:8px 2px;cursor:pointer;}
+html.fsm-v89-ready #view-diary .fsm-v89-diary-tabs button[aria-current="true"]{background:linear-gradient(#80a816,#5b810d);color:#fff;border-color:#729315;}
+html.fsm-v89-ready #view-diary .fsm-v89-diary-tabs button span{display:block;font-size:23px;margin-bottom:2px;line-height:1;}
+html.fsm-v89-ready #view-diary .fsm-v89-memory-prompt {display:grid;grid-template-columns:90px 1fr auto;gap:10px;align-items:center;margin:12px 0 20px;padding:16px 10px;border:1px dashed #ddb642;border-radius:22px;background:#fff3d4;}
+html.fsm-v89-ready #view-diary .fsm-v89-memory-prompt img{width:85px;height:68px;object-fit:contain;}
+html.fsm-v89-ready #view-diary .fsm-v89-memory-prompt strong{display:block;font-size:15px;line-height:1.25;margin-bottom:3px;}
+html.fsm-v89-ready #view-diary .fsm-v89-memory-prompt p{margin:0;color:#766043;font-size:12px;line-height:1.4;}
+html.fsm-v89-ready #view-diary .fsm-v89-memory-prompt button{width:44px;height:44px;border-radius:50%;background:#6c920d;border:2px solid #fff;color:#fff;box-shadow:0 3px 8px #547a1b55;font-size:28px;}
+html.fsm-v89-ready #view-diary .diary-heading{background:#fff8ec!important;border:1px solid #e4d2b7!important;border-radius:18px!important;padding:15px!important;}
+html.fsm-v89-ready #view-diary .daylog-entry{background:#fffaf0!important;border:1px solid #e6d1b3!important;border-radius:18px!important;box-shadow:var(--v89-shadow)!important;}
+/* Community preview: immersive design; public meetups are not published, no real attendance numbers. */
+html.fsm-v89-ready #fsm-community-overlay{z-index:1200!important;}
+html.fsm-v89-ready #fsm-community-overlay .fsm-community-sheet{max-width:700px!important;width:100%!important;max-height:100dvh!important;height:100dvh!important;border-radius:0!important;background:linear-gradient(#fff7e8,#fff0d7)!important;color:#32271c!important;}
+html.fsm-v89-ready #fsm-community-overlay .fsm-v89-community-intro{margin:-2px 0 0;padding:0 16px 14px;background:#fff7e6;}
+html.fsm-v89-ready #fsm-community-overlay .fsm-v89-community-intro::before{content:'';display:block;height:clamp(74px,20vw,130px);margin:0 -16px 8px;background:url('../assets/ui/fsm-v89-vision-hills.webp') center/100% 100% no-repeat;}
+html.fsm-v89-ready #fsm-community-overlay .fsm-v89-community-hero{display:grid;grid-template-columns:100px 1fr;gap:10px;align-items:center;}
+html.fsm-v89-ready #fsm-community-overlay .fsm-v89-community-hero img{width:110px;max-width:100%;}
+html.fsm-v89-ready #fsm-community-overlay .fsm-v89-community-hero h2{font-size:clamp(23px,6vw,31px);margin:0 0 8px;letter-spacing:-.035em;color:#332a1b;}
+html.fsm-v89-ready #fsm-community-overlay .fsm-v89-community-hero p{font-size:13px;line-height:1.47;color:#55422c;margin:0;}
+html.fsm-v89-ready #fsm-community-overlay .fsm-v89-community-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px;}
+html.fsm-v89-ready #fsm-community-overlay .fsm-v89-community-tabs button{min-height:67px;border-radius:16px;padding:7px 4px;background:#fffaf0;border:1px solid #e6cfac;box-shadow:0 3px 9px #78542729;font-weight:750;font-size:12px;color:#392d1d;}
+html.fsm-v89-ready #fsm-community-overlay .fsm-v89-community-tabs button:first-child{background:#e9f0b9;border-color:#b7ce6d;}
+html.fsm-v89-ready #fsm-community-overlay .fsm-v89-community-tabs span{display:block;font-size:25px;line-height:1.15;margin-bottom:3px;}
+html.fsm-v89-ready #fsm-community-overlay .fsm-community-header{border-top:1px solid #e8d5b7;padding-top:10px;}
+html.fsm-v89-ready #fsm-community-overlay .fsm-community-body{padding-top:8px;}
+html.fsm-v89-ready #fsm-community-overlay .fsm-community-photo{height:145px!important;object-fit:cover!important;border-radius:18px!important;}
+html.fsm-v89-ready #fsm-community-overlay .fsm-community-events{border-radius:19px!important;}
+html.fsm-v89-ready #fsm-community-overlay .fsm-community-actions{background:#fff4e3!important;}
+html.fsm-v89-ready #fsm-community-overlay #fsm-home-nav{position:static!important;margin:5px 9px 9px!important;}
+/* Safety and accessibility across mobile widths. */
+html.fsm-v89-ready :is(#fsm-home-nav,.fsm-v89-diary-tabs,.fsm-v89-community-tabs) button:focus-visible {outline:3px solid #e9a430!important;outline-offset:2px!important;}
+@media(max-width:375px){html.fsm-v89-ready #tilla-section{padding-inline:12px!important;}html.fsm-v89-ready #tilla-title{font-size:16px!important;}html.fsm-v89-ready #tilla-section #tilla-sidebar-text{font-size:12px!important;}html.fsm-v89-ready #fsm-home-nav .fsm-home-nav__item{font-size:9px!important;}html.fsm-v89-ready #fsm-home-nav .fsm-home-nav__item>svg{width:21px!important;height:21px!important;}}
+@media(min-width:700px){html.fsm-v89-ready #view-map>.sidebar,html.fsm-v89-ready #view-map>.map-section{max-width:700px!important;margin:auto!important;}html.fsm-v89-ready #tilla-section{margin:0!important;border-radius:0!important;}html.fsm-v89-ready #view-map>.map-section{width:100%!important;}}
+@media(prefers-reduced-motion:reduce){html.fsm-v89-ready *,html.fsm-v89-ready *::before,html.fsm-v89-ready *::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important;}}
+
+/* Persist the same six-tab navigation in the private diary screen. */
+html.fsm-v89-ready body[data-app-view="diary"] #fsm-home-nav {display:grid!important;}
+
+/* The real navigation lives inside the open native dialog, above its dimmed backdrop. */
+html.fsm-v89-ready.fsm-home-sheet-open #fsm-home-sheet #fsm-home-nav{display:grid!important;position:fixed!important;bottom:max(10px,env(safe-area-inset-bottom))!important;left:10px!important;right:10px!important;width:auto!important;margin-inline:auto!important;z-index:7!important;}
+html.fsm-v89-ready #fsm-home-sheet .fsm-home-sheet__content{padding-bottom:105px!important;}

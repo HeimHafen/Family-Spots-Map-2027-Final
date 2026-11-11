@@ -1,0 +1,486 @@
+/* Family Spots Map · Feinschliff 72 · 30.10.2026
+   GEZIELTER FIX: Filter/Spots flacher und schmaler, rechte Aktionen
+   Mein Tag/Spots Plus typografisch identisch.
+   Keine Änderungen an Tilla, Karten, Farben, Filtern, Spots oder Erinnerungen.
+*/
+
+/* Identische Zeilenkarten: sichtbare Box 44px (inkl. je 1px Rahmen).
+   Die Aktions-Touchflaeche bleibt selbst 44px hoch. */
+html.fsm-polished #sidebar > :is(#filter-section.sidebar-section, .sidebar-section.sidebar-section--grow) {
+  box-sizing: border-box !important;
+  width: calc(100% - 16px) !important;
+  max-width: calc(100% - 16px) !important;
+  margin-inline: 8px !important;
+  padding: 0 12px !important;
+  min-height: 44px !important;
+  border-radius: 15px !important;
+}
+html.fsm-polished #sidebar > :is(#filter-section.sidebar-section, .sidebar-section.sidebar-section--grow) > .sidebar-section-header {
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  min-height: 42px !important;
+  height: 42px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  gap: 8px !important;
+}
+html.fsm-polished #sidebar > :is(#filter-section.sidebar-section, .sidebar-section.sidebar-section--grow) > .sidebar-section-header > .sidebar-section-title {
+  margin: 0 !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 1.25 !important;
+}
+html.fsm-polished #sidebar :is(#btn-toggle-filters, #btn-toggle-spots) {
+  box-sizing: border-box !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  margin: 0 0 0 auto !important;
+  padding: 0 1px 0 8px !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  line-height: 1.3 !important;
+  letter-spacing: 0 !important;
+  gap: 5px !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+html.fsm-polished #sidebar :is(#btn-toggle-filters, #btn-toggle-spots) .fsm-disclosure-chevron {
+  width: 16px !important;
+  height: 16px !important;
+  flex: 0 0 16px !important;
+}
+
+/* Gleichrangige rechte Texte: Anzeigen/Ausblenden und Öffnen. */
+html.fsm-polished :is(#plus-section > summary #btn-toggle-plus,
+  #plus-section > summary #btn-toggle-plus > span,
+  #btn-open-diary.diary-launcher > span:last-child) {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  line-height: 1.3 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  color: var(--p-muted, #746658) !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+html.fsm-polished #btn-open-diary.diary-launcher > span:last-child {
+  margin-left: auto !important;
+  padding-inline: 6px !important;
+  white-space: nowrap !important;
+  text-align: right !important;
+}
+
+/* Bei ganz kleinen Displays bleibt die Typografie gleich; keine Überlappung. */
+@media (max-width: 360px) {
+  html.fsm-polished #sidebar > :is(#filter-section.sidebar-section, .sidebar-section.sidebar-section--grow) {
+    width: calc(100% - 12px) !important;
+    max-width: calc(100% - 12px) !important;
+    margin-inline: 6px !important;
+    padding-inline: 10px !important;
+  }
+}
+
+
+/* =============================================================
+   Family Spots Map 74: Spots-finden-Dialog – referenztreue UI.
+   NUR der Filterdialog. Andere Oberflächen, Karte, Tilla und
+   die 44-Pixel-Sektionstitel bleiben bewusst unverändert.
+   ============================================================= */
+html.fsm-polished #filter-modal {
+  box-sizing:border-box;
+  padding:clamp(28px,5vh,54px) 12px 0!important;
+  align-items:flex-end!important;
+  background:rgba(31,26,22,.52)!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+}
+html.fsm-polished #filter-modal .filter-modal-inner {
+  width:100%!important;
+  max-width:560px!important;
+  max-height:100%!important;
+  height:100%!important;
+  box-sizing:border-box;
+  border:1px solid #e3d8c8!important;
+  border-bottom:0!important;
+  border-radius:25px 25px 0 0!important;
+  background:#fffaf1!important;
+  color:#332820!important;
+  overflow:hidden!important;
+  box-shadow:0 -7px 30px rgba(27,22,15,.16)!important;
+}
+html.fsm-polished #filter-modal .filter-modal-header {
+  position:relative;
+  background:#fffaf1!important;
+  display:flex;
+  align-items:center;
+  padding:21px 20px 9px!important;
+  gap:12px;
+}
+html.fsm-polished #filter-modal .filter-modal-header::before {
+  content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);
+  width:38px;height:4px;border-radius:10px;background:#d8cec1;
+}
+html.fsm-polished #filter-modal #filter-modal-title {
+  font-family:Arial,Helvetica,sans-serif!important;
+  font-size:clamp(22px,5vw,26px)!important;
+  line-height:1.15!important;
+  font-weight:700!important;
+  letter-spacing:-.025em;
+  color:#33251c!important;
+}
+html.fsm-polished #filter-modal #filter-modal-close {
+  flex:0 0 40px;width:40px;height:40px;
+  border-radius:50%;background:#f4ebdf!important;
+  border:0!important;color:#33251c!important;
+}
+html.fsm-polished #filter-modal .filter-modal-body {
+  background:#fffaf1!important;
+  padding:0 20px 16px!important;
+  scrollbar-width:thin;
+  overflow-x:hidden!important;
+}
+html.fsm-polished #filter-modal .category-explorer { margin:0!important; }
+html.fsm-polished #filter-modal .category-explorer h3 {
+  font:700 clamp(17px,4vw,19px)/1.28 Arial,Helvetica,sans-serif!important;
+  margin:8px 0 4px!important;letter-spacing:-.012em;color:#33251c;
+}
+html.fsm-polished #filter-modal .category-explorer > .filter-group-helper {
+  font:400 13px/1.46 Arial,Helvetica,sans-serif!important;
+  color:#766a61!important;margin:0 0 10px!important;
+}
+html.fsm-polished #filter-modal .category-explorer__rules,
+html.fsm-polished #fsm-community-overlay .category-explorer__rules{
+  margin:12px 0 16px!important;border:1px solid #dfd1c2;
+  background:#fcf6ec;border-radius:12px;overflow:hidden;
+}
+html.fsm-polished #filter-modal .category-explorer__rules summary,
+html.fsm-polished #fsm-community-overlay .category-explorer__rules summary{
+  display:flex;align-items:center;gap:10px;
+  min-height:44px;padding:10px 12px!important;
+  font:600 14px/1.35 Arial,Helvetica,sans-serif!important;
+  color:#342a22!important;list-style:none;
+}
+html.fsm-polished #filter-modal .category-explorer__rules summary::-webkit-details-marker,
+html.fsm-polished #fsm-community-overlay .category-explorer__rules summary::-webkit-details-marker{display:none;}
+html.fsm-polished #filter-modal .category-explorer__rules summary::before,
+html.fsm-polished #fsm-community-overlay .category-explorer__rules summary::before{
+  content:"";flex:0 0 23px;width:23px;height:23px;background-repeat:no-repeat;background-size:contain;background-position:center;background-image:url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23f28b12%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M9%2018h6m-5%203h4M8.2%2014.3C7%2013.1%206.5%2011.7%206.5%2010a5.5%205.5%200%201%201%2011%200c0%201.7-.6%203.1-1.8%204.3-.8.8-1.2%201.3-1.2%202.7h-5c0-1.4-.4-1.9-1.3-2.7ZM12%201v2m8%207h2M2%2010h2m2-6%201.5%201.5m10.9-1.5L17%205.5%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+}
+html.fsm-polished #filter-modal .category-explorer__rules summary::after,
+html.fsm-polished #fsm-community-overlay .category-explorer__rules summary::after{
+  content:"";margin-inline-start:auto;flex:0 0 9px;width:9px;height:9px;
+  border-right:2px solid currentColor;border-bottom:2px solid currentColor;
+  transform:translateY(-2px) rotate(45deg);
+}
+html.fsm-polished #filter-modal .category-explorer__rules[open] summary::after,
+html.fsm-polished #fsm-community-overlay .category-explorer__rules[open] summary::after{transform:rotate(225deg);}
+html.fsm-polished #filter-modal .category-explorer__rules > p,
+html.fsm-polished #fsm-community-overlay .category-explorer__rules > p{padding:0 12px 11px;margin:0!important;font-size:12px;line-height:1.5;}
+html.fsm-polished #filter-modal .category-explorer__theme-heading {
+  margin:0 0 7px!important;
+  font:700 11px/1.3 Arial,Helvetica,sans-serif;
+  color:#726459;letter-spacing:.11em;
+}
+html.fsm-polished #filter-modal .category-explorer__worlds {
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:7px 9px!important;margin:0 0 12px!important;
+}
+html.fsm-polished #filter-modal .category-explorer__worlds > .category-explorer__chip {
+  display:flex!important;align-items:center!important;justify-content:flex-start!important;
+  box-sizing:border-box;min-width:0;min-height:46px!important;
+  border:1px solid #e4d8c9!important;
+  border-radius:11px!important;padding:8px 8px!important;
+  background:#f9f1e6!important;color:#34291f!important;
+  font:400 clamp(10px,3vw,12px)/1.24 Arial,Helvetica,sans-serif!important;
+  text-align:left;text-decoration:none!important;
+  gap:6px!important;box-shadow:none!important;
+}
+html.fsm-polished #filter-modal .category-explorer__worlds > [data-world=""] {grid-column:auto!important;}
+html.fsm-polished #filter-modal .category-explorer__worlds > .category-explorer__chip::after {
+  content:none!important;display:none!important;
+}
+html.fsm-polished #filter-modal .category-explorer__worlds > .category-explorer__chip::before {
+  content:""!important;display:block!important;
+  flex:0 0 21px;width:21px;height:21px;
+  background-repeat:no-repeat;background-position:center;background-size:contain;
+}
+html.fsm-polished #filter-modal .category-explorer__worlds > .category-explorer__chip[aria-pressed="true"] {
+  border-color:#668452!important;background:#eaf0e1!important;color:#294f24!important;
+  font-weight:500!important;
+}
+html.fsm-polished #filter-modal .category-explorer__worlds > .category-explorer__chip[aria-pressed="true"]::before {filter:sepia(1) saturate(3) hue-rotate(55deg) brightness(.66);}
+html.fsm-polished #filter-modal .category-explorer__worlds .category-explorer__name {
+  flex:1;min-width:0;overflow-wrap:normal;hyphens:auto;
+}
+html.fsm-polished #filter-modal .category-explorer__worlds .category-explorer__count {display:none!important;}
+html.fsm-polished #filter-modal .category-explorer__fieldset {
+  border-top:1px solid #e2d7c8!important;
+  padding:12px 0 0!important;margin:14px 0 0!important;
+}
+html.fsm-polished #filter-modal .category-explorer__fieldset legend {
+  float:none;width:100%;padding:0!important;
+  font:700 11px/1.45 Arial,Helvetica,sans-serif!important;
+  color:#726459!important;letter-spacing:.10em;text-transform:uppercase;
+}
+html.fsm-polished #filter-modal .category-explorer__selected-count {
+  float:right;color:#315d2e;font:500 12px/1.4 Arial,Helvetica,sans-serif;
+  letter-spacing:normal;text-transform:none;
+}
+html.fsm-polished #filter-modal .category-explorer__types {margin:8px 0 4px!important;gap:0!important;}
+html.fsm-polished #filter-modal .category-explorer__choice {
+  min-height:44px!important;padding:5px 1px!important;
+  border:0!important;border-radius:0!important;
+  background:none!important;box-shadow:none!important;
+  gap:11px!important;font:400 13px/1.3 Arial,Helvetica,sans-serif!important;
+  color:#332820!important;
+}
+html.fsm-polished #filter-modal .category-explorer__choice:has(input:checked) {font-weight:400!important;}
+html.fsm-polished #filter-modal .category-explorer__choice > span {gap:8px!important;}
+html.fsm-polished #filter-modal .category-explorer__choice .category-explorer__name {flex:1;min-width:0;overflow-wrap:normal;}
+html.fsm-polished #filter-modal .category-explorer__choice .category-explorer__count {
+  margin-left:auto;font:400 12px/1.3 Arial,Helvetica,sans-serif!important;color:#786f68!important;
+  min-width:2ch;text-align:right;
+}
+html.fsm-polished #filter-modal .category-explorer__choice input[type="checkbox"] {
+  box-sizing:border-box;width:20px;height:20px;flex:0 0 20px;
+  border:1.5px solid #8d8478!important;border-radius:5px!important;
+  background:#fffaf1!important;
+}
+html.fsm-polished #filter-modal .category-explorer__choice input[type="checkbox"]:checked {
+  background:#52923e!important;border-color:#52923e!important;
+}
+html.fsm-polished #filter-modal .category-explorer__selection {margin-top:6px;}
+html.fsm-polished #filter-modal .category-explorer__selection .category-explorer__chip {min-height:36px;font-size:12px;}
+html.fsm-polished #filter-modal .filter-modal-footer {
+  flex:0 0 auto;display:grid!important;grid-template-columns:1fr 1fr!important;
+  gap:8px!important;padding:10px 16px max(12px,env(safe-area-inset-bottom))!important;
+  background:#fffaf1!important;border-top:1px solid #ddd0be!important;
+  box-shadow:none!important;
+}
+html.fsm-polished #filter-modal #filter-modal-reset,
+html.fsm-polished #filter-modal #filter-modal-apply {
+  box-sizing:border-box;position:relative;isolation:isolate;
+  display:flex;align-items:center;justify-content:center;
+  min-width:0;width:100%;min-height:48px!important;
+  margin:0!important;padding:9px 8px!important;
+  border-radius:10px!important;font:600 13px/1.25 Arial,Helvetica,sans-serif!important;
+  text-align:center;box-shadow:none!important;
+}
+html.fsm-polished #filter-modal #filter-modal-reset {
+  background:#f7eee2!important;border:1px solid #dfd1c1!important;color:#382b23!important;
+}
+html.fsm-polished #filter-modal #filter-modal-apply {
+  background:#ff8819!important;border:1px solid #ef8013!important;color:#21170f!important;
+}
+html.fsm-polished #filter-modal #filter-modal-apply::before {content:none!important;display:none!important;}
+html.fsm-polished #filter-modal :is(button,summary,input):focus-visible {outline:2px solid var(--fsm-keyboard-focus, #685c51)!important;outline-offset:2px!important;}
+@media (max-width:360px) {
+ html.fsm-polished #filter-modal {padding-inline:8px!important;}
+ html.fsm-polished #filter-modal .filter-modal-header {padding-inline:13px!important;}
+ html.fsm-polished #filter-modal .filter-modal-body {padding-inline:13px!important;}
+ html.fsm-polished #filter-modal .category-explorer__worlds {gap:6px!important;}
+ html.fsm-polished #filter-modal .category-explorer__worlds>.category-explorer__chip {font-size:11.5px!important;padding-inline:7px!important;gap:6px!important;}
+ html.fsm-polished #filter-modal .category-explorer__worlds>.category-explorer__chip::before {flex-basis:21px;width:21px;height:21px;}
+ html.fsm-polished #filter-modal .filter-modal-footer {padding-inline:12px!important;}
+}
+@media (prefers-reduced-motion:reduce) {
+ html.fsm-polished #filter-modal * {scroll-behavior:auto!important;transition:none!important;}
+}
+@media (forced-colors:active) {
+ html.fsm-polished #filter-modal .category-explorer__worlds>.category-explorer__chip {border:1px solid ButtonText!important;background:Canvas!important;color:CanvasText!important;}
+ html.fsm-polished #filter-modal .category-explorer__worlds>.category-explorer__chip[aria-pressed="true"] {outline:2px solid Highlight!important;outline-offset:-3px!important;}
+ html.fsm-polished #filter-modal .category-explorer__choice input[type="checkbox"] {forced-color-adjust:auto;}
+}
+
+html.fsm-polished #filter-modal .category-explorer__worlds > [data-world=""]::before { background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%233b342b%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221%22%2F%3E%3Crect%20x%3D%2214%22%20y%3D%223%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%2214%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221%22%2F%3E%3Crect%20x%3D%2214%22%20y%3D%2214%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+html.fsm-polished #filter-modal .category-explorer__worlds > [data-world="play"]::before { background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%233b342b%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%2021%207%203h10l3%2018M3%2021h18M7%207h10M9%207v8m6-8v8M9%2015q3%203%206%200%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+html.fsm-polished #filter-modal .category-explorer__worlds > [data-world="animals"]::before { background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%233b342b%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cellipse%20cx%3D%2212%22%20cy%3D%2216%22%20rx%3D%225%22%20ry%3D%223.5%22%2F%3E%3Cellipse%20cx%3D%225%22%20cy%3D%2210%22%20rx%3D%221.1%22%20ry%3D%221.8%22%2F%3E%3Cellipse%20cx%3D%2210%22%20cy%3D%227%22%20rx%3D%221.1%22%20ry%3D%221.8%22%2F%3E%3Cellipse%20cx%3D%2215%22%20cy%3D%227%22%20rx%3D%221.1%22%20ry%3D%221.8%22%2F%3E%3Cellipse%20cx%3D%2220%22%20cy%3D%2210%22%20rx%3D%221.1%22%20ry%3D%221.8%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+html.fsm-polished #filter-modal .category-explorer__worlds > [data-world="nature"]::before { background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%233b342b%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M20%204C9%204%204%209%204%2015a5%205%200%200%200%205%205c6%200%2011-5%2011-16ZM4%2020%2016%208%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+html.fsm-polished #filter-modal .category-explorer__worlds > [data-world="water"]::before { background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%233b342b%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M2%206q3-3%206%200t6%200t6%200M2%2012q3-3%206%200t6%200t6%200M2%2018q3-3%206%200t6%200t6%200%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+html.fsm-polished #filter-modal .category-explorer__worlds > [data-world="adventure"]::before { background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%233b342b%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m2%2020%207-12%204%206%203-4%206%2010H2ZM9%208l2%203M16%2010l2%203%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+html.fsm-polished #filter-modal .category-explorer__worlds > [data-world="culture"]::before { background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%233b342b%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%206C9%203%205%203%202%204v15c4-1%208%200%2010%203%202-3%206-4%2010-3V4c-3-1-7-1-10%202Zm0%200v16%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+html.fsm-polished #filter-modal .category-explorer__worlds > [data-world="pause"]::before { background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%233b342b%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%203v9m3-9v9m3-9v9M4%2012h6M7%2012v9M17%2021V3q-5%203-5%209h5%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+html.fsm-polished #filter-modal .category-explorer__worlds > [data-world="travel"]::before { background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%233b342b%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m2%2020%2010-16%2010%2016H2Zm10-16v16m-4%200%204-6%204%206%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+html.fsm-polished #filter-modal .category-explorer__worlds > [data-world="services"]::before { background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%233b342b%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%2022V3m-7%208h14m-12-4%205-4%205%204m-9%2015h8%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+html.fsm-polished #filter-modal .category-explorer__worlds > [data-world="events"]::before { background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%233b342b%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223%22%20y%3D%225%22%20width%3D%2218%22%20height%3D%2216%22%20rx%3D%222%22%2F%3E%3Cpath%20d%3D%22M7%203v4m10-4v4M3%2011h18%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+html.fsm-polished #filter-modal .category-explorer__worlds > [data-world="other"]::before { background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%233b342b%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%229%22%2F%3E%3Cpath%20d%3D%22M12%208v8M8%2012h8%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+
+/* Lange Kategorien bleiben ab mittlerer iPhone-Breite einzeilig. */
+@media (min-width:361px) {
+ html.fsm-polished #filter-modal .category-explorer__worlds > :is([data-world="play"],[data-world="travel"]) {font-size:11px!important;}
+}
+
+/* ===============================================================
+   Family Spots Map 75 – ausschließlich zwei Titel-Symbole.
+   Filter und Spots behalten ihre bisherigen 44px Leisten, Fonts,
+   Größen, Farben, Abstände und Interaktionen bei.
+   Die SVG-Grafiken sind rein dekorativ (kein zusätzlicher Text).
+   Der Filterdialog aus Version 74 bleibt unverändert.
+   =============================================================== */
+html.fsm-polished #sidebar #filter-title,
+html.fsm-polished #sidebar #spots-title {
+  display: inline-flex !important;
+  align-items: center !important;
+  column-gap: 7px !important;
+  min-width: 0;
+  white-space: nowrap;
+}
+html.fsm-polished #sidebar #filter-title::before,
+html.fsm-polished #sidebar #spots-title::before {
+  content: "";
+  display: block;
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px 18px;
+}
+html.fsm-polished #sidebar #filter-title::before {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%234E7B36%22%20stroke-width%3D%221.9%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%205h18M3%2012h18M3%2019h18%22%2F%3E%3Ccircle%20cx%3D%228%22%20cy%3D%225%22%20r%3D%222.2%22%20fill%3D%22%23FFF9EE%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2212%22%20r%3D%222.2%22%20fill%3D%22%23FFF9EE%22%2F%3E%3Ccircle%20cx%3D%2210%22%20cy%3D%2219%22%20r%3D%222.2%22%20fill%3D%22%23FFF9EE%22%2F%3E%3C%2Fsvg%3E");
+}
+html.fsm-polished #sidebar #spots-title::before {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%234E7B36%22%20stroke-width%3D%221.9%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%2022s7-6.7%207-13a7%207%200%200%200-14%200c0%206.3%207%2013%207%2013Z%22%2F%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%229%22%20r%3D%222.5%22%2F%3E%3C%2Fsvg%3E");
+}
+
+
+/* =====================================================================
+   Family Spots Map 76 – präzise Umsetzung der bestätigten Filter-Vorlage.
+   Alle Regeln sind strikt auf #filter-modal begrenzt. Startseite,
+   44px-Filter-/Spots-Leisten, Tilla und Vollbild bleiben unberührt.
+   Die Kategorien, Häkchen und Trefferzahlen stammen weiterhin aus JS.
+   ===================================================================== */
+html.fsm-polished #filter-modal .filter-modal-header {
+  padding-top:18px!important;
+  padding-bottom:7px!important;
+}
+html.fsm-polished #filter-modal .category-explorer h3 { margin:6px 0 4px!important; }
+html.fsm-polished #filter-modal .category-explorer > .filter-group-helper {
+  margin-bottom:8px!important;
+}
+html.fsm-polished #filter-modal .category-explorer__rules,
+html.fsm-polished #fsm-community-overlay .category-explorer__rules{
+  margin-top:10px!important;
+  margin-bottom:12px!important;
+}
+html.fsm-polished #filter-modal .category-explorer__theme-heading {
+  margin-bottom:6px!important;
+}
+html.fsm-polished #filter-modal .category-explorer__worlds {
+  column-gap:8px!important;
+  row-gap:6px!important;
+  margin-bottom:11px!important;
+}
+html.fsm-polished #filter-modal .category-explorer__worlds > .category-explorer__chip {
+  min-height:40px!important;
+  padding:6px 8px!important;
+  border-radius:10px!important;
+  background:#fcf5eb!important;
+  border-color:#e8dacb!important;
+  font-size:clamp(10px,2.85vw,12px)!important;
+  line-height:1.28!important;
+}
+html.fsm-polished #filter-modal .category-explorer__worlds > .category-explorer__chip[aria-pressed="true"] {
+  background:#eaf1e2!important;
+  border-color:#648552!important;
+}
+html.fsm-polished #filter-modal .category-explorer__worlds > .category-explorer__chip::before {
+  flex-basis:22px;
+  width:22px;
+  height:22px;
+}
+/* Wasser bleibt aquablau, Natur olivgrün – exakt wie die Vorlage. */
+html.fsm-polished #filter-modal .category-explorer__worlds > [data-world="water"]:not([aria-pressed="true"])::before {
+  filter: invert(46%) sepia(74%) saturate(864%) hue-rotate(159deg) brightness(96%) contrast(95%);
+}
+html.fsm-polished #filter-modal .category-explorer__worlds > [data-world="nature"]:not([aria-pressed="true"])::before {
+  filter: invert(28%) sepia(34%) saturate(940%) hue-rotate(64deg) brightness(83%) contrast(91%);
+}
+html.fsm-polished #filter-modal .category-explorer__fieldset {
+  margin-top:11px!important;
+  padding-top:11px!important;
+}
+html.fsm-polished #filter-modal .category-explorer__type-help {
+  margin:5px 0 7px!important;
+  color:#766a61!important;
+  font:400 12px/1.4 Arial,Helvetica,sans-serif!important;
+}
+html.fsm-polished #filter-modal .category-explorer__types {
+  margin-top:3px!important;
+  margin-bottom:4px!important;
+}
+html.fsm-polished #filter-modal .category-explorer__choice {
+  min-height:34px!important;
+  padding:4px 1px!important;
+  gap:10px!important;
+  font-size:12.5px!important;
+  line-height:1.3!important;
+}
+html.fsm-polished #filter-modal .category-explorer__choice input[type="checkbox"] {
+  width:19px;
+  height:19px;
+  flex-basis:19px;
+  border-radius:5px!important;
+}
+html.fsm-polished #filter-modal .category-explorer__choice .category-explorer__count {
+  font-size:12px!important;
+}
+html.fsm-polished #filter-modal .filter-modal-footer {
+  gap:8px!important;
+  padding-block:9px max(12px,env(safe-area-inset-bottom))!important;
+}
+html.fsm-polished #filter-modal #filter-modal-reset,
+html.fsm-polished #filter-modal #filter-modal-apply {
+  min-height:46px!important;
+  font-size:13px!important;
+}
+@media (max-width:360px) {
+ html.fsm-polished #filter-modal .category-explorer__worlds {column-gap:6px!important;row-gap:6px!important;}
+ html.fsm-polished #filter-modal .category-explorer__worlds > .category-explorer__chip {
+   font-size:11px!important;
+   padding-inline:6px!important;
+   gap:5px!important;
+ }
+ html.fsm-polished #filter-modal .category-explorer__worlds > .category-explorer__chip::before {
+   flex-basis:20px;width:20px;height:20px;
+ }
+}
+@media (forced-colors:active) {
+ html.fsm-polished #filter-modal .category-explorer__worlds > .category-explorer__chip[aria-pressed="true"] {outline:2px solid Highlight!important;}
+}
+
+
+/* =============================================================
+   FSM 77 – Nur die zwei markierten iPhone-Eingabefelder.
+   Suchfeld im Filter und Erinnerungstextfeld in „Mein Tag“:
+   Kein gruener Fokus-Doppelrahmen; ruhiger beiger Einzelrahmen.
+   Andere Eingaben, Filter-Checkboxen und Buttons unveraendert.
+   ============================================================= */
+html.fsm-polished :is(#filter-search, #daylog-text):is(:focus, :focus-visible) {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+}
+/* Hoher Systemkontrast: erkennbare Tastaturfokussierung erhalten. */
+@media (forced-colors: active) {
+  html.fsm-polished :is(#filter-search, #daylog-text):is(:focus, :focus-visible) {
+    outline: 2px solid Highlight !important;
+    outline-offset: 2px !important;
+    border-color: Highlight !important;
+  }
+}
+
+
+/* FSM 78 – ausschliesslich den gruenen linken Akzentstrich im
+   Spots-Plus-Zugangshinweis entfernen. Der umlaufende duenne
+   Rahmen und alle anderen Gestaltungsmerkmale bleiben erhalten. */
+html.fsm-polished #plus-section #plus-status-text {
+  border-left-width: 1px !important;
+  border-left-color: var(--fsm-f69-border) !important;
+}

@@ -1,0 +1,763 @@
+{
+  "version": "2026-11-11",
+  "appName": "Family Spots Map",
+  "tagline": {
+    "de": "Die schönste Karte für Familien-Abenteuer. Finde geprüfte Ausflugsziele in deiner Nähe – von Eltern für Eltern.",
+    "en": "The most beautiful map for family adventures. Discover curated family-friendly places near you – by parents for parents.",
+    "da": "Det smukkeste kort til familieeventyr. Find udvalgte familievenlige steder i nærheden – af forældre til forældre."
+  },
+  "languages": [
+    "de",
+    "en",
+    "da"
+  ],
+  "meta": {
+    "homepage": "https://heimhafen.github.io/Family-Spots-Map-V5/",
+    "repository": "https://github.com/HeimHafen/Family-Spots-Map-V5"
+  },
+  "defaultLocation": {
+    "lat": 52.37,
+    "lng": 9.73
+  },
+  "defaultZoom": 7,
+  "features": {
+    "curatedSpots": true,
+    "offlineFirst": true,
+    "favorites": true,
+    "noTracking": true,
+    "verifiedSpotsFlag": true
+  },
+  "plans": [
+    {
+      "id": "free",
+      "label": {
+        "de": "Family Spots – Basis",
+        "en": "Family Spots – Free",
+        "da": "Family Spots – Basis"
+      },
+      "description": {
+        "de": "Alle Basis-Kategorien, Favoriten und Offline-Karte.",
+        "en": "All core categories, favorites and offline map.",
+        "da": "Alle basiskategorier, favoritter og offline-kort."
+      },
+      "price": {
+        "eurPerYear": 0
+      }
+    },
+    {
+      "id": "plus",
+      "label": {
+        "de": "Family Spots Plus",
+        "en": "Family Spots Plus",
+        "da": "Family Spots Plus"
+      },
+      "description": {
+        "de": "Zusätzliche Spezial-Kategorien für Camping, WoMo & Abenteuer.",
+        "en": "Extra speciality categories for camping, RV and adventures.",
+        "da": "Ekstra specialkategorier til camping, autocamper og eventyr."
+      },
+      "price": {
+        "eurPerYear": 2.99
+      }
+    }
+  ],
+  "plus": {
+    "categories": [
+      "rastplatz-spielplatz-dusche",
+      "stellplatz-spielplatz-naehe-kostenlos",
+      "wohnmobil-service-station",
+      "bikepacking-spot",
+      "campingplatz-familien",
+      "kletterwald-hochseilgarten"
+    ]
+  },
+  "categoryGroups": {
+    "Spiel & Bewegung": [
+      "spielplatz",
+      "abenteuerspielplatz",
+      "indoor-spielplatz",
+      "waldspielplatz",
+      "wasserspielplatz",
+      "barrierefreier-spielplatz",
+      "bewegungspark",
+      "multifunktionsfeld",
+      "bolzplatz",
+      "pumptrack",
+      "skatepark",
+      "verkehrsgarten",
+      "toddler-barfuss-motorik"
+    ],
+    "Tiere & Natur": [
+      "zoo",
+      "tierpark",
+      "wildpark",
+      "bauernhof",
+      "naturerlebnispfad",
+      "walderlebnisroute"
+    ],
+    "Wasser & Schwimmen": [
+      "schwimmbad",
+      "badesee",
+      "strand",
+      "eisbahn",
+      "rodelhuegel"
+    ],
+    "Erlebnis & Freizeit": [
+      "freizeitpark",
+      "trampolinpark",
+      "kletterhalle",
+      "kletteranlage-outdoor",
+      "kletterwald-hochseilgarten",
+      "boulderpark",
+      "minigolf",
+      "familien-event",
+      "hoehle",
+      "felsenwanderung",
+      "aussichtspunkt",
+      "baumhaus",
+      "labyrinth",
+      "klangpfad",
+      "ueberdachter-spielplatz",
+      "dirtbike-track",
+      "streetball-platz"
+    ],
+    "Wandern & Radfahren": [
+      "wanderweg-kinderwagen",
+      "radweg-family"
+    ],
+    "Essen & Trinken": [
+      "familiencafe",
+      "kinder-familiencafe",
+      "familien-restaurant"
+    ],
+    "Lernen & Kultur": [
+      "museum-kinder",
+      "kinder-museum",
+      "freilichtmuseum",
+      "bibliothek"
+    ],
+    "Praktisches": [
+      "oeffentliche-toilette",
+      "wickelraum"
+    ],
+    "Unterwegs mit WoMo & Rad": [
+      "stellplatz-spielplatz-naehe-kostenlos",
+      "wohnmobil-service-station",
+      "rastplatz-spielplatz-dusche",
+      "bikepacking-spot",
+      "campingplatz-familien"
+    ],
+    "Entspannung & Naturorte": [
+      "park-garten",
+      "picknickwiese",
+      "waldbaden-ort",
+      "natur-aussichtspunkt"
+    ]
+  },
+  "packs": [],
+  "categories": [
+    {
+      "slug": "spielplatz",
+      "icon": "",
+      "label": {
+        "de": "Spielplatz",
+        "en": "Playground",
+        "da": "Legeplads"
+      }
+    },
+    {
+      "slug": "abenteuerspielplatz",
+      "icon": "",
+      "label": {
+        "de": "Abenteuerspielplatz",
+        "en": "Adventure playground",
+        "da": "Eventyrlegeplads"
+      }
+    },
+    {
+      "slug": "indoor-spielplatz",
+      "icon": "",
+      "label": {
+        "de": "Indoor-Spielplatz",
+        "en": "Indoor playground",
+        "da": "Indendørs legeplads"
+      }
+    },
+    {
+      "slug": "waldspielplatz",
+      "icon": "",
+      "label": {
+        "de": "Waldspielplatz",
+        "en": "Forest playground",
+        "da": "Skovlegeplads"
+      }
+    },
+    {
+      "slug": "wasserspielplatz",
+      "icon": "",
+      "label": {
+        "de": "Wasserspielplatz",
+        "en": "Water playground",
+        "da": "Vandlegeplads"
+      }
+    },
+    {
+      "slug": "barrierefreier-spielplatz",
+      "icon": "",
+      "label": {
+        "de": "Barrierefreier Spielplatz",
+        "en": "Accessible playground",
+        "da": "Tilgængelig legeplads"
+      }
+    },
+    {
+      "slug": "bewegungspark",
+      "icon": "",
+      "label": {
+        "de": "Bewegungspark",
+        "en": "Activity park",
+        "da": "Bevægelsespark"
+      }
+    },
+    {
+      "slug": "multifunktionsfeld",
+      "icon": "",
+      "label": {
+        "de": "Multifunktionsfeld",
+        "en": "Multi-sport court",
+        "da": "Multibane"
+      }
+    },
+    {
+      "slug": "bolzplatz",
+      "icon": "",
+      "label": {
+        "de": "Bolzplatz",
+        "en": "Soccer pitch",
+        "da": "Boldbane"
+      }
+    },
+    {
+      "slug": "pumptrack",
+      "icon": "",
+      "label": {
+        "de": "Pumptrack",
+        "en": "Pumptrack",
+        "da": "Pumptrack"
+      }
+    },
+    {
+      "slug": "skatepark",
+      "icon": "",
+      "label": {
+        "de": "Skatepark",
+        "en": "Skate park",
+        "da": "Skatepark"
+      }
+    },
+    {
+      "slug": "verkehrsgarten",
+      "icon": "",
+      "label": {
+        "de": "Verkehrsgarten",
+        "en": "Traffic training park",
+        "da": "Trafiklegeplads"
+      }
+    },
+    {
+      "slug": "toddler-barfuss-motorik",
+      "icon": "",
+      "label": {
+        "de": "Toddler / Barfuß / Motorik",
+        "en": "Toddler / barefoot / motor skills",
+        "da": "Tumling / barfod / motorik"
+      }
+    },
+    {
+      "slug": "zoo",
+      "icon": "",
+      "label": {
+        "de": "Zoo",
+        "en": "Zoo",
+        "da": "Zoo"
+      }
+    },
+    {
+      "slug": "wildpark",
+      "icon": "",
+      "label": {
+        "de": "Wildpark & Safaris",
+        "en": "Wildlife park & safaris",
+        "da": "Dyrepark & safari"
+      }
+    },
+    {
+      "slug": "tierpark",
+      "icon": "",
+      "label": {
+        "de": "Tierpark",
+        "en": "Animal park",
+        "da": "Dyrepark"
+      }
+    },
+    {
+      "slug": "bauernhof",
+      "icon": "",
+      "label": {
+        "de": "Bauernhof",
+        "en": "Farm",
+        "da": "Gård"
+      }
+    },
+    {
+      "slug": "schwimmbad",
+      "icon": "",
+      "label": {
+        "de": "Schwimmbad",
+        "en": "Swimming pool",
+        "da": "Svømmebad"
+      }
+    },
+    {
+      "slug": "badesee",
+      "icon": "",
+      "label": {
+        "de": "Badesee",
+        "en": "Swimming lake",
+        "da": "Badesø"
+      }
+    },
+    {
+      "slug": "strand",
+      "icon": "",
+      "label": {
+        "de": "Familien-Strand",
+        "en": "Family beach",
+        "da": "Familiestrand"
+      }
+    },
+    {
+      "slug": "park-garten",
+      "icon": "",
+      "label": {
+        "de": "Park / Garten",
+        "en": "Park / garden",
+        "da": "Park / have"
+      }
+    },
+    {
+      "slug": "picknickwiese",
+      "icon": "",
+      "label": {
+        "de": "Picknickwiese",
+        "en": "Picnic meadow",
+        "da": "Picniceng"
+      }
+    },
+    {
+      "slug": "wanderweg-kinderwagen",
+      "icon": "",
+      "label": {
+        "de": "Wanderweg (kinderwagenfreundlich)",
+        "en": "Stroller-friendly trail",
+        "da": "Vandrerute (barnevognsvenlig)"
+      }
+    },
+    {
+      "slug": "radweg-family",
+      "icon": "",
+      "label": {
+        "de": "Familien-Radweg",
+        "en": "Family bike route",
+        "da": "Familievenlig cykelrute"
+      }
+    },
+    {
+      "slug": "naturerlebnispfad",
+      "icon": "",
+      "label": {
+        "de": "Naturerlebnispfad",
+        "en": "Nature discovery trail",
+        "da": "Natursti"
+      }
+    },
+    {
+      "slug": "walderlebnisroute",
+      "icon": "",
+      "label": {
+        "de": "Walderlebnisroute",
+        "en": "Forest adventure trail",
+        "da": "Skovoplevelsesrute"
+      }
+    },
+    {
+      "slug": "freizeitpark",
+      "icon": "",
+      "label": {
+        "de": "Freizeitpark",
+        "en": "Theme park",
+        "da": "Forlystelsespark"
+      }
+    },
+    {
+      "slug": "minigolf",
+      "icon": "",
+      "label": {
+        "de": "Minigolf",
+        "en": "Mini golf",
+        "da": "Minigolf"
+      }
+    },
+    {
+      "slug": "kletterhalle",
+      "icon": "",
+      "label": {
+        "de": "Kletterhalle",
+        "en": "Climbing gym",
+        "da": "Klatrehal"
+      }
+    },
+    {
+      "slug": "kletteranlage-outdoor",
+      "icon": "",
+      "label": {
+        "de": "Kletteranlage (Outdoor)",
+        "en": "Outdoor climbing area",
+        "da": "Udendørs klatreanlæg"
+      }
+    },
+    {
+      "slug": "kletterwald-hochseilgarten",
+      "icon": "",
+      "label": {
+        "de": "Kletterwald / Hochseilgarten",
+        "en": "Rope course / climbing forest",
+        "da": "Klatreskov / højdebane"
+      }
+    },
+    {
+      "slug": "boulderpark",
+      "icon": "",
+      "label": {
+        "de": "Boulderpark",
+        "en": "Bouldering park",
+        "da": "Boulderpark"
+      }
+    },
+    {
+      "slug": "trampolinpark",
+      "icon": "",
+      "label": {
+        "de": "Trampolinpark",
+        "en": "Trampoline park",
+        "da": "Trampolinpark"
+      }
+    },
+    {
+      "slug": "skatepark",
+      "icon": "",
+      "label": {
+        "de": "Skatepark",
+        "en": "Skate park",
+        "da": "Skatepark"
+      }
+    },
+    {
+      "slug": "pumptrack",
+      "icon": "",
+      "label": {
+        "de": "Pumptrack",
+        "en": "Pumptrack",
+        "da": "Pumptrack"
+      }
+    },
+    {
+      "slug": "multifunktionsfeld",
+      "icon": "",
+      "label": {
+        "de": "Multifunktionsfeld",
+        "en": "Multi-sport court",
+        "da": "Multibane"
+      }
+    },
+    {
+      "slug": "bolzplatz",
+      "icon": "",
+      "label": {
+        "de": "Bolzplatz",
+        "en": "Soccer pitch",
+        "da": "Boldbane"
+      }
+    },
+    {
+      "slug": "bewegungspark",
+      "icon": "",
+      "label": {
+        "de": "Bewegungspark",
+        "en": "Activity park",
+        "da": "Bevægelsespark"
+      }
+    },
+    {
+      "slug": "familiencafe",
+      "icon": "",
+      "label": {
+        "de": "Familiencafé",
+        "en": "Family café",
+        "da": "Familiecafé"
+      }
+    },
+    {
+      "slug": "kinder-familiencafe",
+      "icon": "",
+      "label": {
+        "de": "Kinder- & Familiencafé",
+        "en": "Kids & family café",
+        "da": "Børne- & familiecafé"
+      }
+    },
+    {
+      "slug": "familien-restaurant",
+      "icon": "",
+      "label": {
+        "de": "Familien-Restaurant",
+        "en": "Family restaurant",
+        "da": "Familierestaurant"
+      }
+    },
+    {
+      "slug": "eisbahn",
+      "icon": "",
+      "label": {
+        "de": "Eisbahn",
+        "en": "Ice rink",
+        "da": "Skøjtebane"
+      }
+    },
+    {
+      "slug": "rodelhuegel",
+      "icon": "",
+      "label": {
+        "de": "Rodelhügel",
+        "en": "Sledding hill",
+        "da": "Kælkebakke"
+      }
+    },
+    {
+      "slug": "oeffentliche-toilette",
+      "icon": "",
+      "label": {
+        "de": "Öffentliche Toilette",
+        "en": "Public toilet",
+        "da": "Offentligt toilet"
+      }
+    },
+    {
+      "slug": "wickelraum",
+      "icon": "",
+      "label": {
+        "de": "Wickelraum",
+        "en": "Baby changing room",
+        "da": "Puslerum"
+      }
+    },
+    {
+      "slug": "familien-event",
+      "icon": "",
+      "label": {
+        "de": "Familien-Event",
+        "en": "Family event",
+        "da": "Familieevent"
+      }
+    },
+    {
+      "slug": "rastplatz-spielplatz-dusche",
+      "icon": "",
+      "label": {
+        "de": "Rastplatz (Spielplatz & Dusche)",
+        "en": "Rest area (playground & shower)",
+        "da": "Rasteplads (legeplads & bruser)"
+      }
+    },
+    {
+      "slug": "stellplatz-spielplatz-naehe-kostenlos",
+      "icon": "",
+      "label": {
+        "de": "Kostenloser Stellplatz (Spielplatznähe)",
+        "en": "Free RV spot (near playground)",
+        "da": "Gratis autocamperplads (tæt på legeplads)"
+      }
+    },
+    {
+      "slug": "wohnmobil-service-station",
+      "icon": "",
+      "label": {
+        "de": "Wohnmobil-Service-Station",
+        "en": "RV service station",
+        "da": "Autocamper serviceplads"
+      }
+    },
+    {
+      "slug": "campingplatz-familien",
+      "icon": "",
+      "label": {
+        "de": "Familien-Campingplatz",
+        "en": "Family campground",
+        "da": "Familievenlig campingplads"
+      }
+    },
+    {
+      "slug": "bikepacking-spot",
+      "icon": "",
+      "label": {
+        "de": "Bikepacking-Spot",
+        "en": "Bikepacking spot",
+        "da": "Bikepacking-spot"
+      }
+    },
+    {
+      "slug": "toddler-barfuss-motorik",
+      "icon": "",
+      "label": {
+        "de": "Toddler / Barfuß / Motorik",
+        "en": "Toddler / barefoot / motor skills",
+        "da": "Tumling / barfod / motorik"
+      }
+    },
+    {
+      "slug": "freilichtmuseum",
+      "icon": "",
+      "label": {
+        "de": "Freilichtmuseum",
+        "en": "Open-air museum",
+        "da": "Frilandsmuseum"
+      }
+    },
+    {
+      "slug": "museum-kinder",
+      "icon": "",
+      "label": {
+        "de": "Kinder-Museum",
+        "en": "Children's museum",
+        "da": "Børnemuseum"
+      }
+    },
+    {
+      "slug": "kinder-museum",
+      "icon": "",
+      "label": {
+        "de": "Kinder-Museum",
+        "en": "Children's museum",
+        "da": "Børnemuseum"
+      }
+    },
+    {
+      "slug": "bibliothek",
+      "icon": "",
+      "label": {
+        "de": "Kinder- & Familienbibliothek",
+        "en": "Children's & family library",
+        "da": "Børne- & familiebibliotek"
+      }
+    },
+    {
+      "slug": "hoehle",
+      "icon": "",
+      "label": {
+        "de": "Höhle / Felsenwanderung",
+        "en": "Cave / rock hike",
+        "da": "Hule / klippevandring"
+      }
+    },
+    {
+      "slug": "felsenwanderung",
+      "icon": "",
+      "label": {
+        "de": "Felsenwanderung",
+        "en": "Rock hike",
+        "da": "Klippevandring"
+      }
+    },
+    {
+      "slug": "aussichtspunkt",
+      "icon": "",
+      "label": {
+        "de": "Aussichtspunkt / Panorama",
+        "en": "Scenic viewpoint / panorama",
+        "da": "Udsigtspunkt / panorama"
+      }
+    },
+    {
+      "slug": "baumhaus",
+      "icon": "",
+      "label": {
+        "de": "Baumhaus / Hütte",
+        "en": "Treehouse / lookout hut",
+        "da": "Træhus / udsigtshytte"
+      }
+    },
+    {
+      "slug": "labyrinth",
+      "icon": "",
+      "label": {
+        "de": "Labyrinth / Irrgarten",
+        "en": "Maze / labyrinth",
+        "da": "Labyrint / vildnis"
+      }
+    },
+    {
+      "slug": "klangpfad",
+      "icon": "",
+      "label": {
+        "de": "Natur-Klangpfad",
+        "en": "Nature sound trail",
+        "da": "Natur-lydsti"
+      }
+    },
+    {
+      "slug": "ueberdachter-spielplatz",
+      "icon": "",
+      "label": {
+        "de": "Überdachter Spielplatz",
+        "en": "Covered playground / rain-safe playground",
+        "da": "Overdækket legeplads"
+      }
+    },
+    {
+      "slug": "dirtbike-track",
+      "icon": "",
+      "label": {
+        "de": "Dirtbike / Jugend-Bike Track",
+        "en": "Dirtbike / youth bike track",
+        "da": "Dirtbike / ungdomsbane"
+      }
+    },
+    {
+      "slug": "streetball-platz",
+      "icon": "",
+      "label": {
+        "de": "Streetball / Basketball-Platz",
+        "en": "Streetball / basketball court",
+        "da": "Streetball / basketballbane"
+      }
+    },
+    {
+      "slug": "waldbaden-ort",
+      "icon": "",
+      "label": {
+        "de": "Waldbaden / Naturruheplatz",
+        "en": "Forest bathing / nature chill spot",
+        "da": "Skovbadning / roligt naturspot"
+      }
+    },
+    {
+      "slug": "natur-aussichtspunkt",
+      "icon": "",
+      "label": {
+        "de": "Natur-Aussichtspunkt",
+        "en": "Nature viewpoint",
+        "da": "Naturligt udsigtspunkt"
+      }
+    }
+  ]
+}

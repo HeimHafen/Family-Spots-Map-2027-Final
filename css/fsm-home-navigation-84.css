@@ -1,0 +1,413 @@
+/* V84: Navigation consolidated; original filtering and spot data remain untouched. */
+html.fsm-home-nav-ready #sidebar > #filter-section,
+html.fsm-home-nav-ready #sidebar > .sidebar-section--grow { display: none !important; }
+/* V84.1: show each destination only once. Keep both original controls in the
+   document so the existing Plus access and private diary logic remain intact.
+   When Plus moves into the navigation sheet, it is no longer a direct child
+   of #view-map and becomes visible again without a duplicate implementation. */
+html.fsm-home-nav-ready #view-map > #plus-section,
+html.fsm-home-nav-ready #view-map > #btn-open-diary { display: none !important; }
+/* The sheet supplies the heading; the unchanged native <details> remains open
+   while displayed and its built-in summary need not repeat that heading. */
+html.fsm-home-nav-ready #fsm-home-sheet #plus-section[open] > summary { display:none !important; }
+html.fsm-home-nav-ready #fsm-home-sheet #plus-section { margin: 0 !important; }
+html.fsm-home-nav-ready #fsm-home-sheet #plus-section .plus-code-form,
+html.fsm-home-nav-ready #fsm-home-sheet #plus-section #plus-status-text { max-width: 100%; }
+
+html.fsm-home-nav-ready #view-map { row-gap: 12px; }
+html.fsm-home-nav-ready #view-map > .map-section { margin-top: 0 !important; }
+html.fsm-home-nav-ready #main-content { padding-bottom: 100px !important; }
+.fsm-home-nav {
+  --fsm-nav-bg: #fff8ef; --fsm-nav-text: #3b3329; --fsm-nav-line: #d9cdbc;
+  --fsm-nav-active: #5e753d; --fsm-nav-active-ink: #fff9ef;
+  position: fixed; z-index: 950; bottom: max(12px, env(safe-area-inset-bottom, 0px));
+  left: max(12px, env(safe-area-inset-left, 0px)); right: max(12px, env(safe-area-inset-right, 0px));
+  max-width: 620px; margin-inline: auto;
+  display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); align-items: stretch;
+  padding: 5px; gap: 3px; border: 1px solid var(--fsm-nav-line); border-radius: 21px;
+  background: var(--fsm-nav-bg); color: var(--fsm-nav-text);
+  box-shadow: 0 4px 16px #40362929;
+}
+.fsm-home-nav__item {
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:1px; min-width:0; min-height:44px; padding:2px 1px;
+  border:0; border-radius:16px; background:transparent; color:inherit;
+  font:inherit; font-size:11px; font-weight:600; line-height:1.15;
+  text-align:center; cursor:pointer; touch-action:manipulation;
+}
+.fsm-home-nav__item > svg { width:21px; height:21px; flex:none; }
+.fsm-home-nav__item > .spots-plus-crown {color:#c99122;}
+.fsm-home-nav__item > .fsm-daylog-heart {width:21px;height:21px;fill:#7fa825;stroke:#36551c;}
+.fsm-home-nav__item[hidden] {display:none !important;}
+.fsm-home-nav__item:focus-visible, .fsm-home-sheet__close:focus-visible {outline:2px solid var(--fsm-keyboard-focus, #685c51); outline-offset:2px;}
+.fsm-home-nav__label {overflow-wrap:anywhere;}
+/* Native modal gives keyboard focus containment and iOS-safe top-layer semantics. */
+.fsm-home-sheet {
+  box-sizing:border-box; width:min(570px, calc(100vw - 24px));
+  max-width:570px; max-height:min(87dvh, calc(100dvh - 24px));
+  margin:auto auto max(12px, env(safe-area-inset-bottom, 0px));
+  padding:12px; border:1px solid var(--fsm-home-border,#d9cdbc);
+  border-radius:26px 26px 18px 18px;
+  background:var(--fsm-home-panel,#fff8ef);
+  color:var(--fsm-home-ink,#3b3329);
+  box-shadow:0 18px 48px #0004;
+  overflow-y:auto; overscroll-behavior:contain;
+}
+.fsm-home-sheet::backdrop {background:rgba(25,27,20,.52);backdrop-filter:blur(3px);}
+.fsm-home-sheet:not([open]) {display:none !important;}
+.fsm-home-sheet__head {display:flex;align-items:center;justify-content:space-between;gap:12px;padding:3px 7px 12px;}
+.fsm-home-sheet__title {font:inherit;font-size:20px;font-weight:750;line-height:1.25;margin:0;}
+.fsm-home-sheet__close {display:grid;place-items:center;flex:none;width:44px;height:44px;border:1px solid var(--fsm-home-border,#d9cdbc);border-radius:50%;background:transparent;color:inherit;cursor:pointer;}
+.fsm-home-sheet__close > svg {width:19px;height:19px;}
+.fsm-home-sheet__content > .sidebar-section {margin:0!important;max-width:100%;width:100%;}
+.fsm-home-sheet #spot-list {max-height:none!important;overflow:visible!important;}
+.fsm-home-sheet .sidebar-section--grow > .sidebar-section-header {position:sticky;top:0;z-index:1;background:var(--fsm-home-panel,#fff8ef);}
+html[data-theme="light"] .fsm-home-sheet {--fsm-home-panel:#fff8ef;--fsm-home-ink:#3b3329;--fsm-home-border:#d9cdbc;}
+/* No second nav over the map's dedicated fullscreen nav or other routes. */
+html.fsm-map-fullscreen-open .fsm-home-nav,
+html.fsm-home-sheet-open .fsm-home-nav,
+body[data-app-view="diary"] .fsm-home-nav,
+body[data-app-view="about"] .fsm-home-nav,
+body[data-filter-modal-open="1"] .fsm-home-nav,
+body:has(#app-menu:not([hidden])) .fsm-home-nav {display:none!important;}
+@media (min-width:900px) { .fsm-home-nav {bottom:18px;} }
+@media (max-width:359px) { .fsm-home-nav__item {font-size:10px;} .fsm-home-nav {gap:0;left:6px;right:6px;} }
+@media (prefers-reduced-motion:reduce) { .fsm-home-nav *, .fsm-home-sheet * {transition:none!important;} }
+
+
+/* V84.2 – ruhiger Schließen-Button; matches the approved visual reference.
+   IMPORTANT: 44 × 44 px interactive hit area; 34 px visual circle only.
+   Shared across Filter einstellen, Spots ansehen and Spots Plus sheets.
+   The separate advanced "Spots finden" dialog uses the same treatment.
+   No click handler or functionality is changed. */
+.fsm-home-sheet .fsm-home-sheet__close,
+html.fsm-polished #filter-modal #filter-modal-close {
+  position: relative !important;
+  isolation: isolate;
+  display: inline-grid !important;
+  place-items: center !important;
+  box-sizing: border-box !important;
+  flex: 0 0 44px !important;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+  color: #645b4f !important;
+  box-shadow: none !important;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.fsm-home-sheet .fsm-home-sheet__close::before,
+html.fsm-polished #filter-modal #filter-modal-close::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 34px;
+  height: 34px;
+  box-sizing: border-box;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(101, 85, 65, .21);
+  border-radius: 50%;
+  background: rgba(255, 249, 239, .22);
+  box-shadow: none;
+  pointer-events: none;
+  transition: background-color .16s ease, border-color .16s ease;
+}
+/* The path only occupies 12/24 units of the SVG viewBox, so a 22px
+   canvas produces an 11px X – small and thin as approved. */
+.fsm-home-sheet .fsm-home-sheet__close > svg,
+html.fsm-polished #filter-modal #filter-modal-close > svg {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 22px !important;
+  height: 22px !important;
+  flex: none;
+  stroke: currentColor;
+  pointer-events: none;
+}
+.fsm-home-sheet .fsm-home-sheet__close > svg path,
+html.fsm-polished #filter-modal #filter-modal-close > svg path {
+  stroke-width: 1.45 !important;
+  stroke-linecap: round !important;
+}
+@media (hover: hover) {
+  .fsm-home-sheet .fsm-home-sheet__close:hover::before,
+  html.fsm-polished #filter-modal #filter-modal-close:hover::before {
+    background: rgba(213, 198, 173, .20);
+    border-color: rgba(101, 85, 65, .31);
+  }
+}
+.fsm-home-sheet .fsm-home-sheet__close:focus-visible,
+html.fsm-polished #filter-modal #filter-modal-close:focus-visible {
+  outline: 2px solid #587a50 !important;
+  outline-offset: 1px !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fsm-home-sheet .fsm-home-sheet__close::before,
+  html.fsm-polished #filter-modal #filter-modal-close::before {
+    transition: none;
+  }
+}
+
+
+/* V84.3 — approved compact sheet layout. All original controls and state
+   handlers stay in place; only redundant disclosure UI is hidden when its
+   contents are presented in the navigation dialog. No unscoped selectors. */
+html.fsm-home-nav-ready #fsm-home-sheet #filter-section > .sidebar-section-header {
+  display: none !important;
+}
+/* The sheet already has an X; hiding this second accordion control does not
+   remove the native control from the DOM or interfere with state updates. */
+html.fsm-home-nav-ready #fsm-home-sheet .sidebar-section--grow #btn-toggle-spots {
+  display: none !important;
+}
+/* In the filter panel the separate inner card was an unnecessary second frame. */
+html.fsm-home-nav-ready #fsm-home-sheet #filter-section.sidebar-section {
+  box-sizing: border-box;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 2px 9px 14px !important;
+}
+html.fsm-home-nav-ready #fsm-home-sheet #filter-section > .filter-group-helper {
+  margin-top: 0 !important;
+}
+/* Keep the Spots heading and live result count, without "Spots ausblenden". */
+html.fsm-home-nav-ready #fsm-home-sheet .sidebar-section--grow > .sidebar-section-header {
+  position: static !important;
+  background: transparent !important;
+  padding-block: 0 5px !important;
+}
+html.fsm-home-nav-ready #fsm-home-sheet .sidebar-section--grow > #spot-results-context {
+  margin-top: 2px !important;
+}
+/* An unobtrusive search pictogram, without introducing an extra input. */
+html.fsm-home-nav-ready #fsm-home-sheet #filter-search {
+  padding-inline-start: 39px !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23847768' stroke-width='1.8' stroke-linecap='round'%3E%3Ccircle cx='10.8' cy='10.8' r='6.6'/%3E%3Cpath d='m16 16 4.4 4.4'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-size: 18px 18px !important;
+  background-position: left 13px center !important;
+}
+/* The visible compact dialog does not repeat a second selection summary.
+   The live summary stays available to assistive technologies. */
+html.fsm-home-nav-ready #fsm-home-sheet #filter-summary {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+}
+/* Shared search symbol, without changing the existing Find Spots action. */
+html.fsm-home-nav-ready #fsm-home-sheet #btn-open-filter-modal {
+  padding-inline-start: 35px !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b3329' stroke-width='1.8' stroke-linecap='round'%3E%3Ccircle cx='10' cy='10' r='6'/%3E%3Cpath d='m14.5 14.5 5 5'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: left 11px center !important;
+  background-size: 16px 16px !important;
+}
+/* Tiny visible glyph plus compact ring, but retain 44x44 accessible target.
+   This intentionally supersedes the earlier V84.2 34px/11px design. */
+html.fsm-home-nav-ready #fsm-home-sheet .fsm-home-sheet__close,
+html.fsm-polished #filter-modal #filter-modal-close {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+html.fsm-home-nav-ready #fsm-home-sheet .fsm-home-sheet__close::before,
+html.fsm-polished #filter-modal #filter-modal-close::before {
+  width: 28px !important;
+  height: 28px !important;
+  border-width: 1px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+html.fsm-home-nav-ready #fsm-home-sheet .fsm-home-sheet__close > svg,
+html.fsm-polished #filter-modal #filter-modal-close > svg {
+  width: 17px !important;
+  height: 17px !important;
+}
+html.fsm-home-nav-ready #fsm-home-sheet .fsm-home-sheet__close > svg path,
+html.fsm-polished #filter-modal #filter-modal-close > svg path {
+  stroke-width: 1.35 !important;
+  stroke-linecap: round !important;
+}
+/* Avoid the ring being hidden behind a border on very narrow iPhones. */
+@media (max-width: 359px) {
+  html.fsm-home-nav-ready #fsm-home-sheet #filter-section.sidebar-section {
+    padding-inline: 4px !important;
+  }
+}
+@media (forced-colors: active) {
+  html.fsm-home-nav-ready #fsm-home-sheet .fsm-home-sheet__close::before,
+  html.fsm-polished #filter-modal #filter-modal-close::before {
+    border-color: ButtonText !important;
+  }
+}
+
+
+/* V84.4 — Fix: search symbol never overlaps the Find Spots label.
+   Render the magnifier as a REAL flex item rather than a background behind
+   centered text. This also overrides the legacy invisible ::before touch pad;
+   the button itself is already 44 px high. */
+html.fsm-home-nav-ready #fsm-home-sheet #btn-open-filter-modal.btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  gap: 9px !important;
+  width: max-content !important;
+  min-width: max-content !important;
+  max-width: 100% !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  padding: 0 15px !important;
+  background-image: none !important;
+  white-space: nowrap !important;
+}
+html.fsm-home-nav-ready #fsm-home-sheet #btn-open-filter-modal.btn::before {
+  content: "" !important;
+  position: static !important;
+  display: block !important;
+  box-sizing: border-box !important;
+  flex: 0 0 17px !important;
+  width: 17px !important;
+  height: 17px !important;
+  min-width: 17px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b3329' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='10' cy='10' r='6'/%3E%3Cpath d='m14.5 14.5 5 5'/%3E%3C/svg%3E") center / contain no-repeat !important;
+  pointer-events: none !important;
+}
+html.fsm-home-nav-ready #fsm-home-sheet #btn-open-filter-modal.btn > span {
+  display: inline-block !important;
+  flex: 0 0 auto !important;
+  min-width: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+}
+
+/* V84.4 — The original Plus status, only visually composed like the approved
+   compact crown card. Existing <details>, state and partner-code form remain
+   in the DOM and can still be used in non-owner states. */
+html.fsm-home-nav-ready #fsm-home-sheet #plus-section.sidebar-section[open] {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 8px !important;
+  border: 1px solid #dfcfb8 !important;
+  border-radius: 15px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+html.fsm-home-nav-ready #fsm-home-sheet #plus-section > .filter-group {
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+html.fsm-home-nav-ready #fsm-home-sheet #plus-section #plus-status-text {
+  display: grid !important;
+  grid-template-columns: 40px minmax(0, 1fr) !important;
+  align-items: center !important;
+  column-gap: 12px !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-height: 78px;
+  margin: 0 !important;
+  padding: 12px 14px !important;
+  border: 1px solid #e3dac6 !important;
+  border-radius: 12px !important;
+  background: #f0f3e4 !important;
+  color: #34442e !important;
+  font-size: 14px !important;
+  line-height: 1.48 !important;
+  font-weight: 500 !important;
+  overflow-wrap: anywhere;
+  box-shadow: none !important;
+}
+html.fsm-home-nav-ready #fsm-home-sheet #plus-section #plus-status-text::before {
+  content: "";
+  display: block;
+  grid-column: 1;
+  grid-row: 1;
+  width: 39px;
+  height: 36px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 26'%3E%3Cg fill='%23c99408'%3E%3Cpath d='M4 8.5l5 5 1-6 4 5 2-8 2 8 4-5 1 6 5-5-3 13H7z'/%3E%3Ccircle cx='4' cy='7' r='2'/%3E%3Ccircle cx='10' cy='6' r='1.6'/%3E%3Ccircle cx='16' cy='3' r='2'/%3E%3Ccircle cx='22' cy='6' r='1.6'/%3E%3Ccircle cx='28' cy='7' r='2'/%3E%3Crect x='7' y='23' width='18' height='2' rx='.7'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+  pointer-events: none;
+}
+/* Access status stays truthful: a missing or expired code must not look like
+   an active green success panel. The source message and live role are unchanged. */
+html.fsm-home-nav-ready #fsm-home-sheet #plus-section:is([data-plus-access="inactive"], [data-plus-access="expired"]) #plus-status-text {
+  background: #f5efe5 !important;
+  border-color: #dfd2c2 !important;
+  color: #514637 !important;
+}
+html.fsm-home-nav-ready #fsm-home-sheet #plus-section .plus-code-form:not([hidden]) {
+  margin-top: 12px !important;
+}
+@media (max-width: 359px) {
+  html.fsm-home-nav-ready #fsm-home-sheet #plus-section #plus-status-text {
+    grid-template-columns: 32px minmax(0, 1fr) !important;
+    column-gap: 8px !important;
+    padding: 10px !important;
+  }
+  html.fsm-home-nav-ready #fsm-home-sheet #plus-section #plus-status-text::before {
+    width: 32px;
+    height: 32px;
+  }
+}
+@media (forced-colors: active) {
+  html.fsm-home-nav-ready #fsm-home-sheet #plus-section #plus-status-text { border-color: CanvasText !important; }
+  html.fsm-home-nav-ready #fsm-home-sheet #plus-section #plus-status-text::before { background-color: CanvasText; }
+}
+
+
+/* V84.5 — iOS Home Screen safe-area correction.
+   fsm-ui-finish-70.css previously forced a 15px top padding (!important),
+   covering the status bar in iOS standalone / black-translucent mode.
+   Only installed WebKit apps are targeted; normal Safari and Android retain
+   their existing header spacing, and both FSM themes use identical geometry. */
+@media (display-mode: standalone) and (orientation: portrait) {
+  @supports (-webkit-touch-callout: none) {
+    html.fsm-polished .app-header {
+      padding-top: max(66px, calc(env(safe-area-inset-top, 0px) + 12px)) !important;
+    }
+  }
+}
+@media (display-mode: standalone) and (orientation: landscape) {
+  @supports (-webkit-touch-callout: none) {
+    html.fsm-polished .app-header {
+      padding-top: calc(env(safe-area-inset-top, 0px) + 12px) !important;
+    }
+  }
+}
+
+/* Standalone-mode compatibility fallback: do not affect regular Safari tabs. */
+@supports (-webkit-touch-callout: none) {
+  @media (orientation: portrait) {
+    html.fsm-polished.fsm-ios-standalone .app-header {
+      padding-top: max(66px, calc(env(safe-area-inset-top, 0px) + 12px)) !important;
+    }
+  }
+  @media (orientation: landscape) {
+    html.fsm-polished.fsm-ios-standalone .app-header {
+      padding-top: calc(env(safe-area-inset-top, 0px) + 12px) !important;
+    }
+  }
+}

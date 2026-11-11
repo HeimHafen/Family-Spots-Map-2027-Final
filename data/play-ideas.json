@@ -1,0 +1,1190 @@
+[
+  {
+    "id": "red-cars-counting",
+    "texts": {
+      "de": "Zählt unterwegs alle roten Autos. Wer zuerst 10 gesehen hat, darf das nächste Ziel aussuchen.",
+      "en": "Count all the red cars you see. Whoever reaches 10 first may choose the next stop.",
+      "da": "Tæl alle de røde biler, I ser undervejs. Den, der først når 10, må vælge næste stop."
+    },
+    "tags": [
+      "Beobachtung",
+      "Zählen",
+      "Aufmerksamkeit",
+      "Unterwegs"
+    ],
+    "suitableFor": [
+      "Auto",
+      "Stadt",
+      "Autobahn",
+      "Unterwegs"
+    ],
+    "duration": "kurz",
+    "age": "3+",
+    "type": "Challenge",
+    "dynamic": false
+  },
+  {
+    "id": "story-about-tilla",
+    "texts": {
+      "de": "Denkt euch gemeinsam eine Geschichte über Tilla aus – woher kommt sie, wo will sie heute hin?",
+      "en": "Make up a story about Tilla together – where does she come from and where is she going today?",
+      "da": "Find sammen på en historie om Tilla – hvor kommer hun fra, og hvor vil hun hen i dag?"
+    },
+    "tags": [
+      "Kreativität",
+      "Fantasie",
+      "Sprache",
+      "Verbundenheit"
+    ],
+    "suitableFor": [
+      "Wiese",
+      "Wald",
+      "Park",
+      "Pause",
+      "Wandern",
+      "Auto",
+      "Zug"
+    ],
+    "duration": "mittel",
+    "age": "5+",
+    "type": "Erzählspiel",
+    "dynamic": false
+  },
+  {
+    "id": "tree-with-name",
+    "texts": {
+      "de": "Sucht einen Baum, der euch besonders gefällt, und gebt ihm einen Namen.",
+      "en": "Find a tree you really like and give it a name.",
+      "da": "Find et træ, I særligt godt kan lide, og giv det et navn."
+    },
+    "tags": [
+      "Natur",
+      "Achtsamkeit",
+      "Fantasie"
+    ],
+    "suitableFor": [
+      "Wald",
+      "Park",
+      "Wiese",
+      "Wandern"
+    ],
+    "duration": "kurz",
+    "age": "3+",
+    "type": "Naturspiel",
+    "dynamic": false
+  },
+  {
+    "id": "mini-photo-walk",
+    "texts": {
+      "de": "Macht einen kleinen Fotospaziergang: Jedes Kind darf 3 Fotos von Dingen machen, die es schön findet.",
+      "en": "Take a little photo walk: each child can take 3 photos of things they find beautiful.",
+      "da": "Tag på en lille fototur: Hvert barn må tage 3 billeder af ting, det synes er smukke."
+    },
+    "tags": [
+      "Kreativität",
+      "Wahrnehmung",
+      "Erinnerungen"
+    ],
+    "suitableFor": [
+      "Stadt",
+      "Wald",
+      "Wiese",
+      "Unterwegs"
+    ],
+    "duration": "mittel",
+    "age": "4+",
+    "type": "Kreativspiel",
+    "dynamic": true
+  },
+  {
+    "id": "sound-guessing",
+    "texts": {
+      "de": "Spielt Geräusche-Raten: Einer macht ein Geräusch, die anderen müssen erraten, was es ist.",
+      "en": "Play sound guessing: one person makes a sound, the others guess what it is.",
+      "da": "Leg gætteleg med lyde: Én laver en lyd, og de andre gætter, hvad det er."
+    },
+    "tags": [
+      "Sinne",
+      "Hören",
+      "Ratespiel"
+    ],
+    "suitableFor": [
+      "Auto",
+      "Zug",
+      "Pause",
+      "Drinnen",
+      "Unterwegs"
+    ],
+    "duration": "kurz",
+    "age": "3+",
+    "type": "Ratespiel",
+    "dynamic": false
+  },
+  {
+    "id": "rainbow-hunt",
+    "texts": {
+      "de": "Sucht unterwegs nach Dingen in Regenbogenfarben – findet ihr alle sieben Farben?",
+      "en": "Hunt for rainbow colours on the way – can you find all seven?",
+      "da": "Kig efter ting i regnbuens farver undervejs – kan I finde alle syv?"
+    },
+    "tags": [
+      "Farben",
+      "Beobachtung",
+      "Kooperation"
+    ],
+    "suitableFor": [
+      "Stadt",
+      "Dorf",
+      "Auto",
+      "Zug",
+      "Spaziergang"
+    ],
+    "duration": "mittel",
+    "age": "4+",
+    "type": "Beobachtungsspiel",
+    "dynamic": false
+  },
+  {
+    "id": "animal-spotting-count",
+    "texts": {
+      "de": "Zählt, wie viele Tiere ihr unterwegs entdeckt – echte und als Figuren oder auf Schildern.",
+      "en": "Count how many animals you spot – real ones and those on signs or as statues.",
+      "da": "Tæl, hvor mange dyr I opdager – både rigtige dyr og dem på skilte eller som figurer."
+    },
+    "tags": [
+      "Tiere",
+      "Zählen",
+      "Aufmerksamkeit"
+    ],
+    "suitableFor": [
+      "Auto",
+      "Zug",
+      "Stadt",
+      "Zoo",
+      "Wald",
+      "Unterwegs"
+    ],
+    "duration": "mittel",
+    "age": "3+",
+    "type": "Beobachtungsspiel",
+    "dynamic": false
+  },
+  {
+    "id": "secret-family-sign",
+    "texts": {
+      "de": "Erfindet ein Familien-Geheimzeichen, das nur ihr kennt – zum Beispiel für „Ich hab dich lieb“.",
+      "en": "Invent a secret family sign only you know – for example for 'I love you'.",
+      "da": "Find på et hemmeligt familiesignal, som kun I kender – for eksempel for »Jeg elsker dig«."
+    },
+    "tags": [
+      "Verbundenheit",
+      "Humor",
+      "Nonverbale-Kommunikation"
+    ],
+    "suitableFor": [
+      "Überall",
+      "Unterwegs",
+      "Zuhause"
+    ],
+    "duration": "kurz",
+    "age": "4+",
+    "type": "Beziehungsspiel",
+    "dynamic": false
+  },
+  {
+    "id": "child-navigator",
+    "texts": {
+      "de": "Lasst ein Kind den Weg ansagen: „Geradeaus“, „links“, „rechts“ – natürlich nur, wenn es sicher ist.",
+      "en": "Let one child be the navigator: 'straight', 'left', 'right' – as long as it’s safe, of course.",
+      "da": "Lad et barn være navigator: »Ligeud«, »til venstre«, »til højre« – selvfølgelig kun dér, hvor det er sikkert."
+    },
+    "tags": [
+      "Mitbestimmung",
+      "Raumgefühl",
+      "Vertrauen"
+    ],
+    "suitableFor": [
+      "Spaziergang",
+      "Stadt",
+      "Wandern",
+      "Radweg"
+    ],
+    "duration": "mittel",
+    "age": "4+",
+    "type": "Rollenwechsel",
+    "dynamic": true
+  },
+  {
+    "id": "mini-pause-listening",
+    "texts": {
+      "de": "Macht eine Mini-Pause und legt euch für eine Minute ins Gras oder setzt euch auf eine Bank und lauscht.",
+      "en": "Take a tiny break: lie down in the grass or sit on a bench for a minute and just listen.",
+      "da": "Hold en mini-pause og læg jer i græsset eller sæt jer på en bænk i et minut og lyt."
+    },
+    "tags": [
+      "Achtsamkeit",
+      "Entspannung",
+      "Sinne"
+    ],
+    "suitableFor": [
+      "Wiese",
+      "Park",
+      "Wald",
+      "Rastplatz"
+    ],
+    "duration": "kurz",
+    "age": "3+",
+    "type": "Achtsamkeitsübung",
+    "dynamic": false
+  },
+  {
+    "id": "memory-marker-stone",
+    "texts": {
+      "de": "Sucht einen Ort, an dem ihr gemeinsam einen kleinen Stein oder Zapfen als „Erinnerungszeichen“ ablegt.",
+      "en": "Find a spot where you place a small stone or cone together as a little memory marker.",
+      "da": "Find et sted, hvor I sammen lægger en lille sten eller kogle som et mindetegn."
+    },
+    "tags": [
+      "Ritual",
+      "Erinnerung",
+      "Natur"
+    ],
+    "suitableFor": [
+      "Wald",
+      "Wiese",
+      "Strand",
+      "Park"
+    ],
+    "duration": "kurz",
+    "age": "3+",
+    "type": "Ritualspiel",
+    "dynamic": true
+  },
+  {
+    "id": "i-spy-seasonal",
+    "texts": {
+      "de": "Spielt „Ich sehe was, was du nicht siehst“ mit Dingen, die typisch für euren Ort oder die Jahreszeit sind.",
+      "en": "Play 'I spy with my little eye' using things typical for your area or the current season.",
+      "da": "Leg »Jeg ser noget, som du ikke ser« med ting, der er typiske for stedet eller årstiden."
+    },
+    "tags": [
+      "Beobachtung",
+      "Sprache",
+      "Jahreszeiten"
+    ],
+    "suitableFor": [
+      "Stadt",
+      "Wald",
+      "Auto",
+      "Zug",
+      "Unterwegs"
+    ],
+    "duration": "mittel",
+    "age": "3+",
+    "type": "Ratespiel",
+    "dynamic": false
+  },
+  {
+    "id": "same-letter-hunt",
+    "texts": {
+      "de": "Jede Person sucht etwas, das mit demselben Buchstaben beginnt wie ihr Vorname.",
+      "en": "Each person finds something that starts with the same letter as their first name.",
+      "da": "Hver person finder noget, der begynder med samme bogstav som deres fornavn."
+    },
+    "tags": [
+      "Sprache",
+      "Buchstaben",
+      "Beobachtung"
+    ],
+    "suitableFor": [
+      "Stadt",
+      "Wald",
+      "Park",
+      "Auto",
+      "Zug"
+    ],
+    "duration": "kurz",
+    "age": "4+",
+    "type": "Sprachspiel",
+    "dynamic": false
+  },
+  {
+    "id": "rhyme-game",
+    "texts": {
+      "de": "Erfindet ein Reimspiel: Einer sagt ein Wort, die anderen denken sich passende Reime dazu aus.",
+      "en": "Play a rhyming game: one person says a word, the others think of words that rhyme with it.",
+      "da": "Leg en rimleg: Én siger et ord, og de andre finder på ord, der rimer på det."
+    },
+    "tags": [
+      "Sprache",
+      "Kreativität",
+      "Humor"
+    ],
+    "suitableFor": [
+      "Auto",
+      "Zug",
+      "Pause",
+      "Zuhause"
+    ],
+    "duration": "kurz",
+    "age": "5+",
+    "type": "Sprachspiel",
+    "dynamic": false
+  },
+  {
+    "id": "soft-and-hard-hunt",
+    "texts": {
+      "de": "Sucht unterwegs drei Dinge, die weich sind, und drei, die sich hart anfühlen.",
+      "en": "Look for three things that feel soft and three that feel hard.",
+      "da": "Find tre ting, der føles bløde, og tre, der føles hårde."
+    },
+    "tags": [
+      "Sinne",
+      "Tastsinn",
+      "Beobachtung"
+    ],
+    "suitableFor": [
+      "Wald",
+      "Wiese",
+      "Park",
+      "Strand"
+    ],
+    "duration": "kurz",
+    "age": "3+",
+    "type": "Sinnesspiel",
+    "dynamic": true
+  },
+  {
+    "id": "superhero-family",
+    "texts": {
+      "de": "Denkt euch eine kleine Superhelden-Familie aus. Welche Kräfte hat jede Person?",
+      "en": "Invent a superhero family. What special power does each person have?",
+      "da": "Find på en lille superheltefamilie. Hvilken superkraft har hver person?"
+    },
+    "tags": [
+      "Fantasie",
+      "Rollen",
+      "Selbstbild"
+    ],
+    "suitableFor": [
+      "Auto",
+      "Zug",
+      "Pause",
+      "Zuhause"
+    ],
+    "duration": "mittel",
+    "age": "5+",
+    "type": "Rollenspiel",
+    "dynamic": false
+  },
+  {
+    "id": "yes-and-story",
+    "texts": {
+      "de": "Spielt „Ja, und …“: Eine Person beginnt eine Geschichte. Jeder neue Satz muss mit „Ja, und …“ anfangen.",
+      "en": "Play “Yes, and …”: one person starts a story. Every new sentence must begin with “Yes, and …”.",
+      "da": "Leg »Ja, og …«: Én begynder en historie. Hver ny sætning skal starte med »Ja, og …«."
+    },
+    "tags": [
+      "Kreativität",
+      "Kooperation",
+      "Humor",
+      "Improvisation"
+    ],
+    "suitableFor": [
+      "Auto",
+      "Zug",
+      "Abendrunde",
+      "Zuhause"
+    ],
+    "duration": "mittel",
+    "age": "6+",
+    "type": "Erzählspiel",
+    "dynamic": false
+  },
+  {
+    "id": "moving-things-count",
+    "texts": {
+      "de": "Zählt Dinge, die sich bewegen: Autos, Fahrräder, Blätter im Wind, Wolken…",
+      "en": "Count things that are moving: cars, bikes, leaves in the wind, clouds…",
+      "da": "Tæl ting, der bevæger sig: biler, cykler, blade i vinden, skyer …"
+    },
+    "tags": [
+      "Beobachtung",
+      "Achtsamkeit",
+      "Zählen"
+    ],
+    "suitableFor": [
+      "Auto",
+      "Zug",
+      "Wiese",
+      "Park"
+    ],
+    "duration": "kurz",
+    "age": "3+",
+    "type": "Beobachtungsspiel",
+    "dynamic": false
+  },
+  {
+    "id": "cloud-shapes",
+    "texts": {
+      "de": "Sucht Formen in den Wolken und gebt ihnen Namen oder kleine Geschichten.",
+      "en": "Look for shapes in the clouds and give them names or little stories.",
+      "da": "Kig efter former i skyerne og giv dem navne eller små historier."
+    },
+    "tags": [
+      "Fantasie",
+      "Entspannung",
+      "Beobachtung"
+    ],
+    "suitableFor": [
+      "Wiese",
+      "Strand",
+      "Park",
+      "Rastplatz"
+    ],
+    "duration": "mittel",
+    "age": "3+",
+    "type": "Fantasiespiel",
+    "dynamic": false
+  },
+  {
+    "id": "animal-abc",
+    "texts": {
+      "de": "Spielt ein Tier-ABC: Für jeden Buchstaben des Alphabets nennt ihr ein Tier.",
+      "en": "Play an animal ABC: for each letter of the alphabet, name an animal.",
+      "da": "Leg dyre-ABC: For hvert bogstav i alfabetet nævner I et dyr."
+    },
+    "tags": [
+      "Tiere",
+      "Sprache",
+      "Buchstaben"
+    ],
+    "suitableFor": [
+      "Auto",
+      "Zug",
+      "Pause",
+      "Zuhause"
+    ],
+    "duration": "mittel",
+    "age": "5+",
+    "type": "Wissensspiel",
+    "dynamic": false
+  },
+  {
+    "id": "playground-superpower",
+    "texts": {
+      "de": "Überlegt euch für jeden unterwegs gesehenen Spielplatz eine besondere Superkraft: Was ist hier das Beste?",
+      "en": "For every playground you see, think of its superpower: what is the very best thing about it?",
+      "da": "Find på en superkraft til hver legeplads, I ser: Hvad er det allerbedste ved lige præcis den?"
+    },
+    "tags": [
+      "Fantasie",
+      "Spielplatz",
+      "Ressourcenblick"
+    ],
+    "suitableFor": [
+      "Stadt",
+      "Dorf",
+      "Radweg",
+      "Auto"
+    ],
+    "duration": "kurz",
+    "age": "3+",
+    "type": "Fantasiespiel",
+    "dynamic": false
+  },
+  {
+    "id": "one-colour-hunt",
+    "texts": {
+      "de": "Wählt eine Farbe und sucht alle Dinge unterwegs, die diese Farbe haben.",
+      "en": "Pick one colour and look for everything along the way that has this colour.",
+      "da": "Vælg én farve og kig efter alle ting undervejs, som har den farve."
+    },
+    "tags": [
+      "Farben",
+      "Beobachtung",
+      "Fokus"
+    ],
+    "suitableFor": [
+      "Stadt",
+      "Wald",
+      "Auto",
+      "Zug",
+      "Spaziergang"
+    ],
+    "duration": "kurz",
+    "age": "3+",
+    "type": "Beobachtungsspiel",
+    "dynamic": false
+  },
+  {
+    "id": "sound-bingo",
+    "texts": {
+      "de": "Macht ein Geräusche-Bingo: Jede Person denkt sich ein Geräusch aus, das sie heute gern hören würde.",
+      "en": "Play sound bingo: each person chooses a sound they’d like to hear today.",
+      "da": "Leg lydbingo: Hver person vælger en lyd, de gerne vil høre i dag."
+    },
+    "tags": [
+      "Hören",
+      "Achtsamkeit",
+      "Humor"
+    ],
+    "suitableFor": [
+      "Stadt",
+      "Wald",
+      "Strand",
+      "Auto",
+      "Zug"
+    ],
+    "duration": "mittel",
+    "age": "4+",
+    "type": "Sinnesspiel",
+    "dynamic": false
+  },
+  {
+    "id": "bridges-and-tunnels-count",
+    "texts": {
+      "de": "Zählt, wie viele Brücken, Tunnel oder Unterführungen ihr auf der Tour entdeckt.",
+      "en": "Count how many bridges, tunnels or underpasses you find on your trip.",
+      "da": "Tæl, hvor mange broer, tunneller eller underføringer I opdager på turen."
+    },
+    "tags": [
+      "Beobachtung",
+      "Zählen",
+      "Reiseroute"
+    ],
+    "suitableFor": [
+      "Auto",
+      "Zug",
+      "Radweg"
+    ],
+    "duration": "mittel",
+    "age": "3+",
+    "type": "Beobachtungsspiel",
+    "dynamic": false
+  },
+  {
+    "id": "if-i-were-an-animal",
+    "texts": {
+      "de": "Spielt „Wenn ich ein Tier wäre…“: Jede Person sagt, welches Tier sie heute wäre und warum.",
+      "en": "Play 'If I were an animal…': everyone says which animal they would be today and why.",
+      "da": "Leg »Hvis jeg var et dyr…«: Hver person fortæller, hvilket dyr de ville være i dag – og hvorfor."
+    },
+    "tags": [
+      "Selbstwahrnehmung",
+      "Fantasie",
+      "Gespräch"
+    ],
+    "suitableFor": [
+      "Auto",
+      "Zug",
+      "Abendrunde",
+      "Zuhause"
+    ],
+    "duration": "mittel",
+    "age": "4+",
+    "type": "Gesprächsspiel",
+    "dynamic": false
+  },
+  {
+    "id": "letter-hunt-word",
+    "texts": {
+      "de": "Sucht unterwegs nach Buchstaben, aus denen ihr gemeinsam ein Wort legen könnt (z. B. auf Schildern).",
+      "en": "Hunt for letters on signs that you can combine to form a word together.",
+      "da": "Led efter bogstaver på skilte, som I kan sætte sammen til et ord."
+    },
+    "tags": [
+      "Lesen",
+      "Buchstaben",
+      "Kooperation"
+    ],
+    "suitableFor": [
+      "Stadt",
+      "Dorf",
+      "Auto",
+      "Zug"
+    ],
+    "duration": "mittel",
+    "age": "6+",
+    "type": "Wortspiel",
+    "dynamic": false
+  },
+  {
+    "id": "family-song",
+    "texts": {
+      "de": "Erfindet ein kleines Familien-Lied mit einer einfachen Melodie, die ihr unterwegs summen könnt.",
+      "en": "Invent a little family song with a simple melody you can hum on the way.",
+      "da": "Find på en lille familiesang med en enkel melodi, som I kan nynne undervejs."
+    },
+    "tags": [
+      "Musik",
+      "Kreativität",
+      "Gemeinschaft"
+    ],
+    "suitableFor": [
+      "Spaziergang",
+      "Wald",
+      "Auto",
+      "Zug",
+      "Zuhause"
+    ],
+    "duration": "mittel",
+    "age": "4+",
+    "type": "Musikspiel",
+    "dynamic": false
+  },
+  {
+    "id": "step-count-guess",
+    "texts": {
+      "de": "Zählt eure Schritte bis zum nächsten Ziel und schätzt vorher, wie viele es wohl sein werden.",
+      "en": "Count your steps to the next stop and guess beforehand how many it will be.",
+      "da": "Tæl jeres skridt til det næste mål og gæt på forhånd, hvor mange det mon bliver."
+    },
+    "tags": [
+      "Zählen",
+      "Körpergefühl",
+      "Schätzen"
+    ],
+    "suitableFor": [
+      "Wandern",
+      "Spaziergang",
+      "Stadt",
+      "Wald"
+    ],
+    "duration": "kurz",
+    "age": "4+",
+    "type": "Bewegungsspiel",
+    "dynamic": true
+  },
+  {
+    "id": "gratitude-game",
+    "texts": {
+      "de": "Spielt ein Dankbarkeits-Spiel: Jede Person nennt drei Dinge, für die sie heute dankbar ist.",
+      "en": "Play a gratitude game: each person names three things they are thankful for today.",
+      "da": "Leg en taknemmelighedsleg: Hver person nævner tre ting, de er taknemmelige for i dag."
+    },
+    "tags": [
+      "Achtsamkeit",
+      "Gefühle",
+      "Reflexion"
+    ],
+    "suitableFor": [
+      "Abendrunde",
+      "Rastplatz",
+      "Zuhause"
+    ],
+    "duration": "mittel",
+    "age": "5+",
+    "type": "Reflexionsspiel",
+    "dynamic": false
+  },
+  {
+    "id": "reporter-game",
+    "texts": {
+      "de": "Stellt euch vor, ihr seid Reporter. Was würdet ihr über den Ort schreiben, an dem ihr gerade seid?",
+      "en": "Pretend you are reporters. What would you write about the place you are in right now?",
+      "da": "Forestil jer, at I er reportere. Hvad ville I skrive om stedet, hvor I er lige nu?"
+    },
+    "tags": [
+      "Sprache",
+      "Beobachtung",
+      "Kreativität"
+    ],
+    "suitableFor": [
+      "Stadt",
+      "Sehenswürdigkeit",
+      "Museum",
+      "Wald"
+    ],
+    "duration": "mittel",
+    "age": "6+",
+    "type": "Rollenspiel",
+    "dynamic": false
+  },
+  {
+    "id": "favourite-smell",
+    "texts": {
+      "de": "Sucht einen „Lieblingsgeruch des Tages“ – vielleicht Wald, Meer, Regen oder frische Luft.",
+      "en": "Find your 'favourite smell of the day' – maybe forest, sea, rain or just fresh air.",
+      "da": "Find dagens »yndlingsduft« – måske skov, hav, regn eller bare frisk luft."
+    },
+    "tags": [
+      "Sinne",
+      "Geruchssinn",
+      "Achtsamkeit"
+    ],
+    "suitableFor": [
+      "Wald",
+      "Meer",
+      "Stadt",
+      "Wiese"
+    ],
+    "duration": "kurz",
+    "age": "3+",
+    "type": "Sinnesspiel",
+    "dynamic": true
+  },
+  {
+    "id": "statue-game",
+    "texts": {
+      "de": "Spielt Statue: Einer ruft „Stopp!“, alle bleiben wie eingefroren stehen, bis jemand „Weiter!“ sagt.",
+      "en": "Play statues: one person shouts “Stop!” and everyone freezes until someone says “Go!”.",
+      "da": "Leg statue: Én råber »Stop!«, og alle står helt stille som statuer, indtil nogen siger »Fortsæt!«."
+    },
+    "tags": [
+      "Bewegung",
+      "Impulskontrolle",
+      "Humor"
+    ],
+    "suitableFor": [
+      "Park",
+      "Wiese",
+      "Wald",
+      "Spielplatz"
+    ],
+    "duration": "kurz",
+    "age": "3+",
+    "type": "Bewegungsspiel",
+    "dynamic": true
+  },
+  {
+    "id": "tiny-courage-challenge",
+    "texts": {
+      "de": "Überlegt euch für jeden eine kleine Mutaufgabe, die sich gut anfühlt – z. B. kurz barfuß gehen.",
+      "en": "Think of a tiny courage challenge for each person that feels good – like walking barefoot for a moment.",
+      "da": "Find på en lille modig udfordring til hver person, som føles rar – for eksempel at gå lidt barfodet."
+    },
+    "tags": [
+      "Mut",
+      "Körpererfahrung",
+      "Selbstvertrauen"
+    ],
+    "suitableFor": [
+      "Wiese",
+      "Wald",
+      "Strand",
+      "Park"
+    ],
+    "duration": "kurz",
+    "age": "4+",
+    "type": "Mutspiel",
+    "dynamic": true
+  },
+  {
+    "id": "nature-floor-art",
+    "texts": {
+      "de": "Sucht drei verschiedene Blätter oder Steine und legt daraus ein kleines Bodenbild.",
+      "en": "Find three different leaves or stones and create a tiny artwork on the ground.",
+      "da": "Find tre forskellige blade eller sten og lav et lille kunstværk på jorden."
+    },
+    "tags": [
+      "Kreativität",
+      "Natur",
+      "Gestalten"
+    ],
+    "suitableFor": [
+      "Wald",
+      "Wiese",
+      "Park",
+      "Strand"
+    ],
+    "duration": "mittel",
+    "age": "3+",
+    "type": "Kreativspiel",
+    "dynamic": true
+  },
+  {
+    "id": "time-travel-forward",
+    "texts": {
+      "de": "Spielt „Vorwärts-Zeitreise“: Wie könnte dieser Ort in 10 Jahren aussehen?",
+      "en": "Play 'time travel forward': how might this place look in 10 years?",
+      "da": "Leg »tidsrejse fremad«: Hvordan kunne dette sted se ud om 10 år?"
+    },
+    "tags": [
+      "Fantasie",
+      "Zukunft",
+      "Gespräch"
+    ],
+    "suitableFor": [
+      "Stadt",
+      "Dorf",
+      "Wald",
+      "Strand"
+    ],
+    "duration": "mittel",
+    "age": "7+",
+    "type": "Gesprächsspiel",
+    "dynamic": false
+  },
+  {
+    "id": "birdsong-count",
+    "texts": {
+      "de": "Zählt, wie viele verschiedene Vogelstimmen ihr hören könnt – ihr müsst sie nicht kennen, nur wahrnehmen.",
+      "en": "Count how many different birdsongs you can hear – no need to know them, just notice them.",
+      "da": "Tæl, hvor mange forskellige fuglestemmer I kan høre – I behøver ikke kende dem, bare lægge mærke til dem."
+    },
+    "tags": [
+      "Hören",
+      "Natur",
+      "Achtsamkeit"
+    ],
+    "suitableFor": [
+      "Wald",
+      "Park",
+      "Wiese",
+      "See"
+    ],
+    "duration": "kurz",
+    "age": "3+",
+    "type": "Sinnesspiel",
+    "dynamic": false
+  },
+  {
+    "id": "family-motto",
+    "texts": {
+      "de": "Erfindet für die Familie ein gemeinsames Motto für diesen Ausflug und sprecht es laut aus.",
+      "en": "Invent a shared family motto for this trip and say it out loud together.",
+      "da": "Find på et fælles familiemotto for denne tur og sig det højt sammen."
+    },
+    "tags": [
+      "Gemeinschaft",
+      "Ritual",
+      "Motivation"
+    ],
+    "suitableFor": [
+      "Start-des-Tages",
+      "Rastplatz",
+      "Zuhause"
+    ],
+    "duration": "kurz",
+    "age": "4+",
+    "type": "Ritualspiel",
+    "dynamic": false
+  },
+  {
+    "id": "swap-places-sign",
+    "texts": {
+      "de": "Spielt „Wechsel den Platz“: Immer wenn ihr ein bestimmtes Zeichen seht (z. B. ein rotes Schild), tauschen zwei Personen die Plätze.",
+      "en": "Play 'swap places': whenever you see a certain sign (for example a red sign), two people swap places.",
+      "da": "Leg »Byt plads«: Hver gang I ser et bestemt tegn (for eksempel et rødt skilt), bytter to personer plads."
+    },
+    "tags": [
+      "Bewegung",
+      "Humor",
+      "Aufmerksamkeit"
+    ],
+    "suitableFor": [
+      "Spaziergang",
+      "Wandern",
+      "Spielplatz"
+    ],
+    "duration": "mittel",
+    "age": "4+",
+    "type": "Bewegungsspiel",
+    "dynamic": true
+  },
+  {
+    "id": "favourite-moment-of-day",
+    "texts": {
+      "de": "Zum Abschluss: Jede Person erzählt einen Lieblingsmoment des Tages – groß oder ganz winzig.",
+      "en": "To finish, everyone shares a favourite moment from the day – big or tiny.",
+      "da": "Til sidst: Hver person fortæller om ét yndlingsøjeblik fra dagen – stort eller bitte lille."
+    },
+    "tags": [
+      "Reflexion",
+      "Dankbarkeit",
+      "Tagesabschluss"
+    ],
+    "suitableFor": [
+      "Abendrunde",
+      "Zelt",
+      "Zuhause"
+    ],
+    "duration": "mittel",
+    "age": "4+",
+    "type": "Reflexionsspiel",
+    "dynamic": false
+  },
+  {
+    "id": "tilla-postcard",
+    "texts": {
+      "de": "Stellt euch vor, ihr schreibt Tilla eine Postkarte von diesem Ort: Was würdet ihr ihr erzählen?",
+      "en": "Imagine you are writing Tilla a postcard from this place: what would you tell her?",
+      "da": "Forestil jer, at I skriver et postkort til Tilla fra dette sted: Hvad ville I fortælle hende?"
+    },
+    "tags": [
+      "Sprache",
+      "Reflexion",
+      "Verbundenheit"
+    ],
+    "suitableFor": [
+      "Wiese",
+      "Park",
+      "Stadt",
+      "Abendrunde",
+      "Zuhause"
+    ],
+    "duration": "mittel",
+    "age": "5+",
+    "type": "Erzählspiel",
+    "dynamic": false
+  },
+  {
+    "id": "mini-treasure-map",
+    "texts": {
+      "de": "Zeichnet gemeinsam eine Mini-Schatzkarte von dem Ort, an dem ihr seid, und versteckt einen kleinen Schatz (z. B. einen Stein oder Stock).",
+      "en": "Draw a tiny treasure map of the place you are in and hide a little treasure (for example a stone or stick).",
+      "da": "Tegn et lille skattekort over stedet, hvor I er, og gem en lille skat (for eksempel en sten eller en pind)."
+    },
+    "tags": [
+      "Kreativität",
+      "Orientierung",
+      "Natur"
+    ],
+    "suitableFor": [
+      "Wald",
+      "Park",
+      "Spielplatz",
+      "Wiese",
+      "Strand"
+    ],
+    "duration": "mittel",
+    "age": "5+",
+    "type": "Abenteuerspiel",
+    "dynamic": true
+  },
+  {
+    "id": "weather-report-game",
+    "texts": {
+      "de": "Spielt Wetterbericht: Eine Person ist Reporter und beschreibt das Wetter so, als wäre es eine spannende Nachrichtensendung.",
+      "en": "Play weather report: one person is the reporter and describes the weather as if it were breaking news.",
+      "da": "Leg vejrudsendelse: Én er reporter og beskriver vejret, som om det var en vigtig nyhedsudsendelse."
+    },
+    "tags": [
+      "Sprache",
+      "Humor",
+      "Beobachtung"
+    ],
+    "suitableFor": [
+      "Wiese",
+      "Stadt",
+      "Strand",
+      "Wald",
+      "Unterwegs"
+    ],
+    "duration": "kurz",
+    "age": "5+",
+    "type": "Rollenspiel",
+    "dynamic": false
+  },
+  {
+    "id": "shadow-shapes",
+    "texts": {
+      "de": "Spielt mit euren Schatten: Könnt ihr Tiere, Buchstaben oder lustige Figuren nur mit euren Schatten formen?",
+      "en": "Play with your shadows: can you make animals, letters or funny shapes using only your shadows?",
+      "da": "Leg med jeres skygger: Kan I lave dyr, bogstaver eller sjove figurer kun med jeres skygger?"
+    },
+    "tags": [
+      "Bewegung",
+      "Fantasie",
+      "Sinne"
+    ],
+    "suitableFor": [
+      "Wiese",
+      "Park",
+      "Spielplatz",
+      "Strand"
+    ],
+    "duration": "kurz",
+    "age": "3+",
+    "type": "Bewegungsspiel",
+    "dynamic": true
+  },
+  {
+    "id": "kindness-missions",
+    "texts": {
+      "de": "Denkt euch kleine Freundlichkeitsaufgaben aus: Eine Person lächelt drei Menschen an, eine andere sagt ganz bewusst „Danke“.",
+      "en": "Think of little acts of kindness: one person smiles at three people, another takes a moment to say a heartfelt “thank you”.",
+      "da": "Find på små venlige handlinger: Én smiler til tre mennesker, en anden tager sig tid til at sige et oprigtigt »tak«."
+    },
+    "tags": [
+      "Achtsamkeit",
+      "Verbundenheit",
+      "Soziales"
+    ],
+    "suitableFor": [
+      "Stadt",
+      "Dorf",
+      "Unterwegs",
+      "Zuhause"
+    ],
+    "duration": "mittel",
+    "age": "5+",
+    "type": "Sozialspiel",
+    "dynamic": true
+  },
+  {
+    "id": "backpack-oracle",
+    "texts": {
+      "de": "Spielt Rucksack-Orakel: Jede Person zieht einen Gegenstand aus dem Rucksack und erzählt, warum er heute wichtig war oder noch wichtig werden könnte.",
+      "en": "Play backpack oracle: each person takes an item from the backpack and explains why it mattered today or might come in useful later.",
+      "da": "Leg rygsækorakel: Hver person tager en ting op af rygsækken og fortæller, hvorfor den var vigtig i dag eller kan blive nyttig senere."
+    },
+    "tags": [
+      "Reflexion",
+      "Humor",
+      "Sprache"
+    ],
+    "suitableFor": [
+      "Rastplatz",
+      "Wiese",
+      "Zug",
+      "Zuhause"
+    ],
+    "duration": "mittel",
+    "age": "5+",
+    "type": "Gesprächsspiel",
+    "dynamic": false
+  },
+  {
+    "id": "three-sounds-memory",
+    "texts": {
+      "de": "Merkt euch drei Geräusche dieses Ortes und ahmt sie später am Tag noch einmal gemeinsam nach.",
+      "en": "Choose three sounds from this place to remember, then try imitating them together later in the day.",
+      "da": "Saml tre lyde fra dette sted, som I gerne vil huske, og efterlign dem sammen senere på dagen."
+    },
+    "tags": [
+      "Hören",
+      "Erinnerung",
+      "Achtsamkeit"
+    ],
+    "suitableFor": [
+      "Wald",
+      "Park",
+      "Stadt",
+      "Strand",
+      "See"
+    ],
+    "duration": "mittel",
+    "age": "3+",
+    "type": "Sinnesspiel",
+    "dynamic": false
+  },
+  {
+    "id": "slow-motion-race",
+    "texts": {
+      "de": "Macht ein Zeitlupen-Rennen: Wer kann am langsamsten bis zu einem vereinbarten Punkt gehen, ohne stehenzubleiben?",
+      "en": "Do a slow-motion race: who can walk to an agreed point the slowest without stopping?",
+      "da": "Gå om kap i langsom gengivelse: Hvem kan gå langsomst hen til et aftalt punkt uden at stoppe?"
+    },
+    "tags": [
+      "Bewegung",
+      "Humor",
+      "Körpergefühl"
+    ],
+    "suitableFor": [
+      "Wiese",
+      "Spielplatz",
+      "Park",
+      "Strand"
+    ],
+    "duration": "kurz",
+    "age": "3+",
+    "type": "Bewegungsspiel",
+    "dynamic": true
+  },
+  {
+    "id": "tiny-museum",
+    "texts": {
+      "de": "Eröffnet ein Mini-Museum: Jedes Kind sucht einen Fund (Stein, Blatt, Ticket) und erklärt, warum er in die Ausstellung kommt.",
+      "en": "Open a tiny museum: each child finds one object (stone, leaf, ticket) and explains why it belongs in the exhibition.",
+      "da": "Åbn et mini-museum: Hvert barn finder en ting (sten, blad, billet) og forklarer, hvorfor den skal med i udstillingen."
+    },
+    "tags": [
+      "Kreativität",
+      "Sprache",
+      "Natur",
+      "Erinnerung"
+    ],
+    "suitableFor": [
+      "Wald",
+      "Wiese",
+      "Park",
+      "Stadt",
+      "Strand"
+    ],
+    "duration": "mittel",
+    "age": "4+",
+    "type": "Kreativspiel",
+    "dynamic": true
+  },
+  {
+    "id": "feeling-check-in-weather",
+    "texts": {
+      "de": "Beschreibt eure Gefühle wie das Wetter: „In mir ist gerade Sonnenschein, leichter Regen oder Wind.“ Hört einander zu, ohne zu werten.",
+      "en": "Describe your feelings as weather: “Inside, I feel sunny, rainy or windy.” Listen to one another without judging.",
+      "da": "Beskriv jeres følelser som vejr: »Indeni er der sol, let regn eller blæst.« Lyt til hinanden uden at dømme."
+    },
+    "tags": [
+      "Gefühle",
+      "Achtsamkeit",
+      "Gespräch"
+    ],
+    "suitableFor": [
+      "Abendrunde",
+      "Auto",
+      "Zug",
+      "Zuhause"
+    ],
+    "duration": "kurz",
+    "age": "5+",
+    "type": "Gesprächsspiel",
+    "dynamic": false
+  },
+  {
+    "id": "future-self-message",
+    "texts": {
+      "de": "Sprecht eine kurze Botschaft an euer Zukunfts-Ich: Was soll es sich von diesem Tag merken?",
+      "en": "Say a short message to your future self: what would you like to remember about today?",
+      "da": "Sig en kort besked til jeres fremtidige jeg: Hvad skal det huske fra denne dag?"
+    },
+    "tags": [
+      "Reflexion",
+      "Erinnerung",
+      "Gefühle"
+    ],
+    "suitableFor": [
+      "Abendrunde",
+      "Zelt",
+      "Zuhause",
+      "Rastplatz"
+    ],
+    "duration": "mittel",
+    "age": "6+",
+    "type": "Reflexionsspiel",
+    "dynamic": false
+  },
+  {
+    "id": "tilla-route-name",
+    "texts": {
+      "de": "Gebt eurer heutigen Route einen Namen, so als wäre sie ein offizieller Tilla-Weg – wie würde er heißen?",
+      "en": "Give today’s route a name as if it were an official Tilla trail – what would it be called?",
+      "da": "Giv dagens rute et navn, som om det var en officiel Tilla-sti – hvad skulle den hedde?"
+    },
+    "tags": [
+      "Fantasie",
+      "Orientierung",
+      "Gemeinschaft"
+    ],
+    "suitableFor": [
+      "Wandern",
+      "Spaziergang",
+      "Radweg",
+      "Stadt"
+    ],
+    "duration": "kurz",
+    "age": "4+",
+    "type": "Fantasiespiel",
+    "dynamic": false
+  }
+]

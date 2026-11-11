@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://heimhafen.github.io/Family-Spots-Map-V5/sitemap.xml

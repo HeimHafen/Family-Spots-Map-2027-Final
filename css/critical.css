@@ -1,0 +1,35 @@
+/* Skip-Link (früher inline im <style>) */
+.skip-link {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  top: calc(env(safe-area-inset-top, 0px) + 8px);
+  z-index: 3000;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.96);
+  color: #fef3e7;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.75);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.16s ease-out, transform 0.16s ease-out;
+}
+
+[data-theme="light"] .skip-link {
+  background: #3b2313;
+  color: #fff7eb;
+}
+
+.skip-link:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Titel-Größe (früher inline) */
+.header-title {
+  font-size: clamp(2.1rem, 6vw, 2.8rem);
+}

@@ -1,0 +1,14 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Family Spots Map",
+  "operatingSystem": "iOS, Android, Web",
+  "applicationCategory": "TravelApplication",
+  "url": "https://heimhafen.github.io/Family-Spots-Map-V5/",
+  "inLanguage": [
+    "de",
+    "en",
+    "da"
+  ],
+  "description": "Family Spots Map: Handverlesene Spielplätze, Zoos, Wildparks, Wasser-Spots & familienfreundliche Orte – für eure nächsten Familienabenteuer mit Kindern."
+}

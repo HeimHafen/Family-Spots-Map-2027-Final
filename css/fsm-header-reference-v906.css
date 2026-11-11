@@ -1,0 +1,77 @@
+@media (max-width:899px) {
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] .app-header {
+    padding-top:5px !important;
+  }
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #app-title.header-title {
+    font-size:clamp(20px,5.9vw,24px) !important;
+    gap:clamp(5px,1.5vw,8px) !important;
+    letter-spacing:-.52px !important;
+    line-height:1.17 !important;
+  }
+  /* Der vollständige Leitsatz bleibt dreizeilig. Keine Schwebefläche,
+     keine harten Kanten; die Höhe wird vom tatsächlichen Text bestimmt. */
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #header-tagline {
+    position:relative !important;
+    z-index:2 !important;
+    margin-top:6px !important;
+    margin-bottom:0 !important;
+    padding-top:0 !important;
+    padding-bottom:0 !important;
+    line-height:1.24 !important;
+    white-space:pre-line !important;
+  }
+  /* Echte V90.3-Landschaft ohne Herz und Zierlinien, kompakt und mit
+     einem soften Beginn, ohne per negativem Margin in Text zu ragen. */
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] .app-header-main::after {
+    position:relative !important;
+    z-index:1 !important;
+    margin-top:-2px !important;
+    height:clamp(64px,20vw,85px) !important;
+    background-image:url("../assets/design/main-header-landscape-v903.webp") !important;
+    background-position:center bottom !important;
+    background-size:100% 100% !important;
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.5) 11px,#000 26px) !important;
+    mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.5) 11px,#000 26px) !important;
+    filter:saturate(1.18) contrast(1.045) !important;
+  }
+  /* Vorhandene Tilla-Illustration, denselben Text und dieselben Funktionen
+     verwenden – nur um einige Pixel kompakter setzen. */
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #tilla-section.sidebar-section {
+    padding-top:3px !important;
+    padding-bottom:7px !important;
+    row-gap:1px !important;
+  }
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #tilla-section > .sidebar-section-header {
+    min-height:29px !important;
+  }
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #tilla-sidebar-text {
+    line-height:1.30 !important;
+  }
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #tilla-section .tilla-sidebar-actions {
+    margin-top:2px !important;
+  }
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #tilla-section #btn-play-idea.btn-play-idea {
+    height:48px !important;
+    min-height:48px !important;
+    max-height:none !important;
+    box-sizing:border-box !important;
+    border-radius:17px !important;
+    padding:8px 10px !important;
+    background:linear-gradient(180deg,#fa8111 0%,#ec6905 100%) !important;
+    box-shadow:0 3px 8px rgba(126,66,15,.13) !important;
+    color:#fff !important;
+    text-shadow:none !important;
+  }
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #tilla-section #btn-play-idea.btn-play-idea > span:not(.tilla-play-emoji) {
+    color:#fff !important;
+  }
+}
+@media (max-width:359px) {
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #app-title.header-title {
+    font-size:19px !important;
+    gap:4px !important;
+  }
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #tilla-section #btn-play-idea.btn-play-idea {
+    padding-inline:5px !important;
+  }
+}

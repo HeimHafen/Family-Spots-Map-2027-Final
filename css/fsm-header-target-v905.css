@@ -1,0 +1,56 @@
+@media (max-width:899px) {
+  /* Die Titelzeile bleibt mitsamt beider Flaggen optisch mittig und beruehrt
+     auch auf schmalen iPhones die linke Blattgrafik moeglichst wenig. */
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #app-title.header-title {
+    font-size:clamp(20px,5.75vw,24px) !important;
+    gap:clamp(5px,1.5vw,8px) !important;
+    letter-spacing:-.52px !important;
+  }
+  /* Der komplette dreizeilige Leitsatz rueckt an den Titel heran,
+     anstatt mitten in einem leeren hellen Feld zu schweben. */
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #header-tagline {
+    margin-top:clamp(10px,3vw,13px) !important;
+    margin-bottom:0 !important;
+    line-height:1.30 !important;
+    white-space:pre-line !important;
+  }
+  /* Die Huegellandschaft beginnt weich UNTER dem Leitsatz und endet
+     mit der originalen hellen Welle am Tilla-Bereich; keine Trennkante.
+     Es bleiben die originalen Dekorgrafiken, keine Screenshot-Einbettung. */
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] .app-header-main::after {
+    margin-top:-7px !important;
+    height:clamp(89px,25.5vw,108px) !important;
+    background-image:url("../assets/design/main-header-landscape-v903.webp") !important;
+    background-position:center bottom !important;
+    background-size:100% 100% !important;
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0px,rgba(0,0,0,.45) 14px,#000 32px) !important;
+    mask-image:linear-gradient(to bottom,transparent 0px,rgba(0,0,0,.45) 14px,#000 32px) !important;
+    filter:saturate(1.13) contrast(1.035) !important;
+  }
+  /* 48px hoher Spielideen-Button: weisses Play-Symbol und weisser Text,
+     mit warmem Orange aus der Referenz. An der Funktion nichts aendern. */
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #tilla-section #btn-play-idea.btn-play-idea {
+    height:48px !important;
+    min-height:48px !important;
+    max-height:none !important;
+    box-sizing:border-box !important;
+    border-radius:17px !important;
+    padding:8px 10px !important;
+    background:linear-gradient(180deg,#fa8111 0%,#ec6905 100%) !important;
+    box-shadow:0 3px 8px rgba(126,66,15,.13) !important;
+    color:#fff !important;
+    text-shadow:none !important;
+  }
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #tilla-section #btn-play-idea.btn-play-idea > span:not(.tilla-play-emoji) {
+    color:#fff !important;
+  }
+}
+@media (max-width:359px) {
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #app-title.header-title {
+    font-size:19px !important;
+    gap:4px !important;
+  }
+  html.fsm-polished[data-theme="light"] body[data-app-view="map"] #tilla-section #btn-play-idea.btn-play-idea {
+    padding-inline:5px !important;
+  }
+}

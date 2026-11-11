@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f4e7d5">
+  <meta name="description" content="Interaktiver 2D-/35°-/55°-Perspektivtest für Family Spots Map – unabhängig von der produktiven Karte.">
+  <title>55°-Abenteuerperspektive · Family Spots Map</title>
+  <link rel="icon" href="../../assets/icons/fsm-home-v845-192.png">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@6.16.0/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="./perspektive.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="masthead">
+      <a class="home-link" href="../../index.html" aria-label="Zurück zur Family Spots Map" title="Zurück zur App"><span aria-hidden="true">‹</span></a>
+      <img class="brand-icon" src="../../assets/icons/fsm-home-v845-192.png" alt="" width="38" height="38">
+      <div class="branding">
+        <p class="eyebrow">FAMILY SPOTS MAP · TESTANSICHT</p>
+        <h1>Abenteuerperspektive</h1>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="intro" aria-label="Hinweis zur Testansicht">
+        <img src="../../assets/tilla/tilla-watercolor.png" alt="Tilla" width="46" height="46">
+        <p>Unsere echte Karte, aus einem neuen Blickwinkel. <strong>Deine bisherige App bleibt unverändert.</strong></p>
+      </section>
+
+      <section class="map-card" aria-label="Interaktive 3D-Kartenprobe">
+        <div id="map" aria-label="Interaktive Karte von Hannover, dem Deister und dem Harz"></div>
+        <div class="map-topbar">
+          <div class="mode-chip" id="perspective-label" aria-live="polite"><span aria-hidden="true">◈</span> 55° · Gelände</div>
+          <button type="button" id="north" class="north-button" aria-label="Karte nach Norden ausrichten" title="Nach Norden ausrichten">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3-6 17 6-4 6 4-6-17Z"/></svg>
+          </button>
+        </div>
+        <div class="search-box" id="search-box">
+          <label for="spot-search" class="sr-only">Spot oder Ort suchen</label>
+          <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+          <input id="spot-search" type="search" placeholder="Spot oder Ort suchen …" autocomplete="off" enterkeyhint="search">
+          <div id="suggestions" role="listbox" aria-label="Passende Spots" hidden></div>
+        </div>
+        <div id="map-message" class="map-message" role="status">Kartenperspektive wird geladen …</div>
+        <div class="data-chip" id="spot-count" aria-live="polite">Spots werden geladen</div>
+      </section>
+    </main>
+
+    <footer class="controls" aria-label="Kartenansicht einstellen">
+      <div class="controls-head"><strong>Kartenperspektive</strong><span>0° = Draufsicht · 55° = geneigt</span></div>
+      <div class="pitch-switch" role="group" aria-label="Neigungswinkel auswählen">
+        <button type="button" data-pitch="0" aria-pressed="false">2D</button>
+        <button type="button" data-pitch="35" aria-pressed="false">35°</button>
+        <button type="button" data-pitch="55" aria-pressed="true">55°</button>
+      </div>
+      <div class="secondary-controls">
+        <label for="location-select" class="sr-only">Testregion wählen</label>
+        <select id="location-select" aria-label="Testregion wählen">
+          <option value="hannover">Hannover &amp; Hildesheim</option>
+          <option value="deister">Deister · Höhen entdecken</option>
+          <option value="harz">Harz · Gelände erleben</option>
+        </select>
+        <a class="back-to-app" href="../../index.html">Zur Karte <span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="smallprint">Technischer Prototyp · Internetverbindung erforderlich · Keine Änderungen an Filtern, Favoriten oder „Mein Tag“.</p>
+    </footer>
+  </div>
+  <script type="module" src="./perspektive.js"></script>
+</body>
+</html>

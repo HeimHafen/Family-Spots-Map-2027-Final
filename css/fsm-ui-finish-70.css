@@ -1,0 +1,545 @@
+/* Konsolidierter UI-Stil: unveraenderte Regeln aus 68, 69 und 70 in Original-Reihenfolge.
+   Die Dateien 68 und 69 werden nicht mehr geladen oder benoetigt. */
+
+/* Einheitliche Oberflächen-Geometrie und ruhige visuelle Hierarchie */
+html.fsm-polished {
+  --fsm-f68-gap: 12px;
+  --fsm-f68-radius: 17px;
+  --fsm-f68-line: #dfd3c1;
+  --fsm-f68-muted: #746758;
+  --fsm-f68-panel: #fff9ef;
+  --fsm-f68-canvas: #f4e8d8;
+}
+html.fsm-polished[data-theme="light"] body { background: var(--fsm-f68-canvas) !important; }
+html.fsm-polished[data-theme="light"] .app-header {
+  background: #f7e4ca !important;
+  border-bottom: 1px solid #ead6b8 !important;
+  box-shadow: none !important;
+}
+html.fsm-polished #app-title.header-title {
+  font-size: clamp(1.35rem, 5.8vw, 1.9rem) !important;
+  font-weight: 650 !important;
+  letter-spacing: -.025em;
+  line-height: 1.23;
+}
+html.fsm-polished .header-tagline,
+html.fsm-polished #header-tagline {
+  line-height: 1.48 !important;
+  max-width: 37rem;
+  margin-inline: auto;
+  text-wrap: pretty;
+}
+html.fsm-polished .app-main { gap: var(--fsm-f68-gap) !important; }
+html.fsm-polished #sidebar { gap: var(--fsm-f68-gap) !important; }
+html.fsm-polished[data-theme="light"] .sidebar-section {
+  background: var(--fsm-f68-panel) !important;
+  border: 1px solid var(--fsm-f68-line) !important;
+  box-shadow: 0 2px 9px rgba(78, 57, 36, .045) !important;
+}
+html.fsm-polished .sidebar-section { border-radius: var(--fsm-f68-radius) !important; }
+html.fsm-polished .sidebar-section-title {
+  font-size: 1rem !important;
+  font-weight: 650 !important;
+  letter-spacing: -.01em;
+}
+
+/* Tilla: wiedererkennbar und freundlich, ohne der Karte den Raum zu nehmen. */
+html.fsm-polished #tilla-section { padding: 13px 15px 14px !important; }
+html.fsm-polished #tilla-section > .sidebar-section-header { margin-bottom: 9px !important; }
+html.fsm-polished #tilla-title {
+  font-size: .88rem !important;
+  font-weight: 550 !important;
+  color: var(--p-muted) !important;
+}
+html.fsm-polished #tilla-section .tilla-sidebar-card {
+  grid-template-columns: minmax(86px, 27%) minmax(0, 1fr) !important;
+  gap: 7px 12px !important;
+  align-items: center;
+}
+html.fsm-polished #tilla-section .tilla-sidebar-avatar {
+  width: 100% !important;
+  flex: none !important;
+  align-self: center;
+}
+html.fsm-polished #tilla-section .tilla-watercolor-canvas { width: 133%; margin-inline-start: -17%; }
+html.fsm-polished #tilla-sidebar-text {
+  font-size: .86rem !important;
+  line-height: 1.52 !important;
+  text-wrap: pretty;
+}
+html.fsm-polished #tilla-section .tilla-sidebar-actions { margin-top: 5px; }
+html.fsm-polished #tilla-section #btn-play-idea {
+  width: 100%; min-height: 44px !important;
+  font-size: .82rem !important;
+  font-weight: 600 !important;
+  border-radius: 11px !important;
+  padding: 9px 11px !important;
+  box-shadow: none !important;
+}
+html.fsm-polished[data-theme="light"] #tilla-section #btn-play-idea {
+  background: #f58a1a !important;
+  border: 1px solid #e77d16 !important;
+  color: #3f2b1a !important;
+}
+html.fsm-polished #tilla-section #menu-toggle {
+  width: 44px !important;
+  min-width: 44px !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  opacity: .9;
+}
+html.fsm-polished #tilla-section #menu-toggle .btn-menu-icon { width: 19px; height: 19px; }
+
+/* Filter und Spot-Teaser: elegante kompakte Zeilen, ganze Fläche bedienbar */
+html.fsm-polished #filter-section,
+html.fsm-polished #spots-section { scroll-margin-top: 12px; }
+html.fsm-polished :is(#filter-section, .sidebar-section--grow) > .sidebar-section-header {
+  min-height: 44px !important;
+  gap: 12px;
+}
+html.fsm-polished :is(#btn-toggle-filters, #btn-toggle-spots) {
+  min-height: 44px !important;
+  font-size: .84rem !important;
+  line-height: 1.4;
+}
+html.fsm-polished .fsm-disclosure-chevron { opacity: .75; }
+html.fsm-polished .filter-group-label { letter-spacing: .075em; }
+html.fsm-polished :is(.filter-group-helper, .filter-summary, .plus-note) {
+  line-height: 1.58;
+  color: var(--p-muted);
+}
+html.fsm-polished #filter-section .mood-chip {
+  border-radius: 13px !important;
+  min-height: 48px;
+  line-height: 1.4;
+}
+html.fsm-polished :is(.input, #filter-search, #daylog-text) {
+  border-radius: 12px !important;
+  line-height: 1.52;
+}
+
+/* Spots: Bilder stehen im Mittelpunkt; Rest bildet eine lesbare ruhige Karte. */
+html.fsm-polished .spot-card {
+  border-radius: 18px !important;
+  padding: 16px !important;
+  box-shadow: 0 2px 10px rgba(77, 55, 31, .05) !important;
+}
+html.fsm-polished .spot-card .preview-card-image {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: clamp(175px, 46vw, 240px) !important;
+  object-fit: cover;
+  border-radius: 14px;
+  margin: 0 0 16px !important;
+}
+html.fsm-polished .spot-card-title {
+  font-size: 1.05rem !important;
+  line-height: 1.4;
+  font-weight: 650 !important;
+}
+html.fsm-polished .spot-card-description {
+  font-size: .87rem !important;
+  line-height: 1.6 !important;
+  margin-block: 10px !important;
+}
+html.fsm-polished :is(.spot-card-subtitle, .spot-card-meta) {
+  line-height: 1.5;
+}
+html.fsm-polished .spot-card-badges { gap: 5px; }
+html.fsm-polished .spot-card-actions {
+  margin-top: 13px;
+  padding-top: 10px;
+  border-top: 1px solid var(--p-line);
+}
+html.fsm-polished .spot-card-actions > button { min-height: 44px !important; }
+
+/* Filterdialog: klare Gliederung und 44px Touch-Ziele, ohne zusätzliche Deko. */
+html.fsm-polished .filter-modal-inner {
+  border-radius: 20px !important;
+  box-shadow: 0 10px 30px rgba(46, 36, 25, .16) !important;
+}
+html.fsm-polished #filter-modal-title { font-size: 1.16rem !important; font-weight: 650 !important; }
+html.fsm-polished #filter-modal .category-explorer__chip {
+  border-radius: 12px !important;
+  min-height: 48px;
+}
+html.fsm-polished #filter-modal .category-explorer__name { line-height: 1.32; }
+html.fsm-polished #filter-modal #filter-modal-apply { min-height: 48px; font-weight: 650 !important; }
+
+/* Mein Tag: stille Erinnerungsseite, gute Schriftgröße auch auf iPhone. */
+html.fsm-polished #diary-title { font-size: clamp(1.5rem, 6vw, 1.85rem) !important; font-weight: 650 !important; }
+html.fsm-polished .diary-heading p { font-size: .88rem !important; }
+html.fsm-polished #diary-new-memory { min-height: 44px; }
+html.fsm-polished .diary-composer,
+html.fsm-polished .diary-view #daylog-list > .daylog-entry {
+  border-radius: 18px !important;
+  box-shadow: 0 2px 9px rgba(72, 52, 30, .05) !important;
+}
+html.fsm-polished #daylog-text { min-height: 122px !important; }
+html.fsm-polished #daylog-save { min-height: 48px; font-weight: 650 !important; }
+html.fsm-polished .diary-view .daylog-entry-text { line-height: 1.65; }
+
+/* Feiner Fokus für Tastatur, ohne Tap-Umrandungen. */
+html.fsm-polished[data-fsm-focus-modality="keyboard"]
+  :is(#btn-play-idea, #menu-toggle, #btn-toggle-filters, #btn-toggle-spots,
+      #filter-modal-apply, #daylog-save, .spot-card-actions button):focus-visible {
+  outline: 2px solid #667e52 !important;
+  outline-offset: 3px !important;
+}
+
+@media (max-width: 420px) {
+  html.fsm-polished #app-title.header-title { font-size: clamp(1.23rem, 5.35vw, 1.55rem) !important; }
+  html.fsm-polished .app-main { padding-inline: 12px !important; }
+  html.fsm-polished #tilla-section .tilla-sidebar-card { grid-template-columns: 30% minmax(0, 1fr) !important; gap: 6px 10px !important; }
+  html.fsm-polished #tilla-sidebar-text { font-size: .82rem !important; }
+  html.fsm-polished .spot-card { padding: 14px !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.fsm-polished .tilla-sidebar-card,
+  html.fsm-polished .spot-card { animation: none !important; }
+}
+
+
+/* Family Spots Map – Feinschliff 69: Harmonie, Lesbarkeit, Statusklarheit
+   Ziel: alle vorhandenen Funktionen bewahren. Auf Feinschliff 68 aufgebaut.
+   Nur minimale, rückbaubare Korrekturen. Die Karte selbst bleibt unverändert.
+*/
+html.fsm-polished {
+  --fsm-f69-text-muted: #6b5e50;
+  --fsm-f69-border: #ded1bd;
+  --fsm-f69-olive: #728b57;
+  --fsm-f69-inset: 0 1px 3px rgba(56,41,28,.035);
+}
+/* 1: kontrollierte Typografiestufen; keine flächendeckende Fett-Schrift. */
+html.fsm-polished #app-title.header-title {
+  font-weight: 600 !important;
+  letter-spacing: -.022em;
+  line-height: 1.23;
+}
+html.fsm-polished :is(.sidebar-section-title, .spot-card-title, #filter-modal-title, #diary-title) {
+  font-weight: 600 !important;
+  letter-spacing: -.012em;
+}
+html.fsm-polished :is(.header-tagline, .sidebar-section-header .btn-ghost,
+  .spot-card-subtitle, .spot-card-meta, .filter-group-helper,
+  .filter-summary, .plus-note, #tilla-title) {
+  color: var(--fsm-f69-text-muted) !important;
+  font-weight: 500 !important;
+}
+html.fsm-polished :is(#btn-toggle-filters, #btn-toggle-spots) {
+  font-weight: 500 !important;
+}
+/* 2: Tilla behält Persönlichkeit und Orange, aber benötigt weniger Raum. */
+html.fsm-polished #tilla-section {
+  padding: 12px 14px 13px !important;
+}
+html.fsm-polished #tilla-section > .sidebar-section-header {
+  margin-bottom: 6px !important;
+}
+html.fsm-polished #tilla-section .tilla-sidebar-card {
+  grid-template-columns: minmax(82px, 27%) minmax(0, 1fr) !important;
+  gap: 4px 11px !important;
+  align-items: center;
+}
+html.fsm-polished #tilla-sidebar-text {
+  font-size: .86rem !important;
+  line-height: 1.48 !important;
+  margin-block: 0 !important;
+}
+html.fsm-polished #tilla-section .tilla-sidebar-actions {
+  margin-top: 4px !important;
+}
+html.fsm-polished[data-theme="light"] #tilla-section #btn-play-idea {
+  min-height: 44px !important;
+  background: #f58b20 !important;
+  border-color: #e57d15 !important;
+  color: #3d2918 !important;
+  box-shadow: none !important;
+  font-weight: 600 !important;
+}
+/* 3: Vollbildnavigation als eine einzige Oberfläche. Nur Karte aktiv. */
+html.fsm-polished #fsm-map-fullscreen .fsm-map-nav {
+  background: #fff8ec !important;
+  border: 1px solid #d8cbb7 !important;
+  padding: 5px !important;
+  gap: 1px !important;
+  border-radius: 21px !important;
+  box-shadow: 0 3px 12px rgba(61,46,30,.13) !important;
+}
+html.fsm-polished #fsm-map-fullscreen .fsm-map-nav .fsm-map-tool--destination {
+  min-height: 57px !important;
+  border: 0 !important;
+  border-radius: 15px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #514536 !important;
+  font-weight: 500 !important;
+  letter-spacing: 0;
+  padding: 6px 1px !important;
+}
+html.fsm-polished #fsm-map-fullscreen .fsm-map-nav .fsm-map-tool--destination[aria-current="page"] {
+  background: var(--fsm-f69-olive) !important;
+  color: #fffdf5 !important;
+  font-weight: 600 !important;
+}
+html.fsm-polished #fsm-map-fullscreen .fsm-map-nav .fsm-map-tool--destination > svg {
+  width: 20px;
+  height: 20px;
+}
+/* Nicht aktive Icons lassen sich trotz flachem Hintergrund leicht erfassen. */
+html.fsm-polished #fsm-map-fullscreen .fsm-map-nav .fsm-map-tool--destination:not([aria-current="page"]):active {
+  background: rgba(114,139,87,.13) !important;
+}
+/* 4: Scrollbare Kategorien mit klar erkennbarem, sanftem rechtem Rand. */
+html.fsm-polished #fsm-map-fullscreen .fsm-map-themes {
+  gap: 6px !important;
+  padding: 5px 22px 5px 2px !important;
+  scroll-padding-inline: 12px;
+  -webkit-mask-image: linear-gradient(to right, #000 0%, #000 calc(100% - 19px), transparent 100%);
+  mask-image: linear-gradient(to right, #000 0%, #000 calc(100% - 19px), transparent 100%);
+}
+html.fsm-polished #fsm-map-fullscreen .fsm-map-tool--theme {
+  padding-inline: 12px !important;
+  min-height: 44px !important;
+  font-weight: 500 !important;
+  box-shadow: 0 2px 6px rgba(49,37,25,.08) !important;
+}
+/* 5: Plus-Status klar, passend zum echten Zugang. */
+html.fsm-polished #plus-section #plus-status-text {
+  padding: 11px 13px;
+  border: 1px solid var(--fsm-f69-border);
+  border-left: 3px solid var(--fsm-f69-olive);
+  border-radius: 11px;
+  background: #f5f3e7;
+  color: #394332;
+  font-weight: 500;
+  line-height: 1.55;
+  margin-block: 0 10px;
+}
+html.fsm-polished #plus-section[data-plus-access="inactive"] #plus-status-text,
+html.fsm-polished #plus-section[data-plus-access="expired"] #plus-status-text {
+  border-left-color: #b29c7f;
+  background: #f5efe4;
+  color: #514637;
+}
+html.fsm-polished #plus-section .plus-code-form {
+  margin-top: 6px;
+}
+html.fsm-polished #plus-section .plus-note { line-height: 1.5; }
+@media (max-width: 390px) {
+  html.fsm-polished #tilla-section .tilla-sidebar-card {
+    grid-template-columns: minmax(76px, 26%) minmax(0, 1fr) !important;
+    gap: 4px 9px !important;
+  }
+  html.fsm-polished #tilla-sidebar-text { font-size: .82rem !important; line-height: 1.47 !important; }
+  html.fsm-polished #fsm-map-fullscreen .fsm-map-nav { padding: 4px !important; }
+  html.fsm-polished #fsm-map-fullscreen .fsm-map-nav .fsm-map-tool--destination {
+    font-size: 10px !important; min-height: 56px !important;
+  }
+}
+@media (max-height: 480px) {
+  html.fsm-polished #fsm-map-fullscreen .fsm-map-nav .fsm-map-tool--destination {
+    min-height: 44px !important;
+  }
+}
+@media (forced-colors: active) {
+  html.fsm-polished #fsm-map-fullscreen .fsm-map-nav .fsm-map-tool--destination[aria-current="page"] {
+    forced-color-adjust: auto;
+    border: 2px solid Highlight !important;
+    background: Highlight !important;
+    color: HighlightText !important;
+  }
+}
+
+html.fsm-polished #plus-section .plus-note[hidden],
+html.fsm-polished #plus-section .plus-code-form[hidden] { display: none !important; }
+
+
+/* Family Spots Map — Praezisionsrunde 70, 2026-10-30
+   Ausgangspunkt: Stand 26 + 68 + 69.
+   Nur UI-Finish: keine Spots, Kartenkoordinaten, Filterlogik oder Fotos geaendert.
+   Gestaltungsregeln: 8px Rhythmus, gleichrangige Controls gleich hoch,
+   mindestens 44px Touchziele, konservative Fokusindikatoren, keine Deko-Animation.
+*/
+html.fsm-polished {
+  --fsm70-panel: #fff9ef;
+  --fsm70-canvas: #f5e9da;
+  --fsm70-ink: #382e25;
+  --fsm70-muted: #665849;
+  --fsm70-line: #d9cbb7;
+  --fsm70-olive: #6f8952;
+  --fsm70-olive-active: #e9efdc;
+  --fsm70-orange: #f58b20;
+  --fsm70-orange-border: #dc7613;
+  --fsm70-radius: 17px;
+  --fsm70-control-h: 44px;
+  --fsm70-shadow: 0 2px 10px rgba(60,46,30,.038);
+}
+/* Core hierarchy: bold enough to scan, never needlessly dominant. */
+html.fsm-polished[data-theme="light"] body { background:var(--fsm70-canvas)!important; }
+html.fsm-polished[data-theme="light"] :is(.sidebar-section,.spot-card,.app-menu-panel,.filter-modal-inner) {
+  border-color: var(--fsm70-line)!important;
+}
+html.fsm-polished .app-header { padding-block: 15px 14px!important; }
+html.fsm-polished #app-title.header-title { font-weight:600!important; letter-spacing:-.025em!important; text-wrap:balance; }
+html.fsm-polished #header-tagline { line-height:1.45!important; margin-top:2px!important; color:var(--fsm70-muted)!important; }
+html.fsm-polished :is(.sidebar-section-title,.spot-card-title,#diary-title) { font-weight:600!important; }
+html.fsm-polished :is(.spot-card-meta,.spot-card-subtitle,.filter-group-helper,.filter-summary,.plus-note) {
+  color:var(--fsm70-muted)!important;
+  opacity:1!important;
+}
+/* Keep visual rhythm in the real page instead of manufacturing a new layout. */
+html.fsm-polished .app-main { padding-block:14px 24px!important; gap:12px!important; }
+html.fsm-polished #sidebar { gap:12px!important; }
+html.fsm-polished .sidebar > .sidebar-section { margin:0!important; }
+html.fsm-polished :is(#filter-section.sidebar-section,.sidebar-section.sidebar-section--grow,
+  #plus-section.sidebar-section,.diary-launcher.sidebar-section) {
+  border-radius:var(--fsm70-radius)!important;
+  box-shadow:var(--fsm70-shadow)!important;
+}
+/* Exact equality between FILTER and SPOTS in closed/expanded state.
+   The entire header is the visual control, not a label plus an extra raised button. */
+html.fsm-polished :is(#filter-section,.sidebar-section--grow) > .sidebar-section-header {
+  box-sizing:border-box!important;
+  display:flex!important;
+  flex-wrap:nowrap!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  width:100%!important;
+  min-height:44px!important;
+  height:44px!important;
+  margin:0!important;
+  padding:0!important;
+  gap:8px!important;
+}
+html.fsm-polished :is(#filter-section,.sidebar-section--grow) {
+  box-sizing:border-box!important;
+  padding:6px 15px!important;
+}
+html.fsm-polished :is(#filter-section,.sidebar-section--grow) > .sidebar-section-header > .sidebar-section-title {
+  flex:0 1 auto!important;
+  min-width:0;
+  margin:0!important;
+  font-size:16px!important;
+  line-height:1.25!important;
+}
+html.fsm-polished :is(#btn-toggle-filters,#btn-toggle-spots) {
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  flex:0 1 auto!important;
+  box-sizing:border-box!important;
+  width:auto!important;
+  max-width:70%!important;
+  min-height:44px!important;
+  height:44px!important;
+  margin:0 0 0 auto!important;
+  padding:0 2px 0 10px!important;
+  font-size:13px!important;
+  font-weight:500!important;
+  line-height:1.25!important;
+  white-space:normal!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  color:var(--fsm70-muted)!important;
+  gap:7px!important;
+}
+html.fsm-polished :is(#btn-toggle-filters,#btn-toggle-spots) svg {
+  flex:0 0 18px!important;
+  width:18px!important;
+  height:18px!important;
+}
+html.fsm-polished #filter-section:has(.filter-group:not([hidden])) > .filter-group-helper,
+html.fsm-polished #filter-section > .filter-group-helper { margin-top:9px; }
+html.fsm-polished #filter-section .filter-group { margin-bottom:12px; }
+html.fsm-polished :is(#filter-section,.sidebar-section--grow):has(> .filter-group:not([hidden])) { padding-bottom:14px!important; }
+/* Tilla: intentionally preserve the original illustration and orange CTA. */
+html.fsm-polished #tilla-section { padding:12px 14px 14px!important; }
+html.fsm-polished #tilla-section > .sidebar-section-header { min-height:28px!important; margin-bottom:6px!important; }
+html.fsm-polished #tilla-title { font-size:13px!important; color:var(--fsm70-muted)!important; }
+html.fsm-polished #tilla-section .tilla-sidebar-card { grid-template-columns:minmax(90px,26%) minmax(0,1fr)!important; align-items:center!important; column-gap:12px!important; row-gap:4px!important; }
+html.fsm-polished #tilla-section .tilla-sidebar-avatar { width:100%!important; max-width:122px!important; min-width:0!important; flex:auto!important; }
+html.fsm-polished #tilla-sidebar-text { font-size:clamp(13px,3.45vw,15px)!important; line-height:1.48!important; margin:0!important; overflow-wrap:break-word; }
+html.fsm-polished #tilla-section .tilla-sidebar-actions { margin-top:8px!important; }
+html.fsm-polished #tilla-section #btn-play-idea {
+  box-sizing:border-box!important;
+  min-height:44px!important;
+  padding:10px 8px!important;
+  border:1px solid var(--fsm70-orange-border)!important;
+  border-radius:11px!important;
+  background:var(--fsm70-orange)!important;
+  color:#3a2a1c!important;
+  font-size:clamp(12px,3.1vw,14px)!important;
+  font-weight:600!important;
+  line-height:1.25!important;
+  box-shadow:none!important;
+}
+/* Accessible inputs on iOS: no focus-triggered Safari auto zoom. */
+html.fsm-polished :is(#filter-search,#plus-code-input,#daylog-text,
+  .filter-modal input:not([type="checkbox"]),.filter-modal select,
+  #view-diary input,#view-diary textarea,#view-diary select) { font-size:16px!important; }
+html.fsm-polished :is(.input,textarea,select):focus-visible { outline:2px solid var(--fsm-keyboard-focus, #685c51)!important; outline-offset:2px!important; }
+/* Search/filters: readable labels, calm selection, aligned result counts. */
+html.fsm-polished #filter-modal .filter-modal-inner { border-radius:20px 20px 17px 17px!important; }
+html.fsm-polished #filter-modal .category-explorer__chip { box-sizing:border-box; min-height:51px; }
+html.fsm-polished #filter-modal .category-explorer__count { opacity:1!important; font-size:12px!important; color:var(--fsm70-muted)!important; }
+html.fsm-polished #filter-modal .category-explorer__name { line-height:1.35!important; }
+html.fsm-polished #filter-modal .category-explorer__chip[aria-pressed="true"] {
+  background:var(--fsm70-olive-active)!important;
+  border-color:#81956d!important;
+}
+html.fsm-polished #filter-modal .filter-modal-footer { box-shadow:0 -3px 12px rgba(51,36,17,.045)!important; }
+html.fsm-polished #filter-modal #filter-modal-apply { min-height:48px!important; font-weight:600!important; }
+/* Spot cards: content-first visual priority; even spacing and calm actions. */
+html.fsm-polished .spot-card { border-radius:17px!important; padding:14px!important; }
+html.fsm-polished .spot-card-title { font-size:clamp(17px,4vw,20px)!important; line-height:1.3!important; }
+html.fsm-polished .spot-card-description { font-size:14px!important; line-height:1.55!important; }
+html.fsm-polished .spot-card-actions { padding-top:10px!important; gap:10px!important; }
+html.fsm-polished .spot-card-actions > button { font-size:13px!important; font-weight:500!important; min-height:44px!important; }
+/* Plus: state is visible and truthful; never show the 90-day note to active grants. */
+html.fsm-polished #plus-section #plus-status-text { font-size:14px!important; line-height:1.5!important; }
+html.fsm-polished #plus-section[data-plus-access="owner"] .plus-code-form,
+html.fsm-polished #plus-section[data-plus-access="owner"] .plus-note,
+html.fsm-polished #plus-section[data-plus-access="active"] .plus-note,
+html.fsm-polished #plus-section[data-plus-access="family-test"] .plus-note,
+html.fsm-polished #plus-section :is(.plus-note,.plus-code-form)[hidden] { display:none!important; }
+html.fsm-polished #plus-section .plus-code-row { align-items:stretch; }
+html.fsm-polished #plus-section #plus-code-submit { min-height:44px!important; }
+/* Daylog: hierarchy, comfortable editor, precise action priority. */
+html.fsm-polished #view-diary .diary-heading { gap:14px!important; }
+html.fsm-polished #view-diary #diary-title { font-size:clamp(24px,6vw,30px)!important; letter-spacing:-.02em!important; }
+html.fsm-polished #view-diary #diary-composer { border-radius:18px!important; }
+html.fsm-polished #view-diary #daylog-text { min-height:112px!important; line-height:1.55!important; }
+html.fsm-polished #view-diary #daylog-save { min-height:48px!important; background:var(--fsm70-orange)!important; font-weight:600!important; }
+/* Fullscreen nav: one single surface, five equally sized actions, only active green. */
+html.fsm-polished #fsm-map-fullscreen .fsm-map-nav { display:grid!important; grid-template-columns:repeat(5,minmax(0,1fr))!important; align-items:stretch!important; gap:0!important; padding:5px!important; border-radius:20px!important; background:#fff8ef!important; }
+html.fsm-polished #fsm-map-fullscreen .fsm-map-nav .fsm-map-tool--destination {
+  box-sizing:border-box!important; width:100%!important; min-width:0!important;
+  min-height:44px!important; padding:2px 1px!important; border:0!important;
+  background:transparent!important; box-shadow:none!important; border-radius:15px!important;
+  font-size:11px!important; line-height:1.22!important;
+}
+html.fsm-polished #fsm-map-fullscreen .fsm-map-nav .fsm-map-tool--destination[aria-current="page"] { background:transparent!important; color:#3d2918!important; }
+html.fsm-polished #fsm-map-fullscreen .fsm-map-themes { scroll-padding-inline:12px!important; }
+/* Fine focus treatment for all major interactive items. */
+html.fsm-polished :is(button,a,summary,[role="button"],input,textarea,select):focus-visible { outline:2px solid var(--fsm-keyboard-focus, #685c51)!important; outline-offset:2px!important; }
+/* 320-375px: keep all five nav items in one row and equal header height. */
+@media(max-width:375px) {
+  html.fsm-polished #tilla-section .tilla-sidebar-card { grid-template-columns:minmax(80px,25%) minmax(0,1fr)!important; column-gap:9px!important; }
+  html.fsm-polished #tilla-sidebar-text { font-size:13px!important; }
+  html.fsm-polished :is(#filter-section,.sidebar-section--grow) { padding-inline:12px!important; }
+  html.fsm-polished :is(#btn-toggle-filters,#btn-toggle-spots) { font-size:12px!important; max-width:68%!important; }
+  html.fsm-polished #fsm-map-fullscreen .fsm-map-nav .fsm-map-tool--destination { font-size:10px!important; min-height:44px!important; }
+}
+@media(prefers-reduced-motion:reduce) {
+  html.fsm-polished :is(.spot-card,.sidebar-section,.fsm-map-tool--destination) { transition:none!important; }
+}
+@media(forced-colors:active) {
+  html.fsm-polished #fsm-map-fullscreen .fsm-map-nav .fsm-map-tool--destination[aria-current="page"] { border:2px solid Highlight!important; background:Highlight!important; color:HighlightText!important; }
+}

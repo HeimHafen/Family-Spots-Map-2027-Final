@@ -1,0 +1,64 @@
+# Family Spots Map V5 — Mein Tag Designpatch (nur TEST)
+Stand: 11.11.2026
+Quelle: Family-Spots-Map-V5-main.zip + FSM_V5_TESTPATCH.zip aus dem Projektarchiv.
+Ziel: refs/heads/test/fsm-v5-konsolidierung (Cloudflare-Projekt fsm-v5-test).
+NICHT main. KEIN Force Push. Pull Request #1 bleibt Draft.
+
+## Was umgesetzt wird
+- „Mein Tag“ erhält den freigegebenen illustrierten Landschaftskopf, die Foto-Polaroids, cremefarbene Flächen und braune Schrift sowie den orangefarbenen Hauptbutton mit FSM-brauner Beschriftung.
+- Das Herz ist das BESTEHENDE gefüllte olivgrüne FSM-Herz, nicht ein neues Icon. In Karten und Titel wird dieselbe originale SVG-Quelle verwendet; die Navigation behält ihre bisherigen Icons, Schriften, Maße, 44px-Höhe und Farben.
+- Reale gespeicherte Erinnerungen werden als horizontal scrollbare Karten angezeigt; keine fiktiven Einträge.
+- Die Erinnerungsdetailansicht zeigt reale gespeicherte Fotos, Titel, Datum und Text, ruft die ursprünglichen Bearbeiten-/Löschen-Aktionen auf und verlinkt zurück zur bestehenden Karte.
+- „Geplante Ausflüge ansehen“ und „Erinnerungen & Favoriten sichern“ verwenden die vorhandenen Funktionen und Speicherstrukturen.
+- Alle Hauptansichten DE/EN/DA wurden für das neue Stylesheet eingebunden; Offline-Cache/Release-Checks aktualisiert.
+
+## Sicherheit / Grenzen
+- Diese Dateien wurden lokal vorbereitet und statisch geprüft. Keine GitHub-Push-, Cloudflare-Deploy- oder tatsächliche Safari-Abnahme fand in diesem Arbeitsschritt statt.
+- Die Mockup-Erinnerungen sind illustrative Beispiele und werden NICHT in lokale Datenbanken oder App-Dateien eingefügt.
+- Die dekorativen Landschafts-/Polaroid-Bildausschnitte stammen aus der vom Nutzer freigegebenen Bildvorschau, nicht aus Speicherfotos.
+- Die alten Browser- und IndexedDB-Speicherdaten bleiben unverändert. Vor einem Austausch der produktiven V5 trotzdem die vorhandene persönliche Sicherung exportieren.
+- Ohne verknüpfte Spot-ID kann „Diesen Ort wieder besuchen“ kein bestimmtes Ziel garantieren; die Detailansicht bietet deshalb die echte Aktion „Zur Karte“.
+- Pixelidentität kann erst nach Safari-Livetest bestätigt werden. Bildschirmgröße, gespeicherte Fotoformate und echte Inhalte unterscheiden sich vom Mockup.
+
+## Einspielen (ausschließlich TEST)
+1. Vorher Repository und privaten Speicherbestand sichern.
+2. In Working Copy Repository Family-Spots-Map-V5, Branch test/fsm-v5-konsolidierung auswählen.
+3. Die Dateipfade aus dieser ZIP an identischen Stellen ERSETZEN; neue Dateien/Assets in entsprechende Unterordner übernehmen. Keine Dateien aus main überschreiben.
+4. Summary: FSM V5 – Mein Tag: freigegebenes Design im Testbranch integriert
+5. Details: Mein Tag im FSM-Stil; vorhandenes Herz und Navigation unverändert; Speicher- und Fotoverwaltung weiterverwendet; DE/EN/DA und Offline-Cache abgestimmt.
+6. Push target: refs/heads/test/fsm-v5-konsolidierung
+7. Source ref: refs/heads/test/fsm-v5-konsolidierung
+8. Force Push: AUS.
+9. Cloudflare-Testadresse https://fsm-v5-test.pages.dev öffnen, leeren Zustand, Text+Foto, Galerie, Bearbeiten, Löschen, Sicherung/Import und Rücknavigation prüfen. Erst nach Freigabe weitere Schritte.
+
+Keine Änderungen in `main` automatisch vorgenommen.
+
+## Geänderte Dateien (13)
+assets/design/diary-approved-flora-v5.webp
+assets/design/diary-approved-landscape-v5.webp
+assets/design/diary-approved-polaroids-v5.webp
+css/diary-premium-v5.css
+css/styles.css
+da/index.html
+en/index.html
+index.html
+js/app.js
+js/features/diary-premium.js
+js/map.js
+release-info.json
+service-worker.js
+
+## Kontrollhashes SHA256
+- 20323005c35c519d118a0054c975946138ce0f96e554153e0cf106c061928349  assets/design/diary-approved-flora-v5.webp
+- 3fae331a0d28c59edbb5ccc4f46376fa16b95327a3a3b16bcab487633feb2f0e  assets/design/diary-approved-landscape-v5.webp
+- 1a2dc61f35b322cec7bba3e6560d30f55bdca2aa49b3703084ea5b990c3f3a51  assets/design/diary-approved-polaroids-v5.webp
+- 7df4241af89c6af7f32a5dfd8300ec9ec97b0684dfe50827d9106b054dc0f399  css/diary-premium-v5.css
+- ec80b2493a18bf37eb6e3520756f780575f834f5a4c122e9d0055d958932f131  css/styles.css
+- 427335158cef8189bf1fdd4a7619f01637c0c23c74bda8c034833ff7051d7ea4  da/index.html
+- 5e6532ecc515b173215be7a5e68674df81b259d694b8a95a6008d8577dfcc568  en/index.html
+- d8da4751151171316005896d05832537e0ff6a1109b033cb01254484ab306297  index.html
+- 6d9beab5d8d6ad662b334c477346f4d7bf28df7747ee15e7d5b55d0cc1e6658f  js/app.js
+- d2d04d15c98d671316c54bc58ccea2182f8a9067fb7b0f172a41aac5cc41bdcf  js/features/diary-premium.js
+- 4c7220b31e67533445ea38e5acd2b865e69e106303ddfc91f938906d46239fa8  js/map.js
+- 3d08b1740da4d5d17b1fe4a550303790b523c41d530f7f3e342e2dd9854c6437  release-info.json
+- c6b83fe629258013dde08c944bfcdcb00b7a7ff500a66e1ba9da02e8fea61873  service-worker.js

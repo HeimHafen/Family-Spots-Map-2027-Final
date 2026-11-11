@@ -1,0 +1,9 @@
+root = true
+
+[*]                             # Gilt für alle Dateien
+charset = utf-8                # Standard-Zeichensatz
+end_of_line = lf               # Unix-Zeilenumbrüche (Line Feed)
+indent_style = space           # Einrückung mit Leerzeichen
+indent_size = 2                # 2 Leerzeichen pro Stufe
+insert_final_newline = true    # Leere Zeile am Ende der Datei einfügen
+trim_trailing_whitespace = true # Whitespace am Zeilenende entfernen

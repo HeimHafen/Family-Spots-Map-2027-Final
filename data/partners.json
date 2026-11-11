@@ -1,0 +1,16 @@
+{
+  "codes": [
+    {
+      "plan": "family_plus",
+      "source": "development_owner",
+      "partner": "Projektentwicklung",
+      "addons": [
+        "addon_water",
+        "addon_rv"
+      ],
+      "enabled": true,
+      "permanent": true,
+      "codeSha256": "d651cddf71b1a55678caa6beec8dc206c684f462ea32ce4bf38918ae2605e4af"
+    }
+  ]
+}

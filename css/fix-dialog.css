@@ -1,0 +1,124 @@
+/* ============================================================
+   fix-dialog.css – 10/10 Final
+   Dialog-Fixes & Corporate Styling für Web-Apps
+   ============================================================ */
+
+/* [1] Safari / iOS Fix: geschlossene Dialoge ausblenden */
+dialog:not([open]) {
+  display: none;
+}
+
+/* [2] Backdrop-Layer: dunkler Overlay mit weichem Blur */
+dialog::backdrop {
+  background: rgba(15, 23, 42, 0.55);
+  -webkit-backdrop-filter: blur(4px); /* iOS/Safari */
+  backdrop-filter: blur(4px);         /* moderne Browser */
+}
+
+/* [3] Dialog-Styling */
+dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  border: none;
+  border-radius: 18px;
+  padding: 1rem 1.1rem 1.1rem;
+
+  width: auto;
+  max-width: min(480px, 92vw);
+  max-height: calc(100vh - 80px);
+  overflow: auto;
+  overscroll-behavior: contain;
+
+  background: var(--card-bg, #ffffff);
+  color: var(--text-color, #111827);
+  box-shadow:
+    var(--elevation-lg, 0 10px 30px rgba(15, 23, 42, 0.25)),
+    0 0 0 1px rgba(148, 163, 184, 0.35);
+
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.6;
+  z-index: 2100;
+  -webkit-font-smoothing: antialiased;
+
+  animation: dialog-in 0.2s ease-out;
+}
+
+/* [4] Animation beim Öffnen */
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* [6] Fokus-Styling: Barrierefrei & CI-freundlich */
+dialog:focus {
+  outline: none;
+}
+
+dialog:focus-visible {
+  outline: 2px solid rgba(245, 158, 11, 0.9);
+  outline-offset: 0;
+  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.3);
+}
+
+/* [7] Typografie Defaults */
+dialog h1,
+dialog h2,
+dialog h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  color: var(--text-strong, #2f160b);
+}
+
+dialog p {
+  margin: 0 0 0.75rem;
+}
+
+dialog p:last-child {
+  margin-bottom: 0;
+}
+
+/* [8] Scrollbar-Styling (WebKit) */
+dialog::-webkit-scrollbar {
+  width: 8px;
+}
+
+dialog::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+dialog::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.65);
+  border-radius: 999px;
+}
+
+/* [9] Responsiveness – kleinere Viewports / Landscape */
+@media (max-width: 480px) {
+  dialog {
+    padding: 0.9rem;
+    font-size: 14px;
+  }
+}
+
+@media (max-height: 500px) {
+  dialog {
+    max-height: calc(100vh - 60px);
+  }
+}
+
+/* [10] Reduced Motion – Animation bei Bedarf deaktivieren */
+@media (prefers-reduced-motion: reduce) {
+  dialog {
+    animation: none !important;
+  }
+}

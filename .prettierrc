@@ -1,0 +1,6 @@
+{
+  "singleQuote": true,        // Verwende ' statt "
+  "trailingComma": "none",    // Keine Kommata am Ende von Objekten/Arrays
+  "semi": true,               // Statements enden mit Semikolon
+  "printWidth": 90            // Zeilenlänge bei 90 Zeichen umbrechen
+}

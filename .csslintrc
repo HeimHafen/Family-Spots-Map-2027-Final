@@ -1,0 +1,7 @@
+{
+  "box-model": false,              // ⚠️ Box-Modell-Warnung deaktiviert (OK, da moderne Browser damit klarkommen)
+  "adjoining-classes": false,      // ✅ Mehrere Klassen auf einem Element sind erlaubt (guter Stil bei BEM/Utility CSS)
+  "duplicate-properties": true,    // 🔍 Warnung bei doppelten Properties (z. B. zwei Mal `margin`) – wichtig für Übersicht
+  "empty-rules": true,             // ✅ Leere CSS-Regeln melden (sauberer Code)
+  "ids": false                     // ⚠️ Nutzung von IDs in CSS erlaubt (oft kritisch, aber bei bewusstem Einsatz OK)
+}

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "tours": [
+    {
+      "id": "schachdorf-stroebeck-23",
+      "country": "DE",
+      "state": "Sachsen-Anhalt",
+      "regions": ["Sachsen-Anhalt"],
+      "place": "Halberstadt / Ströbeck",
+      "searchTerms": ["Schachdorf", "Halberstadt", "Ströbeck", "Harz"],
+      "lengthKm": 23,
+      "routeKind": "loop",
+      "kind": "family",
+      "photo": "assets/spots/schachplatz-stroebeck/schachplatz.webp",
+      "credit": "Goldmull / Wikimedia Commons · CC BY-SA 4.0",
+      "title": {"de":"Mit dem Rad ins Schachdorf", "en":"Ride to the chess village", "da":"På cykel til skaklandsbyen"},
+      "description": {"de":"Von Halberstadt nach Ströbeck und zurück.", "en":"From Halberstadt to Ströbeck and back.", "da":"Fra Halberstadt til Ströbeck og tilbage."}
+    },
+    {
+      "id": "filsoe-panorama-406",
+      "country": "DK",
+      "state": "Syddanmark",
+      "regions": ["Syddanmark"],
+      "place": "Filsø / Varde",
+      "searchTerms": ["Filsø", "Varde", "Blåbjerg", "Panoramarute 406"],
+      "lengthKm": 21,
+      "routeKind": "loop",
+      "kind": "family",
+      "photo": "assets/spots/filsoe/ellipse.webp",
+      "credit": "Mipani / Wikimedia Commons · CC0",
+      "title": {"de":"Mit dem Rad über den Filsø", "en":"Cycle across Filsø", "da":"På cykel over Filsø"},
+      "description": {"de":"Über den Damm, durch die Dünenplantage und zurück zum See.", "en":"Across the causeway, through the dune plantation and back to the lake.", "da":"Over dæmningen, gennem klitplantagen og tilbage til søen."}
+    }
+  ]
+}

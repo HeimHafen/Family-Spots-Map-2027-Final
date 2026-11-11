@@ -1,0 +1,96 @@
+/**
+ * Family Spots Map – handcrafted, local SVG category icon set.
+ * One distinct pictogram per supported world, place type, and facility.
+ * No emoji, web fonts, remote assets or external network dependency.
+ */
+const PICTOGRAMS = Object.freeze({
+  'all': '<rect x="3" y="3" width="7" height="7" rx="1.3"/><rect x="14" y="3" width="7" height="7" rx="1.3"/><rect x="3" y="14" width="7" height="7" rx="1.3"/><rect x="14" y="14" width="7" height="7" rx="1.3"/>',
+  'play': '<circle cx="14.8" cy="4" r="2"/><path d="m13.2 8-4.2 3-3 6m7.2-9 3 5 4 1m-7.2-4-1 6-4.5 5m5.5-8 5 7"/>',
+  'animals': '<path d="M12 20c-3.5 0-6-1.8-6-4.4 0-1.6 1.3-2.6 2.7-3.5 1.1-.7 1.6-2.1 3.3-2.1s2.2 1.4 3.3 2.1c1.4.9 2.7 1.9 2.7 3.5 0 2.6-2.5 4.4-6 4.4Z"/><ellipse cx="5" cy="9" rx="1.5" ry="2.3" transform="rotate(-24 5 9)"/><ellipse cx="9.5" cy="5.6" rx="1.5" ry="2.2"/><ellipse cx="15" cy="5.6" rx="1.5" ry="2.2"/><ellipse cx="19" cy="9" rx="1.5" ry="2.3" transform="rotate(24 19 9)"/>',
+  'nature': '<path d="M20 4C9 4 4 9 4 15a5 5 0 0 0 5 5c6 0 11-5 11-16ZM4 20 16 8"/>',
+  'water': '<path d="M2 6c2.5-2.5 4.5-2.5 7 0s4.5 2.5 7 0 4.5-2.5 6 0M2 12c2.5-2.5 4.5-2.5 7 0s4.5 2.5 7 0 4.5-2.5 6 0M2 18c2.5-2.5 4.5-2.5 7 0s4.5 2.5 7 0 4.5-2.5 6 0"/>',
+  'adventure': '<path d="m2 20 7-12 4 6 3-4 6 10H2Zm7-12 2 4 2-2"/>',
+  'culture': '<path d="M12 6C9 3 5 3 2 4v15c4-1 8 0 10 3 2-3 6-4 10-3V4c-3-1-7-1-10 2Zm0 0v16"/>',
+  'pause': '<path d="M4 3v9m3-9v9m3-9v9M4 12h6M7 12v9M17 21V3q-5 3-5 9h5"/>',
+  'travel': '<path d="m2 20 10-16 10 16H2Zm10-16v16m-4 0 4-6 4 6"/>',
+  'services': '<path d="M12 22V3m-7 8h14m-12-4 5-4 5 4M8 22h8"/>',
+  'events': '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4m10-4v4M3 11h18M8 16h3m2 0h3"/>',
+  'other': '<circle cx="12" cy="12" r="9"/><path d="M12 8v8m-4-4h8"/>',
+  'nature-center': '<path d="M20 4C8 4 4 9 4 16a4 4 0 0 0 4 4c7 0 12-5 12-16ZM5 19 15 9"/><circle cx="19" cy="18" r="2"/><path d="m19 15v1m0 4v1m-3-3h1m4 0h1"/>',
+  'adventure-farm': '<path d="m3 10 9-7 9 7v11H3V10Zm4 11v-7h10v7M8 8h8M9 14l6 7m0-7-6 7"/>',
+  'swingolf': '<path d="M5 21V4l11 4-11 4M15 18a6 2 0 0 1 6 2c0 1-4 2-9 2s-9-1-9-2 2-1.7 5-2"/><circle cx="12" cy="17" r="1"/>',
+  'playground': '<path d="M5 21 8 4h8l3 17M3 21h18M7 9h10M10 9v7m4-7v7M10 16q2 3 4 0"/>',
+  'adventure-playground': '<path d="M3 21h18M5 21l3-13h8l3 13M8 8l4-5 4 5M9 14h6m-6 7 3-7 3 7"/><circle cx="12" cy="5" r="1"/>',
+  'indoor-playground': '<path d="m2 11 10-8 10 8M4 10v11h16V10M8 21v-8h8v8m-6-4 2-3 2 3"/>',
+  'forest-playground': '<path d="m5 17 5-8H7l3-6 3 6h-3l5 8H5ZM10 17v4m7-9 3 5h-6l3-5Zm0 5v4M3 21h18"/>',
+  'water-playground': '<path d="M5 20V4h6l6 8-8 8H5Zm0-10h9M3 22q3-2 6 0t6 0t6 0"/>',
+  'activity-park': '<circle cx="12" cy="5" r="2"/><path d="m8 21 2-8 4-3 5 2M7 12l3-2m4 3 2 8M3 21h18"/>',
+  'multisport': '<rect x="3" y="4" width="18" height="16" rx="1"/><path d="M12 4v16M3 12h18"/><circle cx="12" cy="12" r="3"/>',
+  'football': '<circle cx="12" cy="12" r="9"/><path d="m12 7 4 3-1 5h-6l-1-5 4-3Zm-4 3-4-1m12 1 4-1m-5 6 3 4m-9-4-3 4"/>',
+  'pumptrack': '<path d="M2 18c3 0 3-11 7-11s3 11 7 11 3-7 6-7M2 22h20"/><circle cx="10" cy="4" r="1"/>',
+  'skatepark': '<path d="M2 20h20M2 17c6 0 9-3 13-10h7v13h-7v-8c-3 6-7 8-13 8"/>',
+  'traffic': '<path d="M5 21 8 3h8l3 18H5ZM12 6v3m0 4v3M4 21h16"/>',
+  'dirtbike': '<circle cx="5" cy="18" r="3"/><circle cx="19" cy="18" r="3"/><path d="m5 18 5-8h4l5 8-8-5-6 5m6-3-2-5m4-3h4"/>',
+  'basketball': '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5 5c9 4 9 10 14 14M19 5C10 9 10 15 5 19"/>',
+  'zoo': '<path d="m3 19 2-9 5-2 5 3 5-3 1 11H3ZM7 7l1-4 4 2 4-2 1 4M10 15h4M8 19v-3m8 3v-3"/>',
+  'wildpark': '<path d="m12 21-5-6-1-5L3 6m3 4 1-7m5 18 5-6 1-5 3-4m-3 4-1-7M9 14q3-2 6 0"/>',
+  'farm': '<path d="M2 11 12 4l10 7M4 10v11h16V10M8 21v-8h8v8M8 8h8M10 16h4"/>',
+  'aquarium': '<rect x="2" y="5" width="20" height="15" rx="2"/><path d="M3 15q4-2 7 0t7 0t5 0M7 11q4-4 8 0l-2 2c-2 1-4 1-6-2Zm9-1 3-3v6l-3-3"/>',
+  'community-garden': '<path d="M12 18V9M12 13C6 13 4 9 4 5c5 0 8 2 8 8Zm0 0c0-6 3-8 8-8 0 5-3 8-8 8ZM5 19c2-2 4-3 7-3s5 1 7 3M4 22h16"/>',
+  'nature-trail': '<path d="m5 20 4-8H7l4-8 4 8h-2l4 8H5ZM11 20v2m7-4 3-6h-6l3 6M3 22h18"/>',
+  'cave': '<path d="M2 21 5 9 9 4h6l4 5 3 12H2ZM8 21q0-9 4-9t4 9M9 7l3 3 3-3"/>',
+  'rock-trail': '<path d="m2 20 5-10 4 3 4-9 7 16H2ZM9 16l4 1m5-4-3 2"/>',
+  'viewpoint': '<path d="M6 21h12M8 21V9h8v12M6 9h12l-6-6-6 6ZM9 13h6M9 16h6"/>',
+  'treehouse': '<path d="M12 22V11M7 22h10M3 12l9-8 9 8M5 12h14v6H5zM9 15h6M2 19l3-3m17 3-3-3"/>',
+  'quiet-nature': '<path d="M12 21V9m-6 4c-3-4-1-9 6-10 7 1 9 6 6 10M4 21h16M9 17q3 2 6 0"/>',
+  'walk': '<path d="m3 17 5-11 8 2-5 8 9 2v3H3v-4ZM5 19h15"/><circle cx="10" cy="4" r="1"/>',
+  'cycle': '<circle cx="5" cy="18" r="3"/><circle cx="19" cy="18" r="3"/><path d="m5 18 5-8 5 8H5Zm10 0 3-11h2M9 10l-2-3h3"/>',
+  'park': '<circle cx="12" cy="12" r="2"/><path d="M12 10c-3-5-7-4-7 0-4-1-5 4-1 6 0 4 5 5 8 2 3 3 8 2 8-2 4-2 3-7-1-6 0-4-4-5-7 0ZM12 18v4m0-1 4-2"/>',
+  'barefoot': '<path d="M9 21c-4 0-5-3-4-6l2-5 4 1 4 5c2 3 0 5-6 5ZM5 5a1 1 0 1 0 0-2m4 4a1 1 0 1 0 0-2m4 3a1 1 0 1 0 0-2m4 4a1 1 0 1 0 0-2"/>',
+  'pool': '<path d="M4 3v13m0-8h7M4 12h7M11 3v13M2 20q3-2 6 0t6 0t6 0M2 16q3-2 6 0t6 0t6 0"/>',
+  'lake': '<path d="M3 12c3-7 6-7 9 0s6 7 9 0M2 17q3-2 6 0t6 0t6 0M3 21q3-2 6 0t6 0t6 0"/>',
+  'beach': '<path d="M4 14C7 4 14 2 20 8c-5 1-9 3-16 6ZM12 8l4 13M2 21h20M3 18q3-2 6 0"/>',
+  'ice': '<path d="m12 2 2 7 7 2-7 2-2 8-2-8-7-2 7-2 2-7ZM2 20l4 2m16-2-4 2"/>',
+  'sled': '<path d="M4 19h13c2 0 4 2 2 3H5c-2 0-3-1-3-3M7 17l4-9 4 4-3 5H7Zm3-12h7"/>',
+  'themepark': '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2"/><path d="M12 4v6m0 4v6M4 12h6m4 0h6M7 7l3 3m4 4 3 3m0-10-3 3m-4 4-3 3"/>',
+  'trampoline': '<ellipse cx="12" cy="19" rx="9" ry="3"/><path d="M4 19v-4m16 4v-4M9 6c0-2 6-2 6 0M12 8v6m0 0-4 2m4-2 4 2"/>',
+  'climbing-indoor': '<path d="M4 21V3h16v18M8 8l2 2m6-4-2 3m-4 6 2 2M7 19l3-2m5-4 2 2"/>',
+  'climbing-outdoor': '<path d="m2 21 8-17 12 17H2ZM9 15l3-3 3 2M12 12l2-4M4 21h16"/>',
+  'ropes': '<path d="M3 3v18m18-18v18M3 7h18M5 9l3 10 4-10 4 10 3-10M9 21h6"/>',
+  'boulder': '<path d="m2 21 5-14 7-4 8 18H2ZM7 17l3-4 3 2 3-5M10 20l2-2"/>',
+  'minigolf': '<path d="M5 20V4l10 4-10 4M4 21h17M17 17a2 2 0 1 0 0 4"/>',
+  'maze': '<path d="M3 3h18v18H3V3ZM7 7h10v10H9V9h6v6h-4M3 12h4m10 0h4M12 21v-4"/>',
+  'openair-museum': '<path d="m3 9 9-6 9 6M5 9v12h14V9M8 21v-8h8v8M3 21h18M10 9h4"/>',
+  'museum': '<path d="m2 8 10-5 10 5H2Zm2 0v12m5-12v12m6-12v12m5-12v12M2 21h20"/>',
+  'library': '<path d="M4 4h4v17H4zM10 5h4v16h-4zM16 3l4 1 2 17-4 1-2-19Z"/>',
+  'historic': '<path d="M5 21V9l7-6 7 6v12M8 21v-8h8v8M4 21h16M9 9h6"/>',
+  'cafe': '<path d="M4 8h13v6a6 6 0 0 1-13 0V8ZM17 9h2a2 2 0 0 1 0 4h-2M3 21h17M8 3c0 2-2 2-2 4m6-4c0 2-2 2-2 4"/>',
+  'restaurant': '<circle cx="12" cy="13" r="8"/><path d="M4 4v4m3-4v4m-3 0h3m-1-4v17M19 4v17"/>',
+  'picnic': '<path d="M4 13h16M7 13l-3 8m13-8 3 8M8 17h8M8 10q4-5 8 0M11 5h2"/>',
+  'motorhome': '<path d="M2 7h13v12H2V7Zm13 4h5l2 4v4h-7M5 10h5v5H5z"/><circle cx="7" cy="19" r="2"/><circle cx="18" cy="19" r="2"/>',
+  'camping': '<path d="m2 21 10-17 10 17H2Zm10-17v17m-4 0 4-7 4 7"/>',
+  'cycle-stop': '<circle cx="5" cy="18" r="3"/><circle cx="19" cy="18" r="3"/><path d="m5 18 5-8h5l4 8m-9-8-2-3M12 4h8v5"/>',
+  'toilet': '<path d="M6 3h12M8 3v4m8-4v4M5 10h14v4a7 7 0 0 1-14 0v-4Zm7 11v-3"/>',
+  'changing': '<path d="M3 6h18v14H3V6ZM7 10h10m-8 6 3-3 3 3M7 3h10"/>',
+  'rv-service': '<path d="M3 8h15v12H3V8Zm15 5h3v7h-3M7 4v8m-2-5h4"/><circle cx="8" cy="20" r="1"/><circle cx="17" cy="20" r="1"/>',
+  'rest-stop': '<path d="M12 3v18M5 10h14M7 6h10M6 21h12m-9-7h6l-3 4-3-4"/>',
+  'event': '<path d="M4 5h16v15H4V5Zm4-2v4m8-4v4M4 10h16M8 14l2 2 4-4"/>',
+  'binoculars': '<path d="M6 7h3l3 4v7H2v-3l4-8ZM18 7h-3l-3 4v7h10v-3l-4-8ZM2 16a5 5 0 0 0 10 0m0 0a5 5 0 0 0 10 0M10 6h4M6 7V5m12 2V5"/>',
+  'free': '<circle cx="12" cy="12" r="9"/><path d="M16 8c-4-3-8 0-8 4s4 7 8 4M6 11h8m-8 3h8"/>',
+  'indoor': '<path d="m3 11 9-8 9 8M5 10v11h14V10M9 21v-8h6v8"/>',
+  'outdoor': '<circle cx="17" cy="6" r="3"/><path d="M17 1v1m0 8v1m-5-5h1m8 0h1m-8-4 1 1m4 6 1 1M3 21 9 10l4 7 3-4 5 8H3Z"/>',
+  'shade': '<path d="M2 13c3-11 17-11 20 0H2Zm10 0v8m-4 0h8"/>',
+  'covered': '<path d="m2 10 10-7 10 7M5 10v11m14-11v11M4 21h16"/>',
+  'step_free_path': '<path d="M3 19h18M5 19l8-8 6 0M8 7h3m6 5v5"/>',
+  'stroller_surface': '<circle cx="8" cy="19" r="2"/><circle cx="18" cy="19" r="2"/><path d="M7 9h12l-2 7H8L5 5H2"/>'
+});
+
+export function categoryIcon(id, className = 'category-explorer__icon') {
+  const key = Object.prototype.hasOwnProperty.call(PICTOGRAMS,id) ? id : 'other';
+  const holder = document.createElement('span');
+  holder.className = className;
+  holder.setAttribute('aria-hidden','true');
+  holder.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false">${PICTOGRAMS[key]}</svg>`;
+  return holder;
+}
+export const categoryIconKeys = Object.freeze(Object.keys(PICTOGRAMS));

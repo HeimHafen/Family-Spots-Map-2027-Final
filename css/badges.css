@@ -1,0 +1,138 @@
+/* ==========================================================================
+   badges.css — Labels für Stimmung, Distanz, Plus etc.
+   Corporate Refine – abgestimmt auf cremiges Family-Spots-Theme
+   ========================================================================== */
+
+/* Container für mehrere Badges */
+.badges-row,
+.spot-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+/* Basis-Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: var(--radius-pill);
+  padding: 2px 8px;
+  font-size: 0.72rem;
+  line-height: 1.3;
+  white-space: nowrap;
+  background: rgba(145, 93, 54, 0.06);
+  color: #6f4224;
+  border: 1px solid rgba(145, 93, 54, 0.18);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  vertical-align: middle;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.08s ease-out;
+}
+
+/* Dezentes Hover-Feedback, falls Badges in Buttons/Links genutzt werden */
+.badge:hover {
+  background: rgba(145, 93, 54, 0.12);
+  border-color: rgba(145, 93, 54, 0.28);
+}
+
+/* Wenn Badge selbst fokussierbar ist (z. B. als Button/Link) */
+.badge:focus-visible {
+  outline: 2px solid rgba(245, 158, 11, 0.9);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 1px #ffffff;
+}
+
+/* -------------------
+   Varianten
+------------------- */
+
+/* Soft – neutrale Badges */
+.badge--soft {
+  background: rgba(214, 151, 93, 0.14);
+  color: #6f4224;
+  border-color: rgba(214, 151, 93, 0.6);
+}
+
+/* Outline – nur Rahmen, sehr zurückhaltend */
+.badge--outline {
+  background: transparent;
+  border-color: rgba(148, 92, 54, 0.45);
+  color: #6f4224;
+}
+
+/* Match – aktuelle Stimmung passt gut zum Spot */
+.badge--match {
+  background: rgba(34, 197, 94, 0.12);
+  color: #166534;
+  border-color: rgba(34, 197, 94, 0.5);
+}
+
+/* Distanz – z. B. „4,3 km“ */
+.badge--distance {
+  background: rgba(255, 244, 232, 0.96);
+  color: #1f4fb0;
+  border-color: rgba(59, 130, 246, 0.45);
+}
+
+/* Dauer / Aufenthaltszeit */
+.badge--time {
+  background: rgba(249, 115, 22, 0.12);
+  color: #9a3412;
+  border-color: rgba(249, 115, 22, 0.55);
+}
+
+/* Alters-Match */
+.badge--age {
+  background: rgba(236, 72, 153, 0.12);
+  color: #9d174d;
+  border-color: rgba(236, 72, 153, 0.55);
+}
+
+/* Plus / Partner / Adventure */
+.badge--plus {
+  background: rgba(250, 204, 21, 0.12);
+  color: #92400e;
+  border-color: rgba(250, 204, 21, 0.7);
+}
+
+/* Verifiziert */
+.badge--verified {
+  background: rgba(16, 185, 129, 0.12);
+  color: #065f46;
+  border-color: rgba(16, 185, 129, 0.55);
+}
+
+/* Big Adventure / Großes Ticket */
+.badge--big {
+  background: rgba(147, 51, 234, 0.12);
+  color: #6b21a8;
+  border-color: rgba(147, 51, 234, 0.55);
+}
+
+/* Icon innerhalb der Badge */
+.badge__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em; /* skaliert mit Text */
+  line-height: 1;
+}
+/* Keep the established gold crown compact in every Plus badge. */
+.badge--plus .spots-plus-crown {
+  display: block;
+  flex: none;
+  width: 1.05em;
+  height: .95em;
+  color: #c99122;
+}
+@media (forced-colors: active) {
+  .badge--plus .spots-plus-crown { color: CanvasText; }
+}

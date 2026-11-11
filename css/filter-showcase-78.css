@@ -1,0 +1,578 @@
+/* Family Spots Map 78 – approved "Spots finden" design.
+ * Scoped strictly to the filter modal: no changes to Tilla, header, pins or map.
+ * Loaded last to resolve the previous release's intentionally flat filter rules.
+ */
+html.fsm-polished #filter-modal {
+  --fs78-ink:var(--p-text); --fs78-green:#315f3d; --fs78-muted:var(--p-muted);
+  --fs78-surface:var(--p-surface); --fs78-line:var(--p-line);
+  --fs78-blue:#1199ce; --fs78-orange:#ff782a;
+  background:rgba(24,31,24,.42)!important;
+  backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);
+}
+html.fsm-polished #filter-modal .filter-modal-inner {
+  width:min(100%,550px);max-width:550px;
+  max-height:calc(100dvh - 20px)!important;
+  border-radius:28px 28px 20px 20px!important;
+  border:1px solid #e9e4db!important;
+  background:var(--fs78-surface)!important;
+  color:var(--fs78-ink)!important;
+  box-shadow:0 24px 70px rgba(24,27,21,.23)!important;
+}
+html.fsm-polished #filter-modal .filter-modal-header {
+  position:relative; min-height:76px;
+  padding:20px 23px 10px!important;align-items:center;
+}
+html.fsm-polished #filter-modal .filter-modal-header::before {
+  content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);
+  width:48px;height:5px;border-radius:12px;background:#d8d3ca;pointer-events:none;
+}
+html.fsm-polished #filter-modal #filter-modal-title {
+  font-size:clamp(23px,6.2vw,30px)!important;letter-spacing:-.045em;
+  line-height:1.14;font-weight:760!important;color:var(--fs78-ink)!important;
+}
+html.fsm-polished #filter-modal #filter-modal-close {
+  width:46px;height:46px;flex-basis:46px;border:0!important;
+  border-radius:50%;background:#f4f0e9!important;color:#272b26!important;
+  box-shadow:none!important;
+}
+html.fsm-polished #filter-modal .filter-modal-body {
+  padding:0 22px 14px!important;background:transparent!important;
+  scrollbar-gutter:auto;
+}
+html.fsm-polished #filter-modal .category-explorer h3 {
+  margin:0 0 6px!important;font:750 clamp(18px,4.75vw,22px)/1.26 system-ui,-apple-system,sans-serif!important;
+  color:var(--fs78-green)!important;letter-spacing:-.025em!important;
+}
+html.fsm-polished #filter-modal .category-explorer > .filter-group-helper {
+  color:var(--fs78-muted)!important;margin:0 0 12px!important;
+  font:400 clamp(12px,3.5vw,14px)/1.48 system-ui,-apple-system,sans-serif!important;
+}
+html.fsm-polished #filter-modal .category-explorer__rules,
+html.fsm-polished #fsm-community-overlay .category-explorer__rules{
+  margin:10px 0 15px!important;border:1px solid #e4dac9!important;
+  background:linear-gradient(130deg,#fffaf2,#faf4ec)!important;
+  border-radius:14px!important;box-shadow:0 1px 3px rgba(58,41,20,.035);
+}
+html.fsm-polished #filter-modal .category-explorer__rules summary,
+html.fsm-polished #fsm-community-overlay .category-explorer__rules summary{
+  min-height:44px;padding:10px 14px!important;overflow-wrap:anywhere;
+  color:var(--fs78-ink)!important;
+  font:650 13.5px/1.35 system-ui,-apple-system,sans-serif!important;
+}
+html.fsm-polished #filter-modal .category-explorer__rules summary::before,
+html.fsm-polished #fsm-community-overlay .category-explorer__rules summary::before{
+  flex-basis:26px!important;width:26px!important;height:26px!important;
+}
+html.fsm-polished #filter-modal .category-explorer__theme-heading,
+html.fsm-polished #filter-modal .category-explorer__fieldset legend {
+  color:#6a7280!important;
+  font:750 11.5px/1.4 system-ui,-apple-system,sans-serif!important;
+  letter-spacing:.12em!important;
+  text-transform:uppercase!important;
+}
+html.fsm-polished #filter-modal .category-explorer__theme-heading {display:flex;gap:12px;align-items:center;margin:7px 0 8px!important;}
+html.fsm-polished #filter-modal .category-explorer__theme-heading::after {content:'';height:1px;background:var(--fs78-line);flex:1;}
+html.fsm-polished #filter-modal .category-explorer__worlds {
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  column-gap:8px!important;row-gap:7px!important;margin:0 0 12px!important;
+}
+html.fsm-polished #filter-modal .category-explorer__worlds > [data-world=""] {
+  grid-column:1/-1!important;background:#fbf6ed!important;font-weight:650!important;
+}
+html.fsm-polished #filter-modal .category-explorer__worlds > .category-explorer__chip {
+  --fs78-chip-bg:#fcf8f2;--fs78-chip-line:#e6ded2;--fs78-icon:#446a50;
+  box-sizing:border-box;display:flex!important;align-items:center!important;justify-content:flex-start!important;
+  gap:8px!important;border:1px solid var(--fs78-chip-line)!important;
+  border-radius:12px!important;padding:7px 9px!important;min-height:46px!important;
+  background:var(--fs78-chip-bg)!important;color:#2b3134!important;
+  box-shadow:0 1px 2px rgba(24,25,20,.04)!important;
+  font:500 clamp(10.5px,2.95vw,13px)/1.28 system-ui,-apple-system,sans-serif!important;
+  letter-spacing:-.012em;hyphens:none!important;
+  overflow-wrap:normal!important;
+}
+html.fsm-polished #filter-modal .category-explorer__worlds > .category-explorer__chip::before,
+html.fsm-polished #filter-modal .category-explorer__worlds > .category-explorer__chip::after {
+  display:none!important;content:none!important;
+}
+html.fsm-polished #filter-modal .category-explorer__worlds [data-world="play"],
+html.fsm-polished #fsm-map-fullscreen .fsm-map-themes [data-world="play"] {--fs78-chip-bg:#fff7f0;--fs78-chip-line:#f0dbcd;--fs78-icon:#ee8724;}
+html.fsm-polished #filter-modal .category-explorer__worlds [data-world="animals"],
+html.fsm-polished #fsm-map-fullscreen .fsm-map-themes [data-world="animals"] {--fs78-chip-bg:#fbf5ef;--fs78-chip-line:#e8d8ca;--fs78-icon:#98502c;}
+html.fsm-polished #filter-modal .category-explorer__worlds [data-world="nature"],
+html.fsm-polished #fsm-map-fullscreen .fsm-map-themes [data-world="nature"] {--fs78-chip-bg:#f1f7e9;--fs78-chip-line:#d7e5c8;--fs78-icon:#39834a;}
+html.fsm-polished #filter-modal .category-explorer__worlds [data-world="water"],
+html.fsm-polished #fsm-map-fullscreen .fsm-map-themes [data-world="water"] {--fs78-chip-bg:#eaf6ff;--fs78-chip-line:#cae3f7;--fs78-icon:#159cd1;}
+html.fsm-polished #filter-modal .category-explorer__worlds [data-world="adventure"],
+html.fsm-polished #fsm-map-fullscreen .fsm-map-themes [data-world="adventure"] {--fs78-chip-bg:#fcf5e9;--fs78-chip-line:#eddac4;--fs78-icon:#a45b32;}
+html.fsm-polished #filter-modal .category-explorer__worlds [data-world="culture"],
+html.fsm-polished #fsm-map-fullscreen .fsm-map-themes [data-world="culture"] {--fs78-chip-bg:#f8eef8;--fs78-chip-line:#e6d0e9;--fs78-icon:#7f37a6;}
+html.fsm-polished #filter-modal .category-explorer__worlds [data-world="pause"],
+html.fsm-polished #fsm-map-fullscreen .fsm-map-themes [data-world="pause"] {--fs78-chip-bg:#fff5ee;--fs78-chip-line:#f7d9c4;--fs78-icon:#f16f2a;}
+html.fsm-polished #filter-modal .category-explorer__worlds [data-world="travel"],
+html.fsm-polished #fsm-map-fullscreen .fsm-map-themes [data-world="travel"] {--fs78-chip-bg:#edf8f5;--fs78-chip-line:#cfe4df;--fs78-icon:#00877a;}
+html.fsm-polished #filter-modal .category-explorer__worlds > .category-explorer__chip[aria-pressed="true"] {
+  --fs78-chip-bg:#e7f0df;--fs78-chip-line:#58884d;
+  background:var(--fs78-chip-bg)!important;border-color:var(--fs78-chip-line)!important;
+  color:#244a30!important;box-shadow:inset 0 0 0 1px rgba(70,117,57,.28)!important;
+  font-weight:700!important;
+}
+html.fsm-polished #filter-modal .category-explorer__worlds .category-explorer__name {
+  min-width:0!important;flex:1;white-space:normal;overflow-wrap:normal!important;word-break:normal;
+}
+html.fsm-polished #filter-modal .category-explorer__worlds .category-explorer__count {display:none!important;}
+html.fsm-polished #filter-modal .category-explorer__icon {
+  flex:0 0 25px;width:25px;height:25px;display:inline-flex;align-items:center;justify-content:center;
+  color:var(--fs78-icon,#537d51);pointer-events:none;
+}
+html.fsm-polished #filter-modal .category-explorer__icon svg {
+  width:100%;height:100%;display:block;vector-effect:non-scaling-stroke;
+  stroke-width:1.85;
+}
+html.fsm-polished #filter-modal .category-explorer__extras {
+  border:1px solid var(--fs78-line);border-radius:11px;margin:9px 0 10px;
+  padding:0 11px;background:#fcf9f3;
+}
+html.fsm-polished #filter-modal .category-explorer__extras > summary {font-size:12px;font-weight:600;color:var(--fs78-green);}
+html.fsm-polished #filter-modal .category-explorer__extras .category-explorer__worlds {margin:0 0 10px!important;}
+html.fsm-polished #filter-modal .category-explorer__fieldset {
+  margin:12px 0!important;padding:5px 0 0!important;border-top:1px solid var(--fs78-line)!important;
+}
+html.fsm-polished #filter-modal .category-explorer__fieldset legend {
+  width:100%!important;float:none!important;
+}
+html.fsm-polished #filter-modal .category-explorer__selected-count {
+  float:right;color:#377c56!important;
+  font:600 12px/1.35 system-ui,-apple-system,sans-serif!important;
+  letter-spacing:normal;text-transform:none;
+}
+html.fsm-polished #filter-modal .category-explorer__type-help {
+  margin:5px 0 9px!important;color:var(--fs78-muted)!important;
+  font:400 12px/1.45 system-ui,-apple-system,sans-serif!important;
+}
+html.fsm-polished #filter-modal .category-explorer__types {
+  margin:5px 0 10px!important;gap:0!important;
+  border:1px solid var(--fs78-line);border-radius:14px;overflow:hidden;
+  background:var(--fs78-surface);
+}
+html.fsm-polished #filter-modal .category-explorer__choice {
+  display:flex;align-items:center;gap:10px!important;box-sizing:border-box;
+  min-height:44px!important;padding:5px 10px!important;
+  border:0!important;border-bottom:1px solid var(--fs78-line)!important;
+  border-radius:0!important;background:transparent!important;
+  color:#333e43!important;
+  font:400 clamp(11px,3.2vw,13.5px)/1.34 system-ui,-apple-system,sans-serif!important;
+}
+html.fsm-polished #filter-modal .category-explorer__choice:last-child {border-bottom:0!important;}
+html.fsm-polished #filter-modal .category-explorer__choice:has(input:checked) {
+  font-weight:650!important;background:#f2f8ed!important;
+}
+html.fsm-polished #filter-modal .category-explorer__choice:has(input:disabled) {opacity:.53;}
+html.fsm-polished #filter-modal .category-explorer__choice input[type="checkbox"] {
+  flex:0 0 21px;width:21px;height:21px;min-height:21px;
+  margin:0;accent-color:#548447;
+  background:#fffefa!important;border:1.4px solid #9da4a5!important;border-radius:6px!important;
+}
+html.fsm-polished #filter-modal .category-explorer__choice input[type="checkbox"]:checked {
+  background:#548447!important;border-color:#548447!important;
+}
+html.fsm-polished #filter-modal .category-explorer__choice > .category-explorer__choice-display {
+  display:flex;flex:1;min-width:0;align-items:center;gap:9px!important;
+}
+html.fsm-polished #filter-modal .category-explorer__choice .category-explorer__icon {
+  flex-basis:22px;width:22px;height:22px;color:var(--fs78-icon,#4c8260);
+}
+html.fsm-polished #filter-modal .category-explorer__choice[data-world="play"],
+html.fsm-polished .spot-meta-type[data-world="play"] {--fs78-icon:#465638;--spot-type-tint:#e7eddf;}
+html.fsm-polished #filter-modal .category-explorer__choice[data-world="animals"],
+html.fsm-polished .spot-meta-type[data-world="animals"] {--fs78-icon:#805232;--spot-type-tint:#f5e9dd;}
+html.fsm-polished #filter-modal .category-explorer__choice[data-world="nature"],
+html.fsm-polished .spot-meta-type[data-world="nature"] {--fs78-icon:#386447;--spot-type-tint:#e6efe5;}
+html.fsm-polished #filter-modal .category-explorer__choice[data-world="water"],
+html.fsm-polished .spot-meta-type[data-world="water"] {--fs78-icon:#246887;--spot-type-tint:#e4f1f7;}
+html.fsm-polished #filter-modal .category-explorer__choice[data-world="adventure"],
+html.fsm-polished .spot-meta-type[data-world="adventure"] {--fs78-icon:#865323;--spot-type-tint:#f7ecda;}
+html.fsm-polished #filter-modal .category-explorer__choice[data-world="culture"],
+html.fsm-polished .spot-meta-type[data-world="culture"] {--fs78-icon:#74478b;--spot-type-tint:#f1e8f5;}
+html.fsm-polished #filter-modal .category-explorer__choice[data-world="pause"],
+html.fsm-polished .spot-meta-type[data-world="pause"] {--fs78-icon:#92472d;--spot-type-tint:#faece3;}
+html.fsm-polished #filter-modal .category-explorer__choice[data-world="travel"],
+html.fsm-polished .spot-meta-type[data-world="travel"] {--fs78-icon:#316961;--spot-type-tint:#e5f0ed;}
+html.fsm-polished #filter-modal .category-explorer__choice .category-explorer__name {
+  flex:1;min-width:0;white-space:normal;overflow-wrap:normal!important;
+}
+html.fsm-polished #filter-modal .category-explorer__choice .category-explorer__count {
+  flex:0 0 auto;min-width:29px;padding:4px 9px;
+  border-radius:99px;background:#f2f0eb;color:#67727a!important;
+  text-align:center!important;font:500 12px/1.2 system-ui,-apple-system,sans-serif!important;
+}
+html.fsm-polished #filter-modal .category-explorer__more {padding:0 9px 9px;}
+html.fsm-polished #filter-modal .category-explorer__selection {gap:5px;margin:8px 0 0!important;}
+html.fsm-polished #filter-modal .category-explorer__selection .category-explorer__chip {
+  border:1px solid #d7e1d1;background:#f1f6ec;border-radius:999px;
+  color:#315f3d!important;padding:6px 12px;min-height:38px;
+  font:600 12px/1.3 system-ui,-apple-system,sans-serif;
+}
+html.fsm-polished #filter-modal #advanced-filters {
+  border-top:1px solid var(--fs78-line);margin-top:14px;
+}
+html.fsm-polished #filter-modal .filter-modal-footer {
+  box-sizing:border-box;display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)!important;
+  align-items:stretch;gap:9px!important;margin:0;
+  padding:10px 17px max(12px,env(safe-area-inset-bottom))!important;
+  background:var(--fs78-surface)!important;border-top:1px solid var(--fs78-line)!important;
+  box-shadow:0 -5px 16px rgba(51,43,29,.055)!important;
+}
+html.fsm-polished #filter-modal #filter-modal-reset,
+html.fsm-polished #filter-modal #filter-modal-apply {
+  display:inline-flex!important;align-items:center;justify-content:center;
+  box-sizing:border-box;min-height:50px!important;padding:9px 12px!important;
+  width:100%;font:750 clamp(12px,3.2vw,14px)/1.3 system-ui,-apple-system,sans-serif!important;
+  border-radius:13px!important;box-shadow:0 2px 5px rgba(47,39,25,.07)!important;
+  white-space:normal;overflow-wrap:normal!important;
+}
+html.fsm-polished #filter-modal #filter-modal-reset {
+  background:linear-gradient(120deg,#fbf8f0,#f5ede3)!important;
+  border:1px solid #e4d5c6!important;color:#263a32!important;
+}
+html.fsm-polished #filter-modal #filter-modal-reset::before {
+  content:'↻'!important;display:inline-block!important;
+  position:static!important;inset:auto!important;transform:none!important;
+  margin-right:9px;font-size:25px;line-height:0.6;
+  background:none!important;border:0!important;box-shadow:none!important;
+}
+html.fsm-polished #filter-modal #filter-modal-apply {
+  padding-inline:36px 16px!important;
+  background:linear-gradient(110deg,#ff9925,#ff642a)!important;
+  border:1px solid #f58a20!important;color:#fff!important;
+  box-shadow:0 3px 9px rgba(239,105,33,.19)!important;
+}
+html.fsm-polished #filter-modal #filter-modal-apply::before {content:none!important;display:none!important;}
+html.fsm-polished #filter-modal #filter-modal-apply::after {
+  content:'›';position:absolute;right:12px;top:50%;transform:translateY(-54%);
+  font-size:26px;font-weight:400;color:#fff;
+}
+html.fsm-polished #filter-modal #filter-modal-apply:disabled {opacity:.55;}
+html.fsm-polished #filter-modal :is(button,summary,input):focus-visible {
+  outline:3px solid #685c51!important;outline-offset:2px!important;
+}
+@media(max-width:375px) {
+  html.fsm-polished #filter-modal .filter-modal-header {padding-inline:15px!important;}
+  html.fsm-polished #filter-modal .filter-modal-body {padding-inline:14px!important;}
+  html.fsm-polished #filter-modal .category-explorer__worlds {gap:6px!important;}
+  html.fsm-polished #filter-modal .category-explorer__worlds > .category-explorer__chip {padding:7px 6px!important;gap:5px!important;font-size:10.25px!important;}
+  html.fsm-polished #filter-modal .category-explorer__worlds .category-explorer__icon {flex-basis:21px;width:21px;height:21px;}
+  html.fsm-polished #filter-modal .filter-modal-footer {padding-inline:11px!important;}
+  html.fsm-polished #filter-modal #filter-modal-reset,html.fsm-polished #filter-modal #filter-modal-apply {font-size:12px!important;}
+}
+@media(forced-colors:active) {
+  html.fsm-polished #filter-modal .category-explorer__worlds>.category-explorer__chip,
+  html.fsm-polished #filter-modal .category-explorer__choice {forced-color-adjust:auto;}
+  html.fsm-polished #filter-modal .category-explorer__icon {color:CanvasText;}
+}
+
+/* The default "All themes" is a neutral entry tile, not a green active filter. */
+html.fsm-polished #filter-modal .category-explorer__worlds > [data-world=""][aria-pressed="true"] {
+  background:#fbf6ed!important;border-color:#e6ded2!important;color:#2b3134!important;
+  box-shadow:0 1px 2px rgba(24,25,20,.04)!important;
+}
+html.fsm-polished #filter-modal #filter-modal-apply {gap:6px!important;padding:8px 24px 8px 9px!important;}
+html.fsm-polished #filter-modal .filter-modal__action-icon {display:inline-flex;flex:0 0 20px;width:20px;height:20px;}
+html.fsm-polished #filter-modal .filter-modal__action-icon svg {display:block;width:100%;height:100%;stroke-width:2.1;}
+html.fsm-polished #filter-modal .filter-modal__action-label {flex:0 1 auto;min-width:0;text-align:center;}
+
+/* Individual subcategory accents echo the illustration without relying on emoji. */
+html.fsm-polished :is(#filter-modal, #spot-detail, .spot-card-types) [data-category-icon="park"] .category-explorer__icon {color:#547045!important;}
+html.fsm-polished :is(#filter-modal, #spot-detail, .spot-card-types) [data-category-icon="viewpoint"] .category-explorer__icon {color:#87552f!important;}
+html.fsm-polished :is(#filter-modal, #spot-detail, .spot-card-types) [data-category-icon="walk"] .category-explorer__icon {color:#547045!important;}
+html.fsm-polished :is(#filter-modal, #spot-detail, .spot-card-types) [data-category-icon="adventure-farm"] .category-explorer__icon {color:#87552f!important;}
+html.fsm-polished :is(#filter-modal, #spot-detail, .spot-card-types) [data-category-icon="swingolf"] .category-explorer__icon {color:#925c23!important;}
+html.fsm-polished :is(#filter-modal, #spot-detail, .spot-card-types) [data-category-icon="playground"] .category-explorer__icon {color:#547045!important;}
+html.fsm-polished :is(#filter-modal, #spot-detail, .spot-card-types) [data-category-icon="adventure-playground"] .category-explorer__icon {--fs78-icon:#92501f;--spot-type-tint:#f8eadb;color:#92501f!important;}
+html.fsm-polished :is(#filter-modal, #spot-detail, .spot-card-types) [data-category-icon="indoor-playground"] .category-explorer__icon {color:#447455!important;}
+
+
+/* Family Spots Map 80 – quiet buttons & consistent dark lettering on orange.
+   Presentation-only; no changes to the categories, filter logic or spot data.
+   Orange uses Tilla's original #f58b20 and the approved warm dark ink. */
+html.fsm-polished {
+  --fsm80-button-orange: var(--p-action);
+  --fsm80-button-ink: #382e25;
+}
+/* Keep the round close action easy to tap while reducing its visible weight. */
+html.fsm-polished #filter-modal #filter-modal-close {
+  width:44px!important;height:44px!important;flex-basis:44px!important;
+  background:#f8f5ef!important;color:#676b64!important;
+  border:0!important;box-shadow:none!important;
+}
+html.fsm-polished #filter-modal #filter-modal-close svg {width:17px!important;height:17px!important;}
+html.fsm-polished #filter-modal #filter-modal-close svg path {stroke-width:1.7!important;}
+/* Gentle active states without losing the clearly marked selection. */
+html.fsm-polished #filter-modal .category-explorer__worlds > .category-explorer__chip[aria-pressed="true"]:not([data-world=""]) {
+  --fs78-chip-bg:#f1f8ed;--fs78-chip-line:#a0bd96;
+  background:#f1f8ed!important;border-color:#a0bd96!important;
+  color:#2c5236!important;font-weight:650!important;
+  box-shadow:inset 0 0 0 1px rgba(90,126,74,.11)!important;
+}
+/* Keep selection gentle and identifiable without the former orange inset ring. */
+html.fsm-polished #filter-modal .category-explorer__choice:has(input:checked) {
+  background:#f7fbf3!important;
+  font-weight:600!important;
+}
+html.fsm-polished #filter-modal .category-explorer__choice input[type="checkbox"]:checked {
+  -webkit-appearance:none!important;appearance:none!important;
+  background:#d4ebca!important;
+  border:1.5px solid #82aa76!important;
+  color:#245133!important;
+  accent-color:#487b46!important;
+  box-shadow:none!important;
+}
+/* Color-independent keyboard focus remains visible, never orange. */
+html.fsm-polished #filter-modal .category-explorer__choice input[type="checkbox"]:focus-visible {
+  outline:2px solid #685c51!important;
+  outline-offset:3px!important;
+  box-shadow:none!important;
+}
+/* Default .btn actions are orange in this project; keep their text dark.
+   Exclude native secondary/ghost/icon/outline controls. */
+html.fsm-polished .btn:not(.btn-secondary):not(.btn-ghost):not(.btn-icon):not(.btn-outline) {
+  color:var(--fsm80-button-ink)!important;
+  --button-fg:var(--fsm80-button-ink);
+  --cta-fg:var(--fsm80-button-ink);
+}
+html.fsm-polished .btn:not(.btn-secondary):not(.btn-ghost):not(.btn-icon):not(.btn-outline) > :is(span,svg) {
+  color:inherit!important;
+}
+/* The diary-new action becomes transparent while editing; keep its original ink. */
+html.fsm-polished #view-diary:has(#diary-composer:not([hidden])) #diary-new-memory {
+  color:var(--p-muted)!important;
+}
+/* The original Spielideen button establishes the shared orange/ink pairing.
+   Other existing button backgrounds are not changed by this rule. */
+html.fsm-polished :is(
+  #tilla-section #btn-play-idea,
+  #btn-open-filter-modal,
+  #plus-section #plus-code-submit,
+  #view-diary #daylog-save,
+  .daylog-entry-actions > .btn:not(.btn-secondary)
+) {
+  color:var(--fsm80-button-ink)!important;
+  --button-fg:var(--fsm80-button-ink);
+}
+html.fsm-polished :is(
+  #tilla-section #btn-play-idea,
+  #btn-open-filter-modal,
+  #plus-section #plus-code-submit,
+  #view-diary #daylog-save,
+  .daylog-entry-actions > .btn:not(.btn-secondary)
+) :is(span,svg) {color:inherit!important;}
+/* Two quieter, compact footer actions. Orange matches Spielideen EXACTLY. */
+html.fsm-polished #filter-modal .filter-modal-footer {
+  box-shadow:0 -3px 10px rgba(51,43,29,.035)!important;
+}
+html.fsm-polished #filter-modal #filter-modal-reset,
+html.fsm-polished #filter-modal #filter-modal-apply {
+  min-height:46px!important;border-radius:12px!important;
+  box-shadow:none!important;font-weight:650!important;
+}
+html.fsm-polished #filter-modal #filter-modal-reset {
+  background:#faf6ee!important;border-color:#e4dbce!important;color:#374438!important;
+  font-weight:600!important;
+}
+html.fsm-polished #filter-modal #filter-modal-reset::before {font-size:23px!important;}
+html.fsm-polished #filter-modal #filter-modal-apply {
+  background:var(--fsm80-button-orange)!important;
+  border-color:var(--fsm70-orange-border,#dc7613)!important;
+  color:var(--fsm80-button-ink)!important;
+  --button-fg:var(--fsm80-button-ink);
+}
+html.fsm-polished #filter-modal #filter-modal-apply :is(span,svg),
+html.fsm-polished #filter-modal #filter-modal-apply::after {
+  color:var(--fsm80-button-ink)!important;
+}
+html.fsm-polished #filter-modal #filter-modal-apply:not(:disabled):hover {
+  background:#ee8218!important;
+}
+html.fsm-polished #filter-modal #filter-modal-apply:not(:disabled):active {
+  background:#df7510!important;
+}
+@media(forced-colors:active) {
+  html.fsm-polished #filter-modal .category-explorer__choice input[type="checkbox"]:checked {
+    background:Highlight!important;
+    border-color:Highlight!important;
+    color:HighlightText!important;
+    forced-color-adjust:auto;
+  }
+}
+
+
+
+/* Family Spots Map 81 – flatter action buttons.
+   Requested refinement: the sidebar "Spots finden" action and the modal footer
+   actions use a calmer 44 px height. The modal CTA must keep "164 Spots ansehen"
+   on one line. */
+html.fsm-polished #btn-open-filter-modal {
+  min-height:44px!important;
+  height:44px!important;
+  padding:8px 14px!important;
+  border-radius:11px!important;
+  line-height:1.2!important;
+  box-shadow:none!important;
+}
+html.fsm-polished #btn-open-filter-modal > span {
+  white-space:nowrap!important;
+}
+html.fsm-polished #filter-modal .filter-modal-footer {
+  grid-template-columns:minmax(0,.92fr) minmax(0,1.22fr)!important;
+  gap:8px!important;
+}
+html.fsm-polished #filter-modal #filter-modal-reset,
+html.fsm-polished #filter-modal #filter-modal-apply {
+  min-height:44px!important;
+  height:44px!important;
+  padding:7px 12px!important;
+  border-radius:11px!important;
+  font-size:clamp(11.5px,3vw,13.5px)!important;
+  line-height:1.15!important;
+}
+html.fsm-polished #filter-modal #filter-modal-reset {
+  white-space:nowrap!important;
+}
+html.fsm-polished #filter-modal #filter-modal-reset::before {
+  margin-right:8px!important;
+  font-size:22px!important;
+}
+html.fsm-polished #filter-modal #filter-modal-apply {
+  gap:6px!important;
+  padding:7px 22px 7px 10px!important;
+  white-space:nowrap!important;
+}
+html.fsm-polished #filter-modal .filter-modal__action-icon {
+  flex:0 0 18px!important;
+  width:18px!important;
+  height:18px!important;
+}
+html.fsm-polished #filter-modal .filter-modal__action-label {
+  flex:0 1 auto!important;
+  min-width:0!important;
+  white-space:nowrap!important;
+  text-wrap:nowrap!important;
+}
+html.fsm-polished #filter-modal #filter-modal-apply::after {
+  right:10px!important;
+  font-size:24px!important;
+}
+@media(max-width:375px) {
+  html.fsm-polished #filter-modal .filter-modal-footer {
+    grid-template-columns:minmax(0,.9fr) minmax(0,1.24fr)!important;
+  }
+  html.fsm-polished #filter-modal #filter-modal-reset,
+  html.fsm-polished #filter-modal #filter-modal-apply {
+    font-size:11.5px!important;
+  }
+}
+
+
+/* Small-screen resilience: keep the complete result action legible at 320 px. */
+@media(max-width:350px) {
+  html.fsm-polished #filter-modal .filter-modal-footer {
+    grid-template-columns:minmax(0,.73fr) minmax(0,1.42fr)!important;
+    gap:6px!important;
+  }
+  html.fsm-polished #filter-modal #filter-modal-reset {
+    padding-inline:6px!important;
+    font-size:11px!important;
+  }
+  html.fsm-polished #filter-modal #filter-modal-reset::before {
+    content:none!important;
+    display:none!important;
+  }
+  html.fsm-polished #filter-modal #filter-modal-apply {
+    padding-inline:5px 16px!important;
+    font-size:11.5px!important;
+    gap:4px!important;
+  }
+  html.fsm-polished #filter-modal #filter-modal-apply::after {right:5px!important;}
+  html.fsm-polished #filter-modal .filter-modal__action-icon {
+    flex-basis:16px!important;width:16px!important;height:16px!important;
+  }
+}
+
+
+/* V81.2 – Feinabstimmung der Startseiten-Schnellwahl, Vollbild-Themen und Abstände.
+   Ausschließlich Präsentation; mehrere Ortsarten im Expertenfilter bleiben erlaubt.
+   Der aktive Zustand wird immer am individuellen aria-pressed Attribut gelesen. */
+
+/* Bestehenden 44px-Button absichern, ohne seine größere Klickfläche zu verlieren. */
+html.fsm-polished #filter-section #btn-open-filter-modal.btn {
+  box-sizing:border-box!important;
+  height:44px!important;
+  min-height:44px!important;
+  max-height:44px!important;
+  padding:0 14px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  line-height:1.2!important;
+  box-shadow:none!important;
+}
+/* Eine Spur mehr Abstand *unter* dem zusammenfassenden Auswahltext. */
+html.fsm-polished #filter-section > .filter-footer {
+  padding-bottom:9px!important;
+  margin-bottom:2px!important;
+}
+html.fsm-polished #filter-section #filter-summary {
+  line-height:1.45!important;
+  margin-bottom:0!important;
+}
+/* Inaktive Schnellwahl neutral, aktive nur an EINEM aria-pressed=true Chip. */
+html.fsm-polished[data-theme="light"] #filter-section .mood-row > .mood-chip:not([aria-pressed="true"]) {
+  background:#f6ede0!important;
+  border:1px solid #ded3c2!important;
+  color:#3e4036!important;
+  box-shadow:none!important;
+}
+html.fsm-polished[data-theme="light"] #filter-section .mood-row > .mood-chip[aria-pressed="true"] {
+  background:#d9e6cd!important;
+  border:1px solid #839e77!important;
+  color:#29462d!important;
+  box-shadow:inset 0 0 0 1px rgba(64,100,55,.09)!important;
+  font-weight:600!important;
+}
+html.fsm-polished #filter-section .mood-row > .mood-chip[aria-pressed="true"] .mood-chip-emoji {color:inherit!important;}
+
+/* Gleiches Auswahlprinzip im großen Themen-Dialog: satter, nicht ausgewaschen. */
+html.fsm-polished[data-theme="light"] #filter-modal .category-explorer__worlds > .category-explorer__chip[aria-pressed="true"]:not([data-world=""]) {
+  --fs78-chip-bg:#d9e6cd;
+  --fs78-chip-line:#839e77;
+  background:#d9e6cd!important;
+  border-color:#839e77!important;
+  color:#29462d!important;
+  box-shadow:inset 0 0 0 1px rgba(64,100,55,.09)!important;
+}
+
+/* Die horizontale Vollbild-Kartenleiste darf neben dem gewählten Thema nicht
+   weitere Chips als aktiv aussehen lassen. Unterschiedliche ruhige Zustände. */
+html.fsm-polished[data-theme="light"] #fsm-map-fullscreen .fsm-map-themes > .fsm-map-tool--theme[aria-pressed="false"] {
+  background:#fff9ef!important;
+  border-color:#d9cdb9!important;
+  color:#394139!important;
+  box-shadow:0 1px 4px rgba(42,39,30,.08)!important;
+}
+html.fsm-polished[data-theme="light"] #fsm-map-fullscreen .fsm-map-themes > .fsm-map-tool--theme[aria-pressed="true"] {
+  background:#587348!important;
+  border-color:#587348!important;
+  color:#fffdf4!important;
+  box-shadow:none!important;
+}
+/* Sichtbarer Tastaturfokus, unabhängig vom ausgewählten Zustand. */
+html.fsm-polished #filter-section .mood-row > .mood-chip:focus-visible,
+html.fsm-polished #fsm-map-fullscreen .fsm-map-themes > .fsm-map-tool--theme:focus-visible {
+  outline:2px solid #376a45!important;
+  outline-offset:3px!important;
+}
+
+html.fsm-polished :is(#filter-modal, #spot-detail, .spot-card-types) [data-category-icon="water-playground"] .category-explorer__icon {color:#246e91!important;}
+
+html.fsm-polished :is(#filter-modal, #spot-detail, .spot-card-types) [data-category-icon="football"] .category-explorer__icon {
+  color: #465638 !important;
+}

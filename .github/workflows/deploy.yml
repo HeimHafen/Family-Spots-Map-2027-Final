@@ -1,0 +1,80 @@
+name: Family Spots Map V5 — überprüfen und veröffentlichen
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: fsm-v5-pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Repository abrufen
+        uses: actions/checkout@v6
+      - name: Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Pages bereitstellen
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Links an das Ziel-Repository anpassen
+        env:
+          FSM_PAGES_URL: ${{ steps.pages.outputs.base_url }}
+        run: node tools/configure-pages-target.mjs
+      - name: Eindeutige Release-Version mit allen Prüfsummen erzeugen
+        shell: bash
+        run: |
+          RELEASE="$(date -u +%Y%m%d)-commit-${GITHUB_SHA:0:12}"
+          node tools/prepare-release.mjs "$RELEASE"
+      - name: Vollständige Projektprüfung
+        run: node tools/check-project.mjs
+      - name: Update-Vertrag prüfen
+        run: node tools/check-update-system.mjs
+      - name: Drei Sprachen und Hosting-Pfade prüfen
+        run: node tools/check-hosting.mjs
+      - name: V5-Repository und Designintegration prüfen
+        run: node tools/check-v5-scope.mjs
+      - name: Premium-Design und Kalender-/Spotlistenvertrag prüfen
+        run: node tools/check-premium-cohesion.mjs
+      - name: Navigation visuell und semantisch absichern
+        run: node tools/check-navigation-contract.mjs
+      - name: Buttons, Dialoge und Spot-Aktionen absichern
+        run: node tools/check-component-contract.mjs
+      - name: Alle lokalen Dateiverweise und Fotometadaten prüfen
+        run: node tools/check-release-assets.mjs
+      - name: Service-Worker-Ausfälle simulieren
+        run: node tools/test-update-worker.mjs
+      - name: Nur App-Daten in Veröffentlichungsordner kopieren
+        shell: bash
+        run: |
+          mkdir -p _site
+          cp -R assets css da en experimente js src utils vendor _site/
+          mkdir -p _site/data/i18n
+          cp data/spots.json data/tours.json data/play-ideas.json data/index.json data/partners.json data/codes.json data/community-play.json _site/data/
+          cp data/i18n/{de,en,da}.json _site/data/i18n/
+          cp .nojekyll Lizenz index.html init.js manifest.webmanifest offline.html robots.txt service-worker.js sitemap.xml _site/
+      - name: Öffentliche Versionsdatei erzeugen
+        run: node tools/write-release-info.mjs
+      - name: Paket an Pages übergeben
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Freigegebene App veröffentlichen
+        id: deployment
+        uses: actions/deploy-pages@v4
