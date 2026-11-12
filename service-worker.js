@@ -1,5 +1,5 @@
   // Family Spots Map: vollständige Offline-Grundfunktion, ohne Kartenkachel-Downloads.
-const CACHE_VERSION = "20261112-fahrrad-test";
+const CACHE_VERSION = "20261112-touren-filter-icons";
 const ROOT = new URL("./", self.location.href);
 const CACHE_PREFIX = "fsm-v5-" + ROOT.pathname.replace(/[^a-z0-9]/gi, "_") + "-";
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
@@ -227,9 +227,9 @@ const RELEASE_HASHES = {
   "css/fsm-touren-reference.css": "cdaa7869bca72de445576bee1f0fc0f3af390a023045868cb3012f78578bb36a",
   "data/tours.json": "d98ad4d6fdddaca220147f3ee113e185010783e1db8840d3f05706db2e51b7de",
   "css/tourenwelt.css": "36d8d6eceaee49592031dc7bf8ab60f1f7e9344a8f5b49dca3d1295272aa3bdd",
-  "js/ui/tourenwelt.js": "0c5f56330804034b8a844733e7ac44e9056a56a0b9b60539e1cbb89adeb4ad58",
+  "js/ui/tourenwelt.js": "c87a41c248a1bb53e86831b053a683f527ccec4f4e5f3d9a3e20ad59c6e3d487",
   "js/ui/stroebeck-track.js": "1745660b3a7bc8c09fdb711ba0f0d3b015cf4d03094cc82f06ba5e84c0888a30",
-  "js/ui/cycle-tours.js": "76412cb68119bd35489effcbc175d3bdf79b5c7ce244784afc09d9a8174d05c3",
+  "js/ui/cycle-tours.js": "a0b50e50b6ee1424ba3e09d61d229de264b5fb31cd1a6fb1f0e0239397f7aff8",
   "css/cycle-tours.css": "14d793ca2e3041b5db2c9aa7bf8fc39cae4428c01b65758d30298b5f560aeb4d",
   "css/fsm-design-system-83.css": "7d7c21c75a85ee14990749fdcf7428b9f52fe0b81a5651acb13f6045a0192b71",
   "js/ui/category-icons.js": "fcc00a121936e579b1590bb23f31854f3bfc7fd305e1c6aca8fb3d0fda42d6c7",
@@ -241,15 +241,15 @@ const RELEASE_HASHES = {
   "css/theme.css": "1623d0ad94b1d92ba65f2777356dfab47f75d78004e82bc080cd40450fa59a2d",
   "js/filter-model.js": "1eaee4ef7c57398042071867e1444c18e3c63370174d788f6e5b563123962c2f",
   "css/map-spots.css": "fc811f5faf3a652126a6f8fbc25b8de0501144a43eff5b7e5171cd1f45207923",
-  "da/index.html": "20f3538fc0a76858824e93c74883471335f52434c6241618276cc7cd52e7ebd3",
+  "da/index.html": "3c2b1972c66aa2f7e0a8c957ec2de27aa6d6bf4629ff536253e7a8fdcb913996",
   "data/i18n/da.json": "951da56127bece47feacd0b14f36bce865da645f7125ea49664d4766c1e61e41",
   "data/i18n/de.json": "db4a3703a47a36c9b3e0735da710e20f17e2b8c8fc041a60ba7ad0a7b9ad29ce",
   "data/i18n/en.json": "48e6dc58647ab76a07b38360bbd3d704e3058fbdda9c0cdb60f0e8441ed0a9b6",
   "data/play-ideas.json": "c18f791a6f9bc6490e5414f7ea4ba3e5735ef597d70235e93530f0ee1ba7dc07",
   "data/spots.json": "c6557b4998710233813d58617b15b459a419ae6f1dda9af7f1100608708d206a",
-  "en/index.html": "79d6ffc4408951f81c492aba9160f2258d7e916ed478e3898e324e92c73fc127",
-  "index.html": "89a6da0ee39f6f3b095c1901218a0b8f952722f8ef09d6515469df405940d685",
-  "js/app.js": "214c45962b368dde5dae7f9626c0e35d395a8eb534ab7a201206890cbea055d2",
+  "en/index.html": "193065270a51983b8d46912af504937769b17428851bf03b318bfb0762dbc675",
+  "index.html": "77f949254ffc76200917e2c38afe02f07ecd40c6fd9ac696bbd248445e76f7b9",
+  "js/app.js": "a9df6ad730f4f3de49b715d533a522076199abc788bbbfdade838c1bfe4f0930",
   "js/config.js": "d5b73ee24a85bc392458fa33a8167c9a1749d467b6f3e8fea804a8d7099fa48a",
   "js/features/personal-backup.js": "e1019180ef2046c93ee0ae7c2a9fcedec9af1375496a811f50bf81afaca61e86",
   "js/features/personal-storage.js": "32876282f17c01fcd46b08b7e8caed4e54aaa5b77052ed725fdc9b5b1b4e1f8b",

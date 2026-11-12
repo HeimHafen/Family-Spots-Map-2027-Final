@@ -1,5 +1,5 @@
-import { initCycleTours } from "./ui/cycle-tours.js";
-import { initTourenwelt } from "./ui/tourenwelt.js?v=20261112-fahrrad-test";
+import { initCycleTours } from "./ui/cycle-tours.js?v=20261112-touren-filter-icons";
+import { initTourenwelt } from "./ui/tourenwelt.js?v=20261112-touren-filter-icons";
 // js/app.js
 // ======================================================
 // Family Spots Map – Hauptlogik
