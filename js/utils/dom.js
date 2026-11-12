@@ -71,3 +71,10 @@ export function createCrownIcon(ownerDocument = document) {
   svg.appendChild(group);
   return svg;
 }
+
+/** Decorative bicycle for labelled tour controls and headings. */
+export function bicycleIconHtml({ size = 24, bikepacking = false } = {}) {
+  const showBag = bikepacking && size >= 32;
+  const bag = showBag ? '<rect x="2.8" y="6.8" width="4.3" height="3" rx=".6"/><path d="M7.1 9.8h2.2"/>' : "";
+  return `<svg class="fsm-bike-icon" width="${size}" height="${size}" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.3" cy="16.6" r="3.8"/><circle cx="18.7" cy="16.6" r="3.8"/><path d="M5.3 16.6 9.5 9.3l3.7 7.3H5.3m7.9 0 3-7H9.7m9 7-3-10h2.8l1 1.4M8.1 7.7h3.3"/>${bag}</svg>`;
+}

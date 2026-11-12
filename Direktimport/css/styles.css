@@ -1,0 +1,393 @@
+@import url("./categories.css?v=20261109-details-v43");
+/* styles.css — Aggregator für modulare Styles
+   ---------------------------------------------------------
+   NOTE (Cache Busting):
+   - GitHub Pages + iOS Safari können CSS/Imports sehr aggressiv cachen.
+   - Deshalb hängen die Imports hier bewusst ein Version-Query an.
+   - Wenn du Änderungen veröffentlichst und “es passiert nichts”:
+     -> erhöhe einfach die Zahl in ?v=... (einmalig) und committe erneut.
+   --------------------------------------------------------- */
+
+/* 1. Design-Variablen */
+@import url("./theme.css?v=20261109-details-v43");
+
+/* 2. Reset, Body, Typografie, Grundlayout */
+@import url("./base.css?v=20251223");
+
+/* 3. Utilities / Hilfsklassen (.hidden, .sr-only, etc.) */
+@import url("./utilities.css?v=20251223");
+
+/* 4. Komponenten, Layout, Map, Sidebar, Bottom-Nav, Toast, Onboarding etc. */
+@import url("./components.css?v=20261109-details-v43");
+
+@import url("./map-spots.css?v=20261112-fahrrad-test");
+
+/* =========================================================
+   GLOBAL OVERRIDES / FIXES
+   ========================================================= */
+
+/* Einheitliche Textfarbe für Sidebar-Titel (inkl. <details>/<summary>) */
+.sidebar-section-title {
+  color: var(--text-heading, var(--text-strong, var(--text-color, #111827))) !important;
+  opacity: 1 !important;
+}
+
+/* Helper-/Muted-Texte konsistent (falls Komponenten irgendwo “hart” färben) */
+.filter-group-helper,
+.filter-summary,
+.daylog-last-saved,
+.plus-note {
+  color: var(--text-muted, var(--text-soft, rgba(107, 114, 128, 0.95)));
+}
+
+/* =========================================
+   Override: Header im Light-Theme wärmer
+   ========================================= */
+html[data-theme="light"] .app-header {
+  background:
+    radial-gradient(900px 420px at 18% -10%,
+      rgba(243, 162, 58, 0.32) 0%,
+      rgba(243, 162, 58, 0.00) 60%),
+    linear-gradient(180deg,
+      #FFF7EE 0%,
+      #FFE7D1 55%,
+      #F6C79D 100%);
+  border-bottom: 1px solid rgba(243, 162, 58, 0.18);
+}
+
+/* =========================================
+   UI Fix: „Nur Karte“ im Spots-Header entfernen
+   ========================================= */
+#btn-toggle-view {
+  display: none !important;
+}
+
+/* =========================================
+   Highest-Level UI Fixes
+   1) Bottom Nav entfernen (Karte/Über)
+   2) Menü-Panel (☰) kompakt halten
+   3) Details/Summary (Plus / Mein Tag) visuell angleichen
+   ========================================= */
+
+/* ---------- 1) Bottom Nav vollständig entfernen + Platz zurückholen ---------- */
+:root {
+  --bottom-nav-height: 0px;
+  --bottom-nav-safearea: 0px;
+}
+
+.bottom-nav {
+  display: none !important;
+}
+
+body,
+.app,
+.app-main,
+#main-content {
+  padding-bottom: 0 !important;
+}
+
+/* ---------- 2) App-Menü (☰) als sauberes Action-Sheet ----------
+   WICHTIG: Regeln NUR anwenden, wenn das Menü offen ist.
+   Sonst kann es (je nach Browser) “unsichtbar” über der App liegen. */
+#app-menu.app-menu:not([hidden]) {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  padding-top: max(14px, env(safe-area-inset-top));
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-bottom: max(14px, env(safe-area-inset-bottom));
+}
+
+#app-menu.app-menu:not([hidden]) .app-menu-backdrop {
+  position: absolute;
+  inset: 0;
+}
+
+#app-menu.app-menu:not([hidden]) .app-menu-panel {
+  position: relative;
+  inset: auto;
+  margin: 0;
+  min-width: 0;
+  width: min(520px, 100%);
+  height: auto !important;
+
+  min-height: 0 !important;
+  max-height: calc(100dvh - 28px - env(safe-area-inset-top) - env(safe-area-inset-bottom)) !important;
+
+  overflow: auto !important;
+  -webkit-overflow-scrolling: touch;
+
+  /* Visuell stabil (falls component-styles abweichen) */
+  border-radius: calc(var(--border-radius, 0.5rem) * 2);
+  background: var(--card-bg, var(--surface-1, rgba(255, 255, 255, 0.9)));
+  border: 1px solid var(--card-border, var(--border-1, rgba(0, 0, 0, 0.08)));
+  box-shadow: var(--card-shadow, var(--elev-2, 0 10px 26px rgba(0, 0, 0, 0.16)));
+}
+
+#app-menu.app-menu:not([hidden]) .app-menu-list,
+#app-menu.app-menu:not([hidden]) .app-menu-languages {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+#app-menu.app-menu:not([hidden]) .app-menu-languages {
+  margin-top: 12px !important;
+}
+
+@media (max-width: 720px) {
+  #app-menu.app-menu:not([hidden]) .app-menu-panel {
+    width: min(560px, 100%);
+  }
+}
+
+/* ---------- 3) <details class="sidebar-section"> (Plus / Mein Tag) angleichen ---------- */
+details.sidebar-section {
+  /* gleiche “Card”-Optik wie andere Sidebar-Sections */
+  background: var(--sidebar-section-bg, var(--card-bg, var(--surface-1)));
+  border: 1px solid var(--sidebar-section-border, var(--card-border, var(--border-1)));
+  box-shadow: var(--sidebar-section-shadow, var(--card-shadow, var(--elev-2)));
+  border-radius: calc(var(--border-radius, 0.5rem) * 2);
+  overflow: hidden; /* verhindert “Kanten” bei Summary */
+}
+
+/* Summary soll keinen Browser-Marker/Default-Spacing haben */
+details.sidebar-section > summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+details.sidebar-section > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Summary-Header-Layout: wie .sidebar-section-header */
+details.sidebar-section > summary.sidebar-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 14px 16px;
+  margin: 0;
+
+  background: transparent; /* Container steuert Background */
+  border: 0;
+}
+
+/* Der Rest-Inhalt soll “normal” gepolstert sein */
+details.sidebar-section > :not(summary) {
+  padding: 14px 16px;
+}
+
+/* Wenn Details geschlossen ist, soll keine “Doppel-Padding”-Kante entstehen */
+details.sidebar-section:not([open]) > :not(summary) {
+  padding-top: 0;
+}
+
+/* Buttons in <summary> sollen klickbar bleiben (Safari/iOS-Edgecases) */
+details.sidebar-section > summary * {
+  pointer-events: auto;
+}
+
+/* Optional: etwas mehr Abstand unten im Sidebar-Stack (iOS fühlt sich “luftiger” an) */
+.sidebar > .sidebar-section,
+.sidebar > details.sidebar-section {
+  scroll-margin-top: 12px;
+}
+
+/* Größerer App-Name in beiden Themes; restliche Gestaltung unverändert. */
+#app-title.header-title {
+  font-size: clamp(1.25rem, 7.2vw, 2.25rem);
+  max-width: 100%;
+}
+#app-title.header-title .header-flag { font-size: .8em; }
+
+/* Kompakter Kopfbereich mit unveränderter Schrift und sicherem iPhone-Abstand. */
+html[data-theme] .app-header {
+  padding: calc(env(safe-area-inset-top, 0px) + 4px) 14px 6px;
+}
+html[data-theme] .app-header-top { margin-bottom: 0; }
+html[data-theme] .header-tagline { margin-top: 6px; padding-block: 6px; }
+html[data-theme] #menu-toggle { width: 44px; height: 44px; min-height: 44px; }
+
+/* Secondary disclosure: same scale as gallery and map actions, with a 44px tap target. */
+#spot-detail > .spot-parking { margin: 8px 0; border: 0; padding: 0; background: transparent; }
+.spot-parking > summary { position: relative; isolation: isolate; display: inline-flex; align-items: center; gap: 7px; width: fit-content; max-width: 100%; min-height: 44px; box-sizing: border-box; padding: 8px 10px; font: inherit; font-size: .8125rem; font-weight: 400; line-height: 1.4; color: var(--text-soft, #67513e); cursor: pointer; list-style: none; overflow-wrap: anywhere; }
+.spot-parking > summary::-webkit-details-marker { display: none; }
+.spot-parking > summary::marker { content: ""; }
+.spot-parking > summary::before { content: ""; position: absolute; inset: 8px 0; border: 1px solid var(--card-border, rgba(103, 81, 62, .22)); border-radius: var(--radius-pill, 999px); z-index: -1; pointer-events: none; }
+.spot-parking__arrow { width: 14px; height: 14px; flex: 0 0 14px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.spot-parking[open] > summary .spot-parking__arrow { transform: rotate(90deg); }
+.spot-parking__body { margin: 4px 0 8px; padding: 0 0 0 12px; border-inline-start: 2px solid var(--card-border, rgba(103, 81, 62, .18)); font-size: .875rem; line-height: 1.5; overflow-wrap: anywhere; }
+.spot-parking__body > p { margin-block: 8px; }
+.spot-parking__facts { margin: 0; }
+.spot-parking__facts > div { padding: 8px 0; }
+.spot-parking__facts > div + div { border-top: 1px solid var(--card-border, rgba(103, 81, 62, .15)); }
+.spot-parking__facts dt { font-size: .8125rem; font-weight: 600; margin-bottom: 3px; }
+.spot-parking__facts dd { margin: 0; }
+.spot-parking__evidence { font-size: .8125rem; line-height: 1.45; overflow-wrap: anywhere; margin: 8px 0; }
+.spot-parking__evidence a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.spot-parking__destination { margin-block: 8px; }
+.spot-parking__destination-label { margin: 0; font-size: .8125rem; font-weight: 500; }
+.spot-parking__providers { display: flex; flex-wrap: wrap; gap: 0 8px; }
+#spot-detail .spot-parking__providers .spot-details-route-link { margin: 0; max-width: 100%; white-space: normal; }
+.spot-parking summary:focus-visible, .spot-parking a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+@media (forced-colors: active) { .spot-parking > summary::before, .spot-parking__body { border-color: ButtonText; } }
+
+/* Equal visual space around proof/Plus badges; route contours sit 8px inside their tap targets. */
+#spot-detail > .spot-details-scores { margin-block: 16px 8px; }
+#spot-detail > .spot-details-scores + .spot-details-routes { margin-block-start: 0; }
+#spot-detail > .spot-gallery { margin-block-end: 0; }
+#spot-detail:has(> .spot-gallery:not([open])):not(:has(> .spot-visit-info:not([hidden]))) > .spot-details-scores { margin-block-start: 8px; }
+
+/* Shared colors for editable fields. */
+:root {
+  --fsm-field-surface: #ffffff;
+  --fsm-field-border: #979285;
+  --fsm-field-ink: #302c25;
+  --fsm-field-hint: #68665e;
+  --fsm-field-focus: #465a34;
+  --fsm-keyboard-focus: #685c51;
+}
+html body :is(input.input, textarea.input, select.input,
+  input:not([type]), input[type="text"], input[type="search"],
+  input[type="email"], input[type="password"], input[type="number"],
+  input[type="url"], input[type="tel"], input[type="date"], input[type="time"], textarea, select) {
+  border-color: var(--fsm-field-border) !important;
+}
+html body :is(input.input, textarea.input, select.input,
+  input:not([type]), input[type="text"], input[type="search"],
+  input[type="email"], input[type="password"], input[type="number"],
+  input[type="url"], input[type="tel"], input[type="date"], input[type="time"], textarea, select):is(:focus, :focus-visible) {
+  border-width: 1px !important;
+  border-color: var(--fsm-field-focus) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+html[data-fsm-focus-modality="pointer"] body
+  :is(button, a, summary, [tabindex]):is(:focus, :focus-visible) {
+  outline: none !important;
+  box-shadow: none !important;
+}
+html[data-fsm-focus-modality="keyboard"] body
+  :is(button, a, summary, [tabindex]):not([tabindex="-1"]):focus-visible {
+  outline: 2px solid var(--fsm-keyboard-focus) !important;
+  outline-offset: 3px !important;
+  box-shadow: none !important;
+}
+/* Text fields keep a distinct keyboard marker as well. */
+html[data-fsm-focus-modality="keyboard"] body
+  :is(input.input, textarea.input, select.input, textarea, select):focus-visible {
+  outline: 2px solid var(--fsm-keyboard-focus) !important;
+  outline-offset: 2px !important;
+}
+@media (forced-colors: active) {
+  html body :is(input.input, textarea.input, select.input, textarea, select) {
+    border-color: CanvasText !important;
+  }
+  html[data-fsm-focus-modality="keyboard"] body
+    :is(button, a, summary, input, textarea, select, [tabindex]):not([tabindex="-1"]):focus-visible {
+    outline: 2px solid Highlight !important;
+    box-shadow: none !important;
+  }
+}
+
+/* V85.1 – mobile map preview → original Spot details. Keep sufficient scroll
+   range to reveal the existing panel above the fixed five-item navigation.
+   No permanent blank space while details are closed. */
+@media (max-width: 899px) {
+  #view-map:has(#spot-detail:not(.spot-details--hidden)) {
+    padding-block-end: max(180px, calc(100svh - 160px)) !important;
+  }
+  #spot-detail:not(.spot-details--hidden) { scroll-margin-block-start: 12px; }
+}
+
+
+/* Keep a single neutral field border on touch and a visible keyboard cue. */
+@media (forced-colors: none) {
+  html.fsm-polished body :is(input, textarea, select):focus-visible {
+    outline-color: var(--fsm-keyboard-focus) !important;
+  }
+
+  html.fsm-polished body :is(#filter-modal, #view-diary, #filter-section, #fsm-map-fullscreen, #plus-section, #fse-overlay)
+    :is(input, textarea, select):focus-visible {
+    outline-color: var(--fsm-keyboard-focus) !important;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    html.fsm-polished body :is(input, textarea, select):focus,
+    html.fsm-polished body :is(#filter-modal, #view-diary, #filter-section, #fsm-map-fullscreen, #plus-section, #fse-overlay)
+      :is(input:not([type="checkbox"], [type="radio"]), textarea, select, #daylog-text, #filter-search):focus {
+      outline: none !important;
+      box-shadow: none !important;
+      border-color: var(--fsm-field-focus) !important;
+    }
+  }
+}
+
+/* One app-wide menu trigger in the header. */
+html.fsm-polished .app-header .app-header-top #menu-toggle {
+  position: absolute;
+  z-index: 3;
+  inset-block-start: 4px;
+  inset-inline-end: max(8px, env(safe-area-inset-right, 0px));
+  display: grid;
+  place-items: center;
+  width: 44px !important;
+  height: 44px !important;
+  color: inherit;
+}
+@media (max-width: 380px) {
+  html.fsm-polished[data-theme] body .app-header .app-header-main #app-title.header-title {
+    padding-inline: 37px;
+    font-size: clamp(16px, 5vw, 19px) !important;
+    gap: 5px !important;
+  }
+  html.fsm-polished[data-theme] body .app-header .app-header-main #app-title .header-flag img {
+    width: 18px !important;
+    height: 18px !important;
+  }
+}
+#app-menu.app-menu:not([hidden]) {
+  padding-top: calc(54px + env(safe-area-inset-top, 0px));
+}
+#app-menu.app-menu:not([hidden]) .app-menu-panel {
+  max-height: calc(100dvh - 68px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) !important;
+}
+.app-menu-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline-start: 14px;
+}
+.app-menu-heading #app-menu-title {
+  margin: 0;
+  color: inherit;
+  font-size: 1.15rem;
+  line-height: 1.25;
+  outline: none;
+  box-shadow: none;
+}
+#app-menu .app-menu-close {
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  cursor: pointer;
+}
+#app-menu .app-menu-close:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: -4px;
+  border-radius: 10px;
+}

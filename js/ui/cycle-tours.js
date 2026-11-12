@@ -1,3 +1,4 @@
+import { bicycleIconHtml } from "../utils/dom.js?v=20261010-unified-4";
 import { filsoe, filsoeSketch } from "./filsoe-tour.js";
 import { trackPoints } from "./stroebeck-track.js";
 
@@ -8,7 +9,6 @@ const icons = {
   external: '<path d="M13 5h6v6m0-6-9 9m7-1v6H5V7h6"/>',
   leaf: '<path d="M5 19c0-8 5-13 14-14 0 9-5 14-12 12m-2 2 9-9"/>',
   cup: '<path d="M4 7h12v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V7Zm12 1h2a2 2 0 0 1 0 4h-2M3 21h17"/>',
-  bike: '<circle cx="5" cy="17" r="4"/><circle cx="19" cy="17" r="4"/><path d="m5 17 4-8 5 8H5m9 0 3-10h2M7 9h5"/>',
   tent: '<path d="M3 20 12 4l9 16H3Zm6 0 3-6 3 6"/>',
   pin: '<path d="M19 10c0 5-7 10-7 10S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2"/>',
   hills: '<path d="m2 19 7-10 4 5 3-8 6 13H2Z"/>',
@@ -60,7 +60,7 @@ export function initCycleTours({ getLanguage, closeMenu, openStop, onBackToOverv
     const [title, intro, family, bikepacking, germany, denmark, name, metrics, description, empty, back, outline, discover, stopHint, original, provenance, close, crop] = copy[getLanguage()] || copy.de;
     const filters = '<div class="cycle-filters">' +
       [["family", family], ["bike", bikepacking]].map(([value, label]) =>
-        `<button type="button" data-type="${value}" aria-pressed="${type === value}">${icon(value === "family" ? "bike" : "tent")}${label}</button>`).join("") +
+        `<button type="button" data-type="${value}" aria-pressed="${type === value}">${value === "family" ? bicycleIconHtml({ size: 20 }) : icon("tent")}${label}</button>`).join("") +
       [["DE", germany], ["DK", denmark]].map(([value, label]) =>
         `<button type="button" data-country="${value}" aria-pressed="${country === value}">${icon("pin")}${label}</button>`).join("") +
       "</div>";
@@ -70,7 +70,7 @@ export function initCycleTours({ getLanguage, closeMenu, openStop, onBackToOverv
       <span aria-hidden="true">›</span>
     </button><p class="cycle-credit">${credit} · ${crop}</p>`;
     const route = `<button class="cycle-back" type="button" data-back>‹ ${back}</button>
-      <h2 id="cycle-tours-heading" tabindex="-1">${icon("bike")}<span>${name}</span></h2>
+      <h2 id="cycle-tours-heading" tabindex="-1">${bicycleIconHtml()}<span>${name}</span></h2>
       <div class="cycle-meta"><span>${icon("route")}${metrics}</span><span>${icon("hills")}${elevation[getLanguage()] || elevation.de}</span></div>
       <figure class="cycle-map-frame">
         <figcaption>${outline}</figcaption>
@@ -102,7 +102,7 @@ export function initCycleTours({ getLanguage, closeMenu, openStop, onBackToOverv
       <span aria-hidden="true">›</span>
     </button><p class="cycle-credit">${photoCredit}</p>`;
     const filsoeRoute = `<button class="cycle-back" type="button" data-back>‹ ${back}</button>
-      <h2 id="cycle-tours-heading" tabindex="-1">${icon("bike")}<span>${filsoeName}</span></h2>
+      <h2 id="cycle-tours-heading" tabindex="-1">${bicycleIconHtml()}<span>${filsoeName}</span></h2>
       <div class="cycle-meta"><span>${icon("route")}${filsoeMetrics}</span><span>${icon("hills")}${difficulty}</span></div>
       ${filsoeSketch(outline)}
       <p class="cycle-terrain">${terrain}</p>
@@ -111,7 +111,7 @@ export function initCycleTours({ getLanguage, closeMenu, openStop, onBackToOverv
       <a class="cycle-action" href="${filsoe.source}" target="_blank" rel="noopener noreferrer">${icon("route")}${viewRoute}${icon("external")}</a>
       <p class="cycle-credit"><a href="${filsoe.gpx}">${download}</a> · Varde Kommune / <a href="https://www.geodanmark.dk/home/vejledninger/vilkaar-for-data-anvendelse/">GeoDanmark, GeoFA · CC BY 4.0</a></p>`;
     dialog.innerHTML = `<header><span>Family Spots Map</span><button type="button" aria-label="${close}" data-close>${icon("close")}</button></header><div class="cycle-content">${detail ? (isDenmark ? filsoeRoute : route) :
-      `<h2 id="cycle-tours-heading" tabindex="-1">${icon("bike")}<span>${title}</span></h2><p>${intro}</p>${filters}${type === "family" ? (isDenmark ? filsoeRow : row) : `<p class="cycle-empty">${empty}</p>`}`}</div>`;
+      `<h2 id="cycle-tours-heading" tabindex="-1">${bicycleIconHtml({ size: type === "family" ? 24 : 32, bikepacking: type !== "family" })}<span>${title}</span></h2><p>${intro}</p>${filters}${type === "family" ? (isDenmark ? filsoeRow : row) : `<p class="cycle-empty">${empty}</p>`}`}</div>`;
     dialog.querySelector(".cycle-content").scrollTop = 0;
     if (focusTarget) dialog.querySelector(focusTarget)?.focus({ preventScroll: true });
   }

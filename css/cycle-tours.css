@@ -262,3 +262,9 @@
   font-size: 13px;
   line-height: 1.4;
 }
+
+.fsm-cycle-tours h2 .fsm-bike-icon {
+  flex: 0 0 auto;
+  align-self: flex-start;
+  color: var(--cycle-olive);
+}

@@ -1,0 +1,133 @@
+/* Family Spots Map — tour discovery and filter experience.
+   Scoped to native dialogs: no calendar, map, spot or home-page overrides. */
+.fsm-tourenwelt,.fsm-tourenfilter{
+  --tw-ink:#3d2918;--tw-muted:#6d6258;--tw-green:#647e46;--tw-green-dark:#455d33;
+  --tw-sage:#edf0e3;--tw-paper:#fff9f0;--tw-surface:#fffbf5;--tw-line:#e0d2bf;
+  --tw-orange:#f58b20;box-sizing:border-box;color:var(--tw-ink);font:400 14px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
+.fsm-tourenwelt *, .fsm-tourenfilter * { box-sizing:border-box; }
+.fsm-tourenwelt button,.fsm-tourenfilter button,.fsm-tourenwelt input,.fsm-tourenfilter select{font:inherit;color:inherit;}
+.fsm-tourenwelt button,.fsm-tourenfilter button{cursor:pointer;touch-action:manipulation;}
+.fsm-tourenwelt button:focus-visible,.fsm-tourenfilter button:focus-visible,.fsm-tourenwelt input:focus-visible,.fsm-tourenfilter select:focus-visible{outline:2px solid var(--tw-green);outline-offset:2px;}
+.fsm-tourenwelt :is(button,input):focus:not(:focus-visible),.fsm-tourenfilter :is(button,select):focus:not(:focus-visible){outline:none;box-shadow:none;}
+.fsm-tourenwelt svg,.fsm-tourenfilter svg{width:19px;height:19px;flex:0 0 auto;}
+.fsm-tourenwelt{
+  position:fixed;inset:0;margin:0;padding:0;border:0;width:100vw;max-width:none;height:100dvh;max-height:none;
+  background:var(--tw-paper);overflow:hidden;overscroll-behavior:contain;
+}
+.fsm-tourenwelt::backdrop{background:rgba(44,36,26,.6);backdrop-filter:blur(4px);}
+.fsm-tourenwelt:not([open]){display:none;}
+.fsm-tourenwelt[open]{display:flex;flex-direction:column;}
+.fsm-tourenwelt .tw-shell{height:100%;min-height:0;display:flex;flex-direction:column;overflow:hidden;background:#fff7ed;}
+.fsm-tourenwelt .tw-header{position:relative;flex:none;min-height:196px;background:linear-gradient(160deg,#fffbf3,#fff4e8);overflow:hidden;text-align:center;padding:15px 50px 0;}
+.fsm-tourenwelt .tw-leaves{position:absolute;z-index:1;left:-13px;top:-8px;width:95px;height:auto;pointer-events:none;}
+.fsm-tourenwelt .tw-name{display:flex;justify-content:center;align-items:center;gap:8px;font-size:14px;font-weight:730;white-space:nowrap;}
+.fsm-tourenwelt .tw-name img{width:19px;height:19px;object-fit:cover;border-radius:50%;}
+.fsm-tourenwelt .tw-close,.fsm-tourenfilter .tw-close{position:absolute;top:7px;right:10px;display:grid;place-items:center;background:transparent;border:0;color:var(--tw-ink);width:44px;height:44px;border-radius:10px;min-height:44px;}
+.fsm-tourenwelt .tw-close svg,.fsm-tourenfilter .tw-close svg{width:19px;height:19px;stroke-width:1.7;}
+.fsm-tourenwelt .tw-header h1{position:relative;z-index:1;font:600 clamp(25px,6.8vw,34px)/1.07 Georgia,"Times New Roman",serif;letter-spacing:-.55px;margin:11px -40px 3px;}
+.fsm-tourenwelt .tw-header>p{position:relative;z-index:1;margin:0;font-size:12px;color:#76675c;}
+.fsm-tourenwelt .tw-landscape{position:absolute;bottom:-1px;left:0;right:0;height:101px;background:url('../assets/design/main-header-landscape-reference-v909.webp') center bottom/100% auto no-repeat;pointer-events:none;}
+.fsm-tourenwelt .tw-main{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;padding:12px 16px 24px;background:#fff7ed;}
+.fsm-tourenwelt .tw-tabs{display:grid;grid-template-columns:1fr 1fr 1.16fr;gap:3px;padding:4px;border:1px solid var(--tw-line);border-radius:19px;background:#f8efe3;box-shadow:0 2px 6px #563d2112;}
+.fsm-tourenwelt .tw-tabs button{display:flex;align-items:center;justify-content:center;gap:6px;padding:6px 2px;min-width:0;min-height:44px;border:0;border-radius:15px;background:transparent;font-size:12px;font-weight:650;line-height:1.12;}
+.fsm-tourenwelt .tw-tabs svg{width:17px;height:17px;}
+.fsm-tourenwelt .tw-tabs [aria-selected="true"]{background:#657f47;color:#fffaf2;box-shadow:0 2px 3px #6077491b;}
+.fsm-tourenwelt .tw-content{padding-top:17px;outline:none;}
+.fsm-tourenwelt .tw-kicker{font-size:10px;letter-spacing:1.45px;font-weight:800;color:var(--tw-green-dark);text-transform:uppercase;}
+.fsm-tourenwelt .tw-content h2{font:600 24px/1.15 Georgia,serif;letter-spacing:-.45px;margin:5px 0 7px;}
+.fsm-tourenwelt .tw-content h3{font:600 18px/1.25 Georgia,serif;margin:18px 0 9px;}
+.fsm-tourenwelt .tw-lead{color:var(--tw-muted);font-size:13px;line-height:1.52;margin:0 0 14px;}
+.fsm-tourenwelt .tw-search{height:50px;display:flex;align-items:center;gap:10px;border:1px solid #d6c9b5;background:#fffefd;border-radius:14px;padding:0 12px;}
+.fsm-tourenwelt .tw-search svg{color:var(--tw-green-dark);}
+.fsm-tourenwelt .tw-search input{border:0;background:transparent;min-width:0;width:100%;min-height:44px;font-size:14px;color:var(--tw-ink);outline:0;box-shadow:none;}
+.fsm-tourenwelt .tw-quick{display:grid;grid-template-columns:1fr 1fr auto;gap:6px;margin:11px 0 16px;}
+.fsm-tourenwelt .tw-quick-btn{display:flex;align-items:center;justify-content:center;gap:5px;min-width:0;min-height:44px;padding:6px 10px;background:#fffdf8;border:1px solid var(--tw-line);border-radius:12px;font-size:11px;font-weight:650;}
+.fsm-tourenwelt .tw-quick-btn:first-child{background:#f0f2e8;border-color:#d0dac3;}
+.fsm-tourenwelt .tw-quick-btn svg{width:15px;height:15px;}
+.fsm-tourenwelt .tw-results-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:10px 2px 12px;}
+.fsm-tourenwelt .tw-results-head>span{display:flex;flex-direction:column;gap:3px;min-width:0;}
+.fsm-tourenwelt .tw-results-head strong{font-size:13px;font-weight:750;}
+.fsm-tourenwelt .tw-results-head small{font-size:11px;color:var(--tw-muted);}
+.fsm-tourenwelt .tw-listmap{display:flex;gap:1px;border:1px solid var(--tw-line);border-radius:11px;padding:2px;background:#f5ede2;}
+.fsm-tourenwelt .tw-listmap button{display:flex;align-items:center;gap:4px;border:0;border-radius:8px;padding:7px 9px;background:transparent;min-height:35px;font-size:11px;}
+.fsm-tourenwelt .tw-listmap button[aria-pressed="true"]{background:#fffdf9;box-shadow:0 1px 2px #3828101b;}
+.fsm-tourenwelt .tw-listmap svg{width:14px;height:14px;}
+.fsm-tourenwelt .tw-card{border:1px solid var(--tw-line);border-radius:19px;background:var(--tw-surface);box-shadow:0 3px 10px #5942290d;margin-bottom:12px;overflow:hidden;}
+.fsm-tourenwelt .tw-card-main{display:grid;grid-template-columns:minmax(0,38%) minmax(0,1fr) 13px;gap:10px;width:100%;border:0;background:transparent;text-align:left;padding:10px;align-items:center;min-height:142px;}
+.fsm-tourenwelt .tw-card-main>img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;}
+.fsm-tourenwelt .tw-card-main>.tw-card-copy{display:flex;flex-direction:column;gap:5px;min-width:0;}
+.fsm-tourenwelt .tw-card-main strong{font:600 19px/1.12 Georgia,serif;overflow-wrap:break-word;}
+.fsm-tourenwelt .tw-card-main small{display:flex;align-items:center;gap:3px;color:var(--tw-muted);font-size:11px;line-height:1.22;}
+.fsm-tourenwelt .tw-card-main small svg{width:13px;height:13px;}
+.fsm-tourenwelt .tw-card-desc{font-size:12px;line-height:1.35;}
+.fsm-tourenwelt .tw-card-main>svg{width:15px;color:var(--tw-green-dark);}
+.fsm-tourenwelt .tw-card-bottom{display:flex;align-items:center;justify-content:space-between;gap:7px;border-top:1px solid #eee2d2;padding:5px 10px 7px;}
+.fsm-tourenwelt .tw-card-bottom small{font-size:10px;color:#797065;max-width:75%;}
+.fsm-tourenwelt .tw-card-bottom button{min-height:40px;display:flex;align-items:center;gap:4px;background:#f3f4e9;color:var(--tw-green-dark);border:1px solid #d7e0ca;border-radius:10px;padding:5px 9px;font-size:11px;font-weight:700;}
+.fsm-tourenwelt .tw-card-bottom svg{width:15px;height:15px;}
+.fsm-tourenwelt .tw-empty{border:1px dashed #d9cbb5;border-radius:16px;background:#fffcf7;padding:23px 14px;text-align:center;}
+.fsm-tourenwelt .tw-empty>svg{width:27px;height:27px;color:var(--tw-green);margin-bottom:7px;}
+.fsm-tourenwelt .tw-empty h3{margin:0 0 8px;font:600 18px Georgia,serif;}
+.fsm-tourenwelt .tw-empty p{color:var(--tw-muted);font-size:12px;line-height:1.45;margin:5px 0 12px;}
+.fsm-tourenwelt .tw-soft,.fsm-tourenwelt .tw-map-tour{min-height:44px;border:1px solid #d6dec7;border-radius:12px;padding:9px 12px;background:#f0f2e7;font-size:12px;font-weight:650;}
+.fsm-tourenwelt .tw-map-tour{display:flex;align-items:center;text-align:left;gap:7px;margin:7px 0;width:100%;justify-content:space-between;background:#fffdfa;border-color:var(--tw-line);}
+.fsm-tourenwelt .tw-map-tour svg{width:16px;height:16px;}
+.fsm-tourenwelt .tw-plan-form{border:1px solid var(--tw-line);border-radius:19px;background:var(--tw-surface);padding:14px;}
+.fsm-tourenwelt .tw-plan-form>label{display:block;font-size:12px;font-weight:700;color:#675b4e;margin:0 0 11px;}
+.fsm-tourenwelt .tw-input{display:flex;align-items:center;gap:8px;margin-top:5px;padding:0 10px;border:1px solid var(--tw-line);border-radius:12px;background:white;min-height:48px;}
+.fsm-tourenwelt .tw-input svg{width:16px;height:16px;color:var(--tw-green);}
+.fsm-tourenwelt .tw-input input{width:100%;min-width:0;min-height:44px;padding:0;border:0;background:transparent;outline:none;font-size:13px;}
+.fsm-tourenwelt .tw-input:has(input:disabled){opacity:.62;background:#f4f0ea;}
+.fsm-tourenwelt .tw-choice{display:flex;gap:7px;margin:0 0 14px;}
+.fsm-tourenwelt .tw-choice button{flex:1;min-height:44px;background:#fff;border:1px solid var(--tw-line);border-radius:12px;font-size:12px;}
+.fsm-tourenwelt .tw-choice button[aria-pressed="true"]{background:var(--tw-sage);border-color:#9db180;color:var(--tw-green-dark);font-weight:750;}
+.fsm-tourenwelt .tw-distance{float:right;color:var(--tw-green-dark);}
+.fsm-tourenwelt input[type="range"]{accent-color:var(--tw-green);width:100%;margin:13px 0 5px;}
+.fsm-tourenwelt .tw-notice{font-size:12px;line-height:1.45;background:#f2f0e6;color:#645a4f;padding:10px 12px;border-radius:12px;margin:11px 0;}
+.fsm-tourenwelt .tw-orange,.fsm-tourenfilter .tw-orange{width:100%;display:flex;justify-content:center;align-items:center;gap:8px;min-height:49px;background:var(--tw-orange);border:1px solid #ec8015;border-radius:14px;color:#3d2918;font-size:14px;font-weight:740;box-shadow:0 2px 4px #9b622319;}
+.fsm-tourenwelt .tw-feedback{font-size:12px;text-align:center;color:var(--tw-green-dark);min-height:0;margin:8px 0 0;}
+.fsm-tourenwelt .tw-stat{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+.fsm-tourenwelt .tw-stat>span{border:1px solid var(--tw-line);background:var(--tw-surface);border-radius:16px;padding:13px;color:var(--tw-muted);font-size:12px;}
+.fsm-tourenwelt .tw-stat strong{display:block;font:600 24px Georgia,serif;color:var(--tw-ink);}
+.fsm-tourenwelt .tw-draft{display:flex;align-items:center;justify-content:space-between;gap:7px;border:1px solid var(--tw-line);border-radius:15px;padding:11px;background:var(--tw-surface);margin-bottom:8px;}
+.fsm-tourenwelt .tw-draft strong{font-size:13px;overflow-wrap:anywhere;}
+.fsm-tourenwelt .tw-draft small{display:block;color:var(--tw-muted);font-size:11px;}
+.fsm-tourenwelt .tw-draft>div:last-child{display:flex;gap:4px;}
+.fsm-tourenwelt .tw-draft .tw-soft{padding:6px;font-size:11px;min-height:42px;white-space:nowrap;}
+.fsm-tourenwelt .tw-draft .tw-soft svg{width:13px;height:13px;}
+.fsm-tourenwelt .tw-privacy{font-size:11px;color:var(--tw-muted);margin:18px 0;text-align:center;}
+.fsm-tourenwelt .tw-dock{display:grid;flex:none;grid-template-columns:repeat(5,minmax(0,1fr));gap:2px;background:#fffaf1;border-top:1px solid #e5d9c7;padding:5px max(10px,env(safe-area-inset-left)) max(7px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-right));}
+.fsm-tourenwelt .tw-dock button{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;min-height:44px;gap:1px;border:0;border-radius:15px;background:transparent;color:var(--tw-ink);font-size:clamp(10px,2.8vw,12px);font-weight:650;line-height:1.1;}
+.fsm-tourenwelt .tw-dock svg{width:21px;height:21px;}
+.fsm-tourenwelt .tw-dock button:nth-child(4) svg{color:#d59a0b;}
+.fsm-tourenwelt .tw-dock button:nth-child(5) svg{color:#68883d;fill:#7fa54c;}
+/* Separate scrollable native filter sheet. Solid olive is reserved for the active main tab. */
+.fsm-tourenfilter{position:fixed;inset:auto 0 0;margin:auto auto 0;padding:19px 17px max(22px,env(safe-area-inset-bottom));max-width:min(100vw,560px);width:100%;max-height:min(92dvh,800px);overflow-y:auto;border:0;border-radius:23px 23px 0 0;background:#fff8f0;box-shadow:0 -8px 24px #38261025;}
+.fsm-tourenfilter::backdrop{background:#34281c70;backdrop-filter:blur(2px);}
+.fsm-tourenfilter .tw-filter-head{display:flex;align-items:center;min-height:44px;position:relative;}
+.fsm-tourenfilter .tw-filter-head h2{font:600 clamp(22px,6vw,27px) Georgia,serif;margin:0 50px 0 0;}
+.fsm-tourenfilter .tw-close{top:0;right:-4px;}
+.fsm-tourenfilter .tw-filter-lead{font-size:12px;color:var(--tw-muted);margin:0 0 12px;}
+.fsm-tourenfilter .tw-select,.fsm-tourenfilter .tw-group>span{display:block;margin:13px 0 0;color:#736458;font-size:11px;font-weight:790;letter-spacing:.8px;text-transform:uppercase;}
+.fsm-tourenfilter select{appearance:auto;display:block;width:100%;border:1px solid #d7cbb8;border-radius:12px;background:white;min-height:47px;margin:7px 0 0;padding:8px 11px;color:var(--tw-ink);font-size:13px;font-weight:500;letter-spacing:0;text-transform:none;}
+.fsm-tourenfilter .tw-options{display:grid;gap:7px;margin-top:7px;}
+.fsm-tourenfilter .tw-two{grid-template-columns:1fr 1fr;}
+.fsm-tourenfilter .tw-four{grid-template-columns:repeat(4,minmax(0,1fr));}
+.fsm-tourenfilter .tw-options button{min-width:0;min-height:44px;border:1px solid #dfd0bf;border-radius:12px;background:#fffdf9;color:var(--tw-ink);font-size:12px;font-weight:680;line-height:1.2;padding:7px 4px;}
+.fsm-tourenfilter .tw-options button[aria-pressed="true"]{border:1.5px solid #8a9e61;background:#edf0e0;color:#3c542f;}
+.fsm-tourenfilter .tw-orange{margin-top:18px;}
+.fsm-tourenfilter .tw-filter-foot{color:var(--tw-muted);font-size:11px;text-align:center;margin:9px 8px 1px;}
+@media (max-width:360px){.fsm-tourenwelt .tw-main{padding-inline:12px}.fsm-tourenwelt .tw-header h1{font-size:25px}.fsm-tourenwelt .tw-card-main{grid-template-columns:minmax(0,35%) minmax(0,1fr) 9px;gap:7px;padding:8px;}.fsm-tourenwelt .tw-card-main strong{font-size:16px}.fsm-tourenwelt .tw-quick-btn{font-size:10px;padding:4px 3px}.fsm-tourenfilter .tw-four{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media (min-width:700px){.fsm-tourenwelt{width:min(100%,550px);margin:auto;box-shadow:0 0 80px #0004;}.fsm-tourenfilter{border-radius:24px 24px 0 0;}}
+@media(prefers-reduced-motion:reduce){.fsm-tourenwelt *,.fsm-tourenfilter *{scroll-behavior:auto!important;transition:none!important;}}
+/* The filter sheet initially focuses its heading, not the country select.
+   Touch opening must not create a decorative green focus ring. */
+.fsm-tourenfilter #tw-filter-title:focus { outline:none; }
+
+.fsm-tourenwelt .tw-quick-btn .fsm-bike-icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  color: var(--tw-green-dark);
+}

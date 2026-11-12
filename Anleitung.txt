@@ -1,0 +1,12 @@
+Family Spots Map 2027 Final – Fahrradsymbol
+Testversion: 20261112-fahrrad-test
+Grundlage: 20261112-kompakt-test
+
+1. Öffne FSM_Fahrrad_Vorschau.html und prüfe das Rad bei 20, 24 und 32 px.
+2. Sichere deinen aktuellen Stand. Prüfe unter release-info.json, dass dein Ausgangsstand 20261112-kompakt-test ist.
+3. Übertrage aus Direktimport/ alle 13 Dateien zusammen und mit ihrer Ordnerstruktur in deinen Testbranch. TXT/ enthält dieselben Dateien zur manuellen Übernahme. Verwende einen der beiden Ordner.
+4. Working Copy: Zusammenfassung: Fahrradsymbol in der Tourenwelt vereinheitlichen
+   Detaillierte Informationen: Gemeinsames SVG für Familienradtouren und Tourendetails; Bikepacking-Tasche bei 32 px.
+   Vorhandene oder neue Remote-Referenz: refs/heads/test/gemeinsam-v88-finish
+   Source-Branch unverändert. Force Push: Aus.
+5. Prüfe auf der Testversion die Schnellauswahl „Familienradtouren“, ein Tourendetail und die Bikepacking-Überschrift. Das Bikepacking-Symbol trägt bei 32 px die Tasche.

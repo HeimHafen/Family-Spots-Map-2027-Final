@@ -124,3 +124,10 @@
 /* The filter sheet initially focuses its heading, not the country select.
    Touch opening must not create a decorative green focus ring. */
 .fsm-tourenfilter #tw-filter-title:focus { outline:none; }
+
+.fsm-tourenwelt .tw-quick-btn .fsm-bike-icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  color: var(--tw-green-dark);
+}
