@@ -1,0 +1,12 @@
+Vor dem Austausch Backup anlegen. Inneres Direktimport-ZIP verwenden.
+
+Zusammenfassung
+Einheitliches Bikepacking-Fahrrad im Tourenfilter
+
+Detaillierte Informationen
+Gemeinsames Fahrrad-SVG mit Gepäcktasche für Bikepacking. Offline-Version und Prüfsummen aktualisiert.
+
+Vorhandene oder neue Remote-Referenz
+refs/heads/test/gemeinsam-v88-finish
+
+Source-Branch beibehalten. Force Push aus.
