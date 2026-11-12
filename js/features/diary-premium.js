@@ -12,9 +12,9 @@ const ICON = {
   right: '<path d="m9 18 6-6-6-6"/>'
 };
 const COPY = {
-  de:{intro:"Unsere gemeinsamen Erinnerungen",list:"Unsere Erinnerungen",all:"Alle anzeigen",empty:"Hier beginnt eure Erinnerungssammlung",emptyDetail:"Ein Foto, ein besonderer Ort oder ein kleiner Moment, den ihr bewahren möchtet.",back:"Mein Tag",edit:"Bearbeiten",delete:"Löschen",previous:"Vorheriges Foto",next:"Nächstes Foto",noPhoto:"Erinnerung ohne Foto",map:"Zur Karte",private:"Privat gespeichert",memory:"Erinnerung",camera:"Foto auswählen",details:"Erinnerung ansehen"},
-  en:{intro:"Our shared memories",list:"Our memories",all:"View all",empty:"Your memory collection starts here",emptyDetail:"A photograph, a special place or a moment you want to remember.",back:"My day",edit:"Edit",delete:"Delete",previous:"Previous photo",next:"Next photo",noPhoto:"Memory without a photo",map:"Back to map",private:"Saved privately",memory:"Memory",camera:"Choose photos",details:"View memory"},
-  da:{intro:"Vores fælles minder",list:"Vores minder",all:"Se alle",empty:"Her begynder jeres samling af minder",emptyDetail:"Et billede, et særligt sted eller et lille øjeblik, I vil gemme.",back:"Min dag",edit:"Rediger",delete:"Slet",previous:"Forrige billede",next:"Næste billede",noPhoto:"Minde uden billede",map:"Tilbage til kortet",private:"Gemt privat",memory:"Minde",camera:"Vælg billeder",details:"Se minde"}
+  de:{intro:"Unsere gemeinsamen Erinnerungen",list:"Unsere Erinnerungen",all:"Alle anzeigen",empty:"Was bleibt von heute?",emptyDetail:"Ein Foto, ein Satz oder beides. Auch die kleinen Momente sind es wert.",back:"Mein Tag",edit:"Bearbeiten",delete:"Löschen",previous:"Vorheriges Foto",next:"Nächstes Foto",noPhoto:"Erinnerung ohne Foto",map:"Zur Karte",private:"Privat gespeichert",memory:"Erinnerung",camera:"Foto auswählen",details:"Erinnerung ansehen"},
+  en:{intro:"Our shared memories",list:"Our memories",all:"View all",empty:"What will you remember about today?",emptyDetail:"A photo, a sentence or both. The little moments are worth keeping, too.",back:"My day",edit:"Edit",delete:"Delete",previous:"Previous photo",next:"Next photo",noPhoto:"Memory without a photo",map:"Back to map",private:"Saved privately",memory:"Memory",camera:"Choose photos",details:"View memory"},
+  da:{intro:"Vores fælles minder",list:"Vores minder",all:"Se alle",empty:"Hvad vil I huske fra i dag?",emptyDetail:"Et billede, en sætning eller begge dele. De små øjeblikke er også værd at gemme.",back:"Min dag",edit:"Rediger",delete:"Slet",previous:"Forrige billede",next:"Næste billede",noPhoto:"Minde uden billede",map:"Tilbage til kortet",private:"Gemt privat",memory:"Minde",camera:"Vælg billeder",details:"Se minde"}
 };
 const i18n=()=>COPY[document.documentElement.lang?.slice(0,2)]||COPY.de;
 function node(tag,className='',text='') { const element=document.createElement(tag); if(className)element.className=className;if(text)element.textContent=text;return element; }
@@ -83,7 +83,7 @@ export function initDiaryPremium() {
       const text=entry.querySelector('.daylog-entry-text')?.textContent?.trim()||'';
       const first=(text.split(/[\n.!?]/)[0]||'').trim();
       const cover=button('fsm-diary-card-open');const copy=node('span','fsm-diary-card-copy');
-      const caption=node('strong','',first.slice(0,38)||i18n().memory);
+      const caption=node('strong','',(entry.querySelector('.memory-photo-gallery img') ? first : text).slice(0,120)||i18n().memory);
       const date=node('small','',entry.querySelector('.daylog-entry-date')?.textContent||'');
       copy.append(caption,date);cover.append(copy);cover.setAttribute('aria-label',`${i18n().details}: ${caption.textContent}`);
       cover.addEventListener('click',()=>openEntry(entry,cover));entry.append(cover);

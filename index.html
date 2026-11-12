@@ -214,7 +214,7 @@
   />
 
   <!-- App Styles -->
-  <link rel="stylesheet" href="css/styles.css?v=20261112-review-v5" />
+  <link rel="stylesheet" href="css/styles.css?v=20261112-mein-tag-iphone" />
   <link rel="stylesheet" href="css/badges.css" />
   <link rel="stylesheet" href="css/diary.css?v=20261030-diary-3" />
 <link rel="stylesheet" href="css/interface.css?v=20261109-details-v43">
@@ -233,7 +233,7 @@
   <link rel="stylesheet" href="css/fsm-proportion-target-v917.css?v=20261109-details-v43" />
   <link rel="stylesheet" href="css/fsm-landscape-space-v918.css?v=20261109-details-v43" />
   <link rel="stylesheet" href="css/cycle-tours.css?v=20261109-details-v43">
-  <link rel="stylesheet" href="css/tourenwelt.css?v=20261112-review-v5">
+  <link rel="stylesheet" href="css/tourenwelt.css?v=20261112-mein-tag-iphone">
   <link rel="stylesheet" href="css/fsm-cohesion-v34.css?v=20261109-details-v43">
   <link rel="stylesheet" href="css/fsm-about-premium-v4.css?v=20261109-details-v43">
   <!-- Kalender-Design bewusst nach den älteren globalen Regeln laden. -->
@@ -252,11 +252,11 @@
       }, { capture: true, passive: true });
     })();
   </script>
-  <link rel="stylesheet" href="css/fsm-touren-reference.css?v=20261112-review-v5">
-  <link rel="stylesheet" href="css/fsm-spot-unity.css?v=20261112-review-v5" />
-  <link rel="stylesheet" href="css/fsm-v5-cohesion-final.css?v=20261112-review-v5" />
-  <link rel="stylesheet" href="css/diary-premium-v5.css?v=20261112-review-v5" />
-  <link rel="stylesheet" href="css/fsm-navigation-system.css?v=20261112-review-v5" />
+  <link rel="stylesheet" href="css/fsm-touren-reference.css?v=20261112-mein-tag-iphone">
+  <link rel="stylesheet" href="css/fsm-spot-unity.css?v=20261112-mein-tag-iphone" />
+  <link rel="stylesheet" href="css/fsm-v5-cohesion-final.css?v=20261112-mein-tag-iphone" />
+  <link rel="stylesheet" href="css/diary-premium-v5.css?v=20261112-mein-tag-iphone" />
+  <link rel="stylesheet" href="css/fsm-navigation-system.css?v=20261112-mein-tag-iphone" />
 </head>
 
 <body>
@@ -1038,13 +1038,11 @@
               Wie war euer Tag?
             </label>
 
-            <p
-              class="filter-group-helper"
-              data-i18n-de="Haltet einen kleinen Moment fest, an den ihr euch später erinnern möchtet. Wenn ihr mögt, schreibt Tilla einen kleinen Gruß."
-              data-i18n-en="Capture a little moment you’d like to remember later – and if you like, add a small note to Tilla."
-              data-i18n-da="Gem et lille øjeblik, som I gerne vil huske. Hvis I har lyst, kan I skrive en lille hilsen til Tilla."
-            >
-              Haltet einen kleinen Moment fest, an den ihr euch später erinnern möchtet. Wenn ihr mögt, schreibt Tilla einen kleinen Gruß.
+            <p class="filter-group-helper"
+              data-i18n-de="Ein Foto allein reicht. Wenn ihr mögt, schreibt dazu, was den Moment besonders gemacht hat."
+              data-i18n-en="A photo is enough. Add a few words about what made the moment special if you like."
+              data-i18n-da="Et billede er nok. Skriv gerne et par ord om, hvad der gjorde øjeblikket særligt.">
+              Ein Foto allein reicht. Wenn ihr mögt, schreibt dazu, was den Moment besonders gemacht hat.
             </p>
 
             <textarea
@@ -1052,7 +1050,6 @@
               name="daylog"
               class="input"
               rows="3"
-              placeholder="Heute haben wir einen Ort gefunden, an dem die Zeit kurz langsamer wurde."
             ></textarea>
 
             <button
@@ -1072,7 +1069,10 @@
 
               <button id="diary-composer-close" type="button" class="btn-ghost" data-i18n-de="Eingabe schließen" data-i18n-en="Close editor" data-i18n-da="Luk indtastning">Eingabe schließen</button>
             </section>
-            <p id="diary-empty" class="diary-empty" data-i18n-de="Hier ist Platz für eure Erinnerungen. Haltet euren ersten Moment fest – mit einem Foto, ein paar Worten oder beidem." data-i18n-en="A place for your memories. Capture your first moment with a photo, a few words, or both." data-i18n-da="Her er plads til jeres minder. Gem det første øjeblik med et billede, et par ord eller begge dele.">Hier ist Platz für eure Erinnerungen. Haltet euren ersten Moment fest – mit einem Foto, ein paar Worten oder beidem.</p>
+            <p id="diary-empty" class="diary-empty">
+              <strong class="fsm-diary-empty-title" data-i18n-de="Was bleibt von heute?" data-i18n-en="What would you like to remember about today?" data-i18n-da="Hvad vil I gerne huske fra i dag?">Was bleibt von heute?</strong>
+              <span class="fsm-diary-empty-desc" data-i18n-de="Ein Foto, ein Satz oder beides. Auch die kleinen Momente sind es wert." data-i18n-en="A photo, a sentence or both. The little moments are worth keeping, too." data-i18n-da="Et billede, en sætning eller begge dele. De små øjeblikke er også værd at gemme.">Ein Foto, ein Satz oder beides. Auch die kleinen Momente sind es wert.</span>
+            </p>
             <div id="daylog-list" class="daylog-list"></div>
           </div>
         </details>
@@ -2019,10 +2019,10 @@
   ></script>
 
 <!-- Offline und kontrollierte Updates -->
-  <script src="./js/sw-register.js?v=20261112-review-v5" defer></script>
+  <script src="./js/sw-register.js?v=20261112-mein-tag-iphone" defer></script>
 
   <!-- App (ES-Modul) -->
-  <script type="module" src="./js/app.js?v=20261112-review-v5"></script>
+  <script type="module" src="./js/app.js?v=20261112-mein-tag-iphone"></script>
 
   <!-- The spot list starts closed on each page load; no persistent UI preference. -->
   <script type="module">

@@ -1,5 +1,5 @@
 import { initCycleTours } from "./ui/cycle-tours.js";
-import { initTourenwelt } from "./ui/tourenwelt.js?v=20261112-review-v5";
+import { initTourenwelt } from "./ui/tourenwelt.js?v=20261112-mein-tag-iphone";
 // js/app.js
 // ======================================================
 // Family Spots Map – Hauptlogik
@@ -25,9 +25,9 @@ document.addEventListener("keydown", event => {
 
 import { evaluateSelection, selectShortcut, shortcutIsSelected, shortcutLabel } from "./filter-model.js";
 import { createMapToolIcon } from "./ui/map-toolbar.js";
-import { createHomeNavigation } from "./ui/home-navigation.js?v=20261112-review-v5";
+import { createHomeNavigation } from "./ui/home-navigation.js?v=20261112-mein-tag-iphone";
 import { initCommunityPlay } from "./features/community-play.js?v=20261109-details-v43";
-import { initPrivateCalendar } from "./features/gemeinsam-erleben-rc.js?v=20261112-review-v5";
+import { initPrivateCalendar } from "./features/gemeinsam-erleben-rc.js?v=20261112-mein-tag-iphone";
 import { describeFilters } from "./ui/filter-summary.js";
 import { resultsCopy } from "./ui/filter-results.js";
 import { categoryIcon } from "./ui/category-icons.js";
@@ -95,7 +95,7 @@ import {
   updateMapStatusLanguage,
   renderMarkers,
   hasValidLatLng
-} from "./map.js?v=20261112-review-v5";
+} from "./map.js?v=20261112-mein-tag-iphone";
 
 import { initRouter } from "./router.js?v=20261109-details-v43";
 import { initToast, showToast } from "./toast.js";
