@@ -28,7 +28,20 @@ export function initDiaryPremium() {
   const hero=node('header','fsm-diary-hero');
   const brand=node('div','fsm-diary-brand');brand.append(node('span','', '🇩🇪 '),node('strong','', 'Family Spots Map'),node('span','', ' 🇩🇰'));
   const heading=node('h2','', 'Gemeinsam erleben');
-  const scenery=node('div','fsm-diary-scenery');scenery.setAttribute('aria-hidden','true');
+  const scenery=node('div','fsm-diary-scenery');
+  const tilla=node('div','fsm-diary-tilla');
+  const note=node('span','fsm-diary-tilla-note');
+  note.setAttribute('role','img');
+  
+  tilla.append(note);
+  scenery.append(tilla);
+  const updateNote=()=>{
+    const count=list.querySelectorAll(':scope > .daylog-entry').length;
+    const lang=document.documentElement.lang.slice(0,2);
+    const labels={de:['Erinnerung','Erinnerungen'],en:['memory','memories'],da:['minde','minder']};
+    note.hidden=count===0;
+    note.setAttribute('aria-label',count ? new Intl.NumberFormat(labels[lang] ? lang : 'de').format(count)+' '+(labels[lang]||labels.de)[count===1?0:1] : '');
+  };
   // The approved landscape crop contains Tilla already; avoid a second turtle or design deviation.
   hero.append(brand,heading,scenery);
   view.prepend(hero);
@@ -77,6 +90,7 @@ export function initDiaryPremium() {
     detail.hidden=false;view.classList.add('fsm-diary-in-detail');window.scrollTo({top:0,behavior:'instant'});returnButton.focus({preventScroll:true});
   };
   const decorate=()=>{
+    updateNote();
     for(const entry of list.querySelectorAll('.daylog-entry')){
       if(entry.querySelector('.fsm-diary-card-open'))continue;
       if(entry.querySelector('.daylog-entry-editor,.daylog-entry-input'))continue;
@@ -97,7 +111,7 @@ export function initDiaryPremium() {
   // Avoid accumulating duplicate text nodes when switching languages.
   const textSlot=(element,cls)=>{const span=node('span',cls);element.append(span);return span;};
   const allLabel=textSlot(all,'fsm-diary-all-label');const backLabel=textSlot(returnButton,'fsm-diary-back-label');const mapLabel=textSlot(backToMap,'fsm-diary-map-label');
-  const localize=()=>{const t=i18n();heading.textContent=({de:'Gemeinsam erleben',en:'Experience together',da:'Oplev sammen'})[document.documentElement.lang?.slice(0,2)]||'Gemeinsam erleben';contentHeading.textContent=t.list;allLabel.textContent=t.all;emptyTitle.textContent=t.empty;emptyDesc.textContent=t.emptyDetail;backLabel.textContent=t.back;edit.setAttribute('aria-label',t.edit);del.setAttribute('aria-label',t.delete);prev.setAttribute('aria-label',t.previous);next.setAttribute('aria-label',t.next);mapLabel.textContent=t.map;privacy.textContent=t.private;detail.setAttribute('aria-label',t.details);};
+  const localize=()=>{updateNote();const t=i18n();heading.textContent=({de:'Gemeinsam erleben',en:'Experience together',da:'Oplev sammen'})[document.documentElement.lang?.slice(0,2)]||'Gemeinsam erleben';contentHeading.textContent=t.list;allLabel.textContent=t.all;emptyTitle.textContent=t.empty;emptyDesc.textContent=t.emptyDetail;backLabel.textContent=t.back;edit.setAttribute('aria-label',t.edit);del.setAttribute('aria-label',t.delete);prev.setAttribute('aria-label',t.previous);next.setAttribute('aria-label',t.next);mapLabel.textContent=t.map;privacy.textContent=t.private;detail.setAttribute('aria-label',t.details);};
   localize();new MutationObserver(localize).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
   returnButton.addEventListener('click',()=>hideDetail());
   backToMap.addEventListener('click',()=>{hideDetail(false);document.getElementById('diary-return-map')?.click();});
