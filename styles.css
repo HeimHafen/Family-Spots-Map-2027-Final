@@ -1,0 +1,232 @@
+:root{color-scheme:light;--cream:#fffdf3;--dark:#28483b;--green:#3e976a;--white:rgba(255,255,255,.88)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{width:100%;height:100%;height:100dvh;margin:0;overflow:hidden;background:#a6d6f1;font-family:ui-rounded,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#243f35;touch-action:none;user-select:none;-webkit-user-select:none}button{font:inherit;cursor:pointer;touch-action:none;outline-offset:3px}button:focus-visible{outline:3px solid #fff}#game,canvas{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none}.loading{position:fixed;inset:0;z-index:18;display:grid;place-items:center;background:#b5dcf2;color:#2a5145;font-weight:800;font-size:16px}.topbar{position:fixed;z-index:4;left:0;right:0;top:0;display:flex;align-items:center;justify-content:space-between;padding:calc(12px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right)) 0 calc(16px + env(safe-area-inset-left));pointer-events:none}.identity{display:flex;align-items:center;gap:10px;padding:7px 13px 7px 9px;border:1px solid rgba(255,255,255,.55);background:rgba(255,253,243,.89);backdrop-filter:blur(12px);border-radius:15px;box-shadow:0 5px 22px #183e3822}.identity strong{display:block;font-size:15px;letter-spacing:.055em;line-height:1.2}.identity small{display:block;font-size:10px;letter-spacing:.05em;color:#5f7c70;font-weight:700}.logo{width:34px;height:34px;display:grid;place-items:center;font-size:28px;font-weight:900;color:white;background:linear-gradient(150deg,#6bc68d,#247e5e);border-radius:9px;box-shadow:inset 0 -4px #187451}.round{width:42px;height:42px;border-radius:13px;border:1px solid #ffffffa8;background:#fffdf3de;color:#2e624c;box-shadow:0 5px 20px #1c463329;font-weight:900;font-size:22px;pointer-events:auto}.crosshair{position:fixed;left:50%;top:47%;width:22px;height:22px;transform:translate(-50%,-50%);z-index:2;pointer-events:none;filter:drop-shadow(0 1px 2px #1b4135a8)}.crosshair span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;border-radius:2px}.crosshair span:first-child{width:18px;height:3px}.crosshair span:last-child{width:3px;height:18px}.target-label{position:fixed;top:calc(47% + 18px);left:50%;transform:translateX(-50%);color:#fff;text-shadow:0 2px 6px #233b3caa;font-size:12px;font-weight:800;white-space:nowrap;z-index:2;pointer-events:none}.toast{position:fixed;left:50%;top:calc(75px + env(safe-area-inset-top));transform:translate(-50%,-10px);background:#fffff4ed;border:1px solid white;border-radius:15px;padding:9px 15px;color:#285943;box-shadow:0 8px 25px #183e3824;font-size:13px;font-weight:800;pointer-events:none;opacity:0;transition:opacity .2s,transform .2s;z-index:10;white-space:nowrap}.toast.visible{opacity:1;transform:translate(-50%,0)}.controls{z-index:3;position:fixed;left:0;right:0;bottom:calc(102px + env(safe-area-inset-bottom));display:flex;justify-content:space-between;align-items:end;padding:0 calc(23px + env(safe-area-inset-right)) 0 calc(24px + env(safe-area-inset-left));pointer-events:none}.joystick{width:132px;height:132px;position:relative;touch-action:none;pointer-events:auto}.joystick-ring{position:absolute;inset:0;border:3px solid #ffffffa6;border-radius:50%;background:rgba(255,255,255,.24);backdrop-filter:blur(3px);box-shadow:inset 0 0 0 1px #225e3c36,0 5px 20px #24412a23}.joystick-knob{position:absolute;width:64px;height:64px;left:50%;top:50%;transform:translate(-50%,-50%);border:3px solid #ffffffc9;background:linear-gradient(160deg,#f5fffaed,#96d7b7de);box-shadow:0 4px 14px #1e4b3788;border-radius:50%;pointer-events:none}.actions{display:flex;align-items:end;gap:9px;pointer-events:auto}.build-actions{display:flex;gap:9px;align-items:end}.action{border:2px solid #fffdf3db;border-radius:18px;background:#f8f4e8ec;color:#315844;box-shadow:0 5px 0 #356b5999,0 9px 25px #15392533;width:70px;height:73px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:35px;line-height:32px;font-weight:700;transition:transform .07s}.action small{font-size:10px;line-height:1.3;font-weight:900;letter-spacing:.015em}.action:active{transform:translateY(4px);box-shadow:0 1px 0 #356b5999}.action.jump{width:63px;height:63px;border-radius:50%;font-size:31px;background:#fff9dded}.action.place{background:#b3e8c3ed;color:#176841}.action.break{background:#fff0ceef;color:#855b25}.action-symbol{font-size:35px}.hotbar{position:fixed;z-index:4;bottom:calc(25px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);display:flex;gap:5px;padding:7px;border:1px solid #fffdf4bd;border-radius:18px;background:#fffdf3c9;box-shadow:0 6px 25px #183e3833;backdrop-filter:blur(10px);max-width:calc(100vw - 24px)}.slot{border:2px solid transparent;border-radius:12px;min-width:54px;width:60px;height:61px;background:#ffffff82;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;color:#3c5948}.slot.active{border-color:#3e986b;background:#fffef3;box-shadow:0 2px 8px #367e5d31}.slot small{font-size:10px;font-weight:900}.cube{display:block;width:25px;height:25px;border-radius:3px;transform:rotate(-7deg);box-shadow:inset -5px -5px 0 #0002,2px 3px 0 #223c3026;border:1px solid #ffffff70}.cube-grass{background:linear-gradient(#75bb51 0 38%,#997247 38%)}.cube-dirt{background:repeating-linear-gradient(45deg,#9a7150 0 7px,#795b43 7px 10px)}.cube-stone{background:repeating-linear-gradient(45deg,#b6bdb8 0 7px,#8b9592 7px 11px)}.cube-wood{background:repeating-linear-gradient(90deg,#b37c48 0 7px,#8b5e39 7px 10px)}.cube-leaves{background:repeating-linear-gradient(45deg,#509a57 0 7px,#377d4c 7px 11px)}.hint{position:fixed;bottom:calc(3px + env(safe-area-inset-bottom));left:0;right:0;text-align:center;font-size:10px;font-weight:800;color:#fff;text-shadow:0 1px 4px #28483bba;z-index:3;pointer-events:none}.overlay{position:fixed;inset:0;z-index:15;display:flex;align-items:center;justify-content:center;padding:calc(17px + env(safe-area-inset-top)) 15px calc(17px + env(safe-area-inset-bottom));background:rgba(24,56,51,.43);backdrop-filter:blur(6px);overflow:auto}.overlay.hidden{display:none}.dialog{max-width:430px;width:100%;background:#fffdf5;border-radius:25px;box-shadow:0 22px 65px #183f3561;overflow:hidden;flex:none}.dialog-art{height:143px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(#c3eaff 0%,#dff5fd 69%,#a3ca79 70%,#65a15d 100%)}.dialog-art>span{position:absolute;top:14px;right:50px;font-size:42px;color:#ffcd64}.art-trees{font-size:45px;position:relative;z-index:1;letter-spacing:12px;transform:translateY(18px)}.art-house{font-size:75px;line-height:1;color:#c48c5d;text-shadow:2px 3px #9c6046}.art-grass{position:absolute;left:-10%;right:-10%;bottom:-27px;height:62px;border-radius:50%;background:#68a76c}.dialog-main{padding:23px 25px 22px;text-align:center}.eyebrow{color:#4c9973!important;letter-spacing:.13em;font-size:10px!important;font-weight:900!important;margin:0 0 6px!important}.dialog h1{font-size:clamp(22px,5vw,28px);line-height:1.16;margin:0 0 11px;color:#294d3e}.dialog p{font-size:14px;line-height:1.55;margin:0;color:#647769}.explain{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin:19px 0}.explain span{font-size:12px;font-weight:800;padding:9px 10px;border-radius:11px;background:#eaf5e6;color:#446753}.start-btn{width:100%;height:54px;background:linear-gradient(180deg,#62bc82,#3b9869);border:0;border-radius:14px;color:#fff;font-size:18px;font-weight:900;box-shadow:0 5px 0 #287c55}.start-btn:active{transform:translateY(3px);box-shadow:0 2px 0 #287c55}.reset-btn{background:transparent;border:none;padding:12px 10px 0;color:#658272;font-size:12px;font-weight:800}
+@media(max-width:650px) and (orientation:landscape){.topbar{padding-top:calc(7px + env(safe-area-inset-top))}.identity{padding:4px 10px 4px 6px}.identity strong{font-size:12px}.identity small{font-size:9px}.logo{width:27px;height:27px;font-size:22px}.round{height:34px;width:34px}.controls{bottom:calc(77px + env(safe-area-inset-bottom));padding-left:calc(15px + env(safe-area-inset-left));padding-right:calc(15px + env(safe-area-inset-right))}.joystick{width:104px;height:104px}.joystick-knob{width:53px;height:53px}.action{width:58px;height:58px;border-radius:14px;font-size:27px}.action.jump{width:54px;height:54px}.action small{font-size:8px}.hotbar{bottom:calc(17px + env(safe-area-inset-bottom));padding:4px}.slot{height:47px;width:53px;min-width:46px;gap:2px}.slot .cube{height:21px;width:21px}.slot small{font-size:9px}.hint{font-size:8px}.dialog-art{height:83px}.dialog-main{padding:12px 18px}.dialog h1{font-size:21px;margin-bottom:5px}.dialog p{font-size:12px}.explain{margin:9px 0}.start-btn{height:43px}.reset-btn{padding-top:5px}}
+@media(max-width:385px) and (orientation:portrait){.controls{bottom:calc(95px + env(safe-area-inset-bottom));padding-left:15px;padding-right:15px}.joystick{width:108px;height:108px}.joystick-knob{width:56px;height:56px}.action{height:61px;width:61px}.action.jump{height:56px;width:56px}.actions,.build-actions{gap:6px}.slot{min-width:49px;width:49px;height:57px}.hotbar{gap:3px;padding:5px}.dialog-main{padding:19px 20px}}
+@media(max-height:410px){.dialog-art{display:none}.dialog-main{padding:14px 20px}.dialog h1{font-size:20px}.explain{margin:9px 0}.overlay{align-items:flex-start}.start-btn{height:42px}}
+
+/* V2: zusätzliche Materialien, kindgerechter Menübereich, optionale Flugsteuerung. */
+.cube-sand{background:repeating-linear-gradient(35deg,#e9d29b 0 7px,#cdb483 7px 10px)}
+.cube-planks{background:repeating-linear-gradient(0deg,#bd8a52 0 8px,#9d6c3f 8px 10px)}
+.hotbar{gap:3px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;touch-action:pan-x;max-width:calc(100vw - 18px)}
+.hotbar::-webkit-scrollbar{display:none}
+.slot{flex:0 0 46px;min-width:46px;width:46px;gap:4px}
+.slot small{font-size:9px}
+.action.descend{display:none}
+.flying .action.descend{display:flex;background:#dcefff;color:#356785}
+.flying .action.jump{background:#dcefff;color:#356785}
+.flying .controls{gap:6px}
+.menu-options{display:grid;gap:7px;margin:8px 0 12px}
+.option-btn{min-height:39px;padding:8px 12px;border:1px solid #bdd6c3;border-radius:11px;background:#eef7ed;color:#346548;font-size:12px;font-weight:800;text-align:center}
+.option-btn[aria-pressed="true"]{background:#d4e9de;border-color:#67a889;color:#20553c}
+.option-btn:disabled{opacity:.45;cursor:not-allowed}
+.backup-row{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.file-input{display:none}
+.explain{margin:12px 0 10px}
+.dialog-art{height:120px}
+.dialog-main{padding:18px 23px 16px}
+.dialog p{font-size:13px}
+@media(max-width:390px){.hotbar{gap:2px;padding:5px}.slot{flex-basis:46px;min-width:46px;width:46px}.controls{padding-left:calc(12px + env(safe-area-inset-left));padding-right:calc(12px + env(safe-area-inset-right))}.flying .joystick{width:105px;height:105px}.flying .action{width:51px;height:59px;border-radius:12px}.flying .action.jump{height:51px;width:51px}.flying .action small{font-size:8px}.flying .actions,.flying .build-actions{gap:4px}}
+@media(max-height:740px){.dialog-art{height:65px}.dialog-main{padding:13px 19px 12px}.dialog h1{font-size:22px;margin-bottom:5px}.dialog p{font-size:12px}.explain{margin:7px 0}.option-btn{min-height:34px}.menu-options{gap:5px;margin:7px 0}.start-btn{height:45px}}
+@media(max-height:410px){.dialog-art{display:none}.menu-options{grid-template-columns:1fr 1fr}.backup-row{grid-column:1 / -1}.dialog{max-width:530px}.dialog-main{padding:9px 16px}}
+
+/* V3: Target crosshair matches the precise raycasting center; region badge. */
+.crosshair{top:50%}
+.target-label{top:calc(50% + 18px)}
+.region-label{position:fixed;z-index:2;top:calc(79px + env(safe-area-inset-top));left:calc(18px + env(safe-area-inset-left));padding:6px 10px;border-radius:10px;background:#fffef0d6;border:1px solid #ffffffcc;box-shadow:0 3px 12px #1d4e382b;color:#37604a;font-size:11px;font-weight:800;pointer-events:none}
+.cube-bricks{background:repeating-linear-gradient(0deg,#b87960 0 8px,#e5b998 8px 10px)}
+.cube-cobble{background:repeating-linear-gradient(40deg,#99a49c 0 8px,#6d8075 8px 11px)}
+.hotbar{scroll-snap-type:x proximity}
+.slot{scroll-snap-align:center}
+.menu-options{grid-template-columns:1fr 1fr}
+.backup-row{grid-column:1 / -1}
+@media(max-width:390px){.region-label{top:calc(74px + env(safe-area-inset-top));left:12px}}
+@media(max-height:410px){.region-label{top:calc(54px + env(safe-area-inset-top));left:12px}}
+#undoBtn{grid-column:1 / -1}
+
+/* V5 – ruhige, kompakte mobile Bedienung bei großer Spielwelt. */
+.identity{background:rgba(255,252,239,.91)}
+.topbar .identity small{color:#558072}
+.npc-button{position:fixed;z-index:5;top:calc(56% + 12px);left:50%;transform:translateX(-50%);border:1px solid #ffe9b2;background:rgba(255,245,211,.96);color:#375341;border-radius:14px;font-size:12px;font-weight:850;padding:9px 13px;box-shadow:0 4px 14px #1b3b2c55;opacity:0;pointer-events:none;transition:opacity .15s}
+.npc-button.visible{opacity:1;pointer-events:auto}
+.night-stars{display:none;position:fixed;inset:0;z-index:1;pointer-events:none;background-image:radial-gradient(1px 1px at 8% 20%,#fff 100%,transparent),radial-gradient(1.5px 1.5px at 72% 12%,#fff 100%,transparent),radial-gradient(1px 1px at 47% 9%,#fff 100%,transparent);opacity:.65}
+.night-stars.visible{display:block}
+.cube-glass{background:linear-gradient(140deg,#d8fcff,#79c6dc);border:2px solid #a3ecfa}
+.cube-gold{background:repeating-linear-gradient(45deg,#ffd96d 0 8px,#e8b545 8px 11px)}
+.cube-water{background:linear-gradient(140deg,#a5e4ed,#408fcf)}
+@media(max-height:800px){.menu-options{gap:5px}.option-btn{min-height:33px;padding:6px 9px}.dialog-art{height:72px}.dialog-main{padding:10px 16px}.explain{margin:7px 0}.dialog h1{font-size:21px;margin-bottom:5px}.start-btn{height:47px}}
+@media(max-height:410px){.npc-button{top:54%}.menu-options{grid-template-columns:1fr 1fr}.option-btn{min-height:31px}}
+
+/* Keep the entire menu reachable on small iPhones and in landscape. */
+.overlay{align-items:safe center}
+.dialog{max-height:calc(100dvh - 22px - env(safe-area-inset-top) - env(safe-area-inset-bottom));overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain}
+@media(max-height:410px){.overlay{align-items:flex-start}.dialog{max-height:calc(100dvh - 10px)}}
+/* The world uses touch gestures, but its settings dialog must remain scrollable. */
+html,body{touch-action:auto}
+#game,canvas,.joystick,.controls,.action{touch-action:none}
+.overlay,.dialog{touch-action:pan-y;-webkit-overflow-scrolling:touch}
+@media(max-height:720px){
+ .dialog-art{height:50px}
+ .dialog-main{padding:8px 14px 9px}
+ .dialog h1{font-size:20px;margin:0 0 3px}
+ .dialog p{font-size:11px;line-height:1.35}
+ .explain{gap:4px;margin:5px 0}
+ .explain span{padding:5px 7px;font-size:10px}
+ .menu-options{gap:4px;margin:4px 0 7px}
+ .option-btn{min-height:30px;padding:5px 7px;font-size:11px}
+ .start-btn{height:42px;font-size:16px}
+ .reset-btn{padding-top:5px}
+}
+
+/* V6: subtler premium game HUD while preserving the working V5 touch positions. */
+.cube-snow{background:linear-gradient(155deg,#f9fdff 15%,#c1d9e4 100%);border:1px solid #f6ffff}
+.cube-blossom{background:repeating-linear-gradient(45deg,#ffd5ec 0 7px,#df94c6 7px 11px)}
+.cube-lantern{background:linear-gradient(135deg,#fff0a0,#eaa93c);box-shadow:0 0 10px #ffc86a,inset -4px -4px #c67d26}
+.identity{border:1px solid rgba(255,255,246,.85);box-shadow:0 5px 18px rgba(23,61,44,.2)}
+.region-label{background:rgba(255,253,237,.92);border:1px solid rgba(255,255,250,.9);box-shadow:0 4px 16px #1b513d32}
+.slot.active{box-shadow:0 2px 10px #245a2e44}
+.option-btn:active{transform:scale(.985)}
+.night-stars{background-image:radial-gradient(1px 1px at 8% 20%,#fff 100%,transparent),radial-gradient(1.5px 1.5px at 72% 12%,#fff 100%,transparent),radial-gradient(1px 1px at 47% 9%,#fff 100%,transparent),radial-gradient(1px 1px at 84% 34%,#fff 100%,transparent),radial-gradient(1px 1px at 21% 44%,#fff 100%,transparent);}
+@media(max-height:740px){.dialog-main{padding:9px 14px}.menu-options{gap:4px}.option-btn{min-height:29px}}
+
+/* V7: Etwas präzisere HUD-Lesbarkeit, die Steuerpositionen bleiben unverändert. */
+.identity{background:rgba(255,252,238,.94)}
+.region-label{background:rgba(255,252,238,.94)}
+.target-label{text-shadow:0 2px 5px rgba(14,43,38,.85),0 0 2px rgba(14,43,38,.65)}
+.hint{text-shadow:0 1px 5px rgba(15,50,40,.95)}
+#viewBtn[aria-pressed="true"]{border-color:#7fb8a0;background:#dcefe2;color:#265b43}
+
+/* V8: Zurückhaltender Feinschliff des mobilen HUDs. */
+.identity{box-shadow:0 5px 20px rgba(23,61,44,.24);border-color:rgba(255,255,247,.9)}
+.region-label{border-radius:12px;box-shadow:0 3px 14px rgba(30,65,44,.18)}
+.target-label{background:rgba(21,53,43,.14);padding:2px 10px;border-radius:8px}
+@media(max-width:390px){.target-label{font-size:11px}}
+
+/* V9: feinere HUD-Hierarchie, größere Lesbarkeit, keine Änderung der Touch-Zonen. */
+.identity{background:rgba(255,252,242,.95);border:1px solid rgba(255,255,251,.92);box-shadow:0 8px 27px rgba(21,52,46,.20)}
+.region-label{font-weight:850;background:rgba(255,253,242,.95);box-shadow:0 3px 14px rgba(22,58,44,.17)}
+.hotbar{background:rgba(255,252,239,.88);border-color:rgba(255,255,255,.89);box-shadow:0 6px 21px #143a3a36}
+.slot{background:rgba(255,255,255,.69)}
+.slot.active{box-shadow:0 2px 12px #2268444d}
+#graphicsBtn[aria-pressed="true"]{background:#e3f2e8;border-color:#77b69c}
+/* Pixel cubes get a quiet isometric impression without replacing the existing inventory UI. */
+.slot .cube{position:relative;border-radius:2px;box-shadow:inset -5px -3px 0 #173a2b21,1px 2px 3px #0e372b24;transform:rotate(-6deg) skewY(-2deg)}
+.slot .cube:after{content:"";position:absolute;bottom:-2px;right:-3px;width:5px;height:94%;background:#193c3440;transform:skewY(38deg);border-radius:0 1px 2px 0}
+@media(max-width:390px){.identity small{font-size:10px}}
+
+/* V9: kindgerechtes, aufgeräumtes Hauptmenü – Spielstart sofort sichtbar. */
+.dialog-main{padding:17px 20px 18px}
+.dialog-art{height:104px}
+.dialog h1{font-size:clamp(23px,5vw,27px);margin-bottom:7px}
+.dialog p{font-size:13px}
+.explain{margin:12px 0 15px}
+.start-btn{height:51px;margin-bottom:12px}
+.menu-options{display:flex;flex-direction:column;gap:7px;margin:0}
+.menu-panel{border:1px solid #d0e0cd;border-radius:13px;background:#f4f8ee;overflow:hidden}
+.menu-panel>summary{min-height:43px;display:flex;align-items:center;gap:8px;padding:10px 12px;list-style:none;cursor:pointer;font-size:13px;font-weight:900;color:#315b45;touch-action:manipulation;user-select:none}
+.menu-panel>summary::-webkit-details-marker{display:none}
+.menu-panel>summary:before{content:'▸';color:#668b70;font-size:15px;transition:transform .15s}
+.menu-panel[open]>summary:before{transform:rotate(90deg)}
+.menu-panel>summary span{font-size:11px;font-weight:700;color:#809588;margin-left:auto}
+.option-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;padding:0 9px 10px}
+.option-grid .option-btn{min-height:42px;padding:8px 7px;border-radius:11px;font-size:12px;line-height:1.2}
+.option-grid #undoBtn,.option-grid .backup-row,.option-grid #resetBtn{grid-column:1/-1}
+.option-grid #resetBtn{min-height:35px;padding:9px 10px;color:#98665e}
+.option-grid .backup-row{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+@media(max-height:740px){.dialog-art{height:65px}.dialog-main{padding:10px 14px}.explain{margin:8px 0}.start-btn{height:44px;margin-bottom:8px}.option-grid .option-btn{min-height:39px}.menu-panel>summary{min-height:39px}}
+@media(max-height:410px){.dialog-art{display:none}.dialog-main{padding:11px 15px}.dialog h1{font-size:19px}.dialog p{font-size:11px}.start-btn{height:39px}.menu-panel>summary{min-height:34px}.option-grid .option-btn{min-height:36px}}
+
+
+/* BLOCKWELT V10 – kompakte, kindgerechte Entdecker-Oberfläche. */
+.discovery-button{
+  position:fixed;z-index:4;top:calc(124px + env(safe-area-inset-top));
+  left:calc(18px + env(safe-area-inset-left));display:flex;align-items:center;
+  min-height:36px;padding:7px 11px;border-radius:12px;border:1px solid #fffef0;
+  background:rgba(255,253,242,.95);color:#355e49;gap:6px;
+  box-shadow:0 4px 15px rgba(15,65,53,.13);font-weight:850;font-size:11px;
+}
+.discovery-button span{font-variant-numeric:tabular-nums;color:#287e5b}
+.discovery-panel.hidden{display:none}
+.discovery-panel{position:fixed;inset:0;z-index:17;display:grid;place-items:center;
+  background:rgba(18,42,37,.59);backdrop-filter:blur(7px);
+  padding:calc(12px + env(safe-area-inset-top)) 14px calc(12px + env(safe-area-inset-bottom));
+  overflow:auto;touch-action:pan-y;overscroll-behavior:contain}
+.discovery-sheet{width:min(100%,420px);max-height:calc(100dvh - 34px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y;
+  background:#fffcf2;border:1px solid rgba(255,255,255,.9);border-radius:23px;
+  padding:19px;box-shadow:0 22px 68px #142d2654;color:#315543}
+.discovery-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.discovery-heading span{font-size:10px;color:#65927a;font-weight:900;letter-spacing:.13em}
+.discovery-heading h2{font-size:23px;line-height:1.15;margin:4px 0 9px}
+.discovery-heading button{border-radius:50%;height:36px;width:36px;flex:0 0 36px;
+  border:1px solid #d1dfce;background:#e9f3e7;color:#3c5b4b;font-size:24px}
+.discovery-sheet>p{margin:2px 0 12px;font-size:12px;line-height:1.55;color:#617867}
+.discovery-sheet>.relic-progress{border-radius:11px;background:#edf4e7;padding:10px;color:#59754f;font-weight:850}
+.discovery-list{display:grid;gap:8px;padding-top:4px}
+.discovery-item{display:flex;align-items:center;gap:10px;border-radius:13px;border:1px solid #dce6d9;
+  background:#f2f5ef;min-height:49px;padding:8px 10px;font-size:12px;font-weight:800;color:#78877d}
+.discovery-item.found{color:#2c604a;background:#f8faf2;border-color:#b8d9bc}
+.discovery-emoji{width:27px;text-align:center;font-size:19px}
+.discovery-status{margin-left:auto;font-size:10px;color:#779386}
+.discovery-item.found .discovery-status{color:#428c67}
+.npc-button{position:fixed;z-index:5;left:50%;bottom:calc(224px + env(safe-area-inset-bottom));
+  transform:translateX(-50%) translateY(5px);border:1px solid #fffcdf;
+  background:#fff8dbef;border-radius:14px;padding:10px 15px;font-weight:850;
+  box-shadow:0 4px 13px #18352b38;color:#47624f;opacity:0;pointer-events:none;
+  transition:opacity .2s,transform .2s;white-space:nowrap;font-size:12px;max-width:85vw}
+.npc-button.visible{opacity:1;pointer-events:auto;transform:translateX(-50%)}
+@media(max-height:740px){.discovery-button{top:calc(114px + env(safe-area-inset-top))}.npc-button{bottom:calc(191px + env(safe-area-inset-bottom))}}
+@media(max-width:375px){.discovery-button{font-size:10px;left:12px}.discovery-sheet{padding:15px}}
+@media(max-height:410px){.discovery-button{top:calc(68px + env(safe-area-inset-top));left:calc(15px + env(safe-area-inset-left))}.npc-button{bottom:calc(144px + env(safe-area-inset-bottom))}.discovery-panel{place-items:start center}}
+@media(prefers-reduced-motion:reduce){.npc-button,.toast,.action{transition:none!important}}
+
+/* V11: lightweight compass, aligned below the location and discovery controls. */
+.compass-guide{position:fixed;z-index:4;top:calc(171px + env(safe-area-inset-top));
+  left:calc(18px + env(safe-area-inset-left));display:flex;align-items:center;
+  gap:9px;max-width:calc(100vw - 36px);padding:7px 11px;
+  border-radius:12px;border:1px solid rgba(255,255,241,.82);
+  background:rgba(25,64,48,.77);color:#fffbe9;
+  font-size:11px;font-weight:800;box-shadow:0 4px 13px rgba(16,40,25,.18);
+  pointer-events:none;backdrop-filter:blur(7px)}
+.compass-guide.hidden{display:none}
+.compass-arrow{display:inline-grid;place-items:center;width:23px;height:23px;
+  border-radius:50%;background:#d9edd2;color:#356a4a;font-size:18px;font-weight:900;
+  transition:transform .2s linear;flex:none}
+@media(max-height:420px){.compass-guide{top:calc(111px + env(safe-area-inset-top));left:12px;
+  padding:5px 8px;font-size:9px}.compass-arrow{width:19px;height:19px;font-size:16px}}
+@media(max-width:390px){.compass-guide{left:12px}}
+/* The new destination is clearly visible even on narrow phones. */
+.option-grid #campBtn{grid-column:1/-1}
+
+/* V23: Sonnen-Dorf workshop stamps stay inside the existing explorer book. */
+.workshop-section{margin:9px 0 15px;padding:11px;border:1px solid #dae6d1;
+  border-radius:14px;background:#f7f7ec}
+.workshop-title{display:flex;justify-content:space-between;align-items:center;gap:8px;
+  font-size:12px;color:#345e47}
+.workshop-title span{font-variant-numeric:tabular-nums;color:#2d9467;font-weight:900}
+.workshop-section>p{margin:5px 0 9px;font-size:11px;line-height:1.35;color:#6f8573}
+.workshop-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.workshop-stamp{display:flex;align-items:center;gap:6px;min-width:0;min-height:33px;
+  border:1px solid #dce8d6;border-radius:9px;padding:6px 8px;
+  color:#87998a;background:#fffefa;font-size:11px;font-weight:800}
+.workshop-stamp span:first-child{flex:0 0 20px;text-align:center}
+.workshop-stamp.done{color:#276b4e;background:#e5f4e3;border-color:#9fcfab}
+@media(max-width:360px){.workshop-stamp{font-size:10px;padding:6px 5px}}
+
+/* V26: the second world is deliberately empty; no discovery HUD there. */
+.world-description{padding:0 12px 10px!important;font-size:11px!important;text-align:left;color:#658375!important}
+.world-select .option-btn[aria-pressed="true"]{background:#d8efdd;border-color:#3b9b72;color:#21533d;box-shadow:inset 0 0 0 1px #82c9a2}
+.meadow-mode .adventure-only,.meadow-mode #discoveryBtn,.meadow-mode #compassGuide,.meadow-mode #mobsBtn,.meadow-mode #compassBtn{display:none!important}
+
+/* V27: neue originale Netherziegel, klar von der freien Graswelt getrennt. */
+.fortress-visit{display:block;width:100%;margin-top:10px;min-height:44px;
+  background:linear-gradient(115deg,#583039,#733643);color:#fff1dc;
+  border:1px solid #8c5960;}
+.fortress-visit[hidden]{display:none!important}
+.cube-netherBrick{background:linear-gradient(135deg,#632e3a,#311b28 78%)}
+.cube-netherDeep{background:linear-gradient(135deg,#46313c,#171620 75%)}
+.cube-netherTrim{background:linear-gradient(135deg,#b2565e,#682938 75%)}
+.cube-netherGold{background:linear-gradient(135deg,#ffdd92,#b56d2e 80%)}
+.cube-lavaGlow{background:linear-gradient(135deg,#ffe47b,#e95010 80%)}
+
+/* Horizontale Materialleiste bleibt auch mit fünf neuen Nether-Blöcken per Finger bedienbar. */
+.hotbar .slot{touch-action:pan-x;flex-shrink:0}
