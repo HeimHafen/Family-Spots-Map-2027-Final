@@ -35,7 +35,7 @@ html body[data-filter-modal-open="1"][data-app-view="diary"] #fsm-home-nav.fsm-h
 #view-diary #diary-private-planning svg {width:22px;height:22px;color:#55793e;}
 #view-diary #diary-private-planning::after {content:'›';margin-left:auto;font-size:25px;line-height:1;}
 #view-diary .fsm-diary-section-head {display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 14px;}
-#view-diary .fsm-diary-section-head h2 {margin:0;color:#3d2918;font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:clamp(20px,5.7vw,26px);}
+#view-diary .fsm-diary-section-head h2 {margin:0;color:#3d2918;font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:clamp(17px,5vw,26px);}
 #view-diary .fsm-diary-see-all {min-height:44px;display:flex;align-items:center;gap:3px;border:0;background:transparent;color:#4d772e;font-size:13px;font-weight:700;white-space:nowrap;padding:8px 0;}
 #view-diary .fsm-diary-see-all svg {order:2;width:17px;height:17px;}
 #view-diary .fsm-diary-all-label {order:1;}
@@ -210,3 +210,7 @@ html.fsm-v89-ready #view-diary svg.fsm-daylog-heart path {display:block!importan
 }
 #view-diary .fsm-diary-detail-nav {margin-bottom:5px;}
 #view-diary .fsm-diary-detail-card {margin-top:4px;}
+
+@media (max-width:360px) {
+  #view-diary .fsm-diary-section-head {flex-wrap:wrap;gap:0 8px;}
+}

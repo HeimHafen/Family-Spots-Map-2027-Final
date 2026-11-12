@@ -1,0 +1,13 @@
+Family Spots Map 2027 Final – Arbeitsstand
+
+Ziel
+Für die ABF Hannover 2027 vorbereiten und auf dem eigenen iPhone testen. Der geplante Release erfolgt später über den Apple App Store. Die aktuelle GitHub-Seite dient dem Testen. Die Karte bleibt das Zentrum. Orte entdecken. Menschen verbinden. Erinnerungen schaffen.
+
+In diesem Paket
+Mein Tag mit Original-Tilla und gefülltem olivgrünem Referenzherz, weichen Landschaftsübergängen, Safe Area oben, horizontaler Erinnerungsleiste, Textkarten für Einträge ohne Bild, Detailgalerie, kompakterer Überschrift neben Alle anzeigen und neuem Offline-Cache. KI-Fotos bleiben außerhalb des Pakets.
+
+Offen für Mein Tag
+Auf dem iPhone prüfen, ob Max & Papa ein gespeichertes Foto hat, ob es in Übersicht und Detail erscheint und ob Fotos nach erneutem Öffnen erhalten bleiben. Kameraabstand und Verhalten beim Scrollen in Safari und im installierten iPhone-Build prüfen. Die Galerie unterstützt aktuell drei Fotos. Vier Fotos, verknüpfter Ort, Themenchips und Diesen Ort wieder besuchen sind offen.
+
+Weitere gesammelte Aufgaben
+Karte, Filter, Spots, Spots Plus und Navigation einzeln abgleichen. Wasserfilter-Begriffe in Schnellwahl und Detailfilter harmonisieren. Spotzahl 172/173 abgleichen und fehlende Quellenlinks und Prüfdatum nachziehen. Treffen & Spielen an passenden Spots und Kalender separat prüfen. Safari und Chrome sowie DE/EN/DA abgleichen. Vor Änderungen Vorschau zeigen und vorhandenen Stand sichern.
