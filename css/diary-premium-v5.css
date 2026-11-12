@@ -237,3 +237,18 @@ html.fsm-v89-ready #view-diary svg.fsm-daylog-heart path {display:block!importan
   box-shadow:0 2px #9b8c70;
 }
 #view-diary .fsm-diary-tilla-note[hidden] {display:none;}
+
+/* Keep the final action clear of the fixed dock on short screens. */
+html.fsm-polished #view-diary.diary-view {
+  padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+}
+#view-diary .fsm-diary-photo-thumbs[hidden],
+#view-diary .fsm-diary-photo-count[hidden] { display: none; }
+@media (max-height: 760px) {
+  #view-diary .fsm-diary-scenery { height: clamp(82px, 13vh, 104px); }
+  #view-diary .diary-heading { margin-bottom: 8px !important; }
+  #view-diary #diary-new-memory.btn,
+  #view-diary #diary-private-planning { min-height: 44px; }
+  #view-diary #diary-private-planning { margin-bottom: 6px !important; }
+  #view-diary .fsm-diary-section-head { margin-bottom: 4px; }
+}

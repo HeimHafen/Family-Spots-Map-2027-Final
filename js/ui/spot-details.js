@@ -180,10 +180,41 @@ export function createSpotDetailsController({
       figure.appendChild(caption);
       grid.appendChild(figure);
     });
+    if (photos.length > 1) {
+      const controls = document.createElement("div");
+      controls.className = "spot-gallery__controls";
+      const counter = document.createElement("span");
+      counter.setAttribute("aria-live", "polite");
+      const [previousLabel, nextLabel] = {
+        de: ["Vorheriges Bild", "Nächstes Bild"],
+        en: ["Previous image", "Next image"],
+        da: ["Forrige billede", "Næste billede"]
+      }[currentLang];
+      const figures = Array.from(grid.children);
+      let index = Math.max(0, Math.min(spotGalleryPositions.get(id) ?? 0, figures.length - 1));
+      function selectPhoto(position) {
+        index = (position + figures.length) % figures.length;
+        figures.forEach((figure, i) => { figure.hidden = i !== index; });
+        counter.textContent = `${index + 1} / ${figures.length}`;
+        spotGalleryPositions.set(id, index);
+      }
+      function navigationButton(symbol, label, offset) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = symbol;
+        button.setAttribute("aria-label", label);
+        button.addEventListener("click", () => selectPhoto(index + offset));
+        return button;
+      }
+      controls.append(navigationButton("‹", previousLabel, -1), counter, navigationButton("›", nextLabel, 1));
+      details.appendChild(controls);
+      selectPhoto(index);
+    }
     details.appendChild(grid);
     container.appendChild(details);
   }
 
+  const spotGalleryPositions = new Map();
   const expandedParkingSpots = new Set();
 
   function appendParkingInformation(container, spot) {

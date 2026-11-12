@@ -70,7 +70,7 @@ export function initDiaryPremium() {
   const updatePhoto=()=>{
     if(!images.length){photo.removeAttribute('src');photoFrame.classList.add('fsm-diary-no-photo');prev.hidden=next.hidden=counter.hidden=true;return;}
     photoFrame.classList.remove('fsm-diary-no-photo');photo.src=images[index].src;photo.alt=images[index].alt||i18n().memory;
-    counter.textContent=`${index+1} / ${images.length}`;prev.hidden=next.hidden=images.length<2;counter.hidden=false;
+    counter.textContent=`${index+1} / ${images.length}`;prev.hidden=next.hidden=images.length<2;counter.hidden=images.length<2;
     [...thumbs.children].forEach((b,i)=>b.setAttribute('aria-current',String(i===index)));
   };
   const selectPhoto=n=>{if(!images.length)return;index=(n+images.length)%images.length;updatePhoto();};
@@ -85,7 +85,7 @@ export function initDiaryPremium() {
     images=[...entry.querySelectorAll('.memory-photo-gallery .memory-photo-tile img')].filter(img=>img.src && !img.src.endsWith('/undefined'));
     thumbs.replaceChildren();index=0;
     images.forEach((img,i)=>{const t=button('fsm-diary-thumb');const copied=node('img');copied.src=img.src;copied.alt=img.alt||'';t.append(copied);t.addEventListener('click',()=>selectPhoto(i));thumbs.append(t);});
-    thumbs.hidden=!images.length;photoFrame.hidden=!images.length;
+    thumbs.hidden=images.length<2;photoFrame.hidden=!images.length;
     if(images.length) updatePhoto();
     detail.hidden=false;view.classList.add('fsm-diary-in-detail');window.scrollTo({top:0,behavior:'instant'});returnButton.focus({preventScroll:true});
   };
