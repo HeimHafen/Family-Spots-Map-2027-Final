@@ -1,61 +1,63 @@
-# BLOCKWELT V27 – Netherfestung auf der Großen Wiese
+# Family Spots Map V5
 
-## Status: TESTVERSION – WebGL/iPhone-Abnahme ausstehend
+**Orte entdecken. Menschen verbinden. Erinnerungen schaffen.**
 
-Die Netherfestung ist **echte Spielgeometrie**, keine als Kulisse eingeblendete Grafik. Sie basiert auf Blockwelt V26 mit getrennten Welten. Die generierte Festung lehnt sich gestalterisch an die gezeigte fantastische Netherfestungs-Vorlage an. Eine **pixelgenaue 1:1-Übereinstimmung mit der KI-Konzeptgrafik ist nicht gegeben**: Beleuchtung, Modellkomplexität und Texturqualität bleiben durch die aktuelle Blockwelt-Engine begrenzt.
+Neu aufgebautes eigenständiges Repository auf Grundlage des freigegebenen Family-Spots-Map-V4-Projektstands vom 11.11.2026. Der Quellcode, die Daten und das Design werden vollständig in diesem Repository gepflegt; frühere Repositories werden nicht benötigt und bleiben unverändert.
 
-### Inhalt
+## Erreichbarkeit nach der Veröffentlichung
 
-- Zwei Welten bleiben vorhanden: Abenteuerwelt und Große Wiese.
-- Auf der **Großen Wiese** steht eine gewaltige Netherfestung (Außenabmessungen etwa **149 × 79 Felder**, höchster Block auf Höhe **52**).
-- Großer, breiter Zugang mit begehbaren Stufen, Haupttor, Innenhof, Bergfried, mehreren Etagen, seitlichen Wehrgängen, erhöhten Verbindungsbrücken, sechs Türmen und Aussichtsplattform.
-- Eigens generierte, dunkle Netherziegel, Dunkelstein, dunkle Zierränder, Wappengold und Glutstein. Alles sind bearbeitbare Spielblöcke; eigene Texturen, keine Minecraft-Dateien.
-- **Schnellreise** „🔥 Zur Netherfestung reisen“ im Menü der Großen Wiese.
-- Die Festung erscheint bereits aus der Entfernung als vereinfachtes, sparsam gerendertes Modell und wechselt beim Herankommen zu den echten, texturierten Blöcken.
-- Im Baumaterialmenü stehen fünf neue Nether-Blöcke zur Auswahl.
-- Der Bauplan ist deterministisch und wird bei Bedarf in 16×16-Chunks gestreamt, nicht als tausende einzelne separate Meshes erstellt.
-- 40.000+ feste Voxel an circa 38 Chunkpositionen. Die exakte Zahl steht in der technischen Geometrieprüfung.
+- Website: https://heimhafen.github.io/Family-Spots-Map-V5/
+- Quellcode: https://github.com/HeimHafen/Family-Spots-Map-V5
+- Versionsnachweis: https://heimhafen.github.io/Family-Spots-Map-V5/release-info.json
+- Sprachen: Deutsch (`/`), Englisch (`/en/`), Dänisch (`/da/`)
 
-### Schutz der vorhandenen Welten
+## Verbindlicher Funktionsstand
 
-- Die Abenteuerwelt wurde in Terrain- und Bau-Generator, alten Save-Schlüsseln und Werkstattfunktionen gegenüber V26 **nicht verändert**.
-- Der vorhandene Wiesen-Speicherschlüssel bleibt `blockwelt-grosse-wiese-v26`.
-- Die Festung wird **vor** eigenen gesetzten/abgebauten Blöcken erzeugt. Eigene Änderungen haben deshalb Vorrang und werden weiterhin gespeichert.
-- Falls du vorher mitten in der späteren Festungsfläche selbst gebaut hast, kann die neue Festung um die alten Bauwerke herum erscheinen. **Bitte vorher beide Welten sichern.**
-- Bestehende Wiesen-Sicherungen mit `version: 8, world: 'wiese'` bleiben importierbar; die fünf neuen Materialien werden vom Import erkannt.
+173 Spotdatensätze; Filterlogik mit 2.458 verifizierten Prüfungen; Kartenansicht; Tourenwelt und Familienradtouren; Spot-Detailansichten (einschließlich Windheimstraße / „Direkt daneben“); Treffen & Spielen; private Ausflugsplanung; Mein Tag, Erinnerungen und lokale Foto-/Backup-Funktionen; Spots Plus (lokale Demofunktion, keine serverseitige Zugangsprüfung); Tilla; dreisprachige Oberfläche; warmes Premium-Design ohne Dark Mode.
 
-### Bedienung
+Die neuen **Tagesideen/„Gemeinsam los“**, zusätzliche Waldtreffen und kommunale Partnerverträge sind **Ideen**, keine als fertig behaupteten Funktionen.
 
-1. Spiel öffnen, im Menü „Große Wiese“ wählen.
-2. „🔥 Zur Netherfestung reisen“ drücken, danach den Spielstart.
-3. Dem breiten Weg und der Treppe zum Haupttor folgen.
-4. Durch den Innenhof zum Bergfried gehen; der westliche Treppenaufgang führt auf den ersten Wehrgang und weiter nach oben.
-5. Mit „Abbauen“ und „Setzen“ kannst du die Festung nach eigenen Vorstellungen verändern. Nutze den Flugmodus zum freien Betrachten, für den Hauptweg ist er nicht notwendig.
-6. Bei schwächeren Geräten „Grafik: Flüssig“ aktivieren. Die Sichtweite im Test kann dabei geringer sein, die Blockwelt und Bauwerke bleiben dieselben.
+## Erstveröffentlichung – genau einmal einrichten
 
-### Technische Prüfung
+1. Auf GitHub ein **leeres öffentliches** Repository mit einem neuen Namen, beispielsweise `Family-Spots-Map-2027` unter `HeimHafen` erstellen. **Kein README, keine Lizenz, kein .gitignore** automatisch erzeugen.
+2. Alle Dateien und Ordner dieses ZIP **direkt in das Stammverzeichnis** des neuen Repositories importieren (nicht als zusätzlichen Ordner). Insbesondere `.github/workflows/deploy.yml`, `.nojekyll`, `index.html`, `service-worker.js`, `assets`, `css`, `data`, `en`, `da`, `js` und `vendor` müssen auf oberster Ebene liegen.
+3. In GitHub **Settings → Pages → Build and deployment → Source: GitHub Actions** einstellen.
+4. In Working Copy `main` auf `refs/heads/main` des **neuen** Remote pushen. Force Push **aus**. Der Workflow prüft die App und veröffentlicht sie automatisch. Falls Pages erst nach dem ersten Push aktiviert wird, `Actions → Family Spots Map V5 — überprüfen und veröffentlichen → Run workflow` auf `main` ausführen.
+5. Unter `https://heimhafen.github.io/Family-Spots-Map-V5/release-info.json` muss dann eine Kennung vom Typ `YYYYMMDD-commit-xxxxxxxxxxxx` erscheinen. Erst dann ist das **GitHub-Release** bestätigt.
 
-- JavaScript-Syntax kontrolliert.
-- Originalfunktionen für Terrain, Dörfer, Sehenswürdigkeiten, Welt-Aufbau, Laden und Speichern gegen V26 unverändert.
-- Eigenständige 3D-Block-Wegsuche: von der Wiese durch das Tor und den Hof, in den Bergfried, auf den oberen Wehrgang, auf die Dachterrasse, bis zum Turmdach sowie in beide vorderen und beide Außen-Türme.
-- Gemeinsame Geometrie an Chunkgrenzen; alle Festungsblöcke innerhalb der 192×192-Welt und unter y=70.
-- IDs der HTML-Steuerung und Syntax geprüft.
-- Darstellung des Menüs bei drei Bildschirmgrößen (375×667, 393×852, 844×390) kontrolliert.
-- Alternative 3D-Codeansichten erstellt (keine echten Safari-/Three.js-Screenshots).
+Bei jedem späteren Push auf `main` erstellt GitHub Actions selbst eine neue zusammenhängende Release-Version. **Keine manuellen Versionsänderungen, keine Cache-Löschung und keine Ersatz-TXT-Dateien nötig.**
 
-**Noch nicht geprüft:** End-to-End-WebGL-Rendering mit Three.js im Browser, iOS-Safari-Framerate, längerfristige Speicherbelastung auf dem Handy, exakte visuelle Entsprechung des Konzeptbildes. V27 deshalb bitte zunächst in einem **separaten Testbranch** testen und noch nicht als fertige Premium-Version veröffentlichen.
+## Persönliche Daten sichern
 
-### Dateien
+Die Inhalte unter „Mein Tag“, Fotos und Favoriten können im Browser/App-Speicher liegen; sie werden **nicht mit dem GitHub-Repository übertragen**. Vor der Umstellung die App-eigenen Export-/Backup-Funktionen verwenden. Die neue App hat eine andere URL/PWA-Scope; ein automatischer Umzug persönlicher Daten ist nicht zugesichert.
 
-- `index.html` – Startmenü, Weltenwahl, Bauen und Schnellreise
-- `styles.css` – Spieloberfläche, Buttons und neue Material-Symbole
-- `game.js` – Welten, Bauplan, Rendering, Wegbegehbarkeit, Materialien und Spielstandlogik
-- `README.md` – diese Anleitung
+## Qualitätsprüfungen
 
-### GitHub-Commit
+```sh
+node tools/prepare-release.mjs 20261111-v5-bootstrap-1  # bei Initialkopie bereits ausgeführt
+node tools/check-project.mjs
+node tools/check-update-system.mjs
+node tools/check-hosting.mjs
+```
 
-**Zusammenfassung:** `Blockwelt V27 – begehbare Netherfestung auf der Großen Wiese (Test)`
+Während der GitHub-Action wird die Version automatisch aus dem Commit abgeleitet. Bei Änderungen an appweiten CSS/JS-Elementen erscheinen korrespondierende Prüfsummen im generierten Service Worker; fehlerhafte Releases werden nicht veröffentlicht.
 
-**Remote-Referenz für Working Copy:** `refs/heads/test/blockwelt-v27-netherfestung`
+## Update-Verhalten
 
-**Force Push:** Aus
+Der Service Worker blockiert einen Versionswechsel nur bei fehlenden **fünf grundlegenden HTML-/Manifest-Dateien**; optionales Spotmaterial behindert keine Installation mehr. App-Dateien werden bei Netzverbindung zuerst vom Server geladen; Offline-Kopien dienen als Rückfall. Ein neuer Service Worker kann sicher übernehmen, und offene ungespeicherte „Mein Tag“-Entwürfe sollen vor dem Neuladen geschützt bleiben.
+
+**Wichtig:** Dieser Code ist lokal geprüft; ein erfolgreicher GitHub-Pages-Release und das Verhalten auf dem echten iPhone müssen nach der Einrichtung einmal anhand der Versionsdatei und einer Safari-Probe bestätigt werden.
+
+**Prüfdetails:** `PRUEFBERICHT_20261111.md` – einschließlich dokumentierter Einschränkungen, offener Quellenprüfungen und Freigabebedingungen.
+
+**Offizielle Working-Copy-Importanleitung:** https://workingcopy.app/manual.html – ZIP kann über die Teilen-Funktion als neues Repository importiert werden.
+
+## Ergänzende Qualitäts- und iOS-Abnahmedokumente (11.11.2026)
+
+- `V5_FREIGABE_DESIGN_UND_FUNKTIONEN.md`: Verbindlicher aktueller UX-Stand und unveränderte Designziele.
+- `APP_STORE_FREIGABEMATRIX_20261111.md`: App-Store-Readiness mit ausdrücklich offenem NO-GO; nicht mit der Web-Freigabe verwechseln.
+- `RECHTLICHE_DATEN_VOR_APP_STORE.md`: erforderliche echte Angaben vor einer Store-Veröffentlichung.
+- `native-ios/`: Getrennte Capacitor-8-Vorbereitung, noch kein signiertes iOS-Projekt.
+- `tools/check-release-assets.mjs`: zusätzliche Integritätsprüfung (Dateiverweise, CSS-Bilder, Spotfotos, PWA-Icons).
+
+**Hinweis:** 173 Datensätze entsprechen wegen eines dokumentierten `same_place_as`-Paares 172 eigenständigen Orten. Die aktuelle Web-PWA darf nicht als bereits App-Store-zugelassen bezeichnet werden.

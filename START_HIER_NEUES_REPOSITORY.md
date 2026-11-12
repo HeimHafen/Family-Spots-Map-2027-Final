@@ -1,9 +1,10 @@
-# Family Spots Map V5 in einem neuen Repository
+# Family Spots Map 2027
 
-1. Erstelle ein leeres GitHub-Repository mit einem Namen deiner Wahl. Lass die Optionen für automatisch erzeugtes README, Lizenz und .gitignore aus.
-2. Importiere dieses ZIP in Working Copy oder entpacke es lokal. Im Repository müssen index.html, assets, css, js und .github direkt auf der obersten Ebene liegen.
-3. Committe den vollständigen Projektstand auf main und pushe ihn in das neue Repository.
-4. Für die Veröffentlichung öffne im neuen GitHub-Repository Settings → Pages und wähle unter Source die Option GitHub Actions.
-5. Starte danach unter Actions den Workflow „Family Spots Map V5 — überprüfen und veröffentlichen“ auf main, falls er noch nicht erfolgreich gelaufen ist. Die URL steht anschließend unter Settings → Pages.
+1. GitHub: Unter HeimHafen ein leeres öffentliches Repository erstellen. Vorgeschlagener Name: Family-Spots-Map-2027. README, Lizenz und .gitignore bei der Erstellung weglassen.
+2. iPhone: Das vollständige Projekt-ZIP in Dateien laden, teilen und in Working Copy als neues Repository importieren. index.html und .github/workflows/deploy.yml liegen direkt im Stammverzeichnis.
+3. Working Copy: Im neuen lokalen Repository alle Dateien auf main committen. Zusammenfassung: „Family Spots Map 2027 – geprüfter Startstand“. Details: „Vollständige App mit einheitlichem Bikepacking-Fahrrad, drei Sprachen und vorbereitetem Pages-Workflow.“
+4. Das neue Repository als Remote origin hinzufügen: https://github.com/HeimHafen/Family-Spots-Map-2027.git (bei abweichendem Namen entsprechend ändern). Source-Branch main, vorhandene oder neue Remote-Referenz refs/heads/main, Force Push aus.
+5. Auf GitHub im neuen Repository Settings → Pages → Build and deployment → Source → GitHub Actions wählen. Falls der erste Lauf vor der Einrichtung gestartet ist, unter Actions den Workflow „Family Spots Map V5 — überprüfen und veröffentlichen“ auf main erneut starten.
+6. Sobald build und deploy grün sind, die URL aus Settings → Pages öffnen. release-info.json an die URL anhängen und repository sowie commit mit dem neuen Repository und dem gepushten Commit vergleichen. Unter Touren → Touren filtern muss Bikepacking ein Fahrrad mit Gepäcktasche zeigen.
 
-Der Workflow passt die öffentlichen Seitenlinks an das Ziel-Repository an. Der Export basiert auf dem V5-Testbranch 76abfe0. Persönliche Erinnerungen und Fotos aus dem Browserspeicher sind keine Projektdateien. Die bisherigen README-Links verweisen auf das ursprüngliche V5-Projekt.
+Der Workflow setzt die öffentlichen Seitenlinks auf die tatsächliche Pages-Adresse und erzeugt eine Release-Kennung aus dem Commit. Die neue Adresse ist ein eigener App-Pfad. Vorhandene Erinnerungen bei Bedarf in der bisherigen App exportieren und in der neuen App importieren.

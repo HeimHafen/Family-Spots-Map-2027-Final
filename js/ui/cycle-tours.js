@@ -1,4 +1,4 @@
-import { bicycleIconHtml } from "../utils/dom.js?v=20261010-unified-4";
+import { bicycleIconHtml } from "../utils/dom.js?v=20261112-bikepacking-pages-fix";
 import { filsoe, filsoeSketch } from "./filsoe-tour.js";
 import { trackPoints } from "./stroebeck-track.js";
 
@@ -60,7 +60,7 @@ export function initCycleTours({ getLanguage, closeMenu, openStop, onBackToOverv
     const [title, intro, family, bikepacking, germany, denmark, name, metrics, description, empty, back, outline, discover, stopHint, original, provenance, close, crop] = copy[getLanguage()] || copy.de;
     const filters = '<div class="cycle-filters">' +
       [["family", family], ["bike", bikepacking]].map(([value, label]) =>
-        `<button type="button" data-type="${value}" aria-pressed="${type === value}">${value === "family" ? bicycleIconHtml({ size: 20 }) : icon("tent")}${label}</button>`).join("") +
+        `<button type="button" data-type="${value}" aria-pressed="${type === value}">${value === "family" ? bicycleIconHtml({ size: 20 }) : bicycleIconHtml({ size: 20, bikepacking: true })}${label}</button>`).join("") +
       [["DE", germany], ["DK", denmark]].map(([value, label]) =>
         `<button type="button" data-country="${value}" aria-pressed="${country === value}">${icon("pin")}${label}</button>`).join("") +
       "</div>";
