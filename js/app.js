@@ -1,5 +1,5 @@
-import { initCycleTours } from "./ui/cycle-tours.js?v=20261112-neustart-bikepacking";
-import { initTourenwelt } from "./ui/tourenwelt.js?v=20261112-neustart-bikepacking";
+import { initCycleTours } from "./ui/cycle-tours.js?v=20261113-tourenfilter-premium";
+import { initTourenwelt } from "./ui/tourenwelt.js?v=20261113-tourenfilter-premium";
 // js/app.js
 // ======================================================
 // Family Spots Map – Hauptlogik
@@ -95,7 +95,7 @@ import {
   updateMapStatusLanguage,
   renderMarkers,
   hasValidLatLng
-} from "./map.js?v=20261112-neustart-bikepacking";
+} from "./map.js?v=20261113-tourenfilter-premium";
 
 import { initRouter } from "./router.js?v=20261109-details-v43";
 import { initToast, showToast } from "./toast.js";

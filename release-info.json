@@ -1,8 +1,8 @@
 {
   "application": "Family Spots Map V5",
   "repository": "HeimHafen/Family-Spots-Map-V5",
-  "release": "20261112-neustart-bikepacking",
-  "commit": "bootstrap",
-  "builtAt": "2026-11-11T00:00:00Z",
+  "release": "20261113-tourenfilter-premium",
+  "commit": "pending-test-branch",
+  "builtAt": "2026-11-13T00:39:29Z",
   "publishing": "GitHub Actions — read README for one-time Pages source setup"
 }

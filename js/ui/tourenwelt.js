@@ -34,9 +34,9 @@ const LOCALES = {
 const DE_STATES=['Baden-Württemberg','Bayern','Berlin','Brandenburg','Bremen','Hamburg','Hessen','Mecklenburg-Vorpommern','Niedersachsen','Nordrhein-Westfalen','Rheinland-Pfalz','Saarland','Sachsen','Sachsen-Anhalt','Schleswig-Holstein','Thüringen'];
 const DK_REGIONS=['Hovedstaden','Midtjylland','Nordjylland','Sjælland','Syddanmark'];
 const draw = {
-  shortDistance:'<path d="M5 12h14M5 9v6m14-6v6"/>',
-  mediumDistance:'<path d="M3 15h7l4-6h7M3 12v6M21 6v6"/>',
-  longDistance:'<path d="M3 17h4l4-10 4 10h6M3 14v6m18-6v6"/>',
+  shortDistance:'<path d="M5 18C1 9 9 4 20 4c0 10-5 17-14 14m-2 3L15 10"/>',
+  mediumDistance:'<path d="m5 6 6 6-6 6m8-12 6 6-6 6"/>',
+  longDistance:'<path d="M3 10h18M9 7a3 3 0 0 1 6 0M5 21l5-9m9 9-5-9m-2 4v2"/>',
   sliders:'<path d="M3 5h18M3 12h18M3 19h18"/><circle cx="9" cy="5" r="2.5" fill="#fffaf1"/><circle cx="16" cy="12" r="2.5" fill="#fffaf1"/><circle cx="10" cy="19" r="2.5" fill="#fffaf1"/>',mountains:'<path d="m2 19 6.5-10 6.5 10M9.8 14 15 6l7 13"/>',heartFill:'<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z" fill="#7fa825"/>',crown:'<path d="M3 8l5 4 2-6 3 5 2-8 2 8 3-5 2 6 4-4-3 13H6z" fill="currentColor"/>',x:'<path d="M6 6 18 18M18 6 6 18"/>',search:'<circle cx="10.8" cy="10.8" r="7"/><path d="m16 16 5 5"/>',pin:'<path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>',filter:'<path d="M3 5h18l-7 8v7l-4-2v-5z"/>',route:'<circle cx="5" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 6h9a3 3 0 0 1 0 6H8a3 3 0 0 0 0 6h9"/>',bookmark:'<path d="M6 3h12v19l-6-4-6 4z"/>',check:'<path d="m4 12 5 5L20 6"/>',chev:'<path d="m8 4 8 8-8 8"/>',back:'<path d="m14 4-8 8 8 8"/>',calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/>',trash:'<path d="M3 6h18m-14 0 1 15h8l1-15M9 6V4h6v2"/>',list:'<path d="M8 6h12M8 12h12M8 18h12"/><circle cx="4" cy="6" r=".7"/><circle cx="4" cy="12" r=".7"/><circle cx="4" cy="18" r=".7"/>',map:'<path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2zM9 3v16M15 5v16"/>',heart:'<path d="M20 8c0 5-8 11-8 11S4 13 4 8a4.5 4.5 0 0 1 8-3 4.5 4.5 0 0 1 8 3Z"/>',plus:'<path d="M12 5v14M5 12h14"/>'
 };
 const svg = name => name === "bikepacking" ? bicycleIconHtml({ size: 21, bikepacking: true }) : name === "bike" ? bicycleIconHtml({ size: 21 }) : draw[name] ? `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="${name === "pin" ? "#F38312" : "currentColor"}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${draw[name]}</svg>` : "";
@@ -60,12 +60,12 @@ export function initTourenwelt({ getLanguage, closeMenu, openLegacyTour }) {
   const countryName=code=>code==='DK'?txt().countryDK:txt().countryDE;
   const regions=()=>model.country==='DK'?DK_REGIONS:DE_STATES;
   const selectedRegion=()=>model.region==='all'?countryName(model.country):model.region;
-  const currentTours=()=>{
+  const currentTours=(selection=model)=>{
     if(!tours)return [];
-    const search=fold(model.query.trim());
-    return tours.filter(t=>t.country===model.country && t.kind===model.kind)
-      .filter(t=>model.region==='all'||(model.match==='route'?(t.regions||[]).includes(model.region):t.state===model.region))
-      .filter(t=>model.length==='all'||(model.length==='short'?t.lengthKm<=25:model.length==='medium'?t.lengthKm>25&&t.lengthKm<=50:t.lengthKm>50))
+    const search=fold(selection.query.trim());
+    return tours.filter(t=>t.country===selection.country && t.kind===selection.kind)
+      .filter(t=>selection.region==='all'||(selection.match==='route'?(t.regions||[]).includes(selection.region):t.state===selection.region))
+      .filter(t=>selection.length==='all'||(selection.length==='short'?t.lengthKm<=25:selection.length==='medium'?t.lengthKm>25&&t.lengthKm<=50:t.lengthKm>50))
       .filter(t=>!search||fold([localized(t.title),localized(t.description),t.place,t.state,t.country,...(t.searchTerms||[])].join(' ')).includes(search));
   };
   async function fetchTours(){
@@ -74,7 +74,7 @@ export function initTourenwelt({ getLanguage, closeMenu, openLegacyTour }) {
       if(!response.ok)throw Error('HTTP '+response.status);
       const parsed=await response.json();
       if(parsed.schemaVersion!==1||!Array.isArray(parsed.tours)||parsed.tours.some(t=>!t.id||!t.title||!t.country||!Number.isFinite(t.lengthKm)))throw Error('Invalid tour catalogue');
-      tours=parsed.tours;
+      tours=parsed.tours;updateFilterCount();
     }catch(error){console.warn('[FSM tourenwelt] catalogue',error);tours=null;}
   }
   const btn=(label,action,cls='',name='')=>`<button type="button" class="${cls}" data-action="${action}">${name?svg(name):''}${label}</button>`;
@@ -121,7 +121,8 @@ export function initTourenwelt({ getLanguage, closeMenu, openLegacyTour }) {
   function filterHtml(){
     const t=txt(),options=model.country==='DE'?DE_STATES:DK_REGIONS;
     const optionsHtml=`<option value="all">${model.country==='DE'?t.allStates:t.allRegions}</option>${options.map(r=>`<option value="${esc(r)}" ${model.region===r?'selected':''}>${esc(r)}</option>`).join('')}`;
-    const buttons=(attr,items,selected)=>items.map(([value,label,icon])=>`<button type="button" data-${attr}="${value}" aria-pressed="${value===selected}">${icon?svg(icon):''}<span>${esc(label)}</span></button>`).join('');
+    const captions={de:['Gemütlich','Motiviert','Auf Tour'],en:['Easygoing','Motivated','On tour'],da:['Hyggeligt','Motiveret','På tur']}[lang()];
+    const buttons=(attr,items,selected)=>items.map(([value,label,icon,caption])=>`<button type="button" data-${attr}="${value}" aria-pressed="${value===selected}">${icon?svg(icon):''}<span>${esc(label)}${caption?`<small class="tw-length-caption">${esc(caption)}</small>`:''}</span></button>`).join('');
     return `<div class="tw-filter-card">
       <img class="tw-filter-leaves" src="assets/design/main-header-leaves-v90.webp" alt="" aria-hidden="true"/>
       <div class="tw-filter-head"><h2 id="tw-filter-title" tabindex="-1">${t.filterTitle}</h2>${btn('', 'close-filter','tw-close','x')}</div>
@@ -130,14 +131,37 @@ export function initTourenwelt({ getLanguage, closeMenu, openLegacyTour }) {
         <label class="tw-select">${t.selectCountry}<select id="tw-country"><option value="DE" ${model.country==='DE'?'selected':''}>${t.countryDE}</option><option value="DK" ${model.country==='DK'?'selected':''}>${t.countryDK}</option></select></label>
         <label class="tw-select">${t.region}<select id="tw-region">${optionsHtml}</select></label>
         <div class="tw-group"><span>${t.tourKind}</span><div class="tw-options tw-two">${buttons('kind',[['family',t.family,'bike'],['bike',t.bike,'bikepacking']],model.kind)}</div></div>
-        <div class="tw-group"><span>${t.length}</span><div class="tw-options tw-four">${buttons('length',[['all',t.all,'list'],['short',t.upto30,'shortDistance'],['medium',t.between,'mediumDistance'],['long',t.above,'longDistance']],model.length)}</div></div>
+        <div class="tw-group"><span>${t.length}</span><div class="tw-options tw-four">${buttons('length',[['all',t.all,'list'],['short',t.upto30,'shortDistance',captions[0]],['medium',t.between,'mediumDistance',captions[1]],['long',t.above,'longDistance',captions[2]]],model.length)}</div></div>
         <div class="tw-group"><span>${t.resultsFor}</span><div class="tw-options tw-two">${buttons('match',[['start',t.startpoint,'pin'],['route',t.along,'route']],model.match)}</div></div>
-        <button type="button" data-action="apply-filter" class="tw-orange">${esc(t.showTours)}</button>
+        <button type="button" data-action="apply-filter" class="tw-orange">${esc(t.showTours)}</button><p class="tw-filter-foot" data-tour-status role="status" hidden></p>
         <p class="tw-filter-foot">${t.noVerified}</p>
       </div>
     </div>${footer()}`;
   }
-  function openFilters(){filterDlg.innerHTML=filterHtml();filterDlg.showModal();filterDlg.querySelector('#tw-filter-title')?.focus({preventScroll:true});}
+  function filterSelection(){
+    const selection={...model,country:filterDlg.querySelector('#tw-country').value,region:filterDlg.querySelector('#tw-region').value};
+    for(const key of ['kind','length','match']){
+      const chosen=filterDlg.querySelector(`[data-${key}][aria-pressed="true"]`);
+      if(chosen)selection[key]=chosen.dataset[key];
+    }
+    return selection;
+  }
+  function updateFilterCount(){
+    if(!filterDlg.open)return;
+    const button=filterDlg.querySelector('[data-action="apply-filter"]');
+    const status=filterDlg.querySelector('[data-tour-status]');
+    const count=tours===null?null:currentTours(filterSelection()).length;
+    const labels={
+      de:[n=>n===1?'1 Tour anzeigen':`${n} Touren anzeigen`,'Keine Touren für diese Auswahl. Ändere die Region, Tourenart oder Streckenlänge.'],
+      en:[n=>n===1?'Show 1 tour':`Show ${n} tours`,'No tours match. Try another region, tour type or distance.'],
+      da:[n=>n===1?'Vis 1 tur':`Vis ${n} ture`,'Ingen ture matcher. Prøv en anden region, turtype eller distance.']
+    };
+    const [label,empty]=labels[lang()];
+    button.textContent=count===null?txt().showTours:label(count);
+    status.hidden=count!==0;
+    status.textContent=count===0?empty:'';
+  }
+  function openFilters(){filterDlg.innerHTML=filterHtml();filterDlg.showModal();updateFilterCount();filterDlg.querySelector('#tw-filter-title')?.focus({preventScroll:true});}
   function closeFilters(){if(filterDlg.open)filterDlg.close();}
   function toggleFavourite(id){if(!tours?.some(t=>t.id===id))return;fav=fav.includes(id)?fav.filter(x=>x!==id):[...fav,id];store(FAV_KEY,fav);render(true);}
   function saveDraft(){const f=dlg.querySelector('#tw-plan-form');const start=f?.elements?.start?.value.trim()||'';const end=model.round?'':f?.elements?.end?.value.trim()||'';
@@ -181,16 +205,15 @@ export function initTourenwelt({ getLanguage, closeMenu, openLegacyTour }) {
     if(b.dataset.nav){const name=b.dataset.nav;close();queueMicrotask(()=>document.querySelector(`#fsm-home-nav [data-fsm-home-action="${name}"]`)?.click());return;}
     if(b.dataset.action==='close-filter'){closeFilters();return;}
     if(b.dataset.action==='apply-filter'){
-      model.country=filterDlg.querySelector('#tw-country').value;
-      model.region=filterDlg.querySelector('#tw-region').value;
-      for(const item of ['kind','length','match']){const chosen=filterDlg.querySelector(`[data-${item}][aria-pressed="true"]`);if(chosen)model[item]=chosen.dataset[item];}
+      Object.assign(model,filterSelection());
       model.view='list';model.tab='discover';closeFilters();render();return;
     }
     for(const group of ['kind','length','match'])if(b.hasAttribute('data-'+group)){
-      filterDlg.querySelectorAll(`[data-${group}]`).forEach(x=>x.setAttribute('aria-pressed',String(x===b)));return;
+      filterDlg.querySelectorAll(`[data-${group}]`).forEach(x=>x.setAttribute('aria-pressed',String(x===b)));updateFilterCount();return;
     }
   });
-  filterDlg.addEventListener('change',e=>{if(e.target.id!=='tw-country')return;const options=e.target.value==='DE'?DE_STATES:DK_REGIONS,t=txt();filterDlg.querySelector('#tw-region').innerHTML=`<option value="all">${e.target.value==='DE'?t.allStates:t.allRegions}</option>${options.map(r=>`<option value="${esc(r)}">${esc(r)}</option>`).join('')}`;});
+  filterDlg.addEventListener('change',e=>{if(e.target.id==='tw-region'){updateFilterCount();return;}if(e.target.id!=='tw-country')return;const options=e.target.value==='DE'?DE_STATES:DK_REGIONS,t=txt();filterDlg.querySelector('#tw-region').innerHTML=`<option value="all">${e.target.value==='DE'?t.allStates:t.allRegions}</option>${options.map(r=>`<option value="${esc(r)}">${esc(r)}</option>`).join('')}`;updateFilterCount();});
   filterDlg.addEventListener('click',e=>{if(e.target===filterDlg)closeFilters();});
   return {open,close};
 }
+

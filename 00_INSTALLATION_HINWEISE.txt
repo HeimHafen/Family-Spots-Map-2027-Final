@@ -1,0 +1,66 @@
+FAMILY SPOTS MAP – TOURENFILTER PREMIUM
+=====================================
+
+Stand: 13.11.2026
+Basis: FSM_2027_Neues_Repository_Startpaket.zip (aus deiner Dateibibliothek)
+Version: 20261113-tourenfilter-premium
+
+Enthalten: 10 aktualisierte Dateien. Die Dateipfade im ZIP entsprechen den Pfaden im Repository.
+
+WICHTIG
+- Zuerst den aktuellen Repository-Stand vollständig sichern.
+- Nur im TEST-BRANCH einspielen; nicht direkt in den Live-Branch.
+- Diese 10 Dateien beziehen sich auf den hier geprüften Repository-Stand vom 12.11.2026.
+  Falls dein aktiver Branch inzwischen andere Änderungen an diesen Dateien enthält,
+  vorher vergleichen/mergen statt blind zu überschreiben.
+- Der Backup-ZIP stellt die Originaldateien genau dieser 10 Pfade aus der geprüften Basis wieder her.
+- Durch dieses Paket werden weder spots.json noch tours.json oder persönliche Nutzerdaten verändert.
+
+EINSPIELEN
+1. Repository-Backup speichern.
+2. FSM_Tourenfilter_Premium_Direktimport.zip entpacken.
+3. Die 10 enthaltenen Dateien mit erhaltenen relativen Verzeichnissen in den
+   Test-Branch übernehmen. Keinesfalls die Pfade als flachen Ordner importieren.
+4. Im Browser App neu laden. Bei alten PWA-Daten ggf. App schließen und neu öffnen.
+5. In der App: Radtouren & Bikepacking > Filter öffnen, bei allen 3 Sprachen testen.
+6. Land, Region, Tourenart, Strecke (Alle / bis 25 / 25-50 / über 50 km),
+   Ergebnisse (Startpunkt/Streckenverlauf) und dynamische Trefferanzeige prüfen.
+7. Auch Menü, Karte, Spots, Mein Tag und Spots Plus auf unveränderte Funktion prüfen.
+8. Erst nach erfolgreicher visueller und funktionaler Prüfung nach main übernehmen.
+
+QUELLEN / ABGRENZUNG
+Die Gestaltung ist der hochgeladenen FSM_Tourenfilter_Premiumvorschau.html entnommen.
+Filterlogik, Tourendaten-Anbindung, Sprachen DE/EN/DA und bestehende App-Navigation bleiben integriert.
+Die Vorschau enthält derzeit nur zwei hinterlegte Touren in data/tours.json.
+Das Paket ergänzt keine neuen Tourendaten und keine Routenberechnung.
+
+GEPRUEFT
+- Projekt-Gesamtcheck: 0 Fehler (173 Spots / 232 i18n-Keys je Sprache / 161 Offline Assets)
+- Browser-Test der gelieferten HTML-Vorschau: alle 4 Distanz-Optionen vorhanden;
+  Filterzählung bei Wechsel von Länge, Art, Land und Region funktioniert.
+- RELEASE_HASHES und PWA-Cache-Version über tools/prepare-release.mjs aktualisiert.
+
+AUSTAUSCHDATEIEN
+  css/fsm-touren-reference.css
+  css/styles.css
+  da/index.html
+  en/index.html
+  index.html
+  js/app.js
+  js/map.js
+  js/ui/tourenwelt.js
+  release-info.json
+  service-worker.js
+
+WORKING COPY
+Zusammenfassung:
+Tourenfilter Premium – Referenzdarstellung, vier Streckenlängen, Icons, farbige aktive Filter und Live-Trefferanzeige (DE/EN/DA).
+
+Detaillierte Informationen:
+Gezieltes Design- und Logik-Update der Tourenfilter-Oberfläche ohne Änderung an Spots, Tagebuch, Kalender oder Nutzerdaten. PWA-Version und Dateiprüfsummen aktualisiert. Teststand, keine Live-Freigabe.
+
+Vorhandene oder neue Remote-Referenz:
+refs/heads/test/gemeinsam-v88-finish
+
+Source-Branch: unverändert lassen
+Force Push: Aus
